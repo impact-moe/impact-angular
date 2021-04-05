@@ -1,0 +1,697 @@
+<div class="container-1 flex-column" *ngIf="character">
+  <div class="banner-1">
+    <div class="banner-content-container-1">
+      <img
+        class="full-width full-height image-cover"
+        src="{{ utilityService.getRegionBannerUrl(character.Region) }}"
+      />
+    </div>
+    <div
+      class="banner-content-container-1 flex-row flex-space-between flex-center-items"
+    >
+      <div
+        id="character-opacity-layer"
+        class="full-width full-height position-absolute"
+      ></div>
+      <div id="character-square-card-image-container">
+        <img id="character-square-card-image" src="{{ character.Image }}" />
+      </div>
+      <div id="character-quote-image">
+        <img *ngIf="character.Quote" src="{{ character.Quote }}" />
+      </div>
+      <img
+        id="character-tier-image"
+        src="{{ utilityService.getTierImage(character.Tier) }}"
+      />
+    </div>
+  </div>
+  <div
+    id="character-summary-container"
+    class="flex-row full-width background-gray-2"
+  >
+    <img
+      id="character-portrait-image"
+      class="image-scale-down"
+      src="{{ character.Image }}"
+    />
+    <div id="character-summary-content" class="flex-column hidden-overflow-x">
+      <div class="flex-row flex-center-items">
+        <img src="{{ utilityService.getElementImage(character.Element) }}" />
+        <div id="character-title-content" class="flex-column">
+          <h1>{{ character.Name }}</h1>
+          <div id="character-star-container">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+
+            <i class="fas fa-star" *ngIf="character.Rarity == 5"></i>
+          </div>
+        </div>
+      </div>
+      <div
+        id="character-description-container"
+        class="scrollbars-hidden scroll-overflow-y"
+      >
+        <p>{{ character.Description }}</p>
+      </div>
+
+      <div
+        id="character-summary-content-nav"
+        class="flex-row scrollbars-hidden scroll-overflow-x"
+      >
+        <a
+          class="button-1 {{
+            utilityService.getElementHoverBackground(character.Element)
+          }}
+           {{
+            pageId === 'overview'
+              ? utilityService.getElementBackground(character.Element)
+              : ''
+          }}"
+          [routerLink]="['/characters/' + character.Id + '/overview']"
+          ><h2>overview</h2></a
+        >
+        <a
+          class="button-1 {{
+            utilityService.getElementHoverBackground(character.Element)
+          }}
+           {{
+            pageId === 'talents'
+              ? utilityService.getElementBackground(character.Element)
+              : ''
+          }}"
+          [routerLink]="['/characters/' + character.Id + '/talents']"
+          ><h2>talents</h2></a
+        >
+        <a
+          class="button-1 {{
+            utilityService.getElementHoverBackground(character.Element)
+          }}
+           {{
+            pageId === 'constellations'
+              ? utilityService.getElementBackground(character.Element)
+              : ''
+          }}"
+          [routerLink]="['/characters/' + character.Id + '/constellations']"
+          ><h2>constellations</h2></a
+        >
+        <a
+          class="button-1 {{
+            utilityService.getElementHoverBackground(character.Element)
+          }}
+           {{
+            pageId === 'sounds'
+              ? utilityService.getElementBackground(character.Element)
+              : ''
+          }}"
+          [routerLink]="['/characters/' + character.Id + '/sounds']"
+          ><h2>sounds</h2></a
+        >
+        <a
+          class="button-1 {{
+            utilityService.getElementHoverBackground(character.Element)
+          }}
+           {{
+            pageId === 'quotes'
+              ? utilityService.getElementBackground(character.Element)
+              : ''
+          }}"
+          [routerLink]="['/characters/' + character.Id + '/quotes']"
+          ><h2>quotes</h2></a
+        >
+        <a
+          class="button-1 {{
+            utilityService.getElementHoverBackground(character.Element)
+          }}
+           {{
+            pageId === 'stories'
+              ? utilityService.getElementBackground(character.Element)
+              : ''
+          }}"
+          [routerLink]="['/characters/' + character.Id + '/stories']"
+          ><h2>stories</h2></a
+        >
+      </div>
+    </div>
+  </div>
+  <div id="character-content" class="body-1 flex-row full-width">
+    <div id="character-content-sidebar-container">
+      <div
+        id="character-content-sidebar"
+        class="flex-column scrollbars-hidden {{
+          utilityService.getElementBackground(character.Element)
+        }}"
+      >
+        <div>
+          <h2>Title</h2>
+          <p>{{ character.Title }}</p>
+        </div>
+        <div>
+          <h2>Faction</h2>
+          <p>{{ character.Faction }}</p>
+        </div>
+        <div>
+          <h2>Weapon Type</h2>
+          <p>{{ character.Weapon }}</p>
+        </div>
+        <div>
+          <h2>Birthday</h2>
+          <p>{{ character.Birthday }}</p>
+        </div>
+        <div>
+          <h2>Constellation</h2>
+          <p>{{ character.Constellation }}</p>
+        </div>
+        <div>
+          <h2>Chinese Voice Actor</h2>
+          <p>{{ character.ChineseVA }}</p>
+        </div>
+        <div>
+          <h2>Japanese Voice Actor</h2>
+          <p>{{ character.JapaneseVA }}</p>
+        </div>
+        <div>
+          <h2>English Voice Actor</h2>
+          <p>{{ character.EnglishVA }}</p>
+        </div>
+        <div>
+          <h2>Korean Voice Actor</h2>
+          <p>{{ character.KoreanVA }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="character-content-main">
+      <div
+        id="character-overview-container"
+        class="flex-column"
+        *ngIf="pageId === 'overview'"
+      >
+        <div
+          class="character-role-container content-card flex-column background-gray-2"
+          *ngFor="let role of character.Roles"
+        >
+          <div
+            class="content-card-title flex-row {{
+              utilityService.getElementBackground(character.Element)
+            }}"
+          >
+            <i
+              *ngIf="character.CharacterOverview?.RecommendedRole === role.Name"
+              class="fas fa-star"
+            ></i>
+            <h3>{{ role.Name }}</h3>
+          </div>
+          <div class="content-card-body">
+            <div class="role-description" [innerHtml]="role.Notes"></div>
+            <div class="overview-content flex-row flex-space-evenly">
+              <div class="overview-content-list flex-column">
+                <div
+                  class="overview-content-list-title flex-row flex-center flex-center-items {{
+                    utilityService.getElementBackground(character.Element)
+                  }}"
+                >
+                  <h4>Weapons</h4>
+                </div>
+                <a
+                  href="{{ 'https://impact.moe/weapons/' + weapon.Weapon.Id }}"
+                  class="overview-content-list-item flex-row"
+                  *ngFor="let weapon of role.Weapons"
+                >
+                  <div
+                    class="overview-content-list-item-rank flex-row flex-center flex-center-items background-off-white"
+                  >
+                    <p>{{ weapon.Rank }}</p>
+                  </div>
+                  <div
+                    class="overview-content-list-item-content flex-row flex-center flex-center-items background-gray-1"
+                  >
+                    <p>{{ weapon.Weapon.Name }}</p>
+                  </div>
+                </a>
+              </div>
+
+              <div class="overview-content-list flex-column">
+                <div
+                  class="overview-content-list-title flex-row flex-center flex-center-items {{
+                    utilityService.getElementBackground(character.Element)
+                  }}"
+                >
+                  <h4>Artifacts</h4>
+                </div>
+                <a
+                  href="{{
+                    'https://impact.moe/artifact-set/' + artifact.ArtifactSet.Id
+                  }}"
+                  class="overview-content-list-item flex-row"
+                  *ngFor="let artifact of role.Artifacts; let i = index"
+                  [style.margin-top]="
+                    i > 0 && role.Artifacts[i - 1].Rank === artifact.Rank
+                      ? '0.2em'
+                      : '1em'
+                  "
+                >
+                  <div
+                    class="overview-content-list-item-rank flex-row flex-center flex-center-items background-off-white"
+                  >
+                    <p>{{ artifact.Rank }}</p>
+                  </div>
+                  <div
+                    class="overview-content-list-item-content flex-row flex-center flex-center-items background-gray-1"
+                  >
+                    <p>
+                      {{
+                        artifact.ArtifactSet.Name +
+                          ((i > 0 &&
+                            role.Artifacts[i - 1].Rank === artifact.Rank) ||
+                          (i + 1 < role.Artifacts.length &&
+                            role.Artifacts[i + 1].Rank === artifact.Rank)
+                            ? " (2)"
+                            : " (4)")
+                      }}
+                    </p>
+                  </div>
+                </a>
+              </div>
+
+              <div class="overview-content-list flex-column">
+                <div
+                  class="overview-content-list-title flex-row flex-center flex-center-items {{
+                    utilityService.getElementBackground(character.Element)
+                  }}"
+                >
+                  <h4>Main Stats</h4>
+                </div>
+                <div
+                  class="overview-content-list-item flex-row"
+                  *ngFor="let mainStat of role.MainStats"
+                >
+                  <div
+                    class="overview-content-list-item-rank flex-row flex-center flex-center-items background-off-white"
+                  >
+                    <img
+                      src="{{
+                        utilityService.getArtifactImage64(mainStat.ArtifactType)
+                      }}"
+                    />
+                  </div>
+                  <div
+                    class="overview-content-list-item-content flex-row flex-center flex-center-items background-gray-1"
+                  >
+                    <p>{{ mainStat.Type }}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="overview-content-list flex-column">
+                <div
+                  class="overview-content-list-title flex-row flex-center flex-center-items {{
+                    utilityService.getElementBackground(character.Element)
+                  }}"
+                >
+                  <h4>Sub Stats</h4>
+                </div>
+                <div
+                  class="overview-content-list-item flex-row"
+                  *ngFor="let subStat of role.SubStats"
+                >
+                  <div
+                    class="overview-content-list-item-rank flex-row flex-center flex-center-items background-off-white"
+                  >
+                    <p>{{ subStat.Rank }}</p>
+                  </div>
+                  <div
+                    class="overview-content-list-item-content flex-row flex-center flex-center-items background-gray-1"
+                  >
+                    <p>{{ subStat.Type }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="character-talents-container"
+        class="flex-column"
+        *ngIf="pageId === 'talents'"
+      >
+        <div
+          appContentCard
+          class="content-card character-talent-container background-gray-2"
+        >
+          <div
+            class="content-card-title {{
+              utilityService.getElementBackground(character.Element)
+            }}"
+          >
+            <img src="{{ normalTalent?.Image }}" />
+            <h4>{{ normalTalent?.Name }}</h4>
+            <div
+              class="talent-tag-container background-gray-2 flex-column flex-center"
+            >
+              <p>Normal</p>
+            </div>
+            <div
+              class="content-card-expand-button hover-background-gray-1 flex-row flex-center"
+            >
+              <i class="fas fa-caret-down"></i>
+            </div>
+          </div>
+          <div class="content-card-body">
+            <div class="talent-description">
+              <p>{{ normalTalent?.Description }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          appContentCard
+          class="content-card character-talent-container background-gray-2"
+        >
+          <div
+            class="content-card-title {{
+              utilityService.getElementBackground(character.Element)
+            }}"
+          >
+            <img src="{{ passiveOneTalent?.Image }}" />
+            <h4>{{ passiveOneTalent?.Name }}</h4>
+            <div
+              class="talent-tag-container background-gray-2 flex-column flex-center"
+            >
+              <p>Passive #1</p>
+            </div>
+            <div
+              class="content-card-expand-button hover-background-gray-1 flex-row flex-center"
+            >
+              <i class="fas fa-caret-down"></i>
+            </div>
+          </div>
+          <div class="content-card-body">
+            <div class="talent-description">
+              <p>{{ passiveOneTalent?.Description }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          appContentCard
+          class="content-card character-talent-container background-gray-2"
+        >
+          <div
+            class="content-card-title {{
+              utilityService.getElementBackground(character.Element)
+            }}"
+          >
+            <img src="{{ passiveTwoTalent?.Image }}" />
+            <h4>{{ passiveTwoTalent?.Name }}</h4>
+            <div
+              class="talent-tag-container background-gray-2 flex-column flex-center"
+            >
+              <p>Passive #2</p>
+            </div>
+            <div
+              class="content-card-expand-button hover-background-gray-1 flex-row flex-center"
+            >
+              <i class="fas fa-caret-down"></i>
+            </div>
+          </div>
+          <div class="content-card-body">
+            <div class="talent-description">
+              <p>{{ passiveTwoTalent?.Description }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          appContentCard
+          class="content-card character-talent-container background-gray-2"
+        >
+          <div
+            class="content-card-title {{
+              utilityService.getElementBackground(character.Element)
+            }}"
+          >
+            <img src="{{ passiveThreeTalent?.Image }}" />
+            <h4>{{ passiveThreeTalent?.Name }}</h4>
+            <div
+              class="talent-tag-container background-gray-2 flex-column flex-center"
+            >
+              <p>Passive #3</p>
+            </div>
+            <div
+              class="content-card-expand-button hover-background-gray-1 flex-row flex-center"
+            >
+              <i class="fas fa-caret-down"></i>
+            </div>
+          </div>
+          <div class="content-card-body">
+            <div class="talent-description">
+              <p>{{ passiveThreeTalent?.Description }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          appContentCard
+          class="content-card character-talent-container background-gray-2"
+        >
+          <div
+            class="content-card-title {{
+              utilityService.getElementBackground(character.Element)
+            }}"
+          >
+            <img src="{{ elementalSkillTalent?.Image }}" />
+            <h4>{{ elementalSkillTalent?.Name }}</h4>
+            <div
+              class="talent-tag-container background-gray-2 flex-column flex-center"
+            >
+              <p>Elemental Skill</p>
+            </div>
+            <div
+              class="content-card-expand-button hover-background-gray-1 flex-row flex-center"
+            >
+              <i class="fas fa-caret-down"></i>
+            </div>
+          </div>
+          <div class="content-card-body">
+            <div class="talent-description">
+              <p>{{ elementalSkillTalent?.Description }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          appContentCard
+          class="content-card character-talent-container background-gray-2"
+        >
+          <div
+            class="content-card-title {{
+              utilityService.getElementBackground(character.Element)
+            }}"
+          >
+            <img src="{{ elementalBurstTalent?.Image }}" />
+            <h4>{{ elementalBurstTalent?.Name }}</h4>
+            <div
+              class="talent-tag-container background-gray-2 flex-column flex-center"
+            >
+              <p>Elemental Burst</p>
+            </div>
+            <div
+              class="content-card-expand-button hover-background-gray-1 flex-row flex-center"
+            >
+              <i class="fas fa-caret-down"></i>
+            </div>
+          </div>
+          <div class="content-card-body">
+            <div class="talent-description">
+              <p>{{ elementalBurstTalent?.Description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="character-constellations-container"
+        class="flex-column"
+        *ngIf="pageId === 'constellations'"
+      >
+        <div
+          appContentCard
+          class="content-card character-constellation-container background-gray-2"
+        >
+          <div
+            class="content-card-title {{
+              utilityService.getElementBackground(character.Element)
+            }}"
+          >
+            <img src="{{ constellationOne?.Image }}" />
+            <h4>{{ constellationOne?.Name }}</h4>
+            <div
+              class="constellation-tag-container background-gray-2 flex-column flex-center"
+            >
+              <p>C1</p>
+            </div>
+            <div
+              class="content-card-expand-button hover-background-gray-1 flex-row flex-center"
+            >
+              <i class="fas fa-caret-down"></i>
+            </div>
+          </div>
+          <div class="content-card-body">
+            <div class="constellation-description">
+              <p>{{ constellationOne?.Description }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          appContentCard
+          class="content-card character-constellation-container background-gray-2"
+        >
+          <div
+            class="content-card-title {{
+              utilityService.getElementBackground(character.Element)
+            }}"
+          >
+            <img src="{{ constellationTwo?.Image }}" />
+            <h4>{{ constellationTwo?.Name }}</h4>
+            <div
+              class="constellation-tag-container background-gray-2 flex-column flex-center"
+            >
+              <p>C2</p>
+            </div>
+            <div
+              class="content-card-expand-button hover-background-gray-1 flex-row flex-center"
+            >
+              <i class="fas fa-caret-down"></i>
+            </div>
+          </div>
+          <div class="content-card-body">
+            <div class="constellation-description">
+              <p>{{ constellationTwo?.Description }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          appContentCard
+          class="content-card character-constellation-container background-gray-2"
+        >
+          <div
+            class="content-card-title {{
+              utilityService.getElementBackground(character.Element)
+            }}"
+          >
+            <img src="{{ constellationThree?.Image }}" />
+            <h4>{{ constellationThree?.Name }}</h4>
+            <div
+              class="constellation-tag-container background-gray-2 flex-column flex-center"
+            >
+              <p>C3</p>
+            </div>
+            <div
+              class="content-card-expand-button hover-background-gray-1 flex-row flex-center"
+            >
+              <i class="fas fa-caret-down"></i>
+            </div>
+          </div>
+          <div class="content-card-body">
+            <div class="constellation-description">
+              <p>{{ constellationThree?.Description }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          appContentCard
+          class="content-card character-constellation-container background-gray-2"
+        >
+          <div
+            class="content-card-title {{
+              utilityService.getElementBackground(character.Element)
+            }}"
+          >
+            <img src="{{ constellationFour?.Image }}" />
+            <h4>{{ constellationFour?.Name }}</h4>
+            <div
+              class="constellation-tag-container background-gray-2 flex-column flex-center"
+            >
+              <p>C4</p>
+            </div>
+            <div
+              class="content-card-expand-button hover-background-gray-1 flex-row flex-center"
+            >
+              <i class="fas fa-caret-down"></i>
+            </div>
+          </div>
+          <div class="content-card-body">
+            <div class="constellation-description">
+              <p>{{ constellationFour?.Description }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          appContentCard
+          class="content-card character-constellation-container background-gray-2"
+        >
+          <div
+            class="content-card-title {{
+              utilityService.getElementBackground(character.Element)
+            }}"
+          >
+            <img src="{{ constellationFive?.Image }}" />
+            <h4>{{ constellationFive?.Name }}</h4>
+            <div
+              class="constellation-tag-container background-gray-2 flex-column flex-center"
+            >
+              <p>C5</p>
+            </div>
+            <div
+              class="content-card-expand-button hover-background-gray-1 flex-row flex-center"
+            >
+              <i class="fas fa-caret-down"></i>
+            </div>
+          </div>
+          <div class="content-card-body">
+            <div class="constellation-description">
+              <p>{{ constellationFive?.Description }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          appContentCard
+          class="content-card character-constellation-container background-gray-2"
+        >
+          <div
+            class="content-card-title {{
+              utilityService.getElementBackground(character.Element)
+            }}"
+          >
+            <img src="{{ constellationSix?.Image }}" />
+            <h4>{{ constellationSix?.Name }}</h4>
+            <div
+              class="constellation-tag-container background-gray-2 flex-column flex-center"
+            >
+              <p>C6</p>
+            </div>
+            <div
+              class="content-card-expand-button hover-background-gray-1 flex-row flex-center"
+            >
+              <i class="fas fa-caret-down"></i>
+            </div>
+          </div>
+          <div class="content-card-body">
+            <div class="constellation-description">
+              <p>{{ constellationSix?.Description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

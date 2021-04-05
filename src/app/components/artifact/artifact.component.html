@@ -1,0 +1,128 @@
+<div class="container-1 flex-column" *ngIf="artifact">
+  <div class="banner-1">
+    <div class="banner-content-container-1">
+      <img
+        class="full-width full-height image-cover"
+        src="https://impact.nyc3.digitaloceanspaces.com/img/banners/banner-1.jpg"
+      />
+    </div>
+    <div
+      class="banner-content-container-1 flex-row flex-space-between flex-center-items"
+    >
+      <div
+        id="artifact-opacity-layer"
+        class="full-width full-height position-absolute"
+      ></div>
+      <div id="artifact-square-card-image-container">
+        <img id="artifact-square-card-image" src="{{ artifact.Image }}" />
+      </div>
+    </div>
+  </div>
+  <div
+    id="artifact-summary-container"
+    class="flex-row full-width background-gray-2"
+  >
+    <img
+      id="artifact-portrait-image"
+      class="image-scale-down"
+      src="{{ artifact.Image }}"
+    />
+    <div id="artifact-summary-content" class="flex-column hidden-overflow-x">
+      <div class="flex-row flex-center-items">
+        <div id="artifact-title-content" class="flex-column">
+          <h1>{{ artifact.Name }}</h1>
+          <div id="artifact-star-container">
+            <i class="fas fa-star" *ngIf="artifact.Rarity >= 1"></i>
+            <i class="fas fa-star" *ngIf="artifact.Rarity >= 2"></i>
+            <i class="fas fa-star" *ngIf="artifact.Rarity >= 3"></i>
+            <i class="fas fa-star" *ngIf="artifact.Rarity >= 4"></i>
+            <i class="fas fa-star" *ngIf="artifact.Rarity == 5"></i>
+          </div>
+        </div>
+      </div>
+      <div
+        id="artifact-description-container"
+        class="scrollbars-hidden scroll-overflow-y"
+      >
+        <p>{{ artifact.Description }}</p>
+      </div>
+
+      <div
+        id="artifact-summary-content-nav"
+        class="flex-row scrollbars-hidden scroll-overflow-x"
+      >
+        <a
+          class="button-1 {{
+            utilityService.getRarityHoverBackground(artifact.Rarity)
+          }}
+           {{
+            pageId === 'overview'
+              ? utilityService.getRarityBackground(artifact.Rarity)
+              : ''
+          }}"
+          [routerLink]="['/artifacts/' + artifact.Id + '/overview']"
+          ><h2>overview</h2></a
+        >
+        <a
+          class="button-1 {{
+            utilityService.getRarityHoverBackground(artifact.Rarity)
+          }}
+          {{
+            pageId === 'materials'
+              ? utilityService.getRarityBackground(artifact.Rarity)
+              : ''
+          }}"
+          [routerLink]="['/artifacts/' + artifact.Id + '/materials']"
+          ><h2>materials</h2></a
+        >
+      </div>
+    </div>
+  </div>
+  <div id="artifact-content" class="body-1 flex-row full-width">
+    <div id="artifact-content-sidebar-container">
+      <div
+        id="artifact-content-sidebar"
+        class="flex-column scrollbars-hidden {{
+          utilityService.getRarityBackground(artifact.Rarity)
+        }}"
+      >
+        <div>
+          <h2>Artifact Type</h2>
+          <p>{{ artifact.ArtifactType }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="artifact-content-main">
+      <div
+        id="artifact-overview-container"
+        class="flex-column"
+        *ngIf="pageId === 'overview'"
+      >
+        <div
+          class="artifact-role-container content-card flex-column background-gray-2"
+        >
+          <div
+            class="content-card-title flex-row {{
+              utilityService.getRarityBackground(artifact.Rarity)
+            }}"
+          >
+            <h3>{{ artifact.ArtifactSet.Name }}</h3>
+          </div>
+          <div class="content-card-body">
+            <div class="role-description">
+              <h4>Two Piece Bonus</h4>
+              <p>
+                {{ artifact.ArtifactSet.TwoPieceBonus }}
+              </p>
+              <h4>Four Piece Bonus</h4>
+              <p>
+                {{ artifact.ArtifactSet.FourPieceBonus }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

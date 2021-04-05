@@ -1,0 +1,45 @@
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ImpactService } from '../../services/impact.service';
+import { UtilityService } from '../../services/utility.service';
+import { Weapon } from 'src/app/models/weapon.model';
+
+@Component({
+  selector: 'app-weapon',
+  templateUrl: './weapon.component.html',
+  styleUrls: ['./weapon.component.css'],
+})
+export class WeaponComponent {
+  weapon?: Weapon;
+  pageId = 'overview';
+
+  constructor(
+    private route: ActivatedRoute,
+    private impactService: ImpactService,
+    public utilityService: UtilityService
+  ) {}
+
+  ngOnInit() {
+    this.route.params.subscribe((params) => {
+      if (!params.weaponId) return;
+
+      if (!params.pageId || params.pageId === 'overview') {
+        this.impactService
+          .getWeapon(params.weaponId, 'stats')
+          .subscribe((data1) => {
+            this.weapon = data1;
+
+            this.pageId = 'overview';
+          });
+      } else if (params.pageId === 'materials') {
+        this.impactService
+          .getWeapon(params.weaponId, 'stats')
+          .subscribe((data1) => {
+            this.weapon = data1;
+
+            this.pageId = 'materials';
+          });
+      }
+    });
+  }
+}

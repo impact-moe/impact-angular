@@ -1,0 +1,78 @@
+<div class="container-1 flex-column">
+  <div class="banner-1">
+    <div class="banner-content-container-1">
+      <img
+        class="full-width full-height image-cover"
+        src="https://impact.nyc3.digitaloceanspaces.com/img/banners/banner-1.jpg"
+      />
+    </div>
+    <div
+      class="banner-content-container-1 flex-column flex-center flex-center-items"
+    >
+      <h1>Weapons</h1>
+    </div>
+  </div>
+  <div class="body-1 flex-column flex-center-items full-width">
+    <div id="weapon-list-container" class="flex-column">
+      <div
+        class="weapon-group-list-item flex-column background-gray-2"
+        *ngFor="let listItem of listItems | keyvalue"
+      >
+        <div
+          class="weapon-group-list-item-image-container flex-row flex-center flex-center-items background-gray-3"
+        >
+          <img
+            *ngIf="listItem.value.mainImage"
+            src="{{ listItem.value.mainImage }}"
+          />
+          <h3 *ngIf="listItem.value.mainLabel">
+            {{ listItem.value.mainLabel }}
+          </h3>
+        </div>
+        <div class="weapon-items-container flex-row flex-center">
+          <a
+            class="weapon-item-container flex-row background-gray-1"
+            *ngFor="let weaponItem of listItem.value.weapons"
+            routerLink="{{ '/weapons/' + weaponItem.Id }}"
+          >
+            <div
+              class="weapon-item-title-container flex-column flex-center flex-center-items"
+            >
+              <h4>{{ weaponItem?.Name }}</h4>
+              <div>
+                <i class="fas fa-star" *ngIf="weaponItem.Rarity >= 1"></i>
+                <i class="fas fa-star" *ngIf="weaponItem.Rarity >= 2"></i>
+                <i class="fas fa-star" *ngIf="weaponItem.Rarity >= 3"></i>
+                <i class="fas fa-star" *ngIf="weaponItem.Rarity >= 4"></i>
+                <i class="fas fa-star" *ngIf="weaponItem.Rarity == 5"></i>
+              </div>
+            </div>
+
+            <div class="weapon-item-image-container-1">
+              <div class="weapon-item-image-container-2">
+                <div
+                  class="weapon-item-image-container-3 flex-row flex-center flex-center-items"
+                  [ngStyle]="{
+                    'background-image': 'url(' + weaponItem.Image + ')'
+                  }"
+                >
+                  <div class="weapon-item-overlay-background-container">
+                    <div
+                      class="weapon-item-overlay"
+                      [ngStyle]="{
+                        'background-image': 'url(' + weaponItem?.Image + ')'
+                      }"
+                    ></div>
+                  </div>
+                  <div
+                    class="weapon-item-overlay-content flex-column flex-center flex-center-items position-absolute"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

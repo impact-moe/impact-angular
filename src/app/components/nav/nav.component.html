@@ -1,0 +1,68 @@
+<div id="nav-container">
+  <div id="nav-primary-container" class="flex-row flex-space-evenly">
+    <div id="nav-left-group" class="flex-row flex-center">
+      <a [routerLink]="['/']">
+        <img src="https://media.impact.moe/img/general/logo-rectangle-64.png" />
+      </a>
+    </div>
+    <div id="nav-center-group" class="flex-row">
+      <a class="button-1" [routerLink]="['/character-list']"
+        ><p>characters</p></a
+      >
+      <a class="button-1" [routerLink]="['/weapon-list']"><p>weapons</p></a>
+      <a class="button-1" [routerLink]="['/artifact-list']"><p>artifacts</p></a>
+      <a class="button-1" [routerLink]="['/statistics']"><p>statistics</p></a>
+    </div>
+    <div id="nav-right-group" class="flex-row flex-center">
+      <a class="button-1" [routerLink]="['/login']"><p>log in</p></a>
+      <a class="button-1 background-blue" [routerLink]="['/signup']"
+        ><p>sign up</p></a
+      >
+    </div>
+  </div>
+  <div id="nav-mobile-container" class="flex-row">
+    <div
+      id="nav-mobile-menu-button"
+      class="flex-row flex-center"
+      (click)="openDrawer()"
+    >
+      <i class="fas fa-bars"></i>
+    </div>
+    <a id="nav-mobile-logo" [routerLink]="['/']">
+      <img src="https://media.impact.moe/img/general/logo-rectangle-64.png" />
+    </a>
+  </div>
+</div>
+<div
+  id="nav-drawer-click-overlay"
+  [style.pointer-events]="clickOverlayPointerEventsStyle"
+  (click)="closeDrawer()"
+></div>
+<div
+  id="nav-drawer-container"
+  class="background-gray-2 flex-column"
+  [@navDrawerOpenClose]="drawerOpen ? 'navDrawerOpen' : 'navDrawerClose'"
+>
+  <div class="flex-row flex-end-items">
+    <div id="nav-drawer-exit-button" (click)="closeDrawer()">
+      <i class="fa fa-times"></i>
+    </div>
+  </div>
+  <a class="button-1" [routerLink]="['/character-list']" (click)="closeDrawer()"
+    ><p>characters</p></a
+  >
+  <a class="button-1" [routerLink]="['/weapon-list']" (click)="closeDrawer()"
+    ><p>weapons</p></a
+  >
+  <a class="button-1" [routerLink]="['/artifact-list']" (click)="closeDrawer()"
+    ><p>artifacts</p></a
+  >
+  <a class="button-1" [routerLink]="['/statistics']"><p>statistics</p></a>
+
+  <div id="account-container">
+    <a class="button-1" [routerLink]="['/login']"><p>log in</p></a>
+    <a class="button-1 background-blue" [routerLink]="['/signup']"
+      ><p>sign up</p></a
+    >
+  </div>
+</div>

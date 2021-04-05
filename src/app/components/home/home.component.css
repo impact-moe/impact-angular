@@ -1,0 +1,155 @@
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #112359;
+  margin-top: 1em;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #323e61;
+  margin-top: 1.5em;
+  width: 24em;
+  letter-spacing: 0em;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+h3 {
+  font-family: "Montserrat", sans-serif;
+  color: #fefefe;
+  font-size: 1.4rem;
+  letter-spacing: 0.02em;
+  font-weight: 800;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+#home-container {
+  width: 100%;
+  height: 100%;
+}
+
+#home-video-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+}
+
+#home-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+#home-intro-container {
+  margin-top: 12em;
+  width: 65em;
+  max-width: 65em;
+  min-width: 65em;
+  height: 35em;
+  max-height: 35em;
+  min-height: 35em;
+  border-radius: 20px;
+  padding: 2em;
+}
+
+#paimon-image {
+  align-self: start;
+  width: 13em;
+  position: absolute;
+  margin-left: -3em;
+  margin-top: -6em;
+}
+
+#intro-container-content-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 4em;
+}
+
+.intro-container-content-item {
+  width: 30em;
+  height: 10em;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  background: #323e61;
+  margin: 0.5em;
+}
+
+.intro-container-content-item-image {
+  height: 100%;
+  width: 7em;
+  min-width: 7em;
+  border-radius: 10px 0 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-container-content-item-image i {
+  color: #f0f0f0;
+  font-size: 3rem;
+}
+
+.intro-container-content-item-text {
+  flex-grow: 1;
+  margin: 1em;
+}
+
+@media screen and (max-width: 1100px) {
+  #paimon-image {
+    align-self: center;
+    margin: -6em 0 0 0;
+    width: 8em;
+  }
+  #home-intro-container {
+    width: 100%;
+    max-width: unset;
+    min-width: unset;
+    height: unset;
+    max-height: unset;
+    min-height: unset;
+  }
+  #home-intro-container h1 {
+    margin: 3em 2em 0 2em;
+  }
+}
+
+@media screen and (max-width: 525px) {
+  #home-intro-container {
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    border-radius: 0;
+  }
+  #home-intro-container h1 {
+    font-size: 1.8em;
+  }
+  .intro-container-content-item {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    height: auto;
+  }
+  .intro-container-content-item-image {
+    border-radius: 0;
+  }
+  h2 {
+    width: 100%;
+  }
+}
