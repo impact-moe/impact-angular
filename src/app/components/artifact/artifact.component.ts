@@ -23,17 +23,17 @@ export class ArtifactComponent {
     this.route.params.subscribe((params) => {
       if (!params.artifactId) return;
 
-      if (!params.pageId || params.pageId === 'overview') {
-        this.impactService.getArtifact(params.artifactId).subscribe((data1) => {
-          this.artifact = data1;
+      if (params.pageId === 'overview') {
+        this.impactService.getArtifact(params.artifactId).subscribe((data) => {
+          this.artifact = data;
 
-          this.pageId = 'overview';
+          this.pageId = params.pageId;
         });
       } else if (params.pageId === 'materials') {
-        this.impactService.getArtifact(params.artifactId).subscribe((data1) => {
-          this.artifact = data1;
+        this.impactService.getArtifact(params.artifactId).subscribe((data) => {
+          this.artifact = data;
 
-          this.pageId = 'materials';
+          this.pageId = params.pageId;
         });
       }
     });
