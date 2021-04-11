@@ -23,21 +23,21 @@ export class WeaponComponent {
     this.route.params.subscribe((params) => {
       if (!params.weaponId) return;
 
-      if (!params.pageId || params.pageId === 'overview') {
+      if (params.pageId === 'overview') {
         this.impactService
           .getWeapon(params.weaponId, 'stats')
-          .subscribe((data1) => {
-            this.weapon = data1;
+          .subscribe((data) => {
+            this.weapon = data;
 
-            this.pageId = 'overview';
+            this.pageId = params.pageId;
           });
       } else if (params.pageId === 'materials') {
         this.impactService
           .getWeapon(params.weaponId, 'stats')
-          .subscribe((data1) => {
-            this.weapon = data1;
+          .subscribe((data) => {
+            this.weapon = data;
 
-            this.pageId = 'materials';
+            this.pageId = params.pageId;
           });
       }
     });

@@ -53,7 +53,7 @@ export class CharacterComponent {
                 if (this.character) this.character.Roles = data2;
               });
 
-            this.pageId = 'overview';
+            this.pageId = params.pageId;
           });
       } else if (params.pageId === 'talents') {
         this.impactService

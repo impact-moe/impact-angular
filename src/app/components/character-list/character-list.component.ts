@@ -24,8 +24,7 @@ export class CharacterListComponent {
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
-      if (!params.groupType) this.groupType = 'element';
-      else this.groupType = params.groupType;
+      this.groupType = params.groupType;
 
       if (this.groupType === 'element') {
         this.impactService
