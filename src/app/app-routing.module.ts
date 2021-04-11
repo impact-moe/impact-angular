@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'character-list', redirectTo: 'character-list/element', pathMatch: 'full' },
   { path: 'character-list/:groupType', component: CharacterListComponent, pathMatch: 'full' },
+  { path: 'character/:characterId', redirectTo: 'characters/:characterId/overview', pathMatch: 'full' },
   { path: 'characters/:characterId', redirectTo: 'characters/:characterId/overview', pathMatch: 'full' },
   { path: 'characters/:characterId/:pageId', component: CharacterComponent, pathMatch: 'full' },
   { path: 'weapon-list', component: WeaponListComponent, pathMatch: 'full' },
@@ -23,8 +24,10 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent, pathMatch: 'full' },
   { path: 'signup', component: SignupComponent, pathMatch: 'full' },
   { path: 'statistics', component: StatisticsComponent, pathMatch: 'full' },
+  { path: 'weapon/:weaponId', redirectTo: 'weapons/:weaponId/overview', pathMatch: 'full' },
   { path: 'weapons/:weaponId', redirectTo: 'weapons/:weaponId/overview', pathMatch: 'full' },
   { path: 'weapons/:weaponId/:pageId', component: WeaponComponent, pathMatch: 'full' },
+  { path: 'artifact/:artifactId', redirectTo: 'artifacts/:artifactId/overview', pathMatch: 'full' },
   { path: 'artifacts/:artifactId', redirectTo: 'artifacts/:artifactId/overview', pathMatch: 'full' },
   { path: 'artifacts/:artifactId/:pageId', component: ArtifactComponent, pathMatch: 'full' },
 ];
