@@ -21,6 +21,8 @@ import { WeaponComponent } from './components/weapon/weapon.component';
 import { ImpactService } from './services/impact.service';
 import { UtilityService } from './services/utility.service';
 
+import { LinkHandlerDirective } from './directives/link-handler/link-handler.directive';
+
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
@@ -39,6 +41,7 @@ import { AppRoutingModule } from './app-routing.module';
     StatisticsComponent,
     WeaponComponent,
     ArtifactComponent,
+    LinkHandlerDirective,
   ],
   imports: [
     BrowserModule,
