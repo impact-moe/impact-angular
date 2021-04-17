@@ -13,57 +13,57 @@ export class UtilityService {
 
   getRegionBannerUrl(region: Region) {
     if (region === Region.Mondstadt)
-      return this.baseUrl + 'img/map-banners/mondstadt-banner.png';
+      return this.baseUrl + 'img/map-banners/mondstadt-banner.webp';
     if (region === Region.Liyue)
-      return this.baseUrl + 'img/map-banners/liyue-banner.png';
+      return this.baseUrl + 'img/map-banners/liyue-banner.webp';
 
-    return this.baseUrl + 'img/map-banners/mondstadt-banner.png';
+    return this.baseUrl + 'img/map-banners/mondstadt-banner.webp';
   }
 
   getTierImage(tier: string) {
     if (tier)
-      return this.baseUrl + 'img/tier-icons/tier-' + tier + '.png';
+      return this.baseUrl + 'img/tier-icons/tier-' + tier + '.webp';
 
     return '';
   }
 
   getTierImage32(tier: string) {
     if (tier)
-      return this.baseUrl + 'img/tier-icons/tier-' + tier + '-32.png';
+      return this.baseUrl + 'img/tier-icons/tier-' + tier + '-32.webp';
 
     return '';
   }
 
   getWeaponTypeImage(weaponType: WeaponType) {
     if (weaponType === WeaponType.Bow)
-      return this.baseUrl + 'img/weapon-type-icons/bow.png';
+      return this.baseUrl + 'img/weapon-type-icons/bow.webp';
     if (weaponType === WeaponType.Catalyst)
-      return this.baseUrl + 'img/weapon-type-icons/catalyst.png';
+      return this.baseUrl + 'img/weapon-type-icons/catalyst.webp';
     if (weaponType === WeaponType.Claymore)
-      return this.baseUrl + 'img/weapon-type-icons/claymore.png';
+      return this.baseUrl + 'img/weapon-type-icons/claymore.webp';
     if (weaponType === WeaponType.Polearm)
-      return this.baseUrl + 'img/weapon-type-icons/polearm.png';
+      return this.baseUrl + 'img/weapon-type-icons/polearm.webp';
     if (weaponType === WeaponType.Sword)
-      return this.baseUrl + 'img/weapon-type-icons/sword.png';
+      return this.baseUrl + 'img/weapon-type-icons/sword.webp';
 
     return '';
   }
 
   getElementImage(element: Element) {
     if (element === Element.Anemo)
-      return this.baseUrl + 'img/element-icons/anemo-icon.png';
+      return this.baseUrl + 'img/element-icons/anemo-icon.webp';
     if (element === Element.Cryo)
-      return this.baseUrl + 'img/element-icons/cryo-icon.png';
+      return this.baseUrl + 'img/element-icons/cryo-icon.webp';
     if (element === Element.Dendro)
-      return this.baseUrl + 'img/element-icons/dendro-icon.png';
+      return this.baseUrl + 'img/element-icons/dendro-icon.webp';
     if (element === Element.Electro)
-      return this.baseUrl + 'img/element-icons/electro-icon.png';
+      return this.baseUrl + 'img/element-icons/electro-icon.webp';
     if (element === Element.Geo)
-      return this.baseUrl + 'img/element-icons/geo-icon.png';
+      return this.baseUrl + 'img/element-icons/geo-icon.webp';
     if (element === Element.Hydro)
-      return this.baseUrl + 'img/element-icons/hydro-icon.png';
+      return this.baseUrl + 'img/element-icons/hydro-icon.webp';
     if (element === Element.Pyro)
-      return this.baseUrl + 'img/element-icons/pyro-icon.png';
+      return this.baseUrl + 'img/element-icons/pyro-icon.webp';
 
     return '';
   }
@@ -108,15 +108,15 @@ export class UtilityService {
 
   getArtifactImage64(artifactType: ArtifactType) {
     if (artifactType === ArtifactType.Feather)
-      return this.baseUrl + 'img/artifact-icons/feather-64.png';
+      return this.baseUrl + 'img/artifact-icons/feather-64.webp';
     if (artifactType === ArtifactType.Circlet)
-      return this.baseUrl + 'img/artifact-icons/circlet-64.png';
+      return this.baseUrl + 'img/artifact-icons/circlet-64.webp';
     if (artifactType === ArtifactType.Flower)
-      return this.baseUrl + 'img/artifact-icons/flower-64.png';
+      return this.baseUrl + 'img/artifact-icons/flower-64.webp';
     if (artifactType === ArtifactType.Goblet)
-      return this.baseUrl + 'img/artifact-icons/goblet-64.png';
+      return this.baseUrl + 'img/artifact-icons/goblet-64.webp';
     if (artifactType === ArtifactType.Sands)
-      return this.baseUrl + 'img/artifact-icons/sands-64.png';
+      return this.baseUrl + 'img/artifact-icons/sands-64.webp';
 
     return '';
   }
