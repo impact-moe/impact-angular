@@ -40,11 +40,6 @@ h4 {
 
 /* Banner */
 
-#artifact-quote-image {
-  margin-left: 25em;
-  margin-top: 2em;
-}
-
 #artifact-tier-image {
   width: 5em;
   height: 5em;
@@ -72,10 +67,6 @@ h4 {
 }
 
 @media screen and (max-width: 1100px) {
-  #artifact-quote-image {
-    display: none;
-  }
-
   #artifact-tier-image {
     display: none;
   }
@@ -102,13 +93,16 @@ h4 {
 
 #artifact-portrait-image {
   margin-top: -10em;
-  margin-left: 10em;
   margin-bottom: 2em;
   width: 20em;
 }
 
 #artifact-summary-content {
-  margin: 2em 15em 0 2em;
+  height: 100%;
+}
+
+#artifact-title-container {
+  margin-top: 2em;
 }
 
 #artifact-title-content {
@@ -144,9 +138,9 @@ h4 {
     display: none;
   }
 
-  #artifact-summary-content {
-    margin-left: 5em;
-    margin-right: 5em;
+  #artifact-summary-sidebar-container {
+    min-width: 0;
+    width: 0em;
   }
 }
 
@@ -154,32 +148,32 @@ h4 {
   #artifact-summary-content-nav {
     margin-left: 0;
   }
-
-  #artifact-summary-content {
-    margin-left: 2em;
-    margin-right: 2em;
-  }
 }
 
-/* artifact Content */
+/* Artifact Content */
+
+#artifact-content {
+  flex-grow: 1;
+}
 
 @media screen and (max-width: 1100px) {
+  #artifact-main-content-container {
+    margin-top: 2em;
+  }
+
   #artifact-content {
     flex-direction: column;
+    overflow-x: hidden;
   }
 }
 
 /* Sidebar */
 
-#artifact-content-sidebar {
-  width: 20em;
-  margin-left: 10em;
-  align-self: start;
-  border-radius: 5px;
-  margin-bottom: 2em;
+#artifact-sidebar-content-container {
+  align-self: flex-start;
 }
 
-#artifact-content-sidebar > div {
+#artifact-sidebar-content-container > div {
   height: 3.5em;
   min-height: 3.5em;
   max-height: 3.5em;
@@ -191,27 +185,31 @@ h4 {
   justify-content: center;
 }
 
-#artifact-content-sidebar p {
+#artifact-sidebar-content-container p {
   margin-top: 0.2em;
   margin-left: 0.8em;
   margin-right: 0.8em;
 }
 
-#artifact-content-sidebar h2 {
+#artifact-sidebar-content-container h2 {
   margin-left: 0.8em;
   margin-right: 0.8em;
 }
 
-#artifact-content-sidebar div:first-child h2 {
+#artifact-sidebar-content-container div:first-child h2 {
   margin-top: 0.8em;
 }
 
-#artifact-content-sidebar div:last-child p {
+#artifact-sidebar-content-container div:last-child p {
   margin-bottom: 0;
 }
 
+#artifact-sidebar-content-container div:first-child p {
+  margin-bottom: 1em;
+}
+
 @media screen and (max-width: 1100px) {
-  #artifact-content-sidebar {
+  #artifact-sidebar-content-container {
     flex-direction: row;
     overflow-x: scroll;
     height: 3.5em;
@@ -219,56 +217,38 @@ h4 {
     min-height: 3.5em;
     width: unset;
     max-width: unset;
-    margin-left: 2em;
-    margin-right: 2em;
+    width: 100%;
   }
 
-  #artifact-content-sidebar > div {
+  #artifact-sidebar-content-container > div {
     width: auto;
     min-width: unset;
     max-width: unset;
     max-height: 3.5em;
   }
 
-  #artifact-content-sidebar > div > h2 {
+  #artifact-sidebar-content-container > div > h2 {
     white-space: nowrap;
   }
 
-  #artifact-content-sidebar > div > p {
+  #artifact-sidebar-content-container > div > p {
     white-space: nowrap;
   }
 
-  #artifact-content-sidebar-container {
+  #artifact-sidebar-content-container-container {
     width: 100%;
   }
 
-  #artifact-content-sidebar div:last-child p {
+  #artifact-sidebar-content-container div:last-child p {
     margin-bottom: 1em;
   }
 
-  #artifact-content-sidebar h2 {
+  #artifact-sidebar-content-container h2 {
     margin-top: 0.8em;
   }
 }
 
-/* Main Content */
-
-#artifact-content-main {
-  flex-grow: 1;
-  margin-right: 10em;
-  border-radius: 5px;
-  padding-left: 2em;
-  padding-right: 2em;
-  min-width: 20em;
-}
-
-@media screen and (max-width: 1100px) {
-  #artifact-content-main {
-    margin-right: 0;
-  }
-}
-
-/* artifact Overview */
+/* Artifact Overview */
 
 #artifact-overview-container > div {
   margin-bottom: 2em;

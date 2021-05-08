@@ -1,134 +1,136 @@
-<div class="container-1 flex-column" *ngIf="weapon">
-  <div class="banner-1">
-    <div class="banner-content-container-1">
-      <img
-        class="full-width full-height image-cover"
-        src="https://media.impact.moe/img/banners/banner-1.webp"
-      />
-    </div>
-    <div
-      class="banner-content-container-1 flex-row flex-space-between flex-center-items"
-    >
-      <div
-        id="weapon-opacity-layer"
-        class="full-width full-height position-absolute"
-      ></div>
-      <div id="weapon-square-card-image-container">
-        <img id="weapon-square-card-image" src="{{ weapon.Image }}" />
-      </div>
-    </div>
-  </div>
-  <div
-    id="weapon-summary-container"
-    class="flex-row full-width background-gray-2"
-  >
-    <img
-      id="weapon-portrait-image"
-      class="image-scale-down"
-      src="{{ weapon.Image }}"
-    />
-    <div id="weapon-summary-content" class="flex-column hidden-overflow-x">
-      <div class="flex-row flex-center-items">
-        <div id="weapon-title-content" class="flex-column">
-          <h1>{{ weapon.Name }}</h1>
-          <div id="weapon-star-container">
-            <i class="fas fa-star" *ngIf="weapon.Rarity >= 1"></i>
-            <i class="fas fa-star" *ngIf="weapon.Rarity >= 2"></i>
-            <i class="fas fa-star" *ngIf="weapon.Rarity >= 3"></i>
-            <i class="fas fa-star" *ngIf="weapon.Rarity >= 4"></i>
-            <i class="fas fa-star" *ngIf="weapon.Rarity == 5"></i>
-          </div>
-        </div>
+<div class="container-1">
+  <div class="container-inner-1 flex-column" *ngIf="weapon">
+    <div class="banner-1">
+      <div class="banner-content-container-1">
+        <img
+          class="full-width full-height image-cover"
+          src="https://media.impact.moe/img/banners/banner-1.webp"
+        />
       </div>
       <div
-        id="weapon-description-container"
-        class="scrollbars-hidden scroll-overflow-y"
-      >
-        <p>{{ weapon.Description }}</p>
-        <p>
-          <i>{{ weapon.Lore }}</i>
-        </p>
-      </div>
-
-      <div
-        id="weapon-summary-content-nav"
-        class="flex-row scrollbars-hidden scroll-overflow-x"
-      >
-        <a
-          class="button-1 {{
-            utilityService.getRarityHoverBackground(weapon.Rarity)
-          }}
-           {{
-            pageId === 'overview'
-              ? utilityService.getRarityBackground(weapon.Rarity)
-              : ''
-          }}"
-          [routerLink]="['/weapons/' + weapon.Id + '/overview']"
-          ><h2>overview</h2></a
-        >
-        <a
-          class="button-1 {{
-            utilityService.getRarityHoverBackground(weapon.Rarity)
-          }}
-          {{
-            pageId === 'materials'
-              ? utilityService.getRarityBackground(weapon.Rarity)
-              : ''
-          }}"
-          [routerLink]="['/weapons/' + weapon.Id + '/materials']"
-          ><h2>materials</h2></a
-        >
-      </div>
-    </div>
-  </div>
-  <div id="weapon-content" class="body-1 flex-row full-width">
-    <div id="weapon-content-sidebar-container">
-      <div
-        id="weapon-content-sidebar"
-        class="flex-column scrollbars-hidden {{
-          utilityService.getRarityBackground(weapon.Rarity)
-        }}"
-      >
-        <div>
-          <h2>Base Attack</h2>
-          <p>{{ weapon.BaseAtk }}</p>
-        </div>
-        <div>
-          <h2>{{ weapon.SubStatType }}</h2>
-          <p>{{ weapon.SubStat }}</p>
-        </div>
-        <div>
-          <h2>Location</h2>
-          <p>{{ weapon.Location }}</p>
-        </div>
-        <div>
-          <h2>Ability</h2>
-          <p>{{ weapon.AbilityName }}</p>
-        </div>
-      </div>
-    </div>
-
-    <div id="weapon-content-main">
-      <div
-        id="weapon-overview-container"
-        class="flex-column"
-        *ngIf="pageId === 'overview'"
+        class="banner-content-container-1 flex-row flex-space-between flex-center-items"
       >
         <div
-          class="weapon-role-container content-card flex-column background-gray-2"
-        >
-          <div
-            class="content-card-title flex-row {{
-              utilityService.getRarityBackground(weapon.Rarity)
-            }}"
-          >
-            <h3>{{ weapon.AbilityName }}</h3>
+          id="weapon-opacity-layer"
+          class="full-width full-height position-absolute"
+        ></div>
+        <div id="weapon-square-card-image-container">
+          <img id="weapon-square-card-image" src="{{ weapon.Image }}" />
+        </div>
+      </div>
+    </div>
+    <div
+    id="weapon-summary-container"
+    class="full-width background-gray-2"
+  >
+    <div class="primary-content-container-1">
+      <div id="weapon-summary-sidebar-container" class="sidebar-section-1 flex-row flex-center">
+        <img
+          id="weapon-portrait-image"
+          class="image-scale-down"
+          src="{{ weapon.Image }}"
+        />
+      </div>
+      <div id="weapon-summary-content" class="main-section-1 flex-column hidden-overflow-x">
+        <div id="weapon-title-container" class="flex-row flex-center-items">
+          <div id="weapon-title-content" class="flex-column">
+            <h1>{{ weapon.Name }}</h1>
+            <div id="weapon-star-container">
+              <i class="fas fa-star" *ngIf="weapon.Rarity >= 1"></i>
+              <i class="fas fa-star" *ngIf="weapon.Rarity >= 2"></i>
+              <i class="fas fa-star" *ngIf="weapon.Rarity >= 3"></i>
+              <i class="fas fa-star" *ngIf="weapon.Rarity >= 4"></i>
+              <i class="fas fa-star" *ngIf="weapon.Rarity == 5"></i>
+            </div>
           </div>
-          <div class="content-card-body">
-            <div class="role-description">
-              <p>
-                {{ weapon.AbilityDescription }}
-              </p>
+        </div>
+        <div
+          id="weapon-description-container"
+          class="scrollbars-hidden scroll-overflow-y"
+        >
+          <p>{{ weapon.Description }}</p>
+        </div>
+
+        <div
+          id="weapon-summary-content-nav"
+          class="flex-row scrollbars-hidden scroll-overflow-x"
+        >
+          <a
+            class="button-1 {{
+              utilityService.getRarityHoverBackground(weapon.Rarity)
+            }}
+            {{
+              pageId === 'overview'
+                ? utilityService.getRarityBackground(weapon.Rarity)
+                : ''
+            }}"
+            [routerLink]="['/weapons/' + weapon.Id + '/overview']"
+            ><h2>overview</h2></a
+          >
+          <a
+            class="button-1 {{
+              utilityService.getRarityHoverBackground(weapon.Rarity)
+            }}
+            {{
+              pageId === 'materials'
+                ? utilityService.getRarityBackground(weapon.Rarity)
+                : ''
+            }}"
+            [routerLink]="['/weapons/' + weapon.Id + '/materials']"
+            ><h2>materials</h2></a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="body-1 flex-row full-width">
+      <div id="weapon-content" class="primary-content-container-1">
+        <div id="weapon-sidebar-content-container"
+          class="sidebar-section-1 flex-column scrollbars-hidden {{
+            utilityService.getRarityBackground(weapon.Rarity)
+          }}"
+        >
+          <div>
+            <h2>Base Attack</h2>
+            <p>{{ weapon.BaseAtk }}</p>
+          </div>
+          <div>
+            <h2>{{ weapon.SubStatType }}</h2>
+            <p>{{ weapon.SubStat }}</p>
+          </div>
+          <div>
+            <h2>Location</h2>
+            <p>{{ weapon.Location }}</p>
+          </div>
+          <div>
+            <h2>Ability</h2>
+            <p>{{ weapon.AbilityName }}</p>
+          </div>
+        </div>
+
+        <div id="weapon-main-content-container" class="main-section-1">
+          <div
+            id="weapon-overview-container"
+            class="flex-column"
+            *ngIf="pageId === 'overview'"
+          >
+            <div
+              class="weapon-role-container content-card flex-column background-gray-2"
+            >
+              <div
+                class="content-card-title flex-row {{
+                  utilityService.getRarityBackground(weapon.Rarity)
+                }}"
+              >
+                <h3>{{ weapon.AbilityName }}</h3>
+              </div>
+              <div class="content-card-body">
+                <div class="role-description">
+                  <p>
+                    {{ weapon.AbilityDescription }}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

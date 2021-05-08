@@ -40,11 +40,6 @@ h4 {
 
 /* Banner */
 
-#weapon-quote-image {
-  margin-left: 25em;
-  margin-top: 2em;
-}
-
 #weapon-tier-image {
   width: 5em;
   height: 5em;
@@ -72,10 +67,6 @@ h4 {
 }
 
 @media screen and (max-width: 1100px) {
-  #weapon-quote-image {
-    display: none;
-  }
-
   #weapon-tier-image {
     display: none;
   }
@@ -102,13 +93,16 @@ h4 {
 
 #weapon-portrait-image {
   margin-top: -10em;
-  margin-left: 10em;
   margin-bottom: 2em;
   width: 20em;
 }
 
 #weapon-summary-content {
-  margin: 2em 15em 0 2em;
+  height: 100%;
+}
+
+#weapon-title-container {
+  margin-top: 2em;
 }
 
 #weapon-title-content {
@@ -144,9 +138,9 @@ h4 {
     display: none;
   }
 
-  #weapon-summary-content {
-    margin-left: 5em;
-    margin-right: 5em;
+  #weapon-summary-sidebar-container {
+    min-width: 0;
+    width: 0em;
   }
 }
 
@@ -154,32 +148,32 @@ h4 {
   #weapon-summary-content-nav {
     margin-left: 0;
   }
-
-  #weapon-summary-content {
-    margin-left: 2em;
-    margin-right: 2em;
-  }
 }
 
-/* weapon Content */
+/* Weapon Content */
+
+#weapon-content {
+  flex-grow: 1;
+}
 
 @media screen and (max-width: 1100px) {
+  #weapon-main-content-container {
+    margin-top: 2em;
+  }
+
   #weapon-content {
     flex-direction: column;
+    overflow-x: hidden;
   }
 }
 
 /* Sidebar */
 
-#weapon-content-sidebar {
-  width: 20em;
-  margin-left: 10em;
-  align-self: start;
-  border-radius: 5px;
-  margin-bottom: 2em;
+#weapon-sidebar-content-container {
+  align-self: flex-start;
 }
 
-#weapon-content-sidebar > div {
+#weapon-sidebar-content-container > div {
   height: 3.5em;
   min-height: 3.5em;
   max-height: 3.5em;
@@ -191,27 +185,31 @@ h4 {
   justify-content: center;
 }
 
-#weapon-content-sidebar p {
+#weapon-sidebar-content-container p {
   margin-top: 0.2em;
   margin-left: 0.8em;
   margin-right: 0.8em;
 }
 
-#weapon-content-sidebar h2 {
+#weapon-sidebar-content-container h2 {
   margin-left: 0.8em;
   margin-right: 0.8em;
 }
 
-#weapon-content-sidebar div:first-child h2 {
+#weapon-sidebar-content-container div:first-child h2 {
   margin-top: 0.8em;
 }
 
-#weapon-content-sidebar div:last-child p {
+#weapon-sidebar-content-container div:last-child p {
   margin-bottom: 0;
 }
 
+#cweapon-sidebar-content-container div:first-child p {
+  margin-bottom: 1em;
+}
+
 @media screen and (max-width: 1100px) {
-  #weapon-content-sidebar {
+  #weapon-sidebar-content-container {
     flex-direction: row;
     overflow-x: scroll;
     height: 3.5em;
@@ -219,52 +217,34 @@ h4 {
     min-height: 3.5em;
     width: unset;
     max-width: unset;
-    margin-left: 2em;
-    margin-right: 2em;
+    width: 100%;
   }
 
-  #weapon-content-sidebar > div {
+  #weapon-sidebar-content-container > div {
     width: auto;
     min-width: unset;
     max-width: unset;
     max-height: 3.5em;
   }
 
-  #weapon-content-sidebar > div > h2 {
+  #weapon-sidebar-content-container > div > h2 {
     white-space: nowrap;
   }
 
-  #weapon-content-sidebar > div > p {
+  #weapon-sidebar-content-container > div > p {
     white-space: nowrap;
   }
 
-  #weapon-content-sidebar-container {
+  #weapon-sidebar-content-container-container {
     width: 100%;
   }
 
-  #weapon-content-sidebar div:last-child p {
+  #weapon-sidebar-content-container div:last-child p {
     margin-bottom: 1em;
   }
 
-  #weapon-content-sidebar h2 {
+  #weapon-sidebar-content-container h2 {
     margin-top: 0.8em;
-  }
-}
-
-/* Main Content */
-
-#weapon-content-main {
-  flex-grow: 1;
-  margin-right: 10em;
-  border-radius: 5px;
-  padding-left: 2em;
-  padding-right: 2em;
-  min-width: 20em;
-}
-
-@media screen and (max-width: 1100px) {
-  #weapon-content-main {
-    margin-right: 0;
   }
 }
 

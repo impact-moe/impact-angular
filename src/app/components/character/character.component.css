@@ -102,13 +102,16 @@ h4 {
 
 #character-portrait-image {
   margin-top: -10em;
-  margin-left: 10em;
   margin-bottom: 2em;
-  width: 20em;
+  max-height: 29em;
 }
 
 #character-summary-content {
-  margin: 2em 15em 0 2em;
+  height: 100%;
+}
+
+#character-title-container {
+  margin-top: 2em;
 }
 
 #character-title-content {
@@ -132,7 +135,7 @@ h4 {
   margin-left: 0.6em;
   margin-bottom: 0.5em;
   margin-top: 0.5em;
-  height: 2.5em;
+  min-height: 2.5em;
 }
 
 #character-summary-content-nav a {
@@ -143,10 +146,9 @@ h4 {
   #character-portrait-image {
     display: none;
   }
-
-  #character-summary-content {
-    margin-left: 5em;
-    margin-right: 5em;
+  #character-summary-sidebar-container {
+    min-width: 0;
+    width: 0em;
   }
 }
 
@@ -154,32 +156,32 @@ h4 {
   #character-summary-content-nav {
     margin-left: 0;
   }
-
-  #character-summary-content {
-    margin-left: 2em;
-    margin-right: 2em;
-  }
 }
 
 /* Character Content */
 
+#character-content {
+  flex-grow: 1;
+}
+
 @media screen and (max-width: 1100px) {
+  #character-main-content-container {
+    margin-top: 2em;
+  }
+
   #character-content {
     flex-direction: column;
+    overflow-x: hidden;
   }
 }
 
 /* Sidebar */
 
-#character-content-sidebar {
-  width: 20em;
-  margin-left: 10em;
-  align-self: start;
-  border-radius: 5px;
-  margin-bottom: 2em;
+#character-sidebar-content-container {
+  align-self: flex-start;
 }
 
-#character-content-sidebar > div {
+#character-sidebar-content-container > div {
   height: 3.5em;
   min-height: 3.5em;
   max-height: 3.5em;
@@ -191,27 +193,31 @@ h4 {
   justify-content: center;
 }
 
-#character-content-sidebar p {
+#character-sidebar-content-container p {
   margin-top: 0.2em;
   margin-left: 0.8em;
   margin-right: 0.8em;
 }
 
-#character-content-sidebar h2 {
+#character-sidebar-content-container h2 {
   margin-left: 0.8em;
   margin-right: 0.8em;
 }
 
-#character-content-sidebar div:first-child h2 {
+#character-sidebar-content-container div:first-child h2 {
   margin-top: 0.8em;
 }
 
-#character-content-sidebar div:last-child p {
+#character-sidebar-content-container div:last-child p {
   margin-bottom: 0;
 }
 
+#character-sidebar-content-container div:first-child p {
+  margin-bottom: 1em;
+}
+
 @media screen and (max-width: 1100px) {
-  #character-content-sidebar {
+  #character-sidebar-content-container {
     flex-direction: row;
     overflow-x: scroll;
     height: 3.5em;
@@ -219,52 +225,34 @@ h4 {
     min-height: 3.5em;
     width: unset;
     max-width: unset;
-    margin-left: 2em;
-    margin-right: 2em;
+    width: 100%;
   }
 
-  #character-content-sidebar > div {
+  #character-sidebar-content-container > div {
     width: auto;
     min-width: unset;
     max-width: unset;
     max-height: 3.5em;
   }
 
-  #character-content-sidebar > div > h2 {
+  #character-sidebar-content-container > div > h2 {
     white-space: nowrap;
   }
 
-  #character-content-sidebar > div > p {
+  #character-sidebar-content-container > div > p {
     white-space: nowrap;
   }
 
-  #character-content-sidebar-container {
+  #character-sidebar-content-container-container {
     width: 100%;
   }
 
-  #character-content-sidebar div:last-child p {
+  #character-sidebar-content-container div:last-child p {
     margin-bottom: 1em;
   }
 
-  #character-content-sidebar h2 {
+  #character-sidebar-content-container h2 {
     margin-top: 0.8em;
-  }
-}
-
-/* Main Content */
-
-#character-content-main {
-  flex-grow: 1;
-  margin-right: 10em;
-  border-radius: 5px;
-  padding-left: 2em;
-  padding-right: 2em;
-  min-width: 20em;
-}
-
-@media screen and (max-width: 1100px) {
-  #character-content-main {
-    margin-right: 0;
   }
 }
 
