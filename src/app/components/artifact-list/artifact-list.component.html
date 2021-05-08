@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="body-1 flex-column flex-center-items full-width">
-      <div id="artifact-list-container" class="flex-column">
+      <div id="artifact-list-container" class="flex-column" *ngIf="listItems">
         <div
           class="artifact-group-list-item flex-column background-gray-2"
           *ngFor="let listItem of listItems | keyvalue"
@@ -74,6 +74,9 @@
             </a>
           </div>
         </div>
+      </div>
+      <div class="container-inner-1 loading-area" *ngIf="!listItems">
+        <img src="https://media.impact.moe/img/paimon.gif">
       </div>
     </div>
   </div>

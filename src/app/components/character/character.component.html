@@ -1,4 +1,4 @@
-<div class="container-1" >
+<div class="container-1">
   <div class="container-inner-1 flex-column" *ngIf="character">
     <div class="banner-1">
       <div class="banner-content-container-1">
@@ -185,6 +185,7 @@
         </div>
 
         <div id="character-main-content-container" class="main-section-1">
+
           <div
             id="character-overview-container"
             class="flex-column"
@@ -332,6 +333,9 @@
                   </div>
                 </div>
               </div>
+            </div>
+            <div class="container-inner-1 loading-area" *ngIf="character.Roles.length == 0">
+              <img src="https://media.impact.moe/img/paimon.gif">
             </div>
           </div>
 

@@ -396,9 +396,23 @@ p {
 
 /* Generic Views */
 
+.loading-area {
+  align-self: center;
+  justify-self: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.loading-area > img {
+  width: 17em;
+  height: 17em;
+}
+
 .container-1 {
   width: 100%;
   min-height: 100%;
+  display: flex;
 }
 
 .container-inner-1 {
