@@ -1,6 +1,6 @@
-import { WeaponStat } from '../models/weapon-stat.model';
-import { Rarity } from '../enums/rarity.enum';
-import { WeaponType } from '../enums/weapon-type.enum';
+import { WeaponStat } from '@/models/weapon-stat.model';
+import { Rarity } from '@/enums/rarity.enum';
+import { WeaponType } from '@/enums/weapon-type.enum';
 
 export class Weapon {
   Id: string;

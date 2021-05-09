@@ -1,11 +1,11 @@
 import { Injectable, Inject, isDevMode } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Character } from '../models/character.model';
+import { Character } from '@/models/character.model';
 import { map } from 'rxjs/operators';
-import { Weapon } from '../models/weapon.model';
-import { Artifact } from '../models/artifact.model';
-import { Role } from '../models/role.model';
+import { Weapon } from '@/models/weapon.model';
+import { Artifact } from '@/models/artifact.model';
+import { Role } from '@/models/role.model';
 
 @Injectable({
   providedIn: 'root'

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ImpactService } from '../../services/impact.service';
-import { UtilityService } from '../../services/utility.service';
+import { ImpactService } from '@/services/impact.service';
+import { UtilityService } from '@/services/utility.service';
 import { ArtifactType } from 'src/app/enums/artifact-type.enum';
 import { Artifact } from 'src/app/models/artifact.model';
 

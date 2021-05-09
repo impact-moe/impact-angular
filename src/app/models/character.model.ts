@@ -1,5 +1,5 @@
-import { Element } from '../enums/element.enum';
-import { Region } from '../enums/region.enum';
+import { Element } from '@/enums/element.enum';
+import { Region } from '@/enums/region.enum';
 import { CharacterOverview } from './character-overview.model';
 import { Constellation } from './constellation.model';
 import { Role } from './role.model';

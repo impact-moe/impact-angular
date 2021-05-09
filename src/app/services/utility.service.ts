@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Region } from '../enums/region.enum';
-import { Element } from '../enums/element.enum';
-import { WeaponType } from '../enums/weapon-type.enum';
-import { ArtifactType } from '../enums/artifact-type.enum';
-import { Talent } from '../models/talent.model';
+import { Region } from '@/enums/region.enum';
+import { Element } from '@/enums/element.enum';
+import { WeaponType } from '@/enums/weapon-type.enum';
+import { ArtifactType } from '@/enums/artifact-type.enum';
+import { Talent } from '@/models/talent.model';
 
 @Injectable({
   providedIn: 'root'

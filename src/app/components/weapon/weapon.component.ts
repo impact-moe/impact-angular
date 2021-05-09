@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ImpactService } from '../../services/impact.service';
-import { UtilityService } from '../../services/utility.service';
+import { ImpactService } from '@/services/impact.service';
+import { UtilityService } from '@/services/utility.service';
 import { Weapon } from 'src/app/models/weapon.model';
 
 @Component({

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ImpactService } from '../../services/impact.service';
-import { UtilityService } from '../../services/utility.service';
-import { Element } from '../../enums/element.enum';
-import { Character } from '../../models/character.model';
-import { WeaponType } from '../../enums/weapon-type.enum';
+import { ImpactService } from '@/services/impact.service';
+import { UtilityService } from '@/services/utility.service';
+import { Element } from '@/enums/element.enum';
+import { Character } from '@/models/character.model';
+import { WeaponType } from '@/enums/weapon-type.enum';
 
 @Component({
   selector: 'app-character-list',
