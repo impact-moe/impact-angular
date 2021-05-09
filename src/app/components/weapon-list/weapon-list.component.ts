@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ImpactService } from '../../services/impact.service';
-import { UtilityService } from '../../services/utility.service';
-import { Character } from '../../models/character.model';
-import { WeaponType } from '../../enums/weapon-type.enum';
+import { Component } from '@angular/core';
+import { ImpactService } from '@/services/impact.service';
+import { UtilityService } from '@/services/utility.service';
+import { Character } from '@/models/character.model';
+import { WeaponType } from '@/enums/weapon-type.enum';
 import { Weapon } from 'src/app/models/weapon.model';
 
 @Component({

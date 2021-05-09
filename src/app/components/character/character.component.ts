@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Character } from '../../models/character.model';
-import { ImpactService } from '../../services/impact.service';
-import { UtilityService } from '../../services/utility.service';
+import { Character } from '@/models/character.model';
+import { ImpactService } from '@/services/impact.service';
+import { UtilityService } from '@/services/utility.service';
 import { Constellation } from 'src/app/models/constellation.model';
 import { Talent } from 'src/app/models/talent.model';
 
