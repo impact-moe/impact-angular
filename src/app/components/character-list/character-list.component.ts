@@ -9,7 +9,7 @@ import { WeaponType } from '../../enums/weapon-type.enum';
 @Component({
   selector: 'app-character-list',
   templateUrl: './character-list.component.html',
-  styleUrls: ['./character-list.component.css'],
+  styleUrls: ['./character-list.component.scss'],
 })
 export class CharacterListComponent implements OnInit {
   listItems?: { [key: string]: any };
