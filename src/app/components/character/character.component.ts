@@ -9,7 +9,7 @@ import { Talent } from 'src/app/models/talent.model';
 @Component({
   selector: 'app-character',
   templateUrl: './character.component.html',
-  styleUrls: ['./character.component.css'],
+  styleUrls: ['./character.component.scss'],
 })
 export class CharacterComponent implements OnInit {
   character?: Character;
