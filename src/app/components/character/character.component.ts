@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Character } from '../../models/character.model';
 import { ImpactService } from '../../services/impact.service';
@@ -11,7 +11,7 @@ import { Talent } from 'src/app/models/talent.model';
   templateUrl: './character.component.html',
   styleUrls: ['./character.component.css'],
 })
-export class CharacterComponent {
+export class CharacterComponent implements OnInit {
   character?: Character;
   pageId = 'overview';
 

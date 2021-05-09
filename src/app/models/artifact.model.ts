@@ -1,6 +1,6 @@
-import { ArtifactType } from "../enums/artifact-type.enum";
-import { Rarity } from "../enums/rarity.enum";
-import { ArtifactSet } from "./artifact-set.model";
+import { ArtifactType } from '../enums/artifact-type.enum';
+import { Rarity } from '../enums/rarity.enum';
+import { ArtifactSet } from './artifact-set.model';
 
 export class Artifact {
   Id: string;

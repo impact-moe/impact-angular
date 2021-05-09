@@ -1,11 +1,11 @@
-import { Component, ElementRef, Input } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input } from '@angular/core';
 import { animate, AnimationBuilder, style } from '@angular/animations';
 
 @Component({
   selector: '[appContentCard]',
   template: '<ng-content></ng-content>',
 })
-export class DropdownContentCardComponent {
+export class DropdownContentCardComponent implements AfterViewInit {
   @Input() open = false;
   height = 0;
 
@@ -15,14 +15,14 @@ export class DropdownContentCardComponent {
   ) {}
 
   ngAfterViewInit() {
-    let buttonElement = this.elementRef.nativeElement.getElementsByClassName(
+    const buttonElement = this.elementRef.nativeElement.getElementsByClassName(
       'content-card-expand-button'
     )[0];
-    let buttonImageElement = buttonElement.childNodes[0];
-    let bodyElement = this.elementRef.nativeElement.getElementsByClassName(
+    const buttonImageElement = buttonElement.childNodes[0];
+    const bodyElement = this.elementRef.nativeElement.getElementsByClassName(
       'content-card-body'
     )[0];
-    let titleElement = this.elementRef.nativeElement.getElementsByClassName(
+    const titleElement = this.elementRef.nativeElement.getElementsByClassName(
       'content-card-title'
     )[0];
 
@@ -44,14 +44,15 @@ export class DropdownContentCardComponent {
         .create(buttonImageElement)
         .play();
 
-      let factory = this.builder
+      const factory = this.builder
         .build(this.open ? this.openBody() : this.closeBody())
         .create(bodyElement);
 
-      if (this.open)
+      if (this.open) {
         factory.onDone(() => {
           bodyElement.style.setProperty('height', 'auto', 'important');
         });
+      }
 
       factory.play();
 
@@ -61,7 +62,7 @@ export class DropdownContentCardComponent {
   }
 
   bodyContentChange() {
-    let bodyElement = this.elementRef.nativeElement.getElementsByClassName(
+    const bodyElement = this.elementRef.nativeElement.getElementsByClassName(
       'content-card-body'
     )[0];
     this.height = bodyElement.offsetHeight;

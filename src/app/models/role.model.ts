@@ -1,7 +1,7 @@
-import { ArtifactPriority } from "./artifact-priority.model";
-import { MainStatPriority } from "./main-stat-priority.model";
-import { SubStatPriority } from "./sub-stat-priority.model";
-import { WeaponPriority } from "./weapon-priority.model";
+import { ArtifactPriority } from './artifact-priority.model';
+import { MainStatPriority } from './main-stat-priority.model';
+import { SubStatPriority } from './sub-stat-priority.model';
+import { WeaponPriority } from './weapon-priority.model';
 
 export class Role {
   Name: string;
@@ -15,20 +15,28 @@ export class Role {
     this.Name = roleJson.name;
     this.Notes = roleJson.notes;
 
-    if (roleJson.weapons)
-      for (let weaponJson of roleJson.weapons)
+    if (roleJson.weapons) {
+      for (const weaponJson of roleJson.weapons) {
         this.Weapons.push(new WeaponPriority(weaponJson));
+      }
+    }
 
-    if (roleJson.artifacts)
-      for (let artifactJson of roleJson.artifacts)
+    if (roleJson.artifacts) {
+      for (const artifactJson of roleJson.artifacts) {
         this.Artifacts.push(new ArtifactPriority(artifactJson));
+      }
+    }
 
-    if (roleJson.mainStats)
-      for (let mainStatJson of roleJson.mainStats)
-        this.MainStats.push(new MainStatPriority(mainStatJson))
+    if (roleJson.mainStats) {
+      for (const mainStatJson of roleJson.mainStats) {
+        this.MainStats.push(new MainStatPriority(mainStatJson));
+      }
+    }
 
-    if (roleJson.subStats)
-      for (let subStatJson of roleJson.subStats)
+    if (roleJson.subStats) {
+      for (const subStatJson of roleJson.subStats) {
         this.SubStats.push(new SubStatPriority(subStatJson));
+      }
+    }
   }
 }

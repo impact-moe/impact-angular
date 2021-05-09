@@ -1,4 +1,4 @@
-import { Weapon } from "./weapon.model";
+import { Weapon } from './weapon.model';
 
 export class WeaponPriority {
   Rank: number;
