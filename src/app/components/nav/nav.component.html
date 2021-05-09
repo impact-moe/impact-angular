@@ -6,18 +6,15 @@
       </a>
     </div>
     <div id="nav-center-group" class="flex-row">
-      <a class="button-1" [routerLink]="['/character-list']"
-        ><p>characters</p></a
-      >
-      <a class="button-1" [routerLink]="['/weapon-list']"><p>weapons</p></a>
-      <a class="button-1" [routerLink]="['/artifact-list']"><p>artifacts</p></a>
-      <a class="button-1" [routerLink]="['/statistics']"><p>statistics</p></a>
+      <moe-route-button *ngFor="let route of navList" [route]="route"></moe-route-button>
     </div>
     <div id="nav-right-group" class="flex-row flex-center">
-      <a class="button-1" [routerLink]="['/login']"><p>log in</p></a>
-      <a class="button-1 background-blue" [routerLink]="['/signup']"
-        ><p>sign up</p></a
-      >
+      <a class="button-1" [routerLink]="['/login']">
+        <p>log in</p>
+      </a>
+      <a class="button-1 background-blue" [routerLink]="['/signup']">
+        <p>sign up</p>
+      </a>
     </div>
   </div>
   <div id="nav-mobile-container" class="flex-row">
@@ -33,11 +30,13 @@
     </a>
   </div>
 </div>
+
 <div
   id="nav-drawer-click-overlay"
   [style.pointer-events]="clickOverlayPointerEventsStyle"
   (click)="closeDrawer()"
 ></div>
+
 <div
   id="nav-drawer-container"
   class="background-gray-2 flex-column"
@@ -48,16 +47,11 @@
       <i class="fa fa-times"></i>
     </div>
   </div>
-  <a class="button-1" [routerLink]="['/character-list']" (click)="closeDrawer()"
-    ><p>characters</p></a
-  >
-  <a class="button-1" [routerLink]="['/weapon-list']" (click)="closeDrawer()"
-    ><p>weapons</p></a
-  >
-  <a class="button-1" [routerLink]="['/artifact-list']" (click)="closeDrawer()"
-    ><p>artifacts</p></a
-  >
-  <a class="button-1" [routerLink]="['/statistics']" (click)="closeDrawer()"><p>statistics</p></a>
+
+  <moe-route-button *ngFor="let route of navList"
+                    [route]="route"
+                    [style]="buttonStyles.LINE_ITEM"
+                    (click)="closeDrawer()"></moe-route-button>
 
   <div id="account-container">
     <a class="button-1" [routerLink]="['/login']"><p>log in</p></a>

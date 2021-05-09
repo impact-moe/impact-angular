@@ -17,6 +17,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { ArtifactComponent } from './components/artifact/artifact.component';
 import { WeaponComponent } from './components/weapon/weapon.component';
+import { RouteButtonComponent } from './components/route-button/route-button.component';
 
 import { ImpactService } from './services/impact.service';
 import { UtilityService } from './services/utility.service';
@@ -48,6 +49,7 @@ const baseUrlProvider = {
     WeaponComponent,
     ArtifactComponent,
     LinkHandlerDirective,
+    RouteButtonComponent
   ],
   imports: [
     BrowserModule,

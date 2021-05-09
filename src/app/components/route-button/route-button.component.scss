@@ -1,0 +1,18 @@
+:host {
+  display: flex;
+}
+
+.line-item-style {
+  margin: 0;
+  border-radius: 0;
+  height: 3em;
+  width: 100%;
+}
+
+.line-item-style:hover {
+  background: #fefefe;
+}
+
+.line-item-style:hover .moe-route-label {
+  color: #262626;
+}
