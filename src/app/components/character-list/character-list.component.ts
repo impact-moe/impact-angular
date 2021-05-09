@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ImpactService } from '../../services/impact.service';
 import { UtilityService } from '../../services/utility.service';
@@ -11,7 +11,7 @@ import { WeaponType } from '../../enums/weapon-type.enum';
   templateUrl: './character-list.component.html',
   styleUrls: ['./character-list.component.css'],
 })
-export class CharacterListComponent {
+export class CharacterListComponent implements OnInit {
   listItems?: { [key: string]: any };
   groupType = '';
 
@@ -57,11 +57,13 @@ export class CharacterListComponent {
               characters: new Array<Character>(),
             };
 
-            for (let characterItem of data)
-              if (this.listItems[characterItem.Element])
+            for (const characterItem of data) {
+              if (this.listItems[characterItem.Element]) {
                 this.listItems[characterItem.Element].characters.push(
                   characterItem
                 );
+              }
+            }
           });
       } else if (this.groupType === 'weapon') {
         this.impactService
@@ -90,11 +92,13 @@ export class CharacterListComponent {
               characters: new Array<Character>(),
             };
 
-            for (let characterItem of data)
-              if (this.listItems[characterItem.Weapon])
+            for (const characterItem of data) {
+              if (this.listItems[characterItem.Weapon]) {
                 this.listItems[characterItem.Weapon].characters.push(
                   characterItem
                 );
+              }
+            }
           });
       } else if (this.groupType === 'tier') {
         this.impactService
@@ -123,17 +127,22 @@ export class CharacterListComponent {
               characters: new Array<Character>(),
             };
 
-            for (let characterItem of data) {
-              if (characterItem.Tier === 'S')
+            for (const characterItem of data) {
+              if (characterItem.Tier === 'S') {
                 this.listItems[0].characters.push(characterItem);
-              if (characterItem.Tier === 'A')
+              }
+              if (characterItem.Tier === 'A') {
                 this.listItems[1].characters.push(characterItem);
-              if (characterItem.Tier === 'B')
+              }
+              if (characterItem.Tier === 'B') {
                 this.listItems[2].characters.push(characterItem);
-              if (characterItem.Tier === 'C')
+              }
+              if (characterItem.Tier === 'C') {
                 this.listItems[3].characters.push(characterItem);
-              if (characterItem.Tier === 'D')
+              }
+              if (characterItem.Tier === 'D') {
                 this.listItems[4].characters.push(characterItem);
+              }
             }
           });
       }
@@ -141,11 +150,14 @@ export class CharacterListComponent {
   }
 
   groupButtonClick() {
-    if (this.groupType === 'element')
+    if (this.groupType === 'element') {
       this.router.navigate(['/character-list/weapon']);
-    if (this.groupType === 'weapon')
+    }
+    if (this.groupType === 'weapon') {
       this.router.navigate(['/character-list/tier']);
-    if (this.groupType === 'tier')
+    }
+    if (this.groupType === 'tier') {
       this.router.navigate(['/character-list/element']);
+    }
   }
 }

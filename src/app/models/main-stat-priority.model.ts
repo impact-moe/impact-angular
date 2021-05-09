@@ -1,4 +1,4 @@
-import { ArtifactType } from "../enums/artifact-type.enum";
+import { ArtifactType } from '../enums/artifact-type.enum';
 
 export class MainStatPriority {
   ArtifactType: ArtifactType;

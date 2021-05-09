@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ImpactService } from '../../services/impact.service';
 import { UtilityService } from '../../services/utility.service';
 import { ArtifactType } from 'src/app/enums/artifact-type.enum';
@@ -9,7 +9,7 @@ import { Artifact } from 'src/app/models/artifact.model';
   templateUrl: './artifact-list.component.html',
   styleUrls: ['./artifact-list.component.css'],
 })
-export class ArtifactListComponent {
+export class ArtifactListComponent implements OnInit {
   listItems?: { [key: string]: any };
   groupType = '';
 
@@ -43,7 +43,7 @@ export class ArtifactListComponent {
         artifacts: new Array<Artifact>(),
       };
 
-      for (let artifactItem of data) {
+      for (const artifactItem of data) {
         this.listItems[artifactItem.ArtifactType].artifacts.push(artifactItem);
       }
     });

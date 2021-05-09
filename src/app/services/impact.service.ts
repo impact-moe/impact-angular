@@ -2,7 +2,7 @@ import { Injectable, Inject, isDevMode } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Character } from '../models/character.model';
-import { map } from "rxjs/operators";
+import { map } from 'rxjs/operators';
 import { Weapon } from '../models/weapon.model';
 import { Artifact } from '../models/artifact.model';
 import { Role } from '../models/role.model';
@@ -15,10 +15,9 @@ export class ImpactService {
 
   constructor(private httpClient: HttpClient) {
     if (isDevMode()) {
-      this.apiUrl = "http://localhost:5000/api/";
-    }
-    else {
-      this.apiUrl = "https://impact.moe/api/";
+      this.apiUrl = 'http://localhost:5000/api/';
+    } else {
+      this.apiUrl = 'https://impact.moe/api/';
     }
   }
 
@@ -27,8 +26,9 @@ export class ImpactService {
 
     let httpParams: HttpParams = new HttpParams();
 
-    if (expand)
+    if (expand) {
       httpParams = httpParams.append('expand', expand);
+    }
 
     return this.httpClient.get(characterApiUrl, { params: httpParams })
       .pipe(map(res => new Character(res)));
@@ -39,8 +39,9 @@ export class ImpactService {
 
     let httpParams: HttpParams = new HttpParams();
 
-    if (expand)
+    if (expand) {
       httpParams = httpParams.append('expand', expand);
+    }
 
     return this.httpClient.get<Array<Role>>(characterApiUrl, { params: httpParams })
       .pipe(map((res: Array<Role>) => res.map(obj => new Role(obj))));
@@ -51,8 +52,9 @@ export class ImpactService {
 
     let httpParams: HttpParams = new HttpParams();
 
-    if (expand)
+    if (expand) {
       httpParams = httpParams.append('expand', expand);
+    }
 
     return this.httpClient.get<Array<Character>>(characterApiUrl, { params: httpParams })
       .pipe(map((res: Array<Character>) => res.map(obj => new Character(obj))));
@@ -63,8 +65,9 @@ export class ImpactService {
 
     let httpParams: HttpParams = new HttpParams();
 
-    if (expand)
+    if (expand) {
       httpParams = httpParams.append('expand', expand);
+    }
 
     return this.httpClient.get(weaponApiUrl, { params: httpParams })
       .pipe(map(res => new Weapon(res)));
@@ -75,11 +78,12 @@ export class ImpactService {
 
     let httpParams: HttpParams = new HttpParams();
 
-    if (expand)
+    if (expand) {
       httpParams = httpParams.append('expand', expand);
+    }
 
-      return this.httpClient.get<Array<Weapon>>(weaponApiUrl, { params: httpParams })
-        .pipe(map((res: Array<Weapon>) => res.map(obj => new Weapon(obj))));
+    return this.httpClient.get<Array<Weapon>>(weaponApiUrl, { params: httpParams })
+      .pipe(map((res: Array<Weapon>) => res.map(obj => new Weapon(obj))));
   }
 
   getArtifacts() {
@@ -92,7 +96,7 @@ export class ImpactService {
   getArtifact(id: string): Observable<Artifact> {
     const artifactApiUrl = this.apiUrl + 'artifacts/' + id.toLowerCase();
 
-    let httpParams: HttpParams = new HttpParams();
+    const httpParams: HttpParams = new HttpParams();
 
     return this.httpClient.get(artifactApiUrl, { params: httpParams })
       .pipe(map(res => new Artifact(res)));
