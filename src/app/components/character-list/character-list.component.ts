@@ -15,6 +15,12 @@ export class CharacterListComponent implements OnInit {
   listItems?: { [key: string]: any };
   groupType = '';
 
+  characterItemsCollapsed = false;
+  characterItemsCollapseButtonContent = 'show less';
+  characterItemTitleStyle = '';
+  characterItemContainerStyle = '';
+  characterItemTierStyle = '';
+
   constructor(
     private route: ActivatedRoute,
     private impactService: ImpactService,
@@ -147,6 +153,23 @@ export class CharacterListComponent implements OnInit {
           });
       }
     });
+  }
+
+  toggleCharacterItemsCollapsed() {
+    if (!this.characterItemsCollapsed) {
+      this.characterItemsCollapseButtonContent = 'show more';
+      this.characterItemTitleStyle = 'max-width: 0px; overflow-x: hidden; margin: 0px;';
+      this.characterItemContainerStyle = 'min-width: 8em; width: 8em;';
+      this.characterItemTierStyle = 'margin-left: 6em;';
+    }
+    else {
+      this.characterItemsCollapseButtonContent = 'show less';
+      this.characterItemTitleStyle = '';
+      this.characterItemContainerStyle = '';
+      this.characterItemTierStyle ='';
+    }
+
+    this.characterItemsCollapsed = !this.characterItemsCollapsed;
   }
 
   groupButtonClick() {

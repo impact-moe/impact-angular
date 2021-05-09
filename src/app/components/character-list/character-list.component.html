@@ -22,6 +22,13 @@
     </div>
     <div class="body-1 flex-column flex-center-items full-width">
       <div id="character-list-container" class="flex-column" *ngIf="listItems">
+        <div id="character-list-controls-container">
+          <div class="flex-row">
+            <a class="button-1 hover-background-gray-4" (click)="toggleCharacterItemsCollapsed()">
+              <p>{{ characterItemsCollapseButtonContent }}</p>
+            </a>
+          </div>
+        </div>
         <div
           class="character-group-list-item flex-column background-gray-2"
           *ngFor="let listItem of listItems | keyvalue"
@@ -49,11 +56,12 @@
           <div class="character-items-container flex-row flex-center">
             <a
               class="character-item-container flex-row background-gray-1"
+              [style]="characterItemContainerStyle"
               *ngFor="let characterItem of listItem.value.characters"
               routerLink="{{ '/characters/' + characterItem.Id }}"
             >
-              <div
-                class="character-item-title-container flex-column flex-center flex-center-items"
+              <div class="character-item-title-container flex-column flex-center flex-center-items"
+                [style]="characterItemTitleStyle"
               >
                 <h4>{{ characterItem.Name }}</h4>
                 <div>
@@ -97,6 +105,7 @@
               </div>
               <img
                 class="tier-image position-absolute"
+                [style]="characterItemTierStyle"
                 *ngIf="characterItem.Tier"
                 src="{{ utilityService.getTierImage32(characterItem.Tier) }}"
               />
