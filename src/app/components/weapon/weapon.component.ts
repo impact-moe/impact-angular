@@ -7,7 +7,7 @@ import { Weapon } from 'src/app/models/weapon.model';
 @Component({
   selector: 'app-weapon',
   templateUrl: './weapon.component.html',
-  styleUrls: ['./weapon.component.css'],
+  styleUrls: ['./weapon.component.scss'],
 })
 export class WeaponComponent {
   weapon?: Weapon;

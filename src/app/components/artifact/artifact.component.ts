@@ -7,7 +7,7 @@ import { Artifact } from 'src/app/models/artifact.model';
 @Component({
   selector: 'app-artifact',
   templateUrl: './artifact.component.html',
-  styleUrls: ['./artifact.component.css'],
+  styleUrls: ['./artifact.component.scss'],
 })
 export class ArtifactComponent {
   artifact?: Artifact;

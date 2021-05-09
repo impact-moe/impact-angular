@@ -7,7 +7,7 @@ import { Artifact } from 'src/app/models/artifact.model';
 @Component({
   selector: 'app-artifact-list',
   templateUrl: './artifact-list.component.html',
-  styleUrls: ['./artifact-list.component.css'],
+  styleUrls: ['./artifact-list.component.scss'],
 })
 export class ArtifactListComponent {
   listItems?: { [key: string]: any };

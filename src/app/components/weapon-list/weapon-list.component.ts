@@ -8,7 +8,7 @@ import { Weapon } from 'src/app/models/weapon.model';
 @Component({
   selector: 'app-weapon-list',
   templateUrl: './weapon-list.component.html',
-  styleUrls: ['./weapon-list.component.css'],
+  styleUrls: ['./weapon-list.component.scss'],
 })
 export class WeaponListComponent {
   listItems?: { [key: string]: any };
