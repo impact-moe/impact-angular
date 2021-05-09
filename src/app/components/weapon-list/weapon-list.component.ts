@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ImpactService } from '../../services/impact.service';
 import { UtilityService } from '../../services/utility.service';
 import { Character } from '../../models/character.model';
@@ -10,7 +10,7 @@ import { Weapon } from 'src/app/models/weapon.model';
   templateUrl: './weapon-list.component.html',
   styleUrls: ['./weapon-list.component.css'],
 })
-export class WeaponListComponent {
+export class WeaponListComponent implements OnInit {
   listItems?: { [key: string]: any };
   groupType = '';
 
@@ -44,7 +44,7 @@ export class WeaponListComponent {
         weapons: new Array<Character>(),
       };
 
-      for (let weaponItem of data) {
+      for (const weaponItem of data) {
         this.listItems[weaponItem.WeaponType].weapons.push(weaponItem);
       }
     });

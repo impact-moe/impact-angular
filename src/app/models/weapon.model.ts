@@ -1,6 +1,6 @@
 import { WeaponStat } from '../models/weapon-stat.model';
-import { Rarity } from "../enums/rarity.enum";
-import { WeaponType } from "../enums/weapon-type.enum";
+import { Rarity } from '../enums/rarity.enum';
+import { WeaponType } from '../enums/weapon-type.enum';
 
 export class Weapon {
   Id: string;
@@ -33,8 +33,10 @@ export class Weapon {
     this.Image = weaponJson.image;
     this.Location = weaponJson.location;
 
-    if (weaponJson.stats)
-      for (let weaponStatJson of weaponJson.stats)
+    if (weaponJson.stats) {
+      for (const weaponStatJson of weaponJson.stats) {
         this.Stats.push(new WeaponStat(weaponStatJson));
+      }
+    }
   }
 }

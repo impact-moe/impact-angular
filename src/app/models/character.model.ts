@@ -1,9 +1,9 @@
-import { Element } from "../enums/element.enum";
-import { Region } from "../enums/region.enum";
-import { CharacterOverview } from "./character-overview.model";
-import { Constellation } from "./constellation.model";
-import { Role } from "./role.model";
-import { Talent } from "./talent.model";
+import { Element } from '../enums/element.enum';
+import { Region } from '../enums/region.enum';
+import { CharacterOverview } from './character-overview.model';
+import { Constellation } from './constellation.model';
+import { Role } from './role.model';
+import { Talent } from './talent.model';
 
 export class Character {
   Id: string;
@@ -53,19 +53,26 @@ export class Character {
     this.KoreanVA = characterJson.koreanVA;
     this.Tier = characterJson.tier;
 
-    if (characterJson.characterOverview)
+    if (characterJson.characterOverview) {
       this.CharacterOverview = new CharacterOverview(characterJson.characterOverview);
+    }
 
-    if (characterJson.talents)
-      for (let talentJson of characterJson.talents)
+    if (characterJson.talents) {
+      for (const talentJson of characterJson.talents) {
         this.Talents.push(new Talent(talentJson));
+      }
+    }
 
-    if (characterJson.constellations)
-      for (let constellationJson of characterJson.constellations)
+    if (characterJson.constellations) {
+      for (const constellationJson of characterJson.constellations) {
         this.Constellations.push(new Constellation(constellationJson));
+      }
+    }
 
-    if (characterJson.roles)
-      for (let roleJson of characterJson.roles)
+    if (characterJson.roles) {
+      for (const roleJson of characterJson.roles) {
         this.Roles.push(new Role(roleJson));
+      }
+    }
   }
 }

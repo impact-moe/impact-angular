@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ImpactService } from '../../services/impact.service';
 import { UtilityService } from '../../services/utility.service';
@@ -9,7 +9,7 @@ import { Artifact } from 'src/app/models/artifact.model';
   templateUrl: './artifact.component.html',
   styleUrls: ['./artifact.component.css'],
 })
-export class ArtifactComponent {
+export class ArtifactComponent implements OnInit {
   artifact?: Artifact;
   pageId = 'overview';
 

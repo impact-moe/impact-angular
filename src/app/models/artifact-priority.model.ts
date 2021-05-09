@@ -1,4 +1,4 @@
-import { ArtifactSet } from "./artifact-set.model";
+import { ArtifactSet } from './artifact-set.model';
 
 export class ArtifactPriority {
   Id: string;

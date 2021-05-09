@@ -25,6 +25,12 @@ import { LinkHandlerDirective } from './directives/link-handler/link-handler.dir
 
 import { AppRoutingModule } from './app-routing.module';
 
+const baseUrlProvider = {
+  provide: 'BASE_URL',
+  useFactory: () => document.getElementsByTagName('base')[0].href,
+  deps: []
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +55,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserAnimationsModule,
     AppRoutingModule,
   ],
-  providers: [ImpactService, UtilityService],
+  providers: [ImpactService, UtilityService, baseUrlProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
