@@ -1,6 +1,4 @@
-@use 'typefaces';
-
-/* Global */
+@import 'constants';
 
 body,
 html {
@@ -25,7 +23,7 @@ a {
 }
 
 p {
-  font-family: "Montserrat", sans-serif;
+  font-family: $default-font-family;
   color: #ededed;
   font-size: 0.8rem;
   letter-spacing: 0.04em;
@@ -419,7 +417,7 @@ p {
   text-align: center;
   flex-grow: 1;
   margin: 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: $default-font-family;
   color: #fefefe;
   font-size: 0.8rem;
   letter-spacing: 0.02em;
