@@ -1,3 +1,4 @@
+import { RouteButtonStyle } from '@/components/route-button/route-button.component';
 import {
   animate,
   state,
@@ -6,6 +7,8 @@ import {
   trigger,
 } from '@angular/animations';
 import { Component } from '@angular/core';
+import { MoeRoute } from '@/routes/route.model';
+import { MoeRouteService } from '@/routes/route.service';
 
 @Component({
   selector: 'app-nav',
@@ -31,6 +34,9 @@ import { Component } from '@angular/core';
   ],
 })
 export class NavComponent {
+  readonly buttonStyles = RouteButtonStyle;
+  readonly navList: Array<MoeRoute> = MoeRouteService.mainNavList;
+
   drawerOpen = false;
   clickOverlayPointerEventsStyle = 'none';
 
