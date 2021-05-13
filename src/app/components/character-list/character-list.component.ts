@@ -12,7 +12,11 @@ import { WeaponType } from '@/enums/weapon-type.enum';
   styleUrls: ['./character-list.component.scss'],
 })
 export class CharacterListComponent implements OnInit {
-  listItems?: { [key: string]: any };
+  private characterData: Array<Character> = [];
+  private elementListItems?: { [key: string]: any };
+  private weaponListItems?: { [key: string]: any };
+  private tierListItems?: { [key: string]: any };
+
   groupType = '';
 
   characterItemsCollapsed = false;
@@ -32,127 +36,142 @@ export class CharacterListComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.groupType = params.groupType;
 
-      if (this.groupType === 'element') {
+      if (this.characterData.length === 0) {
         this.impactService
           .getCharacters()
           .subscribe((data: Array<Character>) => {
-            this.listItems = new Array();
-
-            this.listItems[Element.Anemo] = {
-              mainImage: this.utilityService.getElementImage(Element.Anemo),
-              characters: new Array<Character>(),
-            };
-            this.listItems[Element.Cryo] = {
-              mainImage: this.utilityService.getElementImage(Element.Cryo),
-              characters: new Array<Character>(),
-            };
-            this.listItems[Element.Electro] = {
-              mainImage: this.utilityService.getElementImage(Element.Electro),
-              characters: new Array<Character>(),
-            };
-            this.listItems[Element.Geo] = {
-              mainImage: this.utilityService.getElementImage(Element.Geo),
-              characters: new Array<Character>(),
-            };
-            this.listItems[Element.Hydro] = {
-              mainImage: this.utilityService.getElementImage(Element.Hydro),
-              characters: new Array<Character>(),
-            };
-            this.listItems[Element.Pyro] = {
-              mainImage: this.utilityService.getElementImage(Element.Pyro),
-              characters: new Array<Character>(),
-            };
-
-            for (const characterItem of data) {
-              if (this.listItems[characterItem.Element]) {
-                this.listItems[characterItem.Element].characters.push(
-                  characterItem
-                );
-              }
-            }
-          });
-      } else if (this.groupType === 'weapon') {
-        this.impactService
-          .getCharacters()
-          .subscribe((data: Array<Character>) => {
-            this.listItems = new Array();
-
-            this.listItems[WeaponType.Bow] = {
-              mainLabel: 'Bow',
-              characters: new Array<Character>(),
-            };
-            this.listItems[WeaponType.Catalyst] = {
-              mainLabel: 'Catalyst',
-              characters: new Array<Character>(),
-            };
-            this.listItems[WeaponType.Claymore] = {
-              mainLabel: 'Claymore',
-              characters: new Array<Character>(),
-            };
-            this.listItems[WeaponType.Polearm] = {
-              mainLabel: 'Polearm',
-              characters: new Array<Character>(),
-            };
-            this.listItems[WeaponType.Sword] = {
-              mainLabel: 'Sword',
-              characters: new Array<Character>(),
-            };
-
-            for (const characterItem of data) {
-              if (this.listItems[characterItem.Weapon]) {
-                this.listItems[characterItem.Weapon].characters.push(
-                  characterItem
-                );
-              }
-            }
-          });
-      } else if (this.groupType === 'tier') {
-        this.impactService
-          .getCharacters()
-          .subscribe((data: Array<Character>) => {
-            this.listItems = new Array();
-
-            this.listItems[0] = {
-              mainImage: this.utilityService.getTierImage('S'),
-              characters: new Array<Character>(),
-            };
-            this.listItems[1] = {
-              mainImage: this.utilityService.getTierImage('A'),
-              characters: new Array<Character>(),
-            };
-            this.listItems[2] = {
-              mainImage: this.utilityService.getTierImage('B'),
-              characters: new Array<Character>(),
-            };
-            this.listItems[3] = {
-              mainImage: this.utilityService.getTierImage('C'),
-              characters: new Array<Character>(),
-            };
-            this.listItems[4] = {
-              mainImage: this.utilityService.getTierImage('D'),
-              characters: new Array<Character>(),
-            };
-
-            for (const characterItem of data) {
-              if (characterItem.Tier === 'S') {
-                this.listItems[0].characters.push(characterItem);
-              }
-              if (characterItem.Tier === 'A') {
-                this.listItems[1].characters.push(characterItem);
-              }
-              if (characterItem.Tier === 'B') {
-                this.listItems[2].characters.push(characterItem);
-              }
-              if (characterItem.Tier === 'C') {
-                this.listItems[3].characters.push(characterItem);
-              }
-              if (characterItem.Tier === 'D') {
-                this.listItems[4].characters.push(characterItem);
-              }
-            }
+            this.characterData = data;
+            this.formatData();
           });
       }
     });
+  }
+
+  private formatData() {
+    this.formatElementList();
+    this.formatWeaponList();
+    this.formatTierList();
+  }
+
+  private formatElementList() {
+    this.elementListItems = new Array();
+
+    this.elementListItems[Element.Anemo] = {
+      mainImage: this.utilityService.getElementImage(Element.Anemo),
+      characters: new Array<Character>(),
+    };
+    this.elementListItems[Element.Cryo] = {
+      mainImage: this.utilityService.getElementImage(Element.Cryo),
+      characters: new Array<Character>(),
+    };
+    this.elementListItems[Element.Electro] = {
+      mainImage: this.utilityService.getElementImage(Element.Electro),
+      characters: new Array<Character>(),
+    };
+    this.elementListItems[Element.Geo] = {
+      mainImage: this.utilityService.getElementImage(Element.Geo),
+      characters: new Array<Character>(),
+    };
+    this.elementListItems[Element.Hydro] = {
+      mainImage: this.utilityService.getElementImage(Element.Hydro),
+      characters: new Array<Character>(),
+    };
+    this.elementListItems[Element.Pyro] = {
+      mainImage: this.utilityService.getElementImage(Element.Pyro),
+      characters: new Array<Character>(),
+    };
+
+    for (const characterItem of this.characterData) {
+      if (this.elementListItems[characterItem.Element]) {
+        this.elementListItems[characterItem.Element].characters.push(
+          characterItem
+        );
+      }
+    }
+  }
+
+  private formatWeaponList() {
+    this.weaponListItems = new Array();
+
+    this.weaponListItems[WeaponType.Bow] = {
+      mainLabel: 'Bow',
+      characters: new Array<Character>(),
+    };
+    this.weaponListItems[WeaponType.Catalyst] = {
+      mainLabel: 'Catalyst',
+      characters: new Array<Character>(),
+    };
+    this.weaponListItems[WeaponType.Claymore] = {
+      mainLabel: 'Claymore',
+      characters: new Array<Character>(),
+    };
+    this.weaponListItems[WeaponType.Polearm] = {
+      mainLabel: 'Polearm',
+      characters: new Array<Character>(),
+    };
+    this.weaponListItems[WeaponType.Sword] = {
+      mainLabel: 'Sword',
+      characters: new Array<Character>(),
+    };
+
+    for (const characterItem of this.characterData) {
+      if (this.weaponListItems[characterItem.Weapon]) {
+        this.weaponListItems[characterItem.Weapon].characters.push(
+          characterItem
+        );
+      }
+    }
+  }
+
+  private formatTierList() {
+    this.tierListItems = new Array();
+
+    this.tierListItems[0] = {
+      mainImage: this.utilityService.getTierImage('S'),
+      characters: new Array<Character>(),
+    };
+    this.tierListItems[1] = {
+      mainImage: this.utilityService.getTierImage('A'),
+      characters: new Array<Character>(),
+    };
+    this.tierListItems[2] = {
+      mainImage: this.utilityService.getTierImage('B'),
+      characters: new Array<Character>(),
+    };
+    this.tierListItems[3] = {
+      mainImage: this.utilityService.getTierImage('C'),
+      characters: new Array<Character>(),
+    };
+    this.tierListItems[4] = {
+      mainImage: this.utilityService.getTierImage('D'),
+      characters: new Array<Character>(),
+    };
+
+    for (const characterItem of this.characterData) {
+      if (characterItem.Tier === 'S') {
+        this.tierListItems[0].characters.push(characterItem);
+      }
+      if (characterItem.Tier === 'A') {
+        this.tierListItems[1].characters.push(characterItem);
+      }
+      if (characterItem.Tier === 'B') {
+        this.tierListItems[2].characters.push(characterItem);
+      }
+      if (characterItem.Tier === 'C') {
+        this.tierListItems[3].characters.push(characterItem);
+      }
+      if (characterItem.Tier === 'D') {
+        this.tierListItems[4].characters.push(characterItem);
+      }
+    }
+  }
+
+  get listItems() {
+    if (this.groupType === 'element') return this.elementListItems;
+    if (this.groupType === 'weapon') return this.weaponListItems;
+    if (this.groupType === 'tier') return this.tierListItems;
+
+    return null;
   }
 
   toggleCharacterItemsCollapsed() {
