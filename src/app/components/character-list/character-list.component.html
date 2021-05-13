@@ -64,14 +64,7 @@
                 [style]="characterItemTitleStyle"
               >
                 <h4>{{ characterItem.Name }}</h4>
-                <div>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-
-                  <i class="fas fa-star" *ngIf="characterItem.Rarity == 5"></i>
-                </div>
+                <moe-rarity [value]="characterItem.Rarity"></moe-rarity>
               </div>
 
               <div class="character-item-image-container-1">

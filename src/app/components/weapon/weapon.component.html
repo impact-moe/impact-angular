@@ -35,13 +35,7 @@
         <div id="weapon-title-container" class="flex-row flex-center-items">
           <div id="weapon-title-content" class="flex-column">
             <h1>{{ weapon.Name }}</h1>
-            <div id="weapon-star-container">
-              <i class="fas fa-star" *ngIf="weapon.Rarity >= 1"></i>
-              <i class="fas fa-star" *ngIf="weapon.Rarity >= 2"></i>
-              <i class="fas fa-star" *ngIf="weapon.Rarity >= 3"></i>
-              <i class="fas fa-star" *ngIf="weapon.Rarity >= 4"></i>
-              <i class="fas fa-star" *ngIf="weapon.Rarity == 5"></i>
-            </div>
+            <moe-rarity id="weapon-star-container" [value]="weapon.Rarity"></moe-rarity>
           </div>
         </div>
         <div

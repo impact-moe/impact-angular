@@ -18,11 +18,14 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
 import { ArtifactComponent } from './components/artifact/artifact.component';
 import { WeaponComponent } from './components/weapon/weapon.component';
 import { RouteButtonComponent } from './components/route-button/route-button.component';
+import { MoeRarityComponent } from './components/rarity/rarity.component';
 
 import { ImpactService } from './services/impact.service';
 import { UtilityService } from './services/utility.service';
 
 import { LinkHandlerDirective } from './directives/link-handler/link-handler.directive';
+
+import { MultiplierPipe } from './pipes/multiplier.pipe';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -49,7 +52,9 @@ const baseUrlProvider = {
     WeaponComponent,
     ArtifactComponent,
     LinkHandlerDirective,
-    RouteButtonComponent
+    RouteButtonComponent,
+    MoeRarityComponent,
+    MultiplierPipe
   ],
   imports: [
     BrowserModule,
