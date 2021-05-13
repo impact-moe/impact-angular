@@ -1,6 +1,6 @@
 /**
- * @fileoverview Helper Pipe to transform a numeric length into an empty array,
- * allowing us to repeat DOM elements.
+ * @fileoverview Helper Pipe to transform a numeric length into an array of
+ * that length (sans content), allowing us to repeat DOM elements.
  */
 
 import { Pipe, PipeTransform } from "@angular/core";
