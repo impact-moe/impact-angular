@@ -34,9 +34,7 @@ export class Character {
   constructor(characterJson: any) {
     this.Id = characterJson.id;
     this.Name = characterJson.name;
-    // TODO(impact-moe/impact-api#2): Remove this unary once the server sends
-    // back a number.
-    this.Rarity = +characterJson.rarity;
+    this.Rarity = characterJson.rarity;
     this.Weapon = characterJson.weapon;
     this.Element = characterJson.element;
     this.Region = characterJson.region;
