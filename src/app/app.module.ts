@@ -1,30 +1,27 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
-import { NavComponent } from './components/nav/nav.component';
-import { CharacterComponent } from './components/character/character.component';
-import { WeaponListComponent } from './components/weapon-list/weapon-list.component';
-import { CharacterListComponent } from './components/character-list/character-list.component';
 import { ArtifactListComponent } from './components/artifact-list/artifact-list.component';
-import { DropdownContentCardComponent } from 'src/app/components/dropdown-content-card/dropdown-content-card.component';
-import { LoginComponent } from './components/login/login.component';
-import { SignupComponent } from './components/signup/signup.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { StatisticsComponent } from './components/statistics/statistics.component';
 import { ArtifactComponent } from './components/artifact/artifact.component';
-import { WeaponComponent } from './components/weapon/weapon.component';
+import { CharacterListComponent } from './components/character-list/character-list.component';
+import { CharacterComponent } from './components/character/character.component';
+import { DropdownContentCardComponent } from './components/dropdown-content-card/dropdown-content-card.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoadingImageComponent } from './components/loading-image/loading-image.component';
+import { LoginComponent } from './components/login/login.component';
+import { NavComponent } from './components/nav/nav.component';
 import { RouteButtonComponent } from './components/route-button/route-button.component';
-
+import { SignupComponent } from './components/signup/signup.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
+import { WeaponListComponent } from './components/weapon-list/weapon-list.component';
+import { WeaponComponent } from './components/weapon/weapon.component';
+import { LinkHandlerDirective } from './directives/link-handler/link-handler.directive';
 import { ImpactService } from './services/impact.service';
 import { UtilityService } from './services/utility.service';
-
-import { LinkHandlerDirective } from './directives/link-handler/link-handler.directive';
-
-import { AppRoutingModule } from './app-routing.module';
 
 const baseUrlProvider = {
   provide: 'BASE_URL',
@@ -35,21 +32,22 @@ const baseUrlProvider = {
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    NavComponent,
+    ArtifactComponent,
+    ArtifactListComponent,
     CharacterComponent,
     CharacterListComponent,
-    WeaponListComponent,
-    ArtifactListComponent,
     DropdownContentCardComponent,
-    LoginComponent,
-    SignupComponent,
     FooterComponent,
+    HomeComponent,
+    LinkHandlerDirective,
+    LoadingImageComponent,
+    LoginComponent,
+    NavComponent,
+    RouteButtonComponent,
+    SignupComponent,
     StatisticsComponent,
     WeaponComponent,
-    ArtifactComponent,
-    LinkHandlerDirective,
-    RouteButtonComponent
+    WeaponListComponent
   ],
   imports: [
     BrowserModule,

@@ -334,9 +334,7 @@
                 </div>
               </div>
             </div>
-            <div class="container-inner-1 loading-area" *ngIf="character.Roles.length == 0">
-              <img src="https://media.impact.moe/img/paimon.gif">
-            </div>
+            <moe-loading-image *ngIf="character.Roles.length == 0"></moe-loading-image>
           </div>
 
           <div
