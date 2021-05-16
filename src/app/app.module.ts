@@ -29,7 +29,7 @@ import { AppRoutingModule } from './app-routing.module';
 const baseUrlProvider = {
   provide: 'BASE_URL',
   useFactory: () => document.getElementsByTagName('base')[0].href,
-  deps: []
+  deps: [],
 };
 
 @NgModule({
@@ -49,7 +49,7 @@ const baseUrlProvider = {
     WeaponComponent,
     ArtifactComponent,
     LinkHandlerDirective,
-    RouteButtonComponent
+    RouteButtonComponent,
   ],
   imports: [
     BrowserModule,

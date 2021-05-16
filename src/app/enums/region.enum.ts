@@ -6,5 +6,5 @@ export enum Region {
   Fontaine = 'Fontaine',
   Natlan = 'Natlan',
   Snezhnaya = 'Snezhnaya',
-  Khaenriah = 'Khaenriah'
+  Khaenriah = 'Khaenriah',
 }

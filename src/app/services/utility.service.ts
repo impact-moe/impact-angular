@@ -6,7 +6,7 @@ import { ArtifactType } from '@/enums/artifact-type.enum';
 import { Talent } from '@/models/talent.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UtilityService {
   private baseUrl = 'https://media.impact.moe/';

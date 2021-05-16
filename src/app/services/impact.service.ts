@@ -8,7 +8,7 @@ import { Artifact } from '@/models/artifact.model';
 import { Role } from '@/models/role.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ImpactService {
   apiUrl;
@@ -30,12 +30,14 @@ export class ImpactService {
       httpParams = httpParams.append('expand', expand);
     }
 
-    return this.httpClient.get(characterApiUrl, { params: httpParams })
+    return this.httpClient
+      .get(characterApiUrl, { params: httpParams })
       .pipe(map(res => new Character(res)));
   }
 
   getCharacterRoles(id: string, expand?: string): Observable<Array<Role>> {
-    const characterApiUrl = this.apiUrl + 'characters/' + id.toLowerCase() + '/roles';
+    const characterApiUrl =
+      this.apiUrl + 'characters/' + id.toLowerCase() + '/roles';
 
     let httpParams: HttpParams = new HttpParams();
 
@@ -43,7 +45,8 @@ export class ImpactService {
       httpParams = httpParams.append('expand', expand);
     }
 
-    return this.httpClient.get<Array<Role>>(characterApiUrl, { params: httpParams })
+    return this.httpClient
+      .get<Array<Role>>(characterApiUrl, { params: httpParams })
       .pipe(map((res: Array<Role>) => res.map(obj => new Role(obj))));
   }
 
@@ -56,7 +59,8 @@ export class ImpactService {
       httpParams = httpParams.append('expand', expand);
     }
 
-    return this.httpClient.get<Array<Character>>(characterApiUrl, { params: httpParams })
+    return this.httpClient
+      .get<Array<Character>>(characterApiUrl, { params: httpParams })
       .pipe(map((res: Array<Character>) => res.map(obj => new Character(obj))));
   }
 
@@ -69,7 +73,8 @@ export class ImpactService {
       httpParams = httpParams.append('expand', expand);
     }
 
-    return this.httpClient.get(weaponApiUrl, { params: httpParams })
+    return this.httpClient
+      .get(weaponApiUrl, { params: httpParams })
       .pipe(map(res => new Weapon(res)));
   }
 
@@ -82,14 +87,16 @@ export class ImpactService {
       httpParams = httpParams.append('expand', expand);
     }
 
-    return this.httpClient.get<Array<Weapon>>(weaponApiUrl, { params: httpParams })
+    return this.httpClient
+      .get<Array<Weapon>>(weaponApiUrl, { params: httpParams })
       .pipe(map((res: Array<Weapon>) => res.map(obj => new Weapon(obj))));
   }
 
   getArtifacts() {
     const artifactApiUrl = this.apiUrl + 'artifacts';
 
-    return this.httpClient.get<Array<Artifact>>(artifactApiUrl)
+    return this.httpClient
+      .get<Array<Artifact>>(artifactApiUrl)
       .pipe(map((res: Array<Artifact>) => res.map(obj => new Artifact(obj))));
   }
 
@@ -98,7 +105,8 @@ export class ImpactService {
 
     const httpParams: HttpParams = new HttpParams();
 
-    return this.httpClient.get(artifactApiUrl, { params: httpParams })
+    return this.httpClient
+      .get(artifactApiUrl, { params: httpParams })
       .pipe(map(res => new Artifact(res)));
   }
 }

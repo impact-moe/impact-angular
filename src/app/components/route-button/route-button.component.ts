@@ -7,13 +7,13 @@ import { MoeRoute } from '@/routes/route.model';
 
 export enum RouteButtonStyle {
   BUTTON,
-  LINE_ITEM
+  LINE_ITEM,
 }
 
 @Component({
   selector: 'moe-route-button',
   templateUrl: './route-button.component.html',
-  styleUrls: ['./route-button.component.scss']
+  styleUrls: ['./route-button.component.scss'],
 })
 export class RouteButtonComponent {
   readonly buttonStyles = RouteButtonStyle;
@@ -23,6 +23,6 @@ export class RouteButtonComponent {
 
   getStyle() {
     // Set a default style application if none was specified.
-    return !!this.style ? this.style : RouteButtonStyle.BUTTON;
+    return this.style ? this.style : RouteButtonStyle.BUTTON;
   }
 }

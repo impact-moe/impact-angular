@@ -3,5 +3,5 @@ export enum Rarity {
   Two_Star = 2,
   Three_Star = 3,
   Four_Star = 4,
-  Five_Star = 5
+  Five_Star = 5,
 }

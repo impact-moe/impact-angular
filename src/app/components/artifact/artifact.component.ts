@@ -20,17 +20,17 @@ export class ArtifactComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.route.params.subscribe((params) => {
+    this.route.params.subscribe(params => {
       if (!params.artifactId) return;
 
       if (params.pageId === 'overview') {
-        this.impactService.getArtifact(params.artifactId).subscribe((data) => {
+        this.impactService.getArtifact(params.artifactId).subscribe(data => {
           this.artifact = data;
 
           this.pageId = params.pageId;
         });
       } else if (params.pageId === 'materials') {
-        this.impactService.getArtifact(params.artifactId).subscribe((data) => {
+        this.impactService.getArtifact(params.artifactId).subscribe(data => {
           this.artifact = data;
 
           this.pageId = params.pageId;

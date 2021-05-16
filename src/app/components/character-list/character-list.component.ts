@@ -29,7 +29,7 @@ export class CharacterListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.route.params.subscribe((params) => {
+    this.route.params.subscribe(params => {
       this.groupType = params.groupType;
 
       if (this.groupType === 'element') {
@@ -158,15 +158,15 @@ export class CharacterListComponent implements OnInit {
   toggleCharacterItemsCollapsed() {
     if (!this.characterItemsCollapsed) {
       this.characterItemsCollapseButtonContent = 'show more';
-      this.characterItemTitleStyle = 'max-width: 0px; overflow-x: hidden; margin: 0px;';
+      this.characterItemTitleStyle =
+        'max-width: 0px; overflow-x: hidden; margin: 0px;';
       this.characterItemContainerStyle = 'min-width: 8em; width: 8em;';
       this.characterItemTierStyle = 'margin-left: 6em;';
-    }
-    else {
+    } else {
       this.characterItemsCollapseButtonContent = 'show less';
       this.characterItemTitleStyle = '';
       this.characterItemContainerStyle = '';
-      this.characterItemTierStyle ='';
+      this.characterItemTierStyle = '';
     }
 
     this.characterItemsCollapsed = !this.characterItemsCollapsed;

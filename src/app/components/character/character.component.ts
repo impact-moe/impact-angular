@@ -38,18 +38,18 @@ export class CharacterComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.route.params.subscribe((params) => {
+    this.route.params.subscribe(params => {
       if (!params.characterId) return;
 
       if (!params.pageId || params.pageId === 'overview') {
         this.impactService
           .getCharacter(params.characterId, 'overview')
-          .subscribe((data1) => {
+          .subscribe(data1 => {
             this.character = data1;
 
             this.impactService
               .getCharacterRoles(params.characterId, 'weapon,artifactset')
-              .subscribe((data2) => {
+              .subscribe(data2 => {
                 if (this.character) this.character.Roles = data2;
               });
 
@@ -58,7 +58,7 @@ export class CharacterComponent implements OnInit {
       } else if (params.pageId === 'talents') {
         this.impactService
           .getCharacter(params.characterId, 'talents')
-          .subscribe((data) => {
+          .subscribe(data => {
             this.character = data;
 
             this.normalTalent = this.utilityService.getTalentByType(
@@ -91,7 +91,7 @@ export class CharacterComponent implements OnInit {
       } else if (params.pageId === 'constellations') {
         this.impactService
           .getCharacter(params.characterId, 'constellations')
-          .subscribe((data) => {
+          .subscribe(data => {
             this.character = data;
 
             this.constellationOne = this.character.Constellations[0];
@@ -104,29 +104,23 @@ export class CharacterComponent implements OnInit {
             this.pageId = params.pageId;
           });
       } else if (params.pageId === 'sounds') {
-        this.impactService
-          .getCharacter(params.characterId)
-          .subscribe((data) => {
-            this.character = data;
+        this.impactService.getCharacter(params.characterId).subscribe(data => {
+          this.character = data;
 
-            this.pageId = params.pageId;
-          });
+          this.pageId = params.pageId;
+        });
       } else if (params.pageId === 'quotes') {
-        this.impactService
-          .getCharacter(params.characterId)
-          .subscribe((data) => {
-            this.character = data;
+        this.impactService.getCharacter(params.characterId).subscribe(data => {
+          this.character = data;
 
-            this.pageId = params.pageId;
-          });
+          this.pageId = params.pageId;
+        });
       } else if (params.pageId === 'stories') {
-        this.impactService
-          .getCharacter(params.characterId)
-          .subscribe((data) => {
-            this.character = data;
+        this.impactService.getCharacter(params.characterId).subscribe(data => {
+          this.character = data;
 
-            this.pageId = params.pageId;
-          });
+          this.pageId = params.pageId;
+        });
       }
     });
   }
