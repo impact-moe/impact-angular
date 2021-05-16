@@ -1,4 +1,11 @@
 {
+  "extends": [
+    "eslint:recommended",
+    "prettier",
+  ],
+  "plugins": [
+    "prettier"
+  ],
   "root": true,
   "ignorePatterns": [
     "projects/**/*"
@@ -40,7 +47,8 @@
         "brace-style": [2, "1tbs", { "allowSingleLine": false }],
         "curly": ["error", "multi-line"],
         "indent": ["error", 2],
-        "space-before-blocks": "error"
+        "space-before-blocks": "error",
+        "prettier/prettier": "error"
       }
     },
     {
