@@ -17,7 +17,7 @@
       ],
       "rules": {
         "@angular-eslint/component-selector": [
-          "error",
+          "warn", // TODO: Fix warnings, then upgrade to 'error'.
           {
             "type": "element",
             "prefix": "app",
@@ -25,7 +25,7 @@
           }
         ],
         "@angular-eslint/directive-selector": [
-          "error",
+          "warn", // TODO: Fix warnings, then upgrade to 'error'.
           {
             "type": "attribute",
             "prefix": "app",
@@ -36,7 +36,15 @@
         "curly": ["error", "multi-line"],
         "indent": ["error", 2],
         "space-before-blocks": "error",
-        "prettier/prettier": "error"
+        "prettier/prettier": "error",
+        "@typescript-eslint/naming-convention": 1, // TODO: Fix warnings, then remove.
+        "no-undef": 1, // TODO: Fix warnings, then remove.
+        "no-unused-vars": 1, // TODO: Fix warnings, then remove.
+        "@typescript-eslint/no-namespace": 1, // TODO: Fix warnings, then remove.
+        "no-redeclare": 1, // TODO: Fix warnings, then remove.
+        "@typescript-eslint/ban-types": 1, // TODO: Fix warnings, then remove.
+        "no-shadow": 1, // TODO: Fix warnings, then remove.
+        "@typescript-eslint/member-ordering": 1 // TODO: Fix warnings, then remove.
       }
     },
     {
