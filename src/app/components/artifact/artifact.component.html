@@ -35,13 +35,7 @@
           <div id="artifact-title-container" class="flex-row flex-center-items">
             <div id="artifact-title-content" class="flex-column">
               <h1>{{ artifact.Name }}</h1>
-              <div id="artifact-star-container">
-                <i class="fas fa-star" *ngIf="artifact.Rarity >= 1"></i>
-                <i class="fas fa-star" *ngIf="artifact.Rarity >= 2"></i>
-                <i class="fas fa-star" *ngIf="artifact.Rarity >= 3"></i>
-                <i class="fas fa-star" *ngIf="artifact.Rarity >= 4"></i>
-                <i class="fas fa-star" *ngIf="artifact.Rarity == 5"></i>
-              </div>
+              <moe-rarity id="artifact-star-container" [value]="artifact.Rarity"></moe-rarity>
             </div>
           </div>
           <div
