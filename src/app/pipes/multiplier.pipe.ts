@@ -3,7 +3,7 @@
  * that length (sans content), allowing us to repeat DOM elements.
  */
 
-import { Pipe, PipeTransform } from "@angular/core";
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({ name: 'multiply' })
 export class MultiplierPipe implements PipeTransform {
