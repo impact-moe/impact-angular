@@ -1,5 +1,7 @@
+@import 'constants';
+
 h1 {
-  font-family: "Montserrat", sans-serif;
+  font-family: $default-font-family;
   color: #fefefe;
   font-size: 1.4rem;
   letter-spacing: 0.02em;
@@ -9,7 +11,7 @@ h1 {
 }
 
 h2 {
-  font-family: "Montserrat", sans-serif;
+  font-family: $default-font-family;
   color: #fefefe;
   font-size: 0.8rem;
   letter-spacing: 0.02em;
@@ -19,7 +21,7 @@ h2 {
 }
 
 h3 {
-  font-family: "Montserrat", sans-serif;
+  font-family: $default-font-family;
   color: #fefefe;
   font-size: 1.4rem;
   letter-spacing: 0.02em;
@@ -29,7 +31,7 @@ h3 {
 }
 
 h4 {
-  font-family: "Montserrat", sans-serif;
+  font-family: $default-font-family;
   color: #fefefe;
   font-size: 1rem;
   letter-spacing: 0.02em;
@@ -120,9 +122,6 @@ h4 {
 
 #character-star-container {
   margin-top: 0.3em;
-  color: #fefefe;
-  font-size: 0.7rem;
-  letter-spacing: 0.15rem;
 }
 
 #character-description-container {
@@ -362,7 +361,7 @@ h4 {
 }
 
 .talent-tag-container p {
-  font-family: "Montserrat", sans-serif;
+  font-family: $default-font-family;
   color: #fefefe;
   font-size: 0.8rem;
   letter-spacing: 0.02em;

@@ -43,14 +43,7 @@
             <img src="{{ utilityService.getElementImage(character.Element) }}" />
             <div id="character-title-content" class="flex-column">
               <h1>{{ character.Name }}</h1>
-              <div id="character-star-container">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-
-                <i class="fas fa-star" *ngIf="character.Rarity == 5"></i>
-              </div>
+              <moe-rarity id="character-star-container" [value]="character.Rarity"></moe-rarity>
             </div>
           </div>
           <div

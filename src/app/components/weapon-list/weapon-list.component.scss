@@ -1,5 +1,7 @@
+@import 'constants';
+
 h1 {
-  font-family: "Montserrat", sans-serif;
+  font-family: $default-font-family;
   color: #fefefe;
   font-size: 2.2rem;
   font-weight: 800;
@@ -8,7 +10,7 @@ h1 {
 }
 
 h2 {
-  font-family: "Montserrat", sans-serif;
+  font-family: $default-font-family;
   color: #fefefe;
   font-size: 0.8rem;
   letter-spacing: 0.02em;
@@ -18,7 +20,7 @@ h2 {
 }
 
 h3 {
-  font-family: "Montserrat", sans-serif;
+  font-family: $default-font-family;
   color: #fefefe;
   font-size: 0.8rem;
   letter-spacing: 0.02em;
@@ -28,7 +30,7 @@ h3 {
 }
 
 h4 {
-  font-family: "Montserrat", sans-serif;
+  font-family: $default-font-family;
   color: #fefefe;
   font-size: 0.8rem;
   letter-spacing: 0.02em;
