@@ -1,3 +1,4 @@
+import { CharacterCardModel } from '@/components/character-card/character-card.model';
 import { Element } from '@/enums/element.enum';
 import { Region } from '@/enums/region.enum';
 import { CharacterOverview } from './character-overview.model';
@@ -74,5 +75,15 @@ export class Character {
         this.Roles.push(new Role(roleJson));
       }
     }
+  }
+
+  toCharacterCardModel() {
+    return new CharacterCardModel.Builder(this.Id)
+      .setName(this.Name)
+      .setRarity(this.Rarity)
+      .setImageUrl(this.SquareCard)
+      .setElement(this.Element)
+      .setTier(this.Tier)
+      .build();
   }
 }

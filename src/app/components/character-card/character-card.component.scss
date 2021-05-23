@@ -1,0 +1,51 @@
+@import "constants";
+
+:host {
+  display: flex;
+  flex-direction: row;
+  padding: 1em;
+  position: relative;
+}
+
+.character-profile-link {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.character-card-summary {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  padding: 0.5em;
+  text-align: center;
+}
+
+.character-card-name {
+  line-height: 1.4rem;
+}
+
+moe-rarity {
+  padding-top: 4px;
+}
+
+.character-card-image {
+  @include default-border-radius;
+
+  background-position: center;
+  background-size: cover;
+  height: 8em;
+  width: 8em;
+}
+
+.character-card-tier {
+  bottom: 0.5em;
+  height: 1.5em;
+  position: absolute;
+  right: 0.5em;
+  width: 1.5em;
+}

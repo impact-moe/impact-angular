@@ -54,55 +54,10 @@
             </h3>
           </div>
           <div class="character-items-container flex-row flex-center">
-            <a
-              class="character-item-container flex-row background-gray-1"
-              [style]="characterItemContainerStyle"
-              *ngFor="let characterItem of listItem.value.characters"
-              routerLink="{{ '/characters/' + characterItem.Id }}"
-            >
-              <div class="character-item-title-container flex-column flex-center flex-center-items"
-                [style]="characterItemTitleStyle"
-              >
-                <h4>{{ characterItem.Name }}</h4>
-                <moe-rarity [value]="characterItem.Rarity"></moe-rarity>
-              </div>
-
-              <div class="character-item-image-container-1">
-                <div class="character-item-image-container-2">
-                  <div
-                    class="character-item-image-container-3 flex-row flex-center flex-center-items"
-                    [ngStyle]="{
-                      'background-image': 'url(' + characterItem.SquareCard + ')'
-                    }"
-                  >
-                    <div class="character-item-overlay-background-container">
-                      <div
-                        class="character-item-overlay"
-                        [ngStyle]="{
-                          'background-image':
-                            'url(' + characterItem.SquareCard + ')'
-                        }"
-                      ></div>
-                    </div>
-                    <div
-                      class="character-item-overlay-content flex-column flex-center flex-center-items position-absolute"
-                    >
-                      <img
-                        src="{{
-                          utilityService.getElementImage(characterItem.Element)
-                        }}"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <img
-                class="tier-image position-absolute"
-                [style]="characterItemTierStyle"
-                *ngIf="characterItem.Tier"
-                src="{{ utilityService.getTierImage32(characterItem.Tier) }}"
-              />
-            </a>
+            <moe-character-card
+              *ngFor="let characterResponse of listItem.value.characters"
+              [character]="characterResponse.toCharacterCardModel()">
+            </moe-character-card>
           </div>
         </div>
       </div>

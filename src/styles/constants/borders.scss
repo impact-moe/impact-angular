@@ -1,0 +1,5 @@
+$moe-border-radius: 5px;
+
+@mixin default-border-radius {
+  border-radius: $moe-border-radius;
+}
