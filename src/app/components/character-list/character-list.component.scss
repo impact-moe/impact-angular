@@ -1,83 +1,106 @@
 @import "constants";
 
-h1 {
-  font-family: $default-font-family;
-  color: #fefefe;
-  font-size: 2.2rem;
-  font-weight: 800;
-  margin-bottom: 0;
-  margin-top: 0;
+:host {
+  display: block;
+  margin-top: 6em;
 }
 
-h2 {
-  font-family: $default-font-family;
-  color: #fefefe;
-  font-size: 0.8rem;
-  letter-spacing: 0.02em;
-  font-weight: 800;
-  margin-top: 0;
-  margin-bottom: 0;
+.page-header {
+  align-items: center;
+  background-image: url(https://media.impact.moe/img/banners/banner-1.webp);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 2em 1em;
+
+  @media (min-width: 600px) {
+    padding: 4em 1em;
+  }
 }
 
-h3 {
-  font-family: $default-font-family;
-  color: #fefefe;
-  font-size: 0.8rem;
-  letter-spacing: 0.02em;
-  font-weight: 800;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-/* Banner */
-
-#group-type-button {
-  margin-top: 1em;
-}
-
-#character-list-controls-container {
+.page-content {
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 1024px;
+  padding: 0 0.5em;
   width: 100%;
+
+  @media (min-width: 600px) {
+    padding: 0 1.5em;
+  }
+}
+
+.character-list-controls {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  user-select: none;
+  padding: 0.5em 0;
+
+  #group-type-button {
+    margin: 0;
+  }
+
+  .group-type-button-label {
+    text-transform: uppercase;
+  }
+
+  i {
+    padding: 0 0.5em;
+    margin: 0;
+  }
+
+  .group-type-selected {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  @media (min-width: 600px) {
+    padding: 1em 0;
+  }
 }
 
 /* List Content */
 
-#character-list-container {
-  max-width: 70%;
+.character-group-section {
+  padding-bottom: 24px;
 }
 
-.character-group-list-item {
+.character-group-section-header {
   @include default-border-radius;
 
-  margin: 0.5em;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0.5em;
+  height: 2em;
+
+  img {
+    max-height: 100%;
+  }
 }
 
-.character-group-list-item-image-container {
-  border-radius: 5px 5px 0 0;
-  align-self: stretch;
-  height: 3em;
-}
+.character-items-list {
+  column-gap: 0.5em;
+  display: grid;
+  justify-items: stretch;
+  margin-top: 0.5em;
+  row-gap: 0.5em;
 
-.character-group-list-item-image-container img {
-  width: 2em;
-}
+  @media (min-width: 600px) and (max-width: 1023px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-.character-items-container {
-  padding: 1em;
-  flex-wrap: wrap;
-  flex-grow: 1;
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 moe-character-card {
   @include default-border-radius;
 
-  background: $moe-background-color;
-  margin: 1em;
-  min-width: 18em;
-  width: 18em;
-}
-
-@media screen and (max-width: 525px) {
-  #character-list-container {
-    max-width: 100%;
-  }
+  background: #aaa1;
 }

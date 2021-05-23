@@ -35,7 +35,7 @@
   flex-direction: column;
   flex-grow: 1;
   justify-content: center;
-  padding: 0.5em;
+  padding: 0.5em 1em 0.5em 0;
   text-align: center;
 }
 
@@ -54,11 +54,12 @@ moe-rarity {
   background-size: cover;
   background-position: center;
   display: flex;
+  flex-shrink: 0;
   height: 8em;
   justify-content: center;
   overflow: hidden;
   position: relative;
-  width: 8em;
+  width: 7em;
 }
 
 .character-card-blur-image,
