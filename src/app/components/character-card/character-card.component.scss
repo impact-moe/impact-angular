@@ -1,10 +1,23 @@
 @import "constants";
 
 :host {
+  cursor: pointer;
   display: flex;
   flex-direction: row;
   padding: 1em;
   position: relative;
+
+  &:hover {
+    .character-card-blur-image {
+      filter: blur(2px);
+      transform: scale(1.05);
+      opacity: 1;
+    }
+
+    .character-card-hover-image {
+      opacity: 1;
+    }
+  }
 }
 
 .character-profile-link {
@@ -33,13 +46,41 @@ moe-rarity {
   padding-top: 4px;
 }
 
-.character-card-image {
+.character-card-image-container {
   @include default-border-radius;
 
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  height: 8em;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  width: 8em;
+}
+
+.character-card-blur-image,
+.character-card-hover-image {
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.character-card-blur-image {
   background-position: center;
   background-size: cover;
-  height: 8em;
-  width: 8em;
+  height: 100%;
+  width: 100%;
+}
+
+.character-card-hover-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 .character-card-tier {

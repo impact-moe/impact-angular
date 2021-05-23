@@ -5,12 +5,16 @@
   <moe-rarity [value]="character.rarity"></moe-rarity>
 </div>
 
-<div class="character-card-image" [ngStyle]="{
-  'background-image': 'url(' + character.imageUrl + ')'
-}">
+<div class="character-card-image-container"  [ngStyle]="{
+    'background-image': 'url(' + character.imageUrl + ')'
+  }">
+  <div class="character-card-blur-image" [ngStyle]="{
+    'background-image': 'url(' + character.imageUrl + ')'
+  }">
+  </div>
   <div class="character-card-hover-image" [ngStyle]="{
-    'background-image': 'url(' + formattedHoverImage + ')'
-  }"></div>
+      'background-image': 'url(' + formattedHoverImage + ')'
+    }"></div>
 </div>
 
 <img class="character-card-tier" [src]="formattedTierImage" />
