@@ -1,6 +1,8 @@
 @import "constants";
 
 :host {
+  @include default-border-radius;
+
   cursor: pointer;
   display: flex;
   flex-direction: row;

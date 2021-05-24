@@ -83,12 +83,14 @@
   }
 }
 
+$items-gutter: 0.5em;
+
 .character-items-list {
-  column-gap: 0.5em;
+  column-gap: $items-gutter;
   display: grid;
   justify-items: stretch;
-  margin-top: 0.5em;
-  row-gap: 0.5em;
+  padding-top: $items-gutter;
+  row-gap: $items-gutter;
 
   @media (min-width: 600px) and (max-width: 1023px) {
     grid-template-columns: repeat(2, 1fr);
@@ -100,7 +102,5 @@
 }
 
 moe-character-card {
-  @include default-border-radius;
-
   background: #aaa1;
 }
