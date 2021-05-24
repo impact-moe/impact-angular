@@ -65,13 +65,13 @@ moe-rarity {
 .character-card-blur-image,
 .character-card-hover-image {
   opacity: 0;
-  transition: 0.5s;
 }
 
 .character-card-blur-image {
   background-position: center;
   background-size: cover;
   height: 100%;
+  transition: 0.25s;
   width: 100%;
 }
 
@@ -83,6 +83,7 @@ moe-rarity {
   position: absolute;
   right: 0;
   top: 0;
+  transition: 0.5s;
 }
 
 .character-card-tier {
