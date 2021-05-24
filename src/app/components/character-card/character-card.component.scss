@@ -4,7 +4,6 @@
   cursor: pointer;
   display: flex;
   flex-direction: row;
-  padding: 1em;
   position: relative;
 
   &:hover {
@@ -44,7 +43,7 @@
 }
 
 moe-rarity {
-  padding-top: 4px;
+  padding-top: 0.25em;
 }
 
 .character-card-image-container {
