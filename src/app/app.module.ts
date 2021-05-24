@@ -36,8 +36,6 @@ const baseUrlProvider = {
   declarations: [
     AppComponent,
     ArtifactComponent,
-    ArtifactComponent,
-    ArtifactComponent,
     ArtifactListComponent,
     CharacterCardComponent,
     CharacterComponent,
@@ -45,8 +43,6 @@ const baseUrlProvider = {
     DropdownContentCardComponent,
     FooterComponent,
     HomeComponent,
-    LinkHandlerDirective,
-    LinkHandlerDirective,
     LinkHandlerDirective,
     LoadingImageComponent,
     LoginComponent,
