@@ -14,7 +14,7 @@
   </div>
 
   <!-- Loading state -->
-  <moe-loading-image *ngIf="!listItems"></moe-loading-image>
+  <moe-loading-image *ngIf="!listItems; else elseBlock"></moe-loading-image>
 
   <!-- List contents -->
   <ng-template #elseBlock>
