@@ -1,14 +1,48 @@
-name: Deploy
+name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
+      - develop
+  pull_request:
+    branches:
+      - master
+      - develop
 
 jobs:
-  deploy:
-
+  build:
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+
+      - name: Set up ChromeDriver
+        uses: nanasess/setup-chromedriver@master
+
+      - name: Install NPM dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build
+        run: npm run build -- --configuration production
+
+      - name: Test
+        run: npm run test-headless
+        env:
+          TZ: US/Pacific
+
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    needs: [build]
+    environment:
+      name: prod
+      url: https://impact.moe/
     steps:
     - name: Deploy API service
       uses: appleboy/ssh-action@v0.1.4
