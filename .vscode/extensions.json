@@ -1,0 +1,7 @@
+{
+  "recommendations": [
+    "EditorConfig.EditorConfig",
+    "aaron-bond.better-comments",
+    "esbenp.prettier-vscode"
+  ]
+}

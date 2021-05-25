@@ -5,5 +5,5 @@ export enum Element {
   Dendro = 'Dendro',
   Hydro = 'Hydro',
   Pyro = 'Pyro',
-  Cryo = 'Cryo'
+  Cryo = 'Cryo',
 }

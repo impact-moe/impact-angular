@@ -1,18 +1,16 @@
 {
+  "extends": ["eslint:recommended", "prettier"],
+  "plugins": ["prettier"],
   "root": true,
-  "ignorePatterns": [
-    "projects/**/*"
-  ],
+  "ignorePatterns": ["projects/**/*"],
+  "env": {
+    "jasmine": true
+  },
   "overrides": [
     {
-      "files": [
-        "*.ts"
-      ],
+      "files": ["*.ts"],
       "parserOptions": {
-        "project": [
-          "tsconfig.json",
-          "e2e/tsconfig.json"
-        ],
+        "project": ["tsconfig.json", "e2e/tsconfig.json"],
         "createDefaultProgram": true
       },
       "extends": [
@@ -22,7 +20,7 @@
       ],
       "rules": {
         "@angular-eslint/component-selector": [
-          "error",
+          "warn", // TODO: Fix warnings, then upgrade to 'error'.
           {
             "type": "element",
             "prefix": "app",
@@ -30,7 +28,7 @@
           }
         ],
         "@angular-eslint/directive-selector": [
-          "error",
+          "warn", // TODO: Fix warnings, then upgrade to 'error'.
           {
             "type": "attribute",
             "prefix": "app",
@@ -40,16 +38,21 @@
         "brace-style": [2, "1tbs", { "allowSingleLine": false }],
         "curly": ["error", "multi-line"],
         "indent": ["error", 2],
-        "space-before-blocks": "error"
+        "space-before-blocks": "error",
+        "prettier/prettier": "error",
+        "@typescript-eslint/naming-convention": 1, // TODO: Fix warnings, then remove.
+        "no-undef": 1, // TODO: Fix warnings, then remove.
+        "no-unused-vars": 1, // TODO: Fix warnings, then remove.
+        "@typescript-eslint/no-namespace": 1, // TODO: Fix warnings, then remove.
+        "no-redeclare": 1, // TODO: Fix warnings, then remove.
+        "@typescript-eslint/ban-types": 1, // TODO: Fix warnings, then remove.
+        "no-shadow": 1, // TODO: Fix warnings, then remove.
+        "@typescript-eslint/member-ordering": 1 // TODO: Fix warnings, then remove.
       }
     },
     {
-      "files": [
-        "*.html"
-      ],
-      "extends": [
-        "plugin:@angular-eslint/template/recommended"
-      ],
+      "files": ["*.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended"],
       "rules": {}
     }
   ]

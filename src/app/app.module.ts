@@ -54,6 +54,11 @@ const baseUrlProvider = {
     SignupComponent,
     StatisticsComponent,
     WeaponComponent,
+    ArtifactComponent,
+    LinkHandlerDirective,
+    RouteButtonComponent,
+    MoeRarityComponent,
+    MultiplierPipe,
     WeaponListComponent,
   ],
   imports: [

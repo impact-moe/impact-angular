@@ -20,13 +20,13 @@ export class WeaponComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.route.params.subscribe((params) => {
+    this.route.params.subscribe(params => {
       if (!params.weaponId) return;
 
       if (params.pageId === 'overview') {
         this.impactService
           .getWeapon(params.weaponId, 'stats')
-          .subscribe((data) => {
+          .subscribe(data => {
             this.weapon = data;
 
             this.pageId = params.pageId;
@@ -34,7 +34,7 @@ export class WeaponComponent implements OnInit {
       } else if (params.pageId === 'materials') {
         this.impactService
           .getWeapon(params.weaponId, 'stats')
-          .subscribe((data) => {
+          .subscribe(data => {
             this.weapon = data;
 
             this.pageId = params.pageId;

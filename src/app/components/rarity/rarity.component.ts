@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'moe-rarity',
   templateUrl: './rarity.component.html',
-  styleUrls: ['./rarity.component.scss']
+  styleUrls: ['./rarity.component.scss'],
 })
 export class MoeRarityComponent {
   @Input() value!: number;

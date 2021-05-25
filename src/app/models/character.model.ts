@@ -54,7 +54,9 @@ export class Character {
     this.Tier = characterJson.tier;
 
     if (characterJson.characterOverview) {
-      this.CharacterOverview = new CharacterOverview(characterJson.characterOverview);
+      this.CharacterOverview = new CharacterOverview(
+        characterJson.characterOverview
+      );
     }
 
     if (characterJson.talents) {

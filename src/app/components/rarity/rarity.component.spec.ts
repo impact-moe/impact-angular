@@ -15,12 +15,18 @@ describe('MoeRarityComponent', () => {
     component = fixture.componentInstance;
   });
 
-  it('should display the expected number of stars', waitForAsync(() => {
-    for (let stars = 1; stars <= 5; stars++) {
-      component.value = stars;
-      fixture.detectChanges();
+  it(
+    'should display the expected number of stars',
+    waitForAsync(() => {
+      for (let stars = 1; stars <= 5; stars++) {
+        component.value = stars;
+        fixture.detectChanges();
 
-      expect(fixture.nativeElement.getElementsByClassName('moe-star-element').length).toBe(stars);
-    }
-  }));
+        expect(
+          fixture.nativeElement.getElementsByClassName('moe-star-element')
+            .length
+        ).toBe(stars);
+      }
+    })
+  );
 });

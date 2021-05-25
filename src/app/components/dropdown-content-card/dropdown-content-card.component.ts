@@ -19,12 +19,14 @@ export class DropdownContentCardComponent implements AfterViewInit {
       'content-card-expand-button'
     )[0];
     const buttonImageElement = buttonElement.childNodes[0];
-    const bodyElement = this.elementRef.nativeElement.getElementsByClassName(
-      'content-card-body'
-    )[0];
-    const titleElement = this.elementRef.nativeElement.getElementsByClassName(
-      'content-card-title'
-    )[0];
+    const bodyElement =
+      this.elementRef.nativeElement.getElementsByClassName(
+        'content-card-body'
+      )[0];
+    const titleElement =
+      this.elementRef.nativeElement.getElementsByClassName(
+        'content-card-title'
+      )[0];
 
     this.height = bodyElement.offsetHeight;
 
@@ -62,9 +64,10 @@ export class DropdownContentCardComponent implements AfterViewInit {
   }
 
   bodyContentChange() {
-    const bodyElement = this.elementRef.nativeElement.getElementsByClassName(
-      'content-card-body'
-    )[0];
+    const bodyElement =
+      this.elementRef.nativeElement.getElementsByClassName(
+        'content-card-body'
+      )[0];
     this.height = bodyElement.offsetHeight;
   }
 
