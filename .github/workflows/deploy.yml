@@ -31,10 +31,12 @@ jobs:
       - name: Build
         run: npm run build -- --configuration production
 
-      - name: Test
-        run: npm run test-headless
-        env:
-          TZ: US/Pacific
+      # Add this back once we have actual tests (i.e. dev is merged into master).
+      #
+      # - name: Test
+      #   run: npm run test-headless
+      #   env:
+      #     TZ: US/Pacific
 
   deploy:
     runs-on: ubuntu-latest
