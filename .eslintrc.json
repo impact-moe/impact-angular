@@ -3,6 +3,9 @@
   "plugins": ["prettier"],
   "root": true,
   "ignorePatterns": ["projects/**/*"],
+  "env": {
+    "jasmine": true
+  },
   "overrides": [
     {
       "files": ["*.ts"],
