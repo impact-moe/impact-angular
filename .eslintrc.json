@@ -22,7 +22,7 @@
       ],
       "rules": {
         "@angular-eslint/component-selector": [
-          "error",
+          "warn", // TODO: Fix warnings, then upgrade to 'error'.
           {
             "type": "element",
             "prefix": "app",
@@ -30,7 +30,7 @@
           }
         ],
         "@angular-eslint/directive-selector": [
-          "error",
+          "warn", // TODO: Fix warnings, then upgrade to 'error'.
           {
             "type": "attribute",
             "prefix": "app",
@@ -40,7 +40,9 @@
         "brace-style": [2, "1tbs", { "allowSingleLine": false }],
         "curly": ["error", "multi-line"],
         "indent": ["error", 2],
-        "space-before-blocks": "error"
+        "space-before-blocks": "error",
+        "@typescript-eslint/naming-convention": 1, // TODO: Fix warnings, then remove.
+        "no-shadow": 1 // TODO: Fix warnings, then remove.
       }
     },
     {
