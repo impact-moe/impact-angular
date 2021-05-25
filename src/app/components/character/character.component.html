@@ -364,6 +364,66 @@
               </div>
             </div>
 
+
+
+            <div
+              appContentCard
+              class="content-card character-talent-container background-gray-2"
+            >
+              <div
+                class="content-card-title {{
+                  utilityService.getElementBackground(character.Element)
+                }}"
+              >
+                <img src="{{ elementalSkillTalent?.Image }}" />
+                <h4>{{ elementalSkillTalent?.Name }}</h4>
+                <div
+                  class="talent-tag-container background-gray-2 flex-column flex-center"
+                >
+                  <p>Elemental Skill</p>
+                </div>
+                <div
+                  class="content-card-expand-button hover-background-gray-1 flex-row flex-center"
+                >
+                  <i class="fas fa-caret-down"></i>
+                </div>
+              </div>
+              <div class="content-card-body">
+                <div class="talent-description">
+                  <p>{{ elementalSkillTalent?.Description }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              appContentCard
+              class="content-card character-talent-container background-gray-2"
+            >
+              <div
+                class="content-card-title {{
+                  utilityService.getElementBackground(character.Element)
+                }}"
+              >
+                <img src="{{ elementalBurstTalent?.Image }}" />
+                <h4>{{ elementalBurstTalent?.Name }}</h4>
+                <div
+                  class="talent-tag-container background-gray-2 flex-column flex-center"
+                >
+                  <p>Elemental Burst</p>
+                </div>
+                <div
+                  class="content-card-expand-button hover-background-gray-1 flex-row flex-center"
+                >
+                  <i class="fas fa-caret-down"></i>
+                </div>
+              </div>
+              <div class="content-card-body">
+                <div class="talent-description">
+                  <p>{{ elementalBurstTalent?.Description }}</p>
+                </div>
+              </div>
+            </div>
+
             <div
               appContentCard
               class="content-card character-talent-container background-gray-2"
@@ -447,64 +507,6 @@
               <div class="content-card-body">
                 <div class="talent-description">
                   <p>{{ passiveThreeTalent?.Description }}</p>
-                </div>
-              </div>
-            </div>
-
-            <div
-              appContentCard
-              class="content-card character-talent-container background-gray-2"
-            >
-              <div
-                class="content-card-title {{
-                  utilityService.getElementBackground(character.Element)
-                }}"
-              >
-                <img src="{{ elementalSkillTalent?.Image }}" />
-                <h4>{{ elementalSkillTalent?.Name }}</h4>
-                <div
-                  class="talent-tag-container background-gray-2 flex-column flex-center"
-                >
-                  <p>Elemental Skill</p>
-                </div>
-                <div
-                  class="content-card-expand-button hover-background-gray-1 flex-row flex-center"
-                >
-                  <i class="fas fa-caret-down"></i>
-                </div>
-              </div>
-              <div class="content-card-body">
-                <div class="talent-description">
-                  <p>{{ elementalSkillTalent?.Description }}</p>
-                </div>
-              </div>
-            </div>
-
-            <div
-              appContentCard
-              class="content-card character-talent-container background-gray-2"
-            >
-              <div
-                class="content-card-title {{
-                  utilityService.getElementBackground(character.Element)
-                }}"
-              >
-                <img src="{{ elementalBurstTalent?.Image }}" />
-                <h4>{{ elementalBurstTalent?.Name }}</h4>
-                <div
-                  class="talent-tag-container background-gray-2 flex-column flex-center"
-                >
-                  <p>Elemental Burst</p>
-                </div>
-                <div
-                  class="content-card-expand-button hover-background-gray-1 flex-row flex-center"
-                >
-                  <i class="fas fa-caret-down"></i>
-                </div>
-              </div>
-              <div class="content-card-body">
-                <div class="talent-description">
-                  <p>{{ elementalBurstTalent?.Description }}</p>
                 </div>
               </div>
             </div>
