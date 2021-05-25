@@ -3,7 +3,7 @@ export class Constellation {
   Name: string;
   Description: string;
   Image: string;
-  Order: Number;
+  Order: number;
 
   constructor(constellationJson: any) {
     this.Id = constellationJson.id;
