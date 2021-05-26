@@ -1,5 +1,7 @@
+@import "constants";
+
 :host {
-  color: #fefefe;
-  font-size: 0.7rem;
+  color: $moe-rarity-color;
+  font-size: 0.75rem;
   letter-spacing: 0.15rem;
 }
