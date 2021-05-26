@@ -1,0 +1,21 @@
+<a class="character-profile-link" [routerLink]="formattedLink"></a>
+
+<div class="character-card-summary">
+  <div class="character-card-name">{{ character.name }}</div>
+  <moe-rarity *ngIf="character.rarity > 0" [value]="character.rarity"></moe-rarity>
+</div>
+
+<div class="character-card-image-container"  [ngStyle]="{
+    'background-image': 'url(' + character.imageUrl + ')'
+  }">
+  <div class="character-card-blur-image" [ngStyle]="{
+    'background-image': 'url(' + character.imageUrl + ')'
+  }">
+  </div>
+  <div *ngIf="!!formattedHoverImage"
+       class="character-card-hover-image" [ngStyle]="{
+      'background-image': 'url(' + formattedHoverImage + ')'
+    }"></div>
+</div>
+
+<img *ngIf="!!formattedTierImage" class="character-card-tier" [src]="formattedTierImage" />

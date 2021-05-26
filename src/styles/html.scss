@@ -1,0 +1,43 @@
+@import "constants";
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+html {
+  background: $moe-background-color;
+}
+
+body {
+  @include default-font-style;
+  @include default-text-color;
+
+  position: relative;
+}
+
+*:focus {
+  outline: none;
+}
+
+h1 {
+  font: $default-font-bold-weight 2.2rem/1.6 $default-font-family;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  font-family: $default-font-family;
+  color: #ededed;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  line-height: 1.2rem;
+  font-weight: 600;
+}

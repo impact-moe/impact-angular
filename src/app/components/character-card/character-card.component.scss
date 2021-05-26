@@ -1,0 +1,95 @@
+@import "constants";
+
+:host {
+  @include default-border-radius;
+
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+
+  &:hover {
+    .character-card-blur-image {
+      filter: blur(2px);
+      transform: scale(1.05);
+      opacity: 1;
+    }
+
+    .character-card-hover-image {
+      opacity: 1;
+    }
+  }
+}
+
+.character-profile-link {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 10;
+}
+
+.character-card-summary {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  padding: 1em;
+  text-align: center;
+}
+
+.character-card-name {
+  font-size: 0.875rem;
+}
+
+moe-rarity {
+  padding-top: 0.25em;
+}
+
+.character-card-image-container {
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  border-radius: 0 $moe-border-radius $moe-border-radius 0;
+  display: flex;
+  flex-shrink: 0;
+  height: 8em;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  width: 8em;
+}
+
+.character-card-blur-image,
+.character-card-hover-image {
+  opacity: 0;
+}
+
+.character-card-blur-image {
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  transition: 0.25s;
+  width: 100%;
+}
+
+.character-card-hover-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.5s;
+}
+
+.character-card-tier {
+  bottom: 0.25em;
+  height: 1.5em;
+  position: absolute;
+  right: 0.25em;
+  width: 1.5em;
+}
