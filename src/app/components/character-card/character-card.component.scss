@@ -1,4 +1,4 @@
-@import "constants";
+@import "global";
 
 :host {
   @include default-border-radius;
@@ -22,11 +22,7 @@
 }
 
 .character-profile-link {
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
+  @include cover-element;
   z-index: 10;
 }
 

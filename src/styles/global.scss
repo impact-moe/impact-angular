@@ -1,6 +1,12 @@
 @import "constants";
 @import "html";
 
+/* App component backgrounds. */
+
+.level1-background {
+  background: $moe-level1-color;
+}
+
 /* List page stylings. */
 
 @mixin list-page-host {
@@ -38,10 +44,14 @@
   }
 }
 
-/* App component backgrounds. */
+/* Cover element styles. */
 
-.level1-background {
-  background: $moe-level1-color;
+@mixin cover-element {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 /* Element Backgrounds */
