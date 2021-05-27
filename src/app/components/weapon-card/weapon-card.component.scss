@@ -59,20 +59,23 @@ moe-rarity {
   width: 100%;
 }
 
-.weapon-attribute {
+.weapon-base-attack-attribute,
+.weapon-substat-attribute {
   align-items: center;
   display: flex;
   flex-direction: row;
+}
 
-  .weapon-attribute-label {
+.weapon-base-attack-label,
+.weapon-substat-label {
   font-size: 0.75rem;
   font-weight: 400;
   padding-right: 0.5rem;
-  }
+}
 
-  .weapon-attribute-value {
-    font-size: 0.875rem;
-  }
+.weapon-base-attack-value,
+.weapon-substat-value {
+  font-size: 0.875rem;
 }
 
 .weapon-card-image-container {
