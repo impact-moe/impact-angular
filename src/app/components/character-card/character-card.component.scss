@@ -32,7 +32,7 @@
   flex-direction: column;
   flex-grow: 1;
   justify-content: center;
-  padding: 1em;
+  padding: 1rem;
   text-align: center;
 }
 
@@ -41,7 +41,7 @@
 }
 
 moe-rarity {
-  padding-top: 0.25em;
+  padding-top: 0.25rem;
 }
 
 .character-card-image-container {
@@ -51,11 +51,11 @@ moe-rarity {
   border-radius: 0 $moe-border-radius $moe-border-radius 0;
   display: flex;
   flex-shrink: 0;
-  height: 8em;
+  height: 8rem;
   justify-content: center;
   overflow: hidden;
   position: relative;
-  width: 8em;
+  width: 8rem;
 }
 
 .character-card-blur-image,
@@ -83,9 +83,9 @@ moe-rarity {
 }
 
 .character-card-tier {
-  bottom: 0.25em;
-  height: 1.5em;
+  bottom: 0.25rem;
+  height: 1.5rem;
   position: absolute;
-  right: 0.25em;
-  width: 1.5em;
+  right: 0.25rem;
+  width: 1.5rem;
 }
