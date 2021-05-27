@@ -1,0 +1,86 @@
+@import "constants";
+
+:host {
+  @include default-border-radius;
+
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+
+  &:hover {
+    .weapon-card-blur-image {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.weapon-page-link {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 10;
+}
+
+.weapon-card-summary {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: flex-start;
+  padding: 0.75em 1em;
+}
+
+.weapon-card-name {
+  font-size: 0.875rem;
+}
+
+moe-rarity {
+  padding-top: 0.25em;
+}
+
+.weapon-details {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.weapon-attribute {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.weapon-base-attack-label {
+  font-size: 0.75rem;
+  font-weight: 400;
+  padding-right: 0.5em;
+}
+
+.weapon-base-attack-value {
+  font-size: 0.875rem;
+}
+
+.weapon-card-image-container {
+  align-items: center;
+  border-radius: 0 $moe-border-radius $moe-border-radius 0;
+  display: flex;
+  flex-shrink: 0;
+  height: 8em;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  width: 8em;
+}
+
+.weapon-card-blur-image {
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  transition: 0.25s;
+  width: 100%;
+}

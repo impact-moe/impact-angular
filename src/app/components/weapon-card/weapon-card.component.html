@@ -1,0 +1,26 @@
+<a class="weapon-page-link" [routerLink]="formattedLink"></a>
+
+<div class="weapon-card-summary">
+  <div class="weapon-card-name">{{ weapon.name }}</div>
+  <moe-rarity *ngIf="weapon.rarity > 0" [value]="weapon.rarity"></moe-rarity>
+  <div class="weapon-details">
+    <div class="weapon-attribute">
+      <div class="weapon-base-attack-label">Base ATK</div>
+      <div class="weapon-base-attack-value">{{ weapon.baseAttack }}</div>
+    </div>
+  </div>
+</div>
+
+<div class="weapon-card-image-container"
+  [ngClass]="{
+    'rarity1-gradient': weapon.rarity === 1,
+    'rarity2-gradient': weapon.rarity === 2,
+    'rarity3-gradient': weapon.rarity === 3,
+    'rarity4-gradient': weapon.rarity === 4,
+    'rarity5-gradient': weapon.rarity === 5
+  }"
+  >
+  <div class="weapon-card-blur-image" [ngStyle]="{
+      'background-image': 'url(' + weapon.imageUrl + ')'
+    }"></div>
+</div>
