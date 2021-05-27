@@ -5,7 +5,7 @@
 
   cursor: pointer;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   position: relative;
 
   &:hover {
@@ -20,8 +20,19 @@
   z-index: 10;
 }
 
+.weapon-card-name {
+  padding: 0.75rem 1rem;
+}
+
+.weapon-card-content {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
 .weapon-card-summary {
   align-items: flex-start;
+  border-top: 1px solid #4a4a4a;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -38,7 +49,7 @@ moe-rarity {
 }
 
 .weapon-details {
-  align-items: flex-end;
+  align-items: flex-start;
   display: flex;
   flex-direction: row;
   flex-grow: 1;
@@ -49,25 +60,25 @@ moe-rarity {
   align-items: center;
   display: flex;
   flex-direction: row;
-}
 
-.weapon-base-attack-label {
+  .weapon-attribute-label {
   font-size: 0.75rem;
   font-weight: 400;
   padding-right: 0.5em;
-}
+  }
 
-.weapon-base-attack-value {
-  font-size: 0.875rem;
+  .weapon-attribute-value {
+    font-size: 0.875rem;
+  }
 }
 
 .weapon-card-image-container {
   align-items: center;
-  border-radius: 0 $moe-border-radius $moe-border-radius 0;
+  border-radius: 0 0 $moe-border-radius 0;
   display: flex;
   flex-shrink: 0;
-  height: 8em;
   justify-content: center;
+  min-height: 8em;
   overflow: hidden;
   position: relative;
   width: 8em;
