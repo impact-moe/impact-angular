@@ -4,11 +4,14 @@
 
 <div class="weapon-card-content">
   <div class="weapon-card-summary">
-    <div class="weapon-details">
-      <div class="weapon-attribute">
-        <div class="weapon-attribute-label">Base ATK</div>
-        <div class="weapon-attribute-value">{{ weapon.baseAttack }}</div>
-      </div>
+    <div class="weapon-attribute">
+      <div class="weapon-attribute-label">Base ATK</div>
+      <div class="weapon-attribute-value">{{ weapon.baseAttack }}</div>
+    </div>
+
+    <div *ngIf="hasSubstat()" class="weapon-attribute">
+      <div class="weapon-attribute-label">{{ weapon.substatType }}</div>
+      <div class="weapon-attribute-value">{{ weapon.substatValue }}</div>
     </div>
 
     <moe-rarity *ngIf="weapon.rarity > 0" [value]="weapon.rarity"></moe-rarity>

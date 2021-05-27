@@ -16,4 +16,8 @@ export class WeaponCardComponent {
   get formattedLink() {
     return `/weapons/${this.weapon.id}`;
   }
+
+  hasSubstat() {
+    return !!this.weapon.substatType && this.weapon.substatValue > 0;
+  }
 }

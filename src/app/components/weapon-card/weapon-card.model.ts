@@ -4,6 +4,8 @@ export class WeaponCardModel {
   readonly rarity: number;
   readonly imageUrl?: string;
   readonly baseAttack: number;
+  readonly substatType?: string;
+  readonly substatValue: number;
 
   constructor(builder: WeaponCardModel.Builder) {
     this.id = builder.getId();
@@ -11,6 +13,8 @@ export class WeaponCardModel {
     this.rarity = builder.getRarity() || 0;
     this.imageUrl = builder.getImageUrl();
     this.baseAttack = builder.getBaseAttack() || 0;
+    this.substatType = builder.getSubstatType();
+    this.substatValue = builder.getSubstatValue() || 0;
   }
 }
 
@@ -20,6 +24,8 @@ export namespace WeaponCardModel {
     private rarity?: number;
     private imageUrl?: string;
     private baseAttack?: number;
+    private substatType?: string;
+    private substatValue?: number;
 
     constructor(private id: string) { }
 
@@ -40,6 +46,16 @@ export namespace WeaponCardModel {
 
     setBaseAttack(baseAttack: number) {
       this.baseAttack = baseAttack;
+      return this;
+    }
+
+    setSubstatType(substatType: string) {
+      this.substatType = substatType;
+      return this;
+    }
+
+    setSubstatValue(substatValue: number) {
+      this.substatValue = substatValue;
       return this;
     }
 
@@ -65,6 +81,14 @@ export namespace WeaponCardModel {
 
     getBaseAttack() {
       return this.baseAttack;
+    }
+
+    getSubstatType() {
+      return this.substatType;
+    }
+
+    getSubstatValue() {
+      return this.substatValue;
     }
   }
 }

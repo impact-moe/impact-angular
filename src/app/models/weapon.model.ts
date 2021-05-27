@@ -47,6 +47,8 @@ export class Weapon {
       .setRarity(this.Rarity)
       .setImageUrl(this.Image)
       .setBaseAttack(this.BaseAtk)
+      .setSubstatType(this.SubStatType)
+      .setSubstatValue(this.SubStat)
       .build();
   }
 }

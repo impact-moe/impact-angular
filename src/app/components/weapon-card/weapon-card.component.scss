@@ -37,7 +37,7 @@
   flex-direction: column;
   flex-grow: 1;
   justify-content: flex-start;
-  padding: 0.75em 1em;
+  padding: 0.75rem 1rem;
 }
 
 .weapon-card-name {
@@ -45,13 +45,16 @@
 }
 
 moe-rarity {
-  padding-top: 0.25em;
+  align-items: flex-end;
+  display: flex;
+  flex-grow: 1;
+  padding: 0.25rem 0;
 }
 
 .weapon-details {
   align-items: flex-start;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-grow: 1;
   width: 100%;
 }
@@ -64,7 +67,7 @@ moe-rarity {
   .weapon-attribute-label {
   font-size: 0.75rem;
   font-weight: 400;
-  padding-right: 0.5em;
+  padding-right: 0.5rem;
   }
 
   .weapon-attribute-value {
@@ -78,10 +81,10 @@ moe-rarity {
   display: flex;
   flex-shrink: 0;
   justify-content: center;
-  min-height: 8em;
+  min-height: 8rem;
   overflow: hidden;
   position: relative;
-  width: 8em;
+  width: 8rem;
 }
 
 .weapon-card-blur-image {
