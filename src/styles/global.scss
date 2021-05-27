@@ -1,6 +1,49 @@
 @import "constants";
 @import "html";
 
+/* List page stylings. */
+
+@mixin list-page-host {
+  box-sizing: border-box;
+  display: block;
+  min-height: 100%;
+  padding-top: 6rem;
+}
+
+.list-page-header {
+  align-items: center;
+  background-image: url(https://media.impact.moe/img/banners/banner-1.webp);
+  background-size: cover;
+  background-position: center;
+  cursor: default;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 8rem;
+
+  @media (min-width: 600px) {
+    height: 12rem;
+  }
+}
+
+.list-page-content {
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 1440px;
+  padding: 0 0.5rem;
+  width: 100%;
+
+  @media (min-width: 600px) {
+    padding: 0 1.5rem;
+  }
+}
+
+/* App component backgrounds. */
+
+.level1-background {
+  background: $moe-level1-color;
+}
+
 /* Element Backgrounds */
 
 .background-pyro {
@@ -99,6 +142,28 @@
 
 .hover-background-rarity-1:hover {
   background: #474747;
+}
+
+/* Rarity gradient backgrounds. */
+
+.rarity1-gradient {
+  background: $moe-rarity1-gradient;
+}
+
+.rarity2-gradient {
+  background: $moe-rarity2-gradient;
+}
+
+.rarity3-gradient {
+  background: $moe-rarity3-gradient;
+}
+
+.rarity4-gradient {
+  background: $moe-rarity4-gradient;
+}
+
+.rarity5-gradient {
+  background: $moe-rarity5-gradient;
 }
 
 /* General Backgrounds */
