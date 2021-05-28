@@ -8,7 +8,7 @@ import { WeaponCardModel } from './weapon-card.model';
 @Component({
   selector: 'moe-weapon-card',
   templateUrl: './weapon-card.component.html',
-  styleUrls: ['./weapon-card.component.scss']
+  styleUrls: ['./weapon-card.component.scss'],
 })
 export class WeaponCardComponent {
   @Input() weapon!: WeaponCardModel;

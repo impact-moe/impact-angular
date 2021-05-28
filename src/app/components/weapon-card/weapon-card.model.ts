@@ -27,7 +27,7 @@ export namespace WeaponCardModel {
     private substatType?: string;
     private substatValue?: number;
 
-    constructor(private id: string) { }
+    constructor(private id: string) {}
 
     setName(name: string) {
       this.name = name;

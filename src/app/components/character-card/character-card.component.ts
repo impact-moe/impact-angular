@@ -9,12 +9,12 @@ import { UtilityService } from '@/services/utility.service';
 @Component({
   selector: 'moe-character-card',
   templateUrl: './character-card.component.html',
-  styleUrls: ['./character-card.component.scss']
+  styleUrls: ['./character-card.component.scss'],
 })
 export class CharacterCardComponent {
   @Input() character!: CharacterCardModel;
 
-  constructor(private utilityService: UtilityService) { }
+  constructor(private utilityService: UtilityService) {}
 
   get formattedLink() {
     return `/characters/${this.character.id}`;
