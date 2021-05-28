@@ -1,7 +1,16 @@
 $moe-background-color: #1e1e1e;
+$moe-level1-color: #2a2828;
+
 $moe-text-color: #fefefe;
-$moe-rarity-color: #fbcc33;
 
 @mixin default-text-color {
   color: $moe-text-color;
 }
+
+$moe-stars-color: #fbcc33;
+
+$moe-rarity1-gradient: radial-gradient(at bottom right, #88949d 5%, #505865 95%);
+$moe-rarity2-gradient: radial-gradient(at bottom right, #5b9069 5%, #46575c 95%);
+$moe-rarity3-gradient: radial-gradient(at bottom right, #4fa4b8 5%, #515475 95%);
+$moe-rarity4-gradient: radial-gradient(at bottom right, #ba8acd 5%, #5b5381 95%);
+$moe-rarity5-gradient: radial-gradient(at bottom right, #daa34f 5%, #6a5254 95%);;

@@ -19,6 +19,7 @@ import { MoeRarityComponent } from './components/rarity/rarity.component';
 import { RouteButtonComponent } from './components/route-button/route-button.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
+import { WeaponCardComponent } from './components/weapon-card/weapon-card.component';
 import { WeaponListComponent } from './components/weapon-list/weapon-list.component';
 import { WeaponComponent } from './components/weapon/weapon.component';
 import { LinkHandlerDirective } from './directives/link-handler/link-handler.directive';
@@ -53,12 +54,8 @@ const baseUrlProvider = {
     SignupComponent,
     StatisticsComponent,
     WeaponComponent,
-    ArtifactComponent,
-    LinkHandlerDirective,
-    RouteButtonComponent,
-    MoeRarityComponent,
-    MultiplierPipe,
-    WeaponListComponent,
+    WeaponCardComponent,
+    WeaponListComponent
   ],
   imports: [
     AppRoutingModule,

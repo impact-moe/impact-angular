@@ -1,6 +1,7 @@
 import { WeaponStat } from '@/models/weapon-stat.model';
 import { Rarity } from '@/enums/rarity.enum';
 import { WeaponType } from '@/enums/weapon-type.enum';
+import { WeaponCardModel } from '@/components/weapon-card/weapon-card.model';
 
 export class Weapon {
   Id: string;
@@ -38,5 +39,16 @@ export class Weapon {
         this.Stats.push(new WeaponStat(weaponStatJson));
       }
     }
+  }
+
+  toWeaponCardModel() {
+    return new WeaponCardModel.Builder(this.Id)
+      .setName(this.Name)
+      .setRarity(this.Rarity)
+      .setImageUrl(this.Image)
+      .setBaseAttack(this.BaseAtk)
+      .setSubstatType(this.SubStatType)
+      .setSubstatValue(this.SubStat)
+      .build();
   }
 }

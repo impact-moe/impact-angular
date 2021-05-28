@@ -1,0 +1,99 @@
+@import "global";
+
+:host {
+  @include default-border-radius;
+
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &:hover {
+    .weapon-card-blur-image {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.weapon-page-link {
+  @include cover-element;
+  z-index: 10;
+}
+
+.weapon-card-name {
+  padding: 0.75rem 1rem;
+}
+
+.weapon-card-content {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.weapon-card-summary {
+  align-items: flex-start;
+  border-top: 1px solid #4a4a4a;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: flex-start;
+  padding: 0.75rem 1rem;
+}
+
+.weapon-card-name {
+  font-size: 0.875rem;
+}
+
+moe-rarity {
+  align-items: flex-end;
+  display: flex;
+  flex-grow: 1;
+  padding: 0.25rem 0;
+}
+
+.weapon-details {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.weapon-base-attack-attribute,
+.weapon-substat-attribute {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.weapon-base-attack-label,
+.weapon-substat-label {
+  font-size: 0.75rem;
+  font-weight: 400;
+  padding-right: 0.5rem;
+}
+
+.weapon-base-attack-value,
+.weapon-substat-value {
+  font-size: 0.875rem;
+}
+
+.weapon-card-image-container {
+  align-items: center;
+  border-radius: 0 0 $moe-border-radius 0;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  min-height: 8rem;
+  overflow: hidden;
+  position: relative;
+  width: 8rem;
+}
+
+.weapon-card-blur-image {
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  transition: 0.25s;
+  width: 100%;
+}
