@@ -55,7 +55,7 @@ const baseUrlProvider = {
     StatisticsComponent,
     WeaponComponent,
     WeaponCardComponent,
-    WeaponListComponent
+    WeaponListComponent,
   ],
   imports: [
     AppRoutingModule,
