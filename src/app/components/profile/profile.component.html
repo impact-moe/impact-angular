@@ -1,0 +1,92 @@
+<div class="container-1">
+  <div class="container-inner-1 flex-column" *ngIf="user && userService.currentUser">
+    <div class="banner-1">
+      <div class="banner-content-container-1">
+        <img
+          class="full-width full-height image-cover"
+          src="https://media.impact.moe/img/banners/banner-1.webp"
+        />
+      </div>
+      <div class="banner-content-container-1">
+          <div
+          id="profile-opacity-layer"
+          class="full-width full-height position-absolute"
+        ></div>
+      </div>
+      <div class="banner-content-container-1">
+        <div id="profile-summary-chart-container" class="full-width full-height flex-row flex-center-items">
+          <google-chart id="profile-summary-chart" [type]="chartType" [data]="testData" [options]="testOptions" [dynamicResize]="true"></google-chart>
+        </div>
+      </div>
+      <div
+        class="banner-content-container-1 primary-content-container-2"
+      >
+        <div id="profile-portrait-image-container" class="sidebar-section-2 flex-row">
+          <img
+          id="profile-portrait-image"
+          [src]="user.DisplayImage" />
+
+        </div>
+        <div id="profile-title-container" class="main-section-1 flex-row">
+          <h1>{{ userService.currentUser.UserName }}</h1>
+        </div>
+      </div>
+    </div>
+    <div id="profile-summary-container" class="full-width background-gray-2">
+      <div class="primary-content-container-2">
+        <div id="profile-summary-sidebar-container" class="sidebar-section-2 flex-row">
+          <div id="profile-summary-sidebar" class="flex-column">
+            <p>Level 100</p>
+          </div>
+        </div>
+        <div id="profile-summary-main-container" class="main-section-1 flex-row">
+          <div
+          id="profile-summary-content-nav"
+          class="flex-row scrollbars-hidden scroll-overflow-x"
+        >
+          <a
+            class="button-1 hover-background-gray-1 {{
+              pageId === 'submissions'
+                ? 'background-gray-1'
+                : ''
+            }}"
+            [routerLink]="['/profile/' + userService.currentUser.UserName + '/submissions']"
+            ><h2>submissions</h2></a
+          >
+          <a
+          class="button-1 hover-background-gray-1 {{
+            pageId === 'tier-list'
+              ? 'background-gray-1'
+              : ''
+          }}"
+          [routerLink]="['/profile/' + userService.currentUser.UserName + '/tier-list']"
+          ><h2>tier list</h2></a
+        >
+        <a
+        class="button-1 hover-background-gray-1 {{
+          pageId === 'account'
+            ? 'background-gray-1'
+            : ''
+        }}"
+        [routerLink]="['/profile/' + userService.currentUser.UserName + '/account']"
+        ><h2>account settings</h2></a
+      >
+        </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="body-1 flex-column full-width"
+    >
+      <div id="profile-account-container" class="primary-content-container-2 flex-column background-gray-4" *ngIf="pageId == 'account'">
+        <div class="profile-account-item flex-row flex-center-items">
+          <p>User Name:</p>
+          <input type="text" class="input-1 background-gray-2" [(ngModel)]="user.UserName">
+        </div>
+        <div class="profile-account-controls flex-row">
+          <a class="button-1" (click)="saveAccountChanges()"><p>save changes</p></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

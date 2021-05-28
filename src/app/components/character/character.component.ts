@@ -48,7 +48,7 @@ export class CharacterComponent implements OnInit {
             this.character = data1;
 
             this.impactService
-              .getCharacterRoles(params.characterId, 'weapon,artifactset')
+              .getCharacterRoles(params.characterId)
               .subscribe(data2 => {
                 if (this.character) this.character.Roles = data2;
               });

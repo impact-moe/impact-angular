@@ -8,15 +8,35 @@
         />
       </div>
       <div
-        class="banner-content-container-1 flex-column flex-center flex-center-items"
+        class="
+          banner-content-container-1
+          flex-column flex-center flex-center-items
+        "
       >
         <h1>Log In</h1>
       </div>
     </div>
     <div
-      class="body-1 flex-column flex-center flex-center-items full-width full-height"
+      class="
+        body-1
+        flex-column flex-center flex-center-items
+        full-width full-height
+      "
     >
-      <p>In Development :)</p>
+      <div class="login-container background-gray-4">
+        <a class="button-1 background-google" (click)="loginGoogle()">
+          <i class="fa fa-google-plus"></i>
+          <p>Log In with Google</p>
+        </a>
+        <a class="button-1 background-facebook" (click)="loginFacebook()">
+          <i class="fab fa-facebook-f"></i>
+          <p>Log In with Facebook</p>
+        </a>
+        <a class="button-1 background-discord" (click)="loginDiscord()">
+          <i class="fab fa-discord"></i>
+          <p>Log In with Discord</p>
+        </a>
+      </div>
     </div>
   </div>
 </div>

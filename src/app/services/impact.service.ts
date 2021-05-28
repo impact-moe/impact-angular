@@ -36,8 +36,7 @@ export class ImpactService {
   }
 
   getCharacterRoles(id: string, expand?: string): Observable<Array<Role>> {
-    const characterApiUrl =
-      this.apiUrl + 'characters/' + id.toLowerCase() + '/roles';
+    const characterApiUrl =this.apiUrl + 'characters/' + id.toLowerCase() + '/roles/all';
 
     let httpParams: HttpParams = new HttpParams();
 
@@ -100,10 +99,14 @@ export class ImpactService {
       .pipe(map((res: Array<Artifact>) => res.map(obj => new Artifact(obj))));
   }
 
-  getArtifact(id: string): Observable<Artifact> {
+  getArtifact(id: string, expand?: string): Observable<Artifact> {
     const artifactApiUrl = this.apiUrl + 'artifacts/' + id.toLowerCase();
 
-    const httpParams: HttpParams = new HttpParams();
+    let httpParams: HttpParams = new HttpParams();
+
+    if (expand) {
+      httpParams = httpParams.append('expand', expand);
+    }
 
     return this.httpClient
       .get(artifactApiUrl, { params: httpParams })

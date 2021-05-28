@@ -1,4 +1,4 @@
-@import 'constants';
+@import "constants";
 
 h1 {
   font-family: $default-font-family;
@@ -7,4 +7,18 @@ h1 {
   font-weight: 800;
   margin-bottom: 0;
   margin-top: 0;
+}
+
+.login-container {
+  border-radius: 5px;
+  padding: 3em;
+  max-width: 20em;
+}
+
+.login-container > a {
+  margin-bottom: 1em;
+}
+
+.login-container > a:last-child {
+  margin-bottom: 0;
 }

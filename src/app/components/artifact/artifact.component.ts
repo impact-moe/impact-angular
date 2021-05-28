@@ -24,11 +24,12 @@ export class ArtifactComponent implements OnInit {
       if (!params.artifactId) return;
 
       if (params.pageId === 'overview') {
-        this.impactService.getArtifact(params.artifactId).subscribe(data => {
-          this.artifact = data;
-
-          this.pageId = params.pageId;
-        });
+        this.impactService
+          .getArtifact(params.artifactId, 'artifact-set')
+          .subscribe(data => {
+            this.artifact = data;
+            this.pageId = params.pageId;
+          });
       } else if (params.pageId === 'materials') {
         this.impactService.getArtifact(params.artifactId).subscribe(data => {
           this.artifact = data;

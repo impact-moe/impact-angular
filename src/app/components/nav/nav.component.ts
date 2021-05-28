@@ -9,6 +9,7 @@ import {
 import { Component } from '@angular/core';
 import { MoeRoute } from '@/routes/route.model';
 import { MoeRouteService } from '@/routes/route.service';
+import { UserService } from '@/services/user.service';
 
 @Component({
   selector: 'app-nav',
@@ -36,6 +37,8 @@ import { MoeRouteService } from '@/routes/route.service';
 export class NavComponent {
   readonly buttonStyles = RouteButtonStyle;
   readonly navList: Array<MoeRoute> = MoeRouteService.mainNavList;
+
+  constructor(public userService: UserService) {}
 
   drawerOpen = false;
   clickOverlayPointerEventsStyle = 'none';

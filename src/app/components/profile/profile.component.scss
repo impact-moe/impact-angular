@@ -1,0 +1,252 @@
+h1 {
+  font-family: "Montserrat", sans-serif;
+  color: #fefefe;
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+h2 {
+  font-family: "Montserrat", sans-serif;
+  color: #fefefe;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+h3 {
+  font-family: "Montserrat", sans-serif;
+  color: #fefefe;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#profile-account-container {
+  border-radius: 5px;
+  padding: 1em;
+}
+
+.profile-account-item {
+  margin: 0 1em;
+}
+
+.profile-account-item > input {
+  margin-left: 2em;
+}
+
+.profile-account-controls {
+  justify-content: flex-end;
+}
+
+#profile-summary-container {
+  height: 8em;
+}
+
+#profile-title-container {
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding-bottom: 1em;
+}
+
+#profile-portrait-image-container {
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+#profile-portrait-image {
+  width: 10em;
+  height: 10em;
+  border-radius: 50%;
+  margin-bottom: -4em;
+}
+
+#profile-summary-sidebar-container {
+  justify-content: flex-end;
+}
+
+#profile-summary-sidebar {
+  margin-top: 5em;
+  width: 10em;
+  align-items: center;
+}
+
+#profile-summary-sidebar p {
+  font-family: "Montserrat", sans-serif;
+  color: #fefefe;
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+#profile-summary-chart-container {
+  justify-content: flex-start;
+}
+
+#profile-summary-chart {
+  background: transparent;
+  width: 100%;
+  height: 100%;
+}
+
+#profile-opacity-layer {
+  background: #000000;
+  opacity: 0.8;
+}
+
+#profile-summary-main-container {
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+#profile-summary-content-nav {
+  margin-bottom: 0.5em;
+}
+
+.profile-submission-artifact {
+  width: 6em;
+  min-width: 6em;
+  height: 6em;
+}
+
+.profile-submission-artifact > img {
+  width: 100%;
+  height: 100%;
+}
+
+.profile-submission-container {
+  height: 8em;
+  border-radius: 5px;
+}
+
+.profile-submission-sidebar-container {
+  padding: 1em;
+}
+
+.character-group-list-item {
+  border-radius: 5px;
+  margin: 0.5em;
+}
+
+.character-group-list-item-image-container {
+  border-radius: 5px 5px 0 0;
+  align-self: stretch;
+  height: 3em;
+}
+
+.character-group-list-item-image-container img {
+  width: 2em;
+}
+
+.character-items-container {
+  padding: 1em;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+
+.character-item-container {
+  border-radius: 5px;
+  margin: 1em;
+  width: 8em;
+  min-width: 8em;
+}
+
+.character-item-title-container {
+  flex-grow: 1;
+  margin: 1em;
+}
+
+.character-item-title-container i {
+  color: #fefefe;
+  font-size: 0.6rem;
+  margin: 0 0.1em;
+}
+
+.character-item-title-container h4 {
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+.character-item-image-container-1 {
+  width: 6em;
+  height: 6em;
+  margin: 1em;
+}
+
+.character-item-image-container-2 {
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.character-item-image-container-3 {
+  width: 6em;
+  min-width: 6em;
+  height: 6em;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.5s;
+}
+
+.character-item-overlay-background-container {
+  width: 5.25em;
+  max-width: 5.25em;
+  height: 5.25em;
+  max-height: 5.25em;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.character-item-overlay {
+  width: 6em;
+  height: 6em;
+  margin-top: -0.5em;
+  margin-left: -0.5em;
+  filter: blur(7px);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.character-item-overlay-content {
+  transition: 0.5s;
+  opacity: 0;
+}
+
+.character-item-overlay-content h4 {
+  color: #000000;
+  margin-bottom: 0.2em;
+}
+
+.character-item-overlay-content i {
+  color: #000000;
+  font-size: 0.8em;
+}
+
+.tier-image {
+  width: 1.5em;
+  height: 1.5em;
+  margin-left: 16em;
+  margin-top: 6em;
+}
+
+.character-item-container:hover .character-item-overlay-background-container {
+  opacity: 1;
+}
+
+.character-item-container:hover .character-item-image-container-3 {
+  transform: scale(1.2);
+}
+
+.character-item-container:hover .tier-image {
+  transform: scale(1);
+}
+
+.character-item-container:hover .character-item-overlay-content {
+  opacity: 1;
+}

@@ -11,6 +11,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { WeaponComponent } from './components/weapon/weapon.component';
 import { ArtifactComponent } from './components/artifact/artifact.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },

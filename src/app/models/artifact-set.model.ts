@@ -1,7 +1,7 @@
 export class ArtifactSet {
   Id: string;
   Name: string;
-  MaxRarity: string;
+  MaxRarity: number;
   TwoPieceBonus: string;
   FourPieceBonus: string;
 

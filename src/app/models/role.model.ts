@@ -15,26 +15,26 @@ export class Role {
     this.Name = roleJson.name;
     this.Notes = roleJson.notes;
 
-    if (roleJson.weapons) {
-      for (const weaponJson of roleJson.weapons) {
+    if (roleJson.weaponPriorities) {
+      for (const weaponJson of roleJson.weaponPriorities) {
         this.Weapons.push(new WeaponPriority(weaponJson));
       }
     }
 
-    if (roleJson.artifacts) {
-      for (const artifactJson of roleJson.artifacts) {
+    if (roleJson.artifactPriorities) {
+      for (const artifactJson of roleJson.artifactPriorities) {
         this.Artifacts.push(new ArtifactPriority(artifactJson));
       }
     }
 
-    if (roleJson.mainStats) {
-      for (const mainStatJson of roleJson.mainStats) {
+    if (roleJson.mainStatPriorities) {
+      for (const mainStatJson of roleJson.mainStatPriorities) {
         this.MainStats.push(new MainStatPriority(mainStatJson));
       }
     }
 
-    if (roleJson.subStats) {
-      for (const subStatJson of roleJson.subStats) {
+    if (roleJson.subStatPriorities) {
+      for (const subStatJson of roleJson.subStatPriorities) {
         this.SubStats.push(new SubStatPriority(subStatJson));
       }
     }
