@@ -1,4 +1,9 @@
-import { DEFAULT_PLACEHOLDER_TEXT, FilterSortComponent, NO_FILTER_TEXT, NO_OPTION } from './filter-sort.component';
+import {
+  DEFAULT_PLACEHOLDER_TEXT,
+  FilterSortComponent,
+  NO_FILTER_TEXT,
+  NO_OPTION,
+} from './filter-sort.component';
 import { MoeRarityStubComponent } from '@/components/rarity/rarity.component.stub';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
@@ -7,7 +12,7 @@ describe('FilterSortComponent', () => {
   const sampleOptions = [
     { label: 'Option 1', value: 1 },
     { label: 'Option 2', value: 2 },
-    { label: 'Option 3', value: 3 }
+    { label: 'Option 3', value: 3 },
   ];
 
   let fixture: ComponentFixture<FilterSortComponent>;
@@ -27,7 +32,9 @@ describe('FilterSortComponent', () => {
     it(
       'should always display a text search input',
       waitForAsync(() => {
-        expect(fixture.nativeElement.querySelector('.moe-search-input')).toBeTruthy();
+        expect(
+          fixture.nativeElement.querySelector('.moe-search-input')
+        ).toBeTruthy();
       })
     );
 
@@ -35,7 +42,9 @@ describe('FilterSortComponent', () => {
       'should use the default placeholder text when none is specified',
       waitForAsync(() => {
         fixture.detectChanges();
-        expect(fixture.nativeElement.querySelector('.moe-search-input').placeholder).toBe(DEFAULT_PLACEHOLDER_TEXT);
+        expect(
+          fixture.nativeElement.querySelector('.moe-search-input').placeholder
+        ).toBe(DEFAULT_PLACEHOLDER_TEXT);
       })
     );
 
@@ -45,7 +54,9 @@ describe('FilterSortComponent', () => {
         component.placeholderText = 'test';
         fixture.detectChanges();
 
-        expect(fixture.nativeElement.querySelector('.moe-search-input').placeholder).toBe('test');
+        expect(
+          fixture.nativeElement.querySelector('.moe-search-input').placeholder
+        ).toBe('test');
       })
     );
 
@@ -54,14 +65,15 @@ describe('FilterSortComponent', () => {
       waitForAsync(() => {
         spyOn(component.filterSortEvent, 'emit');
 
-        const searchElement = fixture.nativeElement.querySelector('.moe-search-input');
+        const searchElement =
+          fixture.nativeElement.querySelector('.moe-search-input');
         searchElement.value = 'test';
         searchElement.dispatchEvent(new Event('keyup'));
 
         expect(component.filterSortEvent.emit).toHaveBeenCalledWith({
           filterText: 'test',
           selectedFilter: NO_OPTION,
-          selectedSort: NO_OPTION
+          selectedSort: NO_OPTION,
         });
       })
     );
@@ -71,7 +83,9 @@ describe('FilterSortComponent', () => {
     it(
       'should not display the filter toggle without filter options',
       waitForAsync(() => {
-        expect(fixture.nativeElement.querySelector('.moe-filter-toggle')).toBeFalsy();
+        expect(
+          fixture.nativeElement.querySelector('.moe-filter-toggle')
+        ).toBeFalsy();
       })
     );
 
@@ -81,7 +95,9 @@ describe('FilterSortComponent', () => {
         component.filterOptions = sampleOptions;
         fixture.detectChanges();
 
-        expect(fixture.nativeElement.querySelector('.moe-filter-toggle')).toBeTruthy();
+        expect(
+          fixture.nativeElement.querySelector('.moe-filter-toggle')
+        ).toBeTruthy();
       })
     );
 
@@ -91,7 +107,9 @@ describe('FilterSortComponent', () => {
         component.filterOptions = sampleOptions;
         fixture.detectChanges();
 
-        expect(fixture.nativeElement.querySelector('.moe-filter-options')).toBeFalsy();
+        expect(
+          fixture.nativeElement.querySelector('.moe-filter-options')
+        ).toBeFalsy();
       })
     );
 
@@ -101,11 +119,14 @@ describe('FilterSortComponent', () => {
         component.filterOptions = sampleOptions;
         fixture.detectChanges();
 
-        const toggleButton = fixture.nativeElement.querySelector('.moe-filter-toggle');
+        const toggleButton =
+          fixture.nativeElement.querySelector('.moe-filter-toggle');
         toggleButton.click();
         fixture.detectChanges();
 
-        expect(fixture.nativeElement.querySelector('.moe-filter-options')).toBeTruthy();
+        expect(
+          fixture.nativeElement.querySelector('.moe-filter-options')
+        ).toBeTruthy();
       })
     );
 
@@ -115,12 +136,14 @@ describe('FilterSortComponent', () => {
         component.filterOptions = sampleOptions;
         fixture.detectChanges();
 
-        const toggleButton = fixture.nativeElement.querySelector('.moe-filter-toggle');
+        const toggleButton =
+          fixture.nativeElement.querySelector('.moe-filter-toggle');
         toggleButton.click();
         fixture.detectChanges();
 
-        const filterOptions = fixture.nativeElement.getElementsByClassName('moe-filter-option');
-        expect(filterOptions[0].getAttribute("class")).toContain('selected');
+        const filterOptions =
+          fixture.nativeElement.getElementsByClassName('moe-filter-option');
+        expect(filterOptions[0].getAttribute('class')).toContain('selected');
       })
     );
 
@@ -130,15 +153,19 @@ describe('FilterSortComponent', () => {
         component.filterOptions = sampleOptions;
         fixture.detectChanges();
 
-        const toggleButton = fixture.nativeElement.querySelector('.moe-filter-toggle');
+        const toggleButton =
+          fixture.nativeElement.querySelector('.moe-filter-toggle');
         toggleButton.click();
         fixture.detectChanges();
 
-        const filterOptions = fixture.nativeElement.getElementsByClassName('moe-filter-option');
+        const filterOptions =
+          fixture.nativeElement.getElementsByClassName('moe-filter-option');
         filterOptions[0].click();
         fixture.detectChanges();
 
-        expect(fixture.nativeElement.querySelector('.moe-filter-options')).toBeFalsy();
+        expect(
+          fixture.nativeElement.querySelector('.moe-filter-options')
+        ).toBeFalsy();
       })
     );
 
@@ -149,17 +176,19 @@ describe('FilterSortComponent', () => {
         component.filterOptions = sampleOptions;
         fixture.detectChanges();
 
-        const toggleButton = fixture.nativeElement.querySelector('.moe-filter-toggle');
+        const toggleButton =
+          fixture.nativeElement.querySelector('.moe-filter-toggle');
         toggleButton.click();
         fixture.detectChanges();
 
-        const filterOptions = fixture.nativeElement.getElementsByClassName('moe-filter-option');
+        const filterOptions =
+          fixture.nativeElement.getElementsByClassName('moe-filter-option');
         filterOptions[0].click();
 
         expect(component.filterSortEvent.emit).toHaveBeenCalledWith({
           filterText: NO_FILTER_TEXT,
           selectedFilter: sampleOptions[0],
-          selectedSort: NO_OPTION
+          selectedSort: NO_OPTION,
         });
       })
     );
@@ -169,7 +198,9 @@ describe('FilterSortComponent', () => {
     it(
       'should not display the sort toggle without sort options',
       waitForAsync(() => {
-        expect(fixture.nativeElement.querySelector('.moe-sort-toggle')).toBeFalsy();
+        expect(
+          fixture.nativeElement.querySelector('.moe-sort-toggle')
+        ).toBeFalsy();
       })
     );
 
@@ -179,7 +210,9 @@ describe('FilterSortComponent', () => {
         component.sortOptions = sampleOptions;
         fixture.detectChanges();
 
-        expect(fixture.nativeElement.querySelector('.moe-sort-toggle')).toBeTruthy();
+        expect(
+          fixture.nativeElement.querySelector('.moe-sort-toggle')
+        ).toBeTruthy();
       })
     );
 
@@ -189,7 +222,9 @@ describe('FilterSortComponent', () => {
         component.sortOptions = sampleOptions;
         fixture.detectChanges();
 
-        expect(fixture.nativeElement.querySelector('.moe-sort-options')).toBeFalsy();
+        expect(
+          fixture.nativeElement.querySelector('.moe-sort-options')
+        ).toBeFalsy();
       })
     );
 
@@ -199,11 +234,14 @@ describe('FilterSortComponent', () => {
         component.sortOptions = sampleOptions;
         fixture.detectChanges();
 
-        const toggleButton = fixture.nativeElement.querySelector('.moe-sort-toggle');
+        const toggleButton =
+          fixture.nativeElement.querySelector('.moe-sort-toggle');
         toggleButton.click();
         fixture.detectChanges();
 
-        expect(fixture.nativeElement.querySelector('.moe-sort-options')).toBeTruthy();
+        expect(
+          fixture.nativeElement.querySelector('.moe-sort-options')
+        ).toBeTruthy();
       })
     );
 
@@ -213,12 +251,14 @@ describe('FilterSortComponent', () => {
         component.sortOptions = sampleOptions;
         fixture.detectChanges();
 
-        const toggleButton = fixture.nativeElement.querySelector('.moe-sort-toggle');
+        const toggleButton =
+          fixture.nativeElement.querySelector('.moe-sort-toggle');
         toggleButton.click();
         fixture.detectChanges();
 
-        const sortOptions = fixture.nativeElement.getElementsByClassName('moe-sort-option');
-        expect(sortOptions[0].getAttribute("class")).toContain('selected');
+        const sortOptions =
+          fixture.nativeElement.getElementsByClassName('moe-sort-option');
+        expect(sortOptions[0].getAttribute('class')).toContain('selected');
       })
     );
 
@@ -228,15 +268,19 @@ describe('FilterSortComponent', () => {
         component.sortOptions = sampleOptions;
         fixture.detectChanges();
 
-        const toggleButton = fixture.nativeElement.querySelector('.moe-sort-toggle');
+        const toggleButton =
+          fixture.nativeElement.querySelector('.moe-sort-toggle');
         toggleButton.click();
         fixture.detectChanges();
 
-        const sortOptions = fixture.nativeElement.getElementsByClassName('moe-sort-option');
+        const sortOptions =
+          fixture.nativeElement.getElementsByClassName('moe-sort-option');
         sortOptions[0].click();
         fixture.detectChanges();
 
-        expect(fixture.nativeElement.querySelector('.moe-sort-options')).toBeFalsy();
+        expect(
+          fixture.nativeElement.querySelector('.moe-sort-options')
+        ).toBeFalsy();
       })
     );
 
@@ -247,17 +291,19 @@ describe('FilterSortComponent', () => {
         component.sortOptions = sampleOptions;
         fixture.detectChanges();
 
-        const toggleButton = fixture.nativeElement.querySelector('.moe-sort-toggle');
+        const toggleButton =
+          fixture.nativeElement.querySelector('.moe-sort-toggle');
         toggleButton.click();
         fixture.detectChanges();
 
-        const sortOptions = fixture.nativeElement.getElementsByClassName('moe-sort-option');
+        const sortOptions =
+          fixture.nativeElement.getElementsByClassName('moe-sort-option');
         sortOptions[0].click();
 
         expect(component.filterSortEvent.emit).toHaveBeenCalledWith({
           filterText: NO_FILTER_TEXT,
           selectedFilter: NO_OPTION,
-          selectedSort: sampleOptions[0]
+          selectedSort: sampleOptions[0],
         });
       })
     );
@@ -271,15 +317,21 @@ describe('FilterSortComponent', () => {
         component.sortOptions = sampleOptions;
         fixture.detectChanges();
 
-        const sortToggle = fixture.nativeElement.querySelector('.moe-sort-toggle');
+        const sortToggle =
+          fixture.nativeElement.querySelector('.moe-sort-toggle');
         sortToggle.click();
         fixture.detectChanges();
-        expect(fixture.nativeElement.querySelector('.moe-sort-options')).toBeTruthy();
+        expect(
+          fixture.nativeElement.querySelector('.moe-sort-options')
+        ).toBeTruthy();
 
-        const filterToggle = fixture.nativeElement.querySelector('.moe-filter-toggle');
+        const filterToggle =
+          fixture.nativeElement.querySelector('.moe-filter-toggle');
         filterToggle.click();
         fixture.detectChanges();
-        expect(fixture.nativeElement.querySelector('.moe-sort-options')).toBeFalsy();
+        expect(
+          fixture.nativeElement.querySelector('.moe-sort-options')
+        ).toBeFalsy();
       })
     );
 
@@ -290,15 +342,21 @@ describe('FilterSortComponent', () => {
         component.sortOptions = sampleOptions;
         fixture.detectChanges();
 
-        const filterToggle = fixture.nativeElement.querySelector('.moe-filter-toggle');
+        const filterToggle =
+          fixture.nativeElement.querySelector('.moe-filter-toggle');
         filterToggle.click();
         fixture.detectChanges();
-        expect(fixture.nativeElement.querySelector('.moe-filter-options')).toBeTruthy();
+        expect(
+          fixture.nativeElement.querySelector('.moe-filter-options')
+        ).toBeTruthy();
 
-        const sortToggle = fixture.nativeElement.querySelector('.moe-sort-toggle');
+        const sortToggle =
+          fixture.nativeElement.querySelector('.moe-sort-toggle');
         sortToggle.click();
         fixture.detectChanges();
-        expect(fixture.nativeElement.querySelector('.moe-filter-options')).toBeFalsy();
+        expect(
+          fixture.nativeElement.querySelector('.moe-filter-options')
+        ).toBeFalsy();
       })
     );
   });

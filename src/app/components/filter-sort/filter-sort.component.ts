@@ -17,13 +17,13 @@ export interface FilterSortConfiguration {
   selectedSort: FilterSortOption;
 }
 
-export const NO_FILTER_TEXT: string = '';
+export const NO_FILTER_TEXT = '';
 export const NO_OPTION: FilterSortOption = {
   label: 'None Selected',
-  value: undefined
-}
+  value: undefined,
+};
 
-export const DEFAULT_PLACEHOLDER_TEXT: string = "Start a search…";
+export const DEFAULT_PLACEHOLDER_TEXT = 'Start a search…';
 
 @Component({
   selector: 'moe-filter-sort',
@@ -42,17 +42,19 @@ export class FilterSortComponent implements OnInit {
   private currentConfiguration = {
     filterText: NO_FILTER_TEXT,
     selectedFilter: NO_OPTION,
-    selectedSort: NO_OPTION
-  }
+    selectedSort: NO_OPTION,
+  };
 
   ngOnInit() {
-    const selectedFilter = !!this.filterOptions ? this.filterOptions[0] : NO_OPTION;
-    const selectedSort = !!this.sortOptions ? this.sortOptions[0] : NO_OPTION;
+    const selectedFilter = this.filterOptions
+      ? this.filterOptions[0]
+      : NO_OPTION;
+    const selectedSort = this.sortOptions ? this.sortOptions[0] : NO_OPTION;
 
     this.updateCurrentConfiguration({
       filterText: NO_FILTER_TEXT,
       selectedFilter,
-      selectedSort
+      selectedSort,
     });
   }
 
@@ -62,14 +64,16 @@ export class FilterSortComponent implements OnInit {
   }
 
   getPlaceholderText() {
-    return !!this.placeholderText ? this.placeholderText : DEFAULT_PLACEHOLDER_TEXT;
+    return this.placeholderText
+      ? this.placeholderText
+      : DEFAULT_PLACEHOLDER_TEXT;
   }
 
   onSearchInput(value: string) {
     this.updateCurrentConfiguration({
       filterText: value,
       selectedFilter: this.currentConfiguration.selectedFilter,
-      selectedSort: this.currentConfiguration.selectedSort
+      selectedSort: this.currentConfiguration.selectedSort,
     });
   }
 
@@ -105,7 +109,7 @@ export class FilterSortComponent implements OnInit {
     this.updateCurrentConfiguration({
       filterText: this.currentConfiguration.filterText,
       selectedFilter: value,
-      selectedSort: this.currentConfiguration.selectedSort
+      selectedSort: this.currentConfiguration.selectedSort,
     });
   }
 
@@ -115,7 +119,7 @@ export class FilterSortComponent implements OnInit {
     this.updateCurrentConfiguration({
       filterText: this.currentConfiguration.filterText,
       selectedFilter: this.currentConfiguration.selectedFilter,
-      selectedSort: value
+      selectedSort: value,
     });
   }
 

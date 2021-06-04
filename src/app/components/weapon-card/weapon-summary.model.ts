@@ -118,47 +118,49 @@ export namespace WeaponSummary {
     RARITY_DESCENDING,
     BASE_ATK_DESCENDING,
     SUBSTAT_VALUE_DESCENDING,
-    ALPHABETICALLY
+    ALPHABETICALLY,
   }
 
-  export function getComparator(sort: WeaponSummary.Sort): (a: WeaponSummary, b: WeaponSummary) => number {
+  export function getComparator(
+    sort: WeaponSummary.Sort
+  ): (a: WeaponSummary, b: WeaponSummary) => number {
     switch (sort) {
       case WeaponSummary.Sort.RARITY_DESCENDING:
-          return WeaponSummary.Comparator.byRarity;
-        case WeaponSummary.Sort.BASE_ATK_DESCENDING:
-          return WeaponSummary.Comparator.byBaseAttack;
-        case WeaponSummary.Sort.SUBSTAT_VALUE_DESCENDING:
-          return WeaponSummary.Comparator.bySubstatValue;
-        case WeaponSummary.Sort.ALPHABETICALLY:
-        default:
-          return WeaponSummary.Comparator.byNameAlphabetically;
+        return WeaponSummary.Comparator.byRarity;
+      case WeaponSummary.Sort.BASE_ATK_DESCENDING:
+        return WeaponSummary.Comparator.byBaseAttack;
+      case WeaponSummary.Sort.SUBSTAT_VALUE_DESCENDING:
+        return WeaponSummary.Comparator.bySubstatValue;
+      case WeaponSummary.Sort.ALPHABETICALLY:
+      default:
+        return WeaponSummary.Comparator.byNameAlphabetically;
     }
   }
 
   export class Comparator {
     static byRarity(a: WeaponSummary, b: WeaponSummary): number {
-        if (a.rarity != b.rarity) {
-          return b.rarity - a.rarity;
-        }
-
-        return WeaponSummary.Comparator.byNameAlphabetically(a, b);
+      if (a.rarity != b.rarity) {
+        return b.rarity - a.rarity;
       }
+
+      return WeaponSummary.Comparator.byNameAlphabetically(a, b);
+    }
 
     static byBaseAttack(a: WeaponSummary, b: WeaponSummary): number {
-        if (a.baseAttack != b.baseAttack) {
-          return b.baseAttack - a.baseAttack;
-        }
-
-        return WeaponSummary.Comparator.byNameAlphabetically(a, b);
+      if (a.baseAttack != b.baseAttack) {
+        return b.baseAttack - a.baseAttack;
       }
+
+      return WeaponSummary.Comparator.byNameAlphabetically(a, b);
+    }
 
     static bySubstatValue(a: WeaponSummary, b: WeaponSummary): number {
-        if (a.substatValue != b.substatValue) {
-          return b.substatValue - a.substatValue;
-        }
-
-        return WeaponSummary.Comparator.byNameAlphabetically(a, b);
+      if (a.substatValue != b.substatValue) {
+        return b.substatValue - a.substatValue;
       }
+
+      return WeaponSummary.Comparator.byNameAlphabetically(a, b);
+    }
 
     static byNameAlphabetically(a: WeaponSummary, b: WeaponSummary): number {
       return a.name.localeCompare(b.name);

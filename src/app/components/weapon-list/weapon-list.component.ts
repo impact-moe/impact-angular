@@ -1,4 +1,7 @@
-import { FilterSortConfiguration, FilterSortOption } from '@/components/filter-sort/filter-sort.component';
+import {
+  FilterSortConfiguration,
+  FilterSortOption,
+} from '@/components/filter-sort/filter-sort.component';
 import { WeaponSummary } from '@/components/weapon-card/weapon-summary.model';
 import { WeaponType } from '@/enums/weapon-type.enum';
 import { Weapon } from '@/models/weapon.model';
@@ -12,14 +15,17 @@ export const FILTER_OPTIONS: Array<FilterSortOption> = [
   { label: 'Catalysts', value: WeaponType.Catalyst },
   { label: 'Claymores', value: WeaponType.Claymore },
   { label: 'Polearms', value: WeaponType.Polearm },
-  { label: 'Swords', value: WeaponType.Sword }
+  { label: 'Swords', value: WeaponType.Sword },
 ];
 
 export const SORT_OPTIONS: Array<FilterSortOption> = [
   { label: 'Rarity', value: WeaponSummary.Sort.RARITY_DESCENDING },
   { label: 'Base ATK', value: WeaponSummary.Sort.BASE_ATK_DESCENDING },
-  { label: 'Substat Value', value: WeaponSummary.Sort.SUBSTAT_VALUE_DESCENDING },
-  { label: 'Name (A->Z)', value: WeaponSummary.Sort.ALPHABETICALLY }
+  {
+    label: 'Substat Value',
+    value: WeaponSummary.Sort.SUBSTAT_VALUE_DESCENDING,
+  },
+  { label: 'Name (A->Z)', value: WeaponSummary.Sort.ALPHABETICALLY },
 ];
 
 @Component({
@@ -39,33 +45,38 @@ export class WeaponListComponent {
     private impactService: ImpactService,
     public utilityService: UtilityService
   ) {
-    this.impactService.getWeapons().subscribe((data: Array<Weapon>) => {
-       this.allData = data.map(item => item.toWeaponSummary());
+    this.impactService.getWeapons().subscribe((next: Array<Weapon>) => {
+      this.allData = next.map(item => item.toWeaponSummary());
     });
   }
 
   get placeholderText() {
-    return "Find a weapon by name…";
+    return 'Find a weapon by name…';
   }
 
   hasData() {
-    return this.allData.length != 0;
+    return this.allData.length > 0;
   }
 
   updateConfiguration(config: FilterSortConfiguration) {
-    let filteredResults: Array<WeaponSummary> =
-      this.isRefiningSearch(config) ? this.currentResults : this.allData;
+    let filteredResults: Array<WeaponSummary> = this.isRefiningSearch(config)
+      ? this.currentResults
+      : this.allData;
 
     const filterCategory = config.selectedFilter.value;
     const sort = config.selectedSort.value;
 
-    if (!!filterCategory) {
-      filteredResults = filteredResults.filter(item => item.weaponType === filterCategory);
+    if (filterCategory) {
+      filteredResults = filteredResults.filter(
+        item => item.weaponType === filterCategory
+      );
     }
 
-    filteredResults = filteredResults.filter(item => item.hasTextInName(config.filterText));
+    filteredResults = filteredResults.filter(item =>
+      item.hasTextInName(config.filterText)
+    );
 
-    if (!!sort) {
+    if (sort) {
       filteredResults = filteredResults.sort(WeaponSummary.getComparator(sort));
     }
 
@@ -78,9 +89,12 @@ export class WeaponListComponent {
    * we have stored locally.
    */
   private isRefiningSearch(config: FilterSortConfiguration) {
-    return !!this.currentConfig &&
-      !!config.filterText && config.filterText.includes(this.currentConfig.filterText) &&
-      config.selectedFilter === this.currentConfig.selectedFilter;
+    return (
+      !!this.currentConfig &&
+      !!config.filterText &&
+      config.filterText.includes(this.currentConfig.filterText) &&
+      config.selectedFilter === this.currentConfig.selectedFilter
+    );
   }
 
   get results(): Array<WeaponSummary> {
@@ -88,7 +102,7 @@ export class WeaponListComponent {
   }
 
   get resultsMessage() {
-    const plural = this.results.length == 1 ? '' : 's';
+    const plural = this.results.length === 1 ? '' : 's';
 
     return `${this.results.length} result${plural}`;
   }
