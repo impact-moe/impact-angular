@@ -7,6 +7,10 @@
   background: $moe-level1-color;
 }
 
+@mixin level2-box-shadow {
+  box-shadow: 2px 4px 5px #000b;
+}
+
 /* List page stylings. */
 
 @mixin list-page-host {
@@ -27,20 +31,42 @@
   justify-content: center;
   height: 8rem;
 
-  @media (min-width: 600px) {
+  @media (min-width: $tablet-min-width) {
     height: 12rem;
   }
 }
 
-.list-page-content {
+@mixin list-page-sizing {
   box-sizing: border-box;
   margin: 0 auto;
-  max-width: 1440px;
-  padding: 0 0.5rem;
+  max-width: 500px;
   width: 100%;
 
-  @media (min-width: 600px) {
-    padding: 0 1.5rem;
+  @media (min-width: $tablet-min-width) and (max-width: $tablet-max-width) {
+    max-width: 100%;
+  }
+
+  @media (min-width: $desktop-small-min-width) {
+    max-width: 1440px;
+  }
+}
+
+@mixin list-page-grid {
+  column-gap: 0.5em;
+  display: grid;
+  justify-items: stretch;
+  row-gap: 0.5em;
+
+  @media (min-width: $tablet-min-width) and (max-width: $tablet-max-width) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: $desktop-small-min-width) and (max-width: $desktop-small-max-width) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: $desktop-large-min-width) {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 

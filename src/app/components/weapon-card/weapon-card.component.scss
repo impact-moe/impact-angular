@@ -21,6 +21,7 @@
 }
 
 .weapon-card-name {
+  @include subtitle2-font;
   padding: 0.75rem 1rem;
 }
 
@@ -37,11 +38,22 @@
   flex-direction: column;
   flex-grow: 1;
   justify-content: flex-start;
-  padding: 0.75rem 1rem;
+  padding: 0.5rem 1rem 0.75rem;
 }
 
-.weapon-card-name {
-  font-size: 0.875rem;
+.weapon-base-attack-label,
+.weapon-substat-label {
+  @include caption-font;
+}
+
+.weapon-substat-value {
+  @include subtitle2-font;
+  line-height: 1.5;
+}
+
+.weapon-base-attack-value {
+  @include header6-font;
+  line-height: 1.25;
 }
 
 moe-rarity {
@@ -49,33 +61,6 @@ moe-rarity {
   display: flex;
   flex-grow: 1;
   padding: 0.25rem 0;
-}
-
-.weapon-details {
-  align-items: flex-start;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  width: 100%;
-}
-
-.weapon-base-attack-attribute,
-.weapon-substat-attribute {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-}
-
-.weapon-base-attack-label,
-.weapon-substat-label {
-  font-size: 0.75rem;
-  font-weight: 400;
-  padding-right: 0.5rem;
-}
-
-.weapon-base-attack-value,
-.weapon-substat-value {
-  font-size: 0.875rem;
 }
 
 .weapon-card-image-container {

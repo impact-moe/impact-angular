@@ -10,6 +10,7 @@ import { CharacterCardComponent } from './components/character-card/character-ca
 import { CharacterListComponent } from './components/character-list/character-list.component';
 import { CharacterComponent } from './components/character/character.component';
 import { DropdownContentCardComponent } from './components/dropdown-content-card/dropdown-content-card.component';
+import { FilterSortComponent } from './components/filter-sort/filter-sort.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoadingImageComponent } from './components/loading-image/loading-image.component';
@@ -42,6 +43,7 @@ const baseUrlProvider = {
     CharacterComponent,
     CharacterListComponent,
     DropdownContentCardComponent,
+    FilterSortComponent,
     FooterComponent,
     HomeComponent,
     LinkHandlerDirective,

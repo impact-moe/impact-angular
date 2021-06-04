@@ -2,41 +2,39 @@
   <h1>Characters</h1>
 </div>
 
-<div class="list-page-content">
-  <div class="character-list-controls">
-    <a id="group-type-button"
-      class="button-1 background-blue hover-background-gray"
-      (click)="groupButtonClick()">
-      <span class="group-type-button-label">Group By</span>
-      <i class="fas fa-chevron-right"></i>
-      <span class="group-type-selected">{{ groupType }}</span>
-    </a>
-  </div>
+<moe-loading-image *ngIf="!listItems; else elseBlock"></moe-loading-image>
 
-  <!-- Loading state -->
-  <moe-loading-image *ngIf="!listItems; else elseBlock"></moe-loading-image>
+<ng-template #elseBlock>
+  <div class="character-page-content">
+    <div class="character-list-controls">
+      <a id="group-type-button"
+        class="button-1 background-blue hover-background-gray"
+        (click)="groupButtonClick()">
+        <span class="group-type-button-label">Group By</span>
+        <i class="fas fa-chevron-right"></i>
+        <span class="group-type-selected">{{ groupType }}</span>
+      </a>
+    </div>
 
-  <!-- List contents -->
-  <ng-template #elseBlock>
-    <div class="character-group-section" *ngFor="let listItem of listItems | keyvalue">
-      <div class="character-group-section-header" [ngClass]="
-                  groupType === 'tier'
-                    ? 'background-tier-' + listItem.key
-                    : 'level1-background'
-                ">
-        <img *ngIf="listItem.value.mainImage" src="{{ listItem.value.mainImage }}" [ngStyle]="{
-                    'margin-left': groupType === 'tier' ? '0em' : '2em',
-                    'margin-right': groupType === 'tier' ? '0em' : '2em'
-                  }" />
-        <div *ngIf="listItem.value.mainLabel">
-          {{ listItem.value.mainLabel }}
+      <div class="character-group-section" *ngFor="let listItem of listItems | keyvalue">
+        <div class="character-group-section-header" [ngClass]="
+                    groupType === 'tier'
+                      ? 'background-tier-' + listItem.key
+                      : 'level1-background'
+                  ">
+          <img *ngIf="listItem.value.mainImage" src="{{ listItem.value.mainImage }}" [ngStyle]="{
+                      'margin-left': groupType === 'tier' ? '0em' : '2em',
+                      'margin-right': groupType === 'tier' ? '0em' : '2em'
+                    }" />
+          <div *ngIf="listItem.value.mainLabel">
+            {{ listItem.value.mainLabel }}
+          </div>
+        </div>
+        <div class="character-items-list">
+          <moe-character-card *ngFor="let characterResponse of listItem.value.characters"
+            [character]="characterResponse.toCharacterCardModel()">
+          </moe-character-card>
         </div>
       </div>
-      <div class="character-items-list">
-        <moe-character-card *ngFor="let characterResponse of listItem.value.characters"
-          [character]="characterResponse.toCharacterCardModel()">
-        </moe-character-card>
-      </div>
-    </div>
-  </ng-template>
-</div>
+  </div>
+</ng-template>
