@@ -121,9 +121,7 @@ export namespace WeaponSummary {
     ALPHABETICALLY,
   }
 
-  export function getComparator(
-    sort: WeaponSummary.Sort
-  ): (a: WeaponSummary, b: WeaponSummary) => number {
+  export const getComparator = (sort: WeaponSummary.Sort) => {
     switch (sort) {
       case WeaponSummary.Sort.RARITY_DESCENDING:
         return WeaponSummary.Comparator.byRarity;
@@ -135,11 +133,11 @@ export namespace WeaponSummary {
       default:
         return WeaponSummary.Comparator.byNameAlphabetically;
     }
-  }
+  };
 
   export class Comparator {
     static byRarity(a: WeaponSummary, b: WeaponSummary): number {
-      if (a.rarity != b.rarity) {
+      if (a.rarity !== b.rarity) {
         return b.rarity - a.rarity;
       }
 
@@ -147,7 +145,7 @@ export namespace WeaponSummary {
     }
 
     static byBaseAttack(a: WeaponSummary, b: WeaponSummary): number {
-      if (a.baseAttack != b.baseAttack) {
+      if (a.baseAttack !== b.baseAttack) {
         return b.baseAttack - a.baseAttack;
       }
 
@@ -155,7 +153,7 @@ export namespace WeaponSummary {
     }
 
     static bySubstatValue(a: WeaponSummary, b: WeaponSummary): number {
-      if (a.substatValue != b.substatValue) {
+      if (a.substatValue !== b.substatValue) {
         return b.substatValue - a.substatValue;
       }
 
