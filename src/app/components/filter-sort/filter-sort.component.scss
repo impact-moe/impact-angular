@@ -1,0 +1,75 @@
+@import "global";
+
+:host {
+  display: block;
+  padding: 0.5rem 0.5rem 0;
+
+  @media (min-width: $tablet-min-width) {
+    padding: 0.75rem 1.5rem 0;
+  }
+}
+
+.moe-filtersort-bar {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+
+  .moe-filter-toggle,
+  .moe-sort-toggle {
+    cursor: pointer;
+    padding: 0.75rem 0.5rem;
+    user-select: none;
+  }
+
+  .moe-sort-toggle {
+    margin-left: auto;
+  }
+
+  .moe-current-filter-label,
+  .moe-current-sort-label {
+    @include overline-font;
+  }
+
+  .moe-current-filter-option,
+  .moe-current-sort-option {
+    @include subtitle2-font;
+  }
+}
+
+.moe-sort-toggle,
+.moe-sort-options {
+  text-align: right;
+}
+
+.moe-filter-options,
+.moe-sort-options {
+  @include level2-box-shadow;
+
+  background: $moe-level1-color;
+  border-radius: $moe-border-radius;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+  width: 100%;
+
+  @media (min-width: $tablet-min-width) {
+    width: calc(50% - 0.25rem);
+  }
+}
+
+.moe-sort-options {
+  margin-left: auto;
+}
+
+.moe-filter-option,
+.moe-sort-option {
+  @include body2-font;
+  padding: 0.75rem 1rem;
+
+  &.selected {
+    background: $moe-text-color;
+    color: $moe-background-color;
+  }
+}

@@ -78,7 +78,7 @@ export class ImpactService {
       .pipe(map(res => new Weapon(res)));
   }
 
-  getWeapons(expand?: string) {
+  getWeapons(expand?: string): Observable<Array<Weapon>> {
     const weaponApiUrl = this.apiUrl + 'weapons';
 
     let httpParams: HttpParams = new HttpParams();

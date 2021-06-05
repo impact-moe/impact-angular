@@ -37,7 +37,6 @@
         ],
         "brace-style": [2, "1tbs", { "allowSingleLine": false }],
         "curly": ["error", "multi-line"],
-        "indent": ["error", 2],
         "space-before-blocks": "error",
         "prettier/prettier": "error",
         "@typescript-eslint/naming-convention": 1, // TODO: Fix warnings, then remove.

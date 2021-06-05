@@ -4,6 +4,15 @@
   @include list-page-host;
 }
 
+.character-page-content {
+  @include list-page-sizing;
+  padding: 0 0.5rem;
+
+  @media (min-width: $tablet-min-width) {
+    padding: 0 1.5rem;
+  }
+}
+
 .character-list-controls {
   align-items: center;
   display: flex;
@@ -29,7 +38,7 @@
     font-weight: 600;
   }
 
-  @media (min-width: 600px) {
+  @media (min-width: $tablet-min-width) {
     padding: 1em 0;
   }
 }
@@ -55,26 +64,9 @@
   }
 }
 
-$items-gutter: 0.5em;
-
 .character-items-list {
-  column-gap: $items-gutter;
-  display: grid;
-  justify-items: stretch;
-  padding-top: $items-gutter;
-  row-gap: $items-gutter;
-
-  @media (min-width: 600px) and (max-width: 1023px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (min-width: 1024px) and (max-width: 1439px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  @media (min-width: 1440px) {
-    grid-template-columns: repeat(4, 1fr);
-  }
+  @include list-page-grid;
+  padding-top: 0.5em;
 }
 
 moe-character-card {
