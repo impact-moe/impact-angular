@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { ArtifactSummary } from '@/components/artifact-card/artifact-summary.model';
+import { FilterSortConfiguration } from '@/components/filter-sort/filter-sort.component';
 import { ImpactService } from '@/services/impact.service';
-import { UtilityService } from '@/services/utility.service';
-import { ArtifactType } from 'src/app/enums/artifact-type.enum';
+import { Component, OnInit } from '@angular/core';
 import { Artifact } from 'src/app/models/artifact.model';
 
 @Component({
@@ -10,42 +10,44 @@ import { Artifact } from 'src/app/models/artifact.model';
   styleUrls: ['./artifact-list.component.scss'],
 })
 export class ArtifactListComponent implements OnInit {
-  listItems?: { [key: string]: any };
-  groupType = '';
+  private allData: Array<ArtifactSummary> = [];
+  private currentConfig?: FilterSortConfiguration;
+  private currentResults: Array<ArtifactSummary> = [];
 
-  constructor(
-    private impactService: ImpactService,
-    public utilityService: UtilityService
-  ) {}
+  constructor(private impactService: ImpactService) {}
 
   ngOnInit() {
-    this.impactService.getArtifacts().subscribe((data: Array<Artifact>) => {
-      this.listItems = new Array();
-
-      this.listItems[ArtifactType.Circlet] = {
-        mainLabel: 'Circlet',
-        artifacts: new Array<Artifact>(),
-      };
-      this.listItems[ArtifactType.Feather] = {
-        mainLabel: 'Feather',
-        artifacts: new Array<Artifact>(),
-      };
-      this.listItems[ArtifactType.Flower] = {
-        mainLabel: 'Flower',
-        artifacts: new Array<Artifact>(),
-      };
-      this.listItems[ArtifactType.Goblet] = {
-        mainLabel: 'Goblet',
-        artifacts: new Array<Artifact>(),
-      };
-      this.listItems[ArtifactType.Sands] = {
-        mainLabel: 'Sands',
-        artifacts: new Array<Artifact>(),
-      };
-
-      for (const artifactItem of data) {
-        this.listItems[artifactItem.ArtifactType].artifacts.push(artifactItem);
-      }
+    this.impactService.getArtifacts().subscribe((next: Array<Artifact>) => {
+      this.allData = next.map(item => item.toArtifactSummary());
     });
+  }
+
+  get placeholderText() {
+    return 'Find an artifact by name…';
+  }
+
+  hasData() {
+    return !!this.allData && this.allData.length > 0;
+  }
+
+  updateConfiguration(config: FilterSortConfiguration) {
+    let filteredResults: Array<ArtifactSummary> = this.allData;
+
+    filteredResults = filteredResults.filter(item =>
+      item.hasTextInName(config.filterText)
+    );
+
+    this.currentConfig = config;
+    this.currentResults = filteredResults;
+  }
+
+  get resultsMessage() {
+    const plural = this.results.length === 1 ? '' : 's';
+
+    return `${this.results.length} result${plural}`;
+  }
+
+  get results() {
+    return this.currentResults;
   }
 }

@@ -1,5 +1,5 @@
-@import "constants";
-@import "html";
+@import 'constants';
+@import 'html';
 
 /* App component backgrounds. */
 
@@ -21,18 +21,15 @@
 }
 
 .list-page-header {
-  align-items: center;
   background-image: url(https://media.impact.moe/img/banners/banner-1.webp);
   background-size: cover;
   background-position: center;
   cursor: default;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  height: 8rem;
+  padding: 2rem 1rem;
+  text-align: center;
 
   @media (min-width: $tablet-min-width) {
-    height: 12rem;
+    padding: 4rem 1rem;
   }
 }
 

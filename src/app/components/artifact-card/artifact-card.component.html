@@ -1,0 +1,24 @@
+<a class="artifact-page-link" [routerLink]="formattedLink"></a>
+
+<div class="artifact-card-details">
+  <div class="artifact-card-name">{{ artifact.name }}</div>
+  <moe-rarity [value]="artifact.rarity"></moe-rarity>
+</div>
+
+<div
+  class="artifact-card-image-container"
+  [ngClass]="{
+    'rarity1-gradient': !artifact.rarity || artifact.rarity === 1,
+    'rarity2-gradient': artifact.rarity === 2,
+    'rarity3-gradient': artifact.rarity === 3,
+    'rarity4-gradient': artifact.rarity === 4,
+    'rarity5-gradient': artifact.rarity === 5
+  }"
+>
+  <div
+    class="artifact-card-blur-image"
+    [ngStyle]="{
+      'background-image': 'url(' + artifact.imageUrl + ')'
+    }"
+  ></div>
+</div>

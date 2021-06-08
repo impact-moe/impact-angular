@@ -1,0 +1,54 @@
+@import 'global';
+
+:host {
+  @include default-border-radius;
+
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  position: relative;
+
+  &:hover {
+    .artifact-card-blur-image {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.artifact-page-link {
+  @include cover-element;
+  z-index: 10;
+}
+
+.artifact-card-details {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  text-align: center;
+}
+
+.artifact-card-name {
+  @include subtitle2-font;
+}
+
+moe-rarity {
+  padding-top: 0.25rem;
+}
+
+.artifact-card-image-container {
+  flex-shrink: 0;
+  height: 8rem;
+  width: 8rem;
+}
+
+.artifact-card-blur-image {
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  transition: 0.25s;
+  width: 100%;
+}

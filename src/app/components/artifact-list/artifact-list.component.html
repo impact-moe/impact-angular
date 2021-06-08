@@ -1,75 +1,22 @@
-<div class="container-1">
-  <div class="container-inner-1 flex-column">
-    <div class="banner-1">
-      <div class="banner-content-container-1">
-        <img
-          class="full-width full-height image-cover"
-          src="https://media.impact.moe/img/banners/banner-1.webp"
-        />
-      </div>
-      <div
-        class="banner-content-container-1 flex-column flex-center flex-center-items"
-      >
-        <h1>Artifacts</h1>
-      </div>
-    </div>
-    <div class="body-1 flex-column flex-center-items full-width">
-      <div id="artifact-list-container" class="flex-column" *ngIf="listItems">
-        <div
-          class="artifact-group-list-item flex-column background-gray-2"
-          *ngFor="let listItem of listItems | keyvalue"
-        >
-          <div
-            class="artifact-group-list-item-image-container flex-row flex-center flex-center-items background-gray-3"
-          >
-            <img
-              *ngIf="listItem.value.mainImage"
-              src="{{ listItem.value.mainImage }}"
-            />
-            <h3 *ngIf="listItem.value.mainLabel">
-              {{ listItem.value.mainLabel }}
-            </h3>
-          </div>
-          <div class="artifact-items-container flex-row flex-center">
-            <a
-              class="artifact-item-container flex-row background-gray-1"
-              *ngFor="let artifactItem of listItem.value.artifacts"
-              routerLink="{{ '/artifacts/' + artifactItem.Id }}"
-            >
-              <div
-                class="artifact-item-title-container flex-column flex-center flex-center-items"
-              >
-                <h4>{{ artifactItem?.Name }}</h4>
-                <moe-rarity [value]="artifactItem.Rarity"></moe-rarity>
-              </div>
+<h1 class="list-page-header">Artifacts</h1>
 
-              <div class="artifact-item-image-container-1">
-                <div class="artifact-item-image-container-2">
-                  <div
-                    class="artifact-item-image-container-3 flex-row flex-center flex-center-items"
-                    [ngStyle]="{
-                      'background-image': 'url(' + artifactItem.Image + ')'
-                    }"
-                  >
-                    <div class="artifact-item-overlay-background-container">
-                      <div
-                        class="artifact-item-overlay"
-                        [ngStyle]="{
-                          'background-image': 'url(' + artifactItem?.Image + ')'
-                        }"
-                      ></div>
-                    </div>
-                    <div
-                      class="artifact-item-overlay-content flex-column flex-center flex-center-items position-absolute"
-                    ></div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-      <moe-loading-image *ngIf="!listItems"></moe-loading-image>
+<moe-loading-image *ngIf="!hasData(); else elseBlock"></moe-loading-image>
+
+<ng-template #elseBlock>
+  <div class="artifact-search-container">
+    <moe-filter-sort
+      [placeholderText]="placeholderText"
+      (filterSortEvent)="updateConfiguration($event)"
+    ></moe-filter-sort>
+  </div>
+
+  <div class="artifact-search-results">
+    <div class="artifact-results-message">{{ resultsMessage }}</div>
+    <div class="artifact-results-grid">
+      <moe-artifact-card
+        *ngFor="let artifact of results"
+        [artifact]="artifact"
+      ></moe-artifact-card>
     </div>
   </div>
-</div>
+</ng-template>

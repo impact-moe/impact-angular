@@ -1,3 +1,4 @@
+import { ArtifactCardComponent } from './components/artifact-card/artifact-card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -38,6 +39,7 @@ const baseUrlProvider = {
   declarations: [
     AppComponent,
     ArtifactComponent,
+    ArtifactCardComponent,
     ArtifactListComponent,
     CharacterCardComponent,
     CharacterComponent,
