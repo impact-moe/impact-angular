@@ -115,6 +115,7 @@ export namespace WeaponSummary {
   }
 
   export enum Sort {
+    NONE,
     RARITY_DESCENDING,
     BASE_ATK_DESCENDING,
     SUBSTAT_VALUE_DESCENDING,
@@ -130,12 +131,18 @@ export namespace WeaponSummary {
       case WeaponSummary.Sort.SUBSTAT_VALUE_DESCENDING:
         return WeaponSummary.Comparator.bySubstatValue;
       case WeaponSummary.Sort.ALPHABETICALLY:
-      default:
         return WeaponSummary.Comparator.byNameAlphabetically;
+      case WeaponSummary.Sort.NONE:
+      default:
+        return WeaponSummary.Comparator.noOp;
     }
   };
 
   export class Comparator {
+    static noOp(a: WeaponSummary, b: WeaponSummary): number {
+      return 0;
+    }
+
     static byRarity(a: WeaponSummary, b: WeaponSummary): number {
       if (a.rarity !== b.rarity) {
         return b.rarity - a.rarity;
