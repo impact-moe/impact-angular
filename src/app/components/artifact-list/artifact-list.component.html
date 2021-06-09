@@ -6,6 +6,8 @@
   <div class="artifact-search-container">
     <moe-filter-sort
       [placeholderText]="placeholderText"
+      [filterOptions]="filterOptions"
+      [sortOptions]="sortOptions"
       (filterSortEvent)="updateConfiguration($event)"
     ></moe-filter-sort>
   </div>

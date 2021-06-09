@@ -5,7 +5,7 @@
 
   cursor: pointer;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   overflow: hidden;
   position: relative;
 
@@ -21,27 +21,43 @@
   z-index: 10;
 }
 
+.artifact-card-name {
+  @include subtitle2-font;
+
+  padding: 0.75rem 1rem;
+}
+
+.artifact-card-contents {
+  display: flex;
+  flex-direction: row;
+}
+
 .artifact-card-details {
-  align-items: center;
+  align-items: flex-start;
+  border-top: 1px solid #4a4a4a;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 0.75rem 1rem;
-  text-align: center;
 }
 
-.artifact-card-name {
+.artifact-card-set-title {
   @include subtitle2-font;
 }
 
+.artifact-card-type-label {
+  @include caption-font;
+}
+
 moe-rarity {
+  margin-top: auto;
   padding-top: 0.25rem;
 }
 
 .artifact-card-image-container {
   flex-shrink: 0;
-  height: 8rem;
+  min-height: 8rem;
   width: 8rem;
 }
 

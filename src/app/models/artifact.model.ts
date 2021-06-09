@@ -25,6 +25,8 @@ export class Artifact {
   toArtifactSummary() {
     return new ArtifactSummary.Builder(this.Id)
       .setName(this.Name)
+      .setSetTitle(this.ArtifactSet.Name)
+      .setType(this.ArtifactType)
       .setRarity(this.Rarity)
       .setImageUrl(this.Image)
       .build();
