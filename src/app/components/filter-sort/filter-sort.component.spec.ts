@@ -68,7 +68,7 @@ describe('FilterSortComponent', () => {
         const searchElement =
           fixture.nativeElement.querySelector('.moe-search-input');
         searchElement.value = 'test';
-        searchElement.dispatchEvent(new Event('keyup'));
+        searchElement.dispatchEvent(new Event('input'));
 
         expect(component.filterSortEvent.emit).toHaveBeenCalledWith({
           filterText: 'test',
