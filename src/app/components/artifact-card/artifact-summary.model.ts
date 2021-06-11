@@ -16,7 +16,7 @@ export class ArtifactSummary {
     this.type = builder.getType();
   }
 
-  hasTextInName(text: string) {
+  hasTextInSetOrName(text: string) {
     return (
       this.name.toLocaleLowerCase().includes(text.toLocaleLowerCase()) ||
       this.setTitle.toLocaleLowerCase().includes(text.toLocaleLowerCase())
@@ -90,8 +90,8 @@ export namespace ArtifactSummary {
 
   export enum Sort {
     NONE,
-    RARITY_DESCENDING,
     SET_ALPHABETICALLY,
+    RARITY_DESCENDING,
   }
 
   export const getComparator = (sort: ArtifactSummary.Sort) => {

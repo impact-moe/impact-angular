@@ -1,4 +1,4 @@
-import { ArtifactType } from './../../enums/artifact-type.enum';
+import { ArtifactType } from '@/enums/artifact-type.enum';
 import { ArtifactSummary } from '@/components/artifact-card/artifact-summary.model';
 import {
   FilterSortConfiguration,
@@ -44,7 +44,7 @@ export class ArtifactListComponent implements OnInit {
   }
 
   get placeholderText() {
-    return 'Find an artifact by name…';
+    return 'Find an artifact by set or name…';
   }
 
   hasData() {
@@ -66,7 +66,7 @@ export class ArtifactListComponent implements OnInit {
     }
 
     filteredResults = filteredResults.filter(item =>
-      item.hasTextInName(config.filterText)
+      item.hasTextInSetOrName(config.filterText)
     );
 
     if (sort) {
