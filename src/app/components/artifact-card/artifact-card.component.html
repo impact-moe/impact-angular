@@ -7,7 +7,10 @@
     <div class="artifact-card-set-title">{{ artifact.setTitle }}</div>
     <div class="artifact-card-type-label">{{ artifact.type }}</div>
 
-    <moe-rarity [value]="artifact.rarity"></moe-rarity>
+    <moe-rarity
+      *ngIf="artifact.rarity > 0"
+      [value]="artifact.rarity"
+    ></moe-rarity>
   </div>
 
   <div
@@ -21,6 +24,7 @@
     }"
   >
     <div
+      *ngIf="!!artifact.imageUrl"
       class="artifact-card-blur-image"
       [ngStyle]="{
         'background-image': 'url(' + artifact.imageUrl + ')'
