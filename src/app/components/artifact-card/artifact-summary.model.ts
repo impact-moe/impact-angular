@@ -135,7 +135,7 @@ export namespace ArtifactSummary {
       const rarityComparison = ArtifactSummary.Comparator.byOnlyRarity(a, b);
 
       return setTitleComparison === 0
-        ? rarityComparison == 0
+        ? rarityComparison === 0
           ? ArtifactSummary.Comparator.byType(a, b)
           : rarityComparison
         : setTitleComparison;
@@ -152,8 +152,8 @@ export namespace ArtifactSummary {
         b
       );
 
-      return rarityComparison == 0
-        ? setTitleComparison == 0
+      return rarityComparison === 0
+        ? setTitleComparison === 0
           ? ArtifactSummary.Comparator.byType(a, b)
           : setTitleComparison
         : rarityComparison;
