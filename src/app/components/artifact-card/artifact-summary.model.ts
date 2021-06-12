@@ -97,7 +97,7 @@ export namespace ArtifactSummary {
   export const getComparator = (sort: ArtifactSummary.Sort) => {
     switch (sort) {
       case ArtifactSummary.Sort.SET_ALPHABETICALLY:
-        return ArtifactSummary.Comparator.bySetName;
+        return ArtifactSummary.Comparator.bySetTitle;
       case ArtifactSummary.Sort.RARITY_DESCENDING:
         return ArtifactSummary.Comparator.byRarity;
       default:
@@ -127,29 +127,35 @@ export namespace ArtifactSummary {
       return 0;
     }
 
-    static bySetName(a: ArtifactSummary, b: ArtifactSummary) {
-      const setNameComparison = ArtifactSummary.Comparator.byOnlySetName(a, b);
+    static bySetTitle(a: ArtifactSummary, b: ArtifactSummary) {
+      const setTitleComparison = ArtifactSummary.Comparator.byOnlySetTitle(
+        a,
+        b
+      );
       const rarityComparison = ArtifactSummary.Comparator.byOnlyRarity(a, b);
 
-      return setNameComparison === 0
+      return setTitleComparison === 0
         ? rarityComparison == 0
           ? ArtifactSummary.Comparator.byType(a, b)
           : rarityComparison
-        : setNameComparison;
+        : setTitleComparison;
     }
 
-    static byOnlySetName(a: ArtifactSummary, b: ArtifactSummary) {
+    static byOnlySetTitle(a: ArtifactSummary, b: ArtifactSummary) {
       return a.setTitle.localeCompare(b.setTitle);
     }
 
     static byRarity(a: ArtifactSummary, b: ArtifactSummary) {
       const rarityComparison = ArtifactSummary.Comparator.byOnlyRarity(a, b);
-      const setNameComparison = ArtifactSummary.Comparator.byOnlySetName(a, b);
+      const setTitleComparison = ArtifactSummary.Comparator.byOnlySetTitle(
+        a,
+        b
+      );
 
       return rarityComparison == 0
-        ? setNameComparison == 0
+        ? setTitleComparison == 0
           ? ArtifactSummary.Comparator.byType(a, b)
-          : setNameComparison
+          : setTitleComparison
         : rarityComparison;
     }
 
