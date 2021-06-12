@@ -3,7 +3,7 @@
  */
 
 import { Component, Input } from '@angular/core';
-import { WeaponCardModel } from './weapon-card.model';
+import { WeaponSummary } from './weapon-summary.model';
 
 @Component({
   selector: 'moe-weapon-card',
@@ -11,7 +11,7 @@ import { WeaponCardModel } from './weapon-card.model';
   styleUrls: ['./weapon-card.component.scss'],
 })
 export class WeaponCardComponent {
-  @Input() weapon!: WeaponCardModel;
+  @Input() weapon!: WeaponSummary;
 
   get formattedLink() {
     return `/weapons/${this.weapon.id}`;

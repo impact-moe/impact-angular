@@ -1,57 +1,34 @@
-@import "global";
+@import 'global';
 
 :host {
   @include list-page-host;
 }
 
-.weapon-filter-sort-stub {
-  height: 0.5em;
+.weapon-search-container {
+  background: $moe-background-color;
+  border-bottom: 1px solid $moe-level1-color;
+}
 
-  @media (min-width: 600px) {
-    height: 1.5em;
+moe-filter-sort {
+  @include list-page-sizing;
+}
+
+.weapon-search-results {
+  @include list-page-sizing;
+  padding: 0 0.5rem 0.5rem;
+
+  @media (min-width: $tablet-min-width) {
+    padding: 0 1.5rem 1.5rem;
   }
 }
 
-.weapon-group-section {
-  padding-bottom: 1.5em;
+.weapon-results-message {
+  @include caption-font;
+  padding: 0.5rem 0.25rem;
 }
 
-.weapon-group-section-header {
-  @include default-border-radius;
-
-  align-items: center;
-  background: $moe-level1-color;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding: 0.5em;
-  height: 2em;
-
-  img {
-    max-height: 100%;
-  }
-}
-
-$items-gutter: 0.5em;
-
-.weapon-items-list {
-  column-gap: $items-gutter;
-  display: grid;
-  justify-items: stretch;
-  padding-top: $items-gutter;
-  row-gap: $items-gutter;
-
-  @media (min-width: 600px) and (max-width: 1023px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (min-width: 1024px) and (max-width: 1439px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  @media (min-width: 1440px) {
-    grid-template-columns: repeat(4, 1fr);
-  }
+.weapon-results-grid {
+  @include list-page-grid;
 }
 
 moe-weapon-card {

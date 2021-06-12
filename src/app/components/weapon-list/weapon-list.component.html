@@ -1,24 +1,22 @@
-<div class="list-page-header">
-  <h1>Weapons</h1>
-</div>
+<h1 class="list-page-header">Weapons</h1>
 
-<div class="list-page-content">
-  <moe-loading-image *ngIf="!listItems; else elseBlock"></moe-loading-image>
+<moe-loading-image *ngIf="!hasData(); else elseBlock"></moe-loading-image>
 
-  <ng-template #elseBlock>
-    <div class="weapon-filter-sort-stub"></div>
-    <div class="weapon-group-section" *ngFor="let listItem of listItems | keyvalue">
-      <div class="weapon-group-section-header">
-        <img *ngIf="listItem.value.mainImage" src="{{ listItem.value.mainImage }}" />
-        <h3 *ngIf="listItem.value.mainLabel">
-          {{ listItem.value.mainLabel }}
-        </h3>
-      </div>
-      <div class="weapon-items-list">
-        <moe-weapon-card *ngFor="let weapon of listItem.value.weapons"
-          [weapon]="weapon.toWeaponCardModel()">
-        </moe-weapon-card>
-      </div>
+<ng-template #elseBlock>
+  <div class="weapon-search-container">
+    <moe-filter-sort
+      [placeholderText]="placeholderText"
+      [filterOptions]="filterOptions"
+      [sortOptions]="sortOptions"
+      (filterSortEvent)="updateConfiguration($event)"
+    ></moe-filter-sort>
+  </div>
+
+  <div class="weapon-search-results">
+    <div class="weapon-results-message">{{ resultsMessage }}</div>
+    <div class="weapon-results-grid">
+      <moe-weapon-card *ngFor="let weapon of results" [weapon]="weapon">
+      </moe-weapon-card>
     </div>
-  </ng-template>
-</div>
+  </div>
+</ng-template>

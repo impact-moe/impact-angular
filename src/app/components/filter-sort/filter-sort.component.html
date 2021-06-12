@@ -1,0 +1,51 @@
+<input
+  #moeSearch
+  type="search"
+  class="moe-search-input"
+  [placeholder]="getPlaceholderText()"
+  (input)="onSearchInput(moeSearch.value)"
+/>
+
+<div class="moe-filtersort-bar">
+  <div
+    *ngIf="hasFilterOptions"
+    class="moe-filter-toggle"
+    (click)="toggleFilterMenu()"
+  >
+    <div class="moe-current-filter-label">Filter By</div>
+    <div class="moe-current-filter-option">{{ currentFilter.label }}</div>
+  </div>
+
+  <div
+    *ngIf="hasSortOptions"
+    class="moe-sort-toggle"
+    (click)="toggleSortMenu()"
+  >
+    <div class="moe-current-sort-label">Sort By</div>
+    <div class="moe-current-sort-option">{{ currentSort.label }}</div>
+  </div>
+</div>
+
+<div class="moe-filtersort-options">
+  <div *ngIf="shouldShowFilterOptions()" class="moe-filter-options">
+    <div
+      *ngFor="let option of filterOptions"
+      class="moe-filter-option"
+      [ngClass]="{ selected: option === currentFilter }"
+      (click)="selectFilter(option)"
+    >
+      {{ option.label }}
+    </div>
+  </div>
+
+  <div *ngIf="shouldShowSortOptions()" class="moe-sort-options">
+    <div
+      *ngFor="let option of sortOptions"
+      class="moe-sort-option"
+      [ngClass]="{ selected: option === currentSort }"
+      (click)="selectSort(option)"
+    >
+      {{ option.label }}
+    </div>
+  </div>
+</div>

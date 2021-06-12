@@ -1,7 +1,46 @@
 $default-font-family: "Montserrat", sans-serif;
+$default-font-normal-weight: 400;
+$default-font-medium-weight: 600;
 $default-font-bold-weight: 800;
 
 @mixin default-font-style {
   font: $default-font-bold-weight 1rem/1.6 $default-font-family;
   letter-spacing: 0.04rem;
+}
+
+/* Material font specs */
+
+@mixin header6-font {
+  font: $default-font-bold-weight 1.25rem/1.6 $default-font-family;
+  letter-spacing: 0.05rem;
+}
+
+@mixin subtitle-font {
+  font: $default-font-bold-weight 1rem/1.6 $default-font-family;
+  letter-spacing: 0.06rem;
+}
+
+@mixin subtitle2-font {
+  font: $default-font-bold-weight 0.875rem/1.6 $default-font-family;
+  letter-spacing: 0.06rem;
+}
+
+@mixin body-font {
+  font: $default-font-normal-weight 1rem/1.6 $default-font-family;
+  letter-spacing: 0.04rem;
+}
+
+@mixin body2-font {
+  font: $default-font-normal-weight 0.875rem/1.6 $default-font-family;
+  letter-spacing: 0.04rem;
+}
+
+@mixin caption-font {
+  font: $default-font-normal-weight 0.75rem/1.6 $default-font-family;
+  letter-spacing: 0.06rem;
+}
+
+@mixin overline-font {
+  font: $default-font-normal-weight 0.675rem/1.6 $default-font-family;
+  text-transform: uppercase;
 }

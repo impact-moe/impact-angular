@@ -41,3 +41,19 @@ p {
   line-height: 1.2rem;
   font-weight: 600;
 }
+
+input[type=search] {
+  @include body-font;
+  @include default-text-color;
+
+  background: $moe-level1-color;
+  border: none;
+  border-radius: $moe-border-radius;
+  box-sizing: border-box;
+  padding: 1rem;
+  width: 100%;
+
+  &::placeholder {
+    color: #fff9;
+  }
+}

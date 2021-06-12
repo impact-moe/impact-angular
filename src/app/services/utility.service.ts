@@ -18,6 +18,9 @@ export class UtilityService {
     if (region === Region.Liyue) {
       return this.baseUrl + 'img/map-banners/liyue-banner.webp';
     }
+    if (region === Region.Inazuma) {
+      return this.baseUrl + 'img/map-banners/inazuma-banner.webp';
+    }
 
     return this.baseUrl + 'img/map-banners/mondstadt-banner.webp';
   }

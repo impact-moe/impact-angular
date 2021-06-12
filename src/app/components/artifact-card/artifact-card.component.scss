@@ -1,4 +1,4 @@
-@import "global";
+@import 'global';
 
 :host {
   @include default-border-radius;
@@ -6,76 +6,62 @@
   cursor: pointer;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   position: relative;
 
   &:hover {
-    .weapon-card-blur-image {
+    .artifact-card-blur-image {
       transform: scale(1.1);
     }
   }
 }
 
-.weapon-page-link {
+.artifact-page-link {
   @include cover-element;
   z-index: 10;
 }
 
-.weapon-card-name {
+.artifact-card-name {
   @include subtitle2-font;
+
   padding: 0.75rem 1rem;
 }
 
-.weapon-card-content {
+.artifact-card-contents {
   display: flex;
   flex-direction: row;
-  height: 100%;
 }
 
-.weapon-card-summary {
+.artifact-card-details {
   align-items: flex-start;
   border-top: 1px solid #4a4a4a;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   justify-content: flex-start;
-  padding: 0.5rem 1rem 0.75rem;
+  padding: 0.75rem 1rem;
 }
 
-.weapon-base-attack-label,
-.weapon-substat-label {
+.artifact-card-set-title {
+  @include subtitle2-font;
+}
+
+.artifact-card-type-label {
   @include caption-font;
 }
 
-.weapon-substat-value {
-  @include subtitle2-font;
-  line-height: 1.5;
-}
-
-.weapon-base-attack-value {
-  @include header6-font;
-  line-height: 1.25;
-}
-
 moe-rarity {
-  align-items: flex-end;
-  display: flex;
-  flex-grow: 1;
-  padding: 0.25rem 0;
+  margin-top: auto;
+  padding-top: 0.25rem;
 }
 
-.weapon-card-image-container {
-  align-items: center;
-  border-radius: 0 0 $moe-border-radius 0;
-  display: flex;
+.artifact-card-image-container {
   flex-shrink: 0;
-  justify-content: center;
   min-height: 8rem;
-  overflow: hidden;
-  position: relative;
   width: 8rem;
 }
 
-.weapon-card-blur-image {
+.artifact-card-blur-image {
   background-position: center;
   background-size: cover;
   height: 100%;

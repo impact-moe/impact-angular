@@ -23,6 +23,7 @@
 
 .character-profile-link {
   @include cover-element;
+
   z-index: 10;
 }
 
@@ -37,7 +38,7 @@
 }
 
 .character-card-name {
-  font-size: 0.875rem;
+  @include subtitle2-font;
 }
 
 moe-rarity {
@@ -72,13 +73,10 @@ moe-rarity {
 }
 
 .character-card-hover-image {
+  @include cover-element;
+
   background-position: center;
   background-repeat: no-repeat;
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
   transition: 0.5s;
 }
 
