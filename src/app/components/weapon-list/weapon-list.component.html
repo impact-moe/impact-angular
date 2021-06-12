@@ -1,22 +1,21 @@
-<div class="list-page-header">
-  <h1>Weapons</h1>
-</div>
+<h1 class="list-page-header">Weapons</h1>
 
 <moe-loading-image *ngIf="!hasData(); else elseBlock"></moe-loading-image>
 
 <ng-template #elseBlock>
   <div class="weapon-search-container">
-    <moe-filter-sort [placeholderText]="placeholderText"
-                     [filterOptions]="filterOptions"
-                     [sortOptions]="sortOptions"
-                     (filterSortEvent)="updateConfiguration($event)"></moe-filter-sort>
+    <moe-filter-sort
+      [placeholderText]="placeholderText"
+      [filterOptions]="filterOptions"
+      [sortOptions]="sortOptions"
+      (filterSortEvent)="updateConfiguration($event)"
+    ></moe-filter-sort>
   </div>
 
   <div class="weapon-search-results">
     <div class="weapon-results-message">{{ resultsMessage }}</div>
     <div class="weapon-results-grid">
-      <moe-weapon-card *ngFor="let weapon of results"
-                       [weapon]="weapon">
+      <moe-weapon-card *ngFor="let weapon of results" [weapon]="weapon">
       </moe-weapon-card>
     </div>
   </div>
