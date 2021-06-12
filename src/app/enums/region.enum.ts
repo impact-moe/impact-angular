@@ -1,7 +1,7 @@
 export enum Region {
   Mondstadt = 'Mondstadt',
   Liyue = 'Liyue',
-  Inazuma = 'Inuzama',
+  Inazuma = 'Inazuma',
   Sumeru = 'Sumeru',
   Fontaine = 'Fontaine',
   Natlan = 'Natlan',
