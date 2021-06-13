@@ -8,7 +8,10 @@
         />
       </div>
       <div
-        class="banner-content-container-1 flex-row flex-space-between flex-center-items"
+        class="
+          banner-content-container-1
+          flex-row flex-space-between flex-center-items
+        "
       >
         <div
           id="artifact-opacity-layer"
@@ -19,23 +22,29 @@
         </div>
       </div>
     </div>
-    <div
-      id="artifact-summary-container"
-      class="full-width background-gray-2"
-    >
+    <div id="artifact-summary-container" class="full-width background-gray-2">
       <div class="primary-content-container-1">
-        <div id="artifact-summary-sidebar-container" class="sidebar-section-1 flex-row flex-center">
+        <div
+          id="artifact-summary-sidebar-container"
+          class="sidebar-section-1 flex-row flex-center"
+        >
           <img
             id="artifact-portrait-image"
             class="image-scale-down"
             src="{{ artifact.Image }}"
           />
         </div>
-        <div id="artifact-summary-content" class="main-section-1 flex-column hidden-overflow-x">
+        <div
+          id="artifact-summary-content"
+          class="main-section-1 flex-column hidden-overflow-x"
+        >
           <div id="artifact-title-container" class="flex-row flex-center-items">
             <div id="artifact-title-content" class="flex-column">
               <h1>{{ artifact.Name }}</h1>
-              <moe-rarity id="artifact-star-container" [value]="artifact.Rarity"></moe-rarity>
+              <moe-rarity
+                id="artifact-star-container"
+                [value]="artifact.Rarity"
+              ></moe-rarity>
             </div>
           </div>
           <div
@@ -43,6 +52,9 @@
             class="scrollbars-hidden scroll-overflow-y"
           >
             <p>{{ artifact.Description }}</p>
+            <p>
+              <i>{{ artifact.Lore }}</i>
+            </p>
           </div>
 
           <div
@@ -79,11 +91,12 @@
     </div>
     <div class="body-1 flex-row full-width">
       <div id="artifact-content" class="primary-content-container-1">
-        <div id="artifact-sidebar-content-container"
-            class="sidebar-section-1 flex-column scrollbars-hidden {{
-              utilityService.getRarityBackground(artifact.Rarity)
-            }}"
-          >
+        <div
+          id="artifact-sidebar-content-container"
+          class="sidebar-section-1 flex-column scrollbars-hidden {{
+            utilityService.getRarityBackground(artifact.Rarity)
+          }}"
+        >
           <div>
             <h2>Artifact Type</h2>
             <p>{{ artifact.ArtifactType }}</p>
@@ -97,7 +110,12 @@
             *ngIf="pageId === 'overview'"
           >
             <div
-              class="artifact-role-container content-card flex-column background-gray-2"
+              class="
+                artifact-role-container
+                content-card
+                flex-column
+                background-gray-2
+              "
             >
               <div
                 class="content-card-title flex-row {{

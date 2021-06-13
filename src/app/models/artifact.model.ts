@@ -11,6 +11,8 @@ export class Artifact {
   Description: string;
   Image: string;
   ArtifactSet: ArtifactSet;
+  Lore: string;
+  Location: string;
 
   constructor(artifactJson: any) {
     this.Id = artifactJson.id;
@@ -20,6 +22,8 @@ export class Artifact {
     this.Description = artifactJson.description;
     this.ArtifactType = artifactJson.type;
     this.ArtifactSet = new ArtifactSet(artifactJson.artifactSet);
+    this.Lore = artifactJson.lore;
+    this.Location = artifactJson.location;
   }
 
   toArtifactSummary() {
