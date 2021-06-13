@@ -1,4 +1,4 @@
-@import "constants";
+@import 'constants';
 
 body,
 html {
@@ -42,7 +42,7 @@ p {
   font-weight: 600;
 }
 
-input[type=search] {
+input[type='search'] {
   @include body-font;
   @include default-text-color;
 

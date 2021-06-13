@@ -2,11 +2,16 @@
   <div id="nav-primary-container" class="flex-row flex-space-evenly">
     <div id="nav-left-group" class="flex-row flex-center">
       <a [routerLink]="['/']">
-        <img src="https://media.impact.moe/img/general/logo-rectangle-64.webp" />
+        <img
+          src="https://media.impact.moe/img/general/logo-rectangle-64.webp"
+        />
       </a>
     </div>
     <div id="nav-center-group" class="flex-row">
-      <moe-route-button *ngFor="let route of navList" [route]="route"></moe-route-button>
+      <moe-route-button
+        *ngFor="let route of navList"
+        [route]="route"
+      ></moe-route-button>
     </div>
     <div id="nav-right-group" class="flex-row flex-center">
       <a class="button-1" [routerLink]="['/login']">
@@ -48,10 +53,12 @@
     </div>
   </div>
 
-  <moe-route-button *ngFor="let route of navList"
-                    [route]="route"
-                    [style]="buttonStyles.LINE_ITEM"
-                    (click)="closeDrawer()"></moe-route-button>
+  <moe-route-button
+    *ngFor="let route of navList"
+    [route]="route"
+    [style]="buttonStyles.LINE_ITEM"
+    (click)="closeDrawer()"
+  ></moe-route-button>
 
   <div id="account-container">
     <a class="button-1" [routerLink]="['/login']"><p>log in</p></a>
