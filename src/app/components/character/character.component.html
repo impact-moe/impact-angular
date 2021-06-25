@@ -8,7 +8,10 @@
         />
       </div>
       <div
-        class="banner-content-container-1 flex-row flex-space-between flex-center-items"
+        class="
+          banner-content-container-1
+          flex-row flex-space-between flex-center-items
+        "
       >
         <div
           id="character-opacity-layer"
@@ -26,24 +29,35 @@
         />
       </div>
     </div>
-    <div
-      id="character-summary-container"
-      class="full-width background-gray-2"
-    >
+    <div id="character-summary-container" class="full-width background-gray-2">
       <div class="primary-content-container-1">
-        <div id="character-summary-sidebar-container" class="sidebar-section-1 flex-row flex-center">
+        <div
+          id="character-summary-sidebar-container"
+          class="sidebar-section-1 flex-row flex-center"
+        >
           <img
             id="character-portrait-image"
             class="image-scale-down"
             src="{{ character.Image }}"
           />
         </div>
-        <div id="character-summary-content" class="main-section-1 flex-column hidden-overflow-x">
-          <div id="character-title-container" class="flex-row flex-center-items">
-            <img src="{{ utilityService.getElementImage(character.Element) }}" />
+        <div
+          id="character-summary-content"
+          class="main-section-1 flex-column hidden-overflow-x"
+        >
+          <div
+            id="character-title-container"
+            class="flex-row flex-center-items"
+          >
+            <img
+              src="{{ utilityService.getElementImage(character.Element) }}"
+            />
             <div id="character-title-content" class="flex-column">
               <h1>{{ character.Name }}</h1>
-              <moe-rarity id="character-star-container" [value]="character.Rarity"></moe-rarity>
+              <moe-rarity
+                id="character-star-container"
+                [value]="character.Rarity"
+              ></moe-rarity>
             </div>
           </div>
           <div
@@ -134,7 +148,8 @@
     </div>
     <div class="body-1 flex-row full-width">
       <div id="character-content" class="primary-content-container-1">
-        <div id="character-sidebar-content-container"
+        <div
+          id="character-sidebar-content-container"
           class="sidebar-section-1 flex-column scrollbars-hidden {{
             utilityService.getElementBackground(character.Element)
           }}"
@@ -178,14 +193,18 @@
         </div>
 
         <div id="character-main-content-container" class="main-section-1">
-
           <div
             id="character-overview-container"
             class="flex-column"
             *ngIf="pageId === 'overview'"
           >
             <div
-              class="character-role-container content-card flex-column background-gray-2"
+              class="
+                character-role-container
+                content-card
+                flex-column
+                background-gray-2
+              "
               *ngFor="let role of character.Roles"
             >
               <div
@@ -194,13 +213,19 @@
                 }}"
               >
                 <i
-                  *ngIf="character.CharacterOverview?.RecommendedRole === role.Name"
+                  *ngIf="
+                    character.CharacterOverview?.RecommendedRole === role.Name
+                  "
                   class="fas fa-star"
                 ></i>
                 <h3>{{ role.Name }}</h3>
               </div>
               <div class="content-card-body">
-                <div class="role-description" [innerHtml]="role.Notes" linkHandler></div>
+                <div
+                  class="role-description"
+                  [innerHtml]="role.Notes"
+                  linkHandler
+                ></div>
                 <div class="overview-content flex-row flex-space-evenly">
                   <div class="overview-content-list flex-column">
                     <div
@@ -211,17 +236,27 @@
                       <h4>Weapons</h4>
                     </div>
                     <a
-                      href="{{ 'https://impact.moe/weapons/' + weapon.Weapon.Id }}"
+                      href="{{
+                        'https://impact.moe/weapons/' + weapon.Weapon.Id
+                      }}"
                       class="overview-content-list-item flex-row"
                       *ngFor="let weapon of role.Weapons"
                     >
                       <div
-                        class="overview-content-list-item-rank flex-row flex-center flex-center-items background-off-white"
+                        class="
+                          overview-content-list-item-rank
+                          flex-row flex-center flex-center-items
+                          background-off-white
+                        "
                       >
                         <p>{{ weapon.Rank }}</p>
                       </div>
                       <div
-                        class="overview-content-list-item-content flex-row flex-center flex-center-items background-gray-1"
+                        class="
+                          overview-content-list-item-content
+                          flex-row flex-center flex-center-items
+                          background-gray-1
+                        "
                       >
                         <p>{{ weapon.Weapon.Name }}</p>
                       </div>
@@ -238,7 +273,8 @@
                     </div>
                     <a
                       href="{{
-                        'https://impact.moe/artifact-set/' + artifact.ArtifactSet.Id
+                        'https://impact.moe/artifact-set/' +
+                          artifact.ArtifactSet.Id
                       }}"
                       class="overview-content-list-item flex-row"
                       *ngFor="let artifact of role.Artifacts; let i = index"
@@ -249,12 +285,20 @@
                       "
                     >
                       <div
-                        class="overview-content-list-item-rank flex-row flex-center flex-center-items background-off-white"
+                        class="
+                          overview-content-list-item-rank
+                          flex-row flex-center flex-center-items
+                          background-off-white
+                        "
                       >
                         <p>{{ artifact.Rank }}</p>
                       </div>
                       <div
-                        class="overview-content-list-item-content flex-row flex-center flex-center-items background-gray-1"
+                        class="
+                          overview-content-list-item-content
+                          flex-row flex-center flex-center-items
+                          background-gray-1
+                        "
                       >
                         <p>
                           {{
@@ -263,8 +307,8 @@
                                 role.Artifacts[i - 1].Rank === artifact.Rank) ||
                               (i + 1 < role.Artifacts.length &&
                                 role.Artifacts[i + 1].Rank === artifact.Rank)
-                                ? " (2)"
-                                : " (4)")
+                                ? ' (2)'
+                                : ' (4)')
                           }}
                         </p>
                       </div>
@@ -284,16 +328,26 @@
                       *ngFor="let mainStat of role.MainStats"
                     >
                       <div
-                        class="overview-content-list-item-rank flex-row flex-center flex-center-items background-off-white"
+                        class="
+                          overview-content-list-item-rank
+                          flex-row flex-center flex-center-items
+                          background-off-white
+                        "
                       >
                         <img
                           src="{{
-                            utilityService.getArtifactImage64(mainStat.ArtifactType)
+                            utilityService.getArtifactImage64(
+                              mainStat.ArtifactType
+                            )
                           }}"
                         />
                       </div>
                       <div
-                        class="overview-content-list-item-content flex-row flex-center flex-center-items background-gray-1"
+                        class="
+                          overview-content-list-item-content
+                          flex-row flex-center flex-center-items
+                          background-gray-1
+                        "
                       >
                         <p>{{ mainStat.Type }}</p>
                       </div>
@@ -313,12 +367,20 @@
                       *ngFor="let subStat of role.SubStats"
                     >
                       <div
-                        class="overview-content-list-item-rank flex-row flex-center flex-center-items background-off-white"
+                        class="
+                          overview-content-list-item-rank
+                          flex-row flex-center flex-center-items
+                          background-off-white
+                        "
                       >
                         <p>{{ subStat.Rank }}</p>
                       </div>
                       <div
-                        class="overview-content-list-item-content flex-row flex-center flex-center-items background-gray-1"
+                        class="
+                          overview-content-list-item-content
+                          flex-row flex-center flex-center-items
+                          background-gray-1
+                        "
                       >
                         <p>{{ subStat.Type }}</p>
                       </div>
@@ -327,7 +389,9 @@
                 </div>
               </div>
             </div>
-            <moe-loading-image *ngIf="character.Roles.length == 0"></moe-loading-image>
+            <moe-loading-image
+              *ngIf="character.Roles.length === 0"
+            ></moe-loading-image>
           </div>
 
           <div
@@ -347,12 +411,20 @@
                 <img src="{{ normalTalent?.Image }}" />
                 <h4>{{ normalTalent?.Name }}</h4>
                 <div
-                  class="talent-tag-container background-gray-2 flex-column flex-center"
+                  class="
+                    talent-tag-container
+                    background-gray-2
+                    flex-column flex-center
+                  "
                 >
                   <p>Normal</p>
                 </div>
                 <div
-                  class="content-card-expand-button hover-background-gray-1 flex-row flex-center"
+                  class="
+                    content-card-expand-button
+                    hover-background-gray-1
+                    flex-row flex-center
+                  "
                 >
                   <i class="fas fa-caret-down"></i>
                 </div>
@@ -363,8 +435,6 @@
                 </div>
               </div>
             </div>
-
-
 
             <div
               appContentCard
@@ -378,12 +448,20 @@
                 <img src="{{ elementalSkillTalent?.Image }}" />
                 <h4>{{ elementalSkillTalent?.Name }}</h4>
                 <div
-                  class="talent-tag-container background-gray-2 flex-column flex-center"
+                  class="
+                    talent-tag-container
+                    background-gray-2
+                    flex-column flex-center
+                  "
                 >
                   <p>Elemental Skill</p>
                 </div>
                 <div
-                  class="content-card-expand-button hover-background-gray-1 flex-row flex-center"
+                  class="
+                    content-card-expand-button
+                    hover-background-gray-1
+                    flex-row flex-center
+                  "
                 >
                   <i class="fas fa-caret-down"></i>
                 </div>
@@ -407,12 +485,20 @@
                 <img src="{{ elementalBurstTalent?.Image }}" />
                 <h4>{{ elementalBurstTalent?.Name }}</h4>
                 <div
-                  class="talent-tag-container background-gray-2 flex-column flex-center"
+                  class="
+                    talent-tag-container
+                    background-gray-2
+                    flex-column flex-center
+                  "
                 >
                   <p>Elemental Burst</p>
                 </div>
                 <div
-                  class="content-card-expand-button hover-background-gray-1 flex-row flex-center"
+                  class="
+                    content-card-expand-button
+                    hover-background-gray-1
+                    flex-row flex-center
+                  "
                 >
                   <i class="fas fa-caret-down"></i>
                 </div>
@@ -436,12 +522,20 @@
                 <img src="{{ passiveOneTalent?.Image }}" />
                 <h4>{{ passiveOneTalent?.Name }}</h4>
                 <div
-                  class="talent-tag-container background-gray-2 flex-column flex-center"
+                  class="
+                    talent-tag-container
+                    background-gray-2
+                    flex-column flex-center
+                  "
                 >
                   <p>1st Ascension Passive</p>
                 </div>
                 <div
-                  class="content-card-expand-button hover-background-gray-1 flex-row flex-center"
+                  class="
+                    content-card-expand-button
+                    hover-background-gray-1
+                    flex-row flex-center
+                  "
                 >
                   <i class="fas fa-caret-down"></i>
                 </div>
@@ -465,12 +559,20 @@
                 <img src="{{ passiveTwoTalent?.Image }}" />
                 <h4>{{ passiveTwoTalent?.Name }}</h4>
                 <div
-                  class="talent-tag-container background-gray-2 flex-column flex-center"
+                  class="
+                    talent-tag-container
+                    background-gray-2
+                    flex-column flex-center
+                  "
                 >
                   <p>4th Ascension Passive</p>
                 </div>
                 <div
-                  class="content-card-expand-button hover-background-gray-1 flex-row flex-center"
+                  class="
+                    content-card-expand-button
+                    hover-background-gray-1
+                    flex-row flex-center
+                  "
                 >
                   <i class="fas fa-caret-down"></i>
                 </div>
@@ -495,12 +597,20 @@
                 <img src="{{ passiveThreeTalent?.Image }}" />
                 <h4>{{ passiveThreeTalent?.Name }}</h4>
                 <div
-                  class="talent-tag-container background-gray-2 flex-column flex-center"
+                  class="
+                    talent-tag-container
+                    background-gray-2
+                    flex-column flex-center
+                  "
                 >
                   <p>Utility Passive</p>
                 </div>
                 <div
-                  class="content-card-expand-button hover-background-gray-1 flex-row flex-center"
+                  class="
+                    content-card-expand-button
+                    hover-background-gray-1
+                    flex-row flex-center
+                  "
                 >
                   <i class="fas fa-caret-down"></i>
                 </div>
@@ -520,7 +630,11 @@
           >
             <div
               appContentCard
-              class="content-card character-constellation-container background-gray-2"
+              class="
+                content-card
+                character-constellation-container
+                background-gray-2
+              "
             >
               <div
                 class="content-card-title {{
@@ -530,12 +644,20 @@
                 <img src="{{ constellationOne?.Image }}" />
                 <h4>{{ constellationOne?.Name }}</h4>
                 <div
-                  class="constellation-tag-container background-gray-2 flex-column flex-center"
+                  class="
+                    constellation-tag-container
+                    background-gray-2
+                    flex-column flex-center
+                  "
                 >
                   <p>C1</p>
                 </div>
                 <div
-                  class="content-card-expand-button hover-background-gray-1 flex-row flex-center"
+                  class="
+                    content-card-expand-button
+                    hover-background-gray-1
+                    flex-row flex-center
+                  "
                 >
                   <i class="fas fa-caret-down"></i>
                 </div>
@@ -549,7 +671,11 @@
 
             <div
               appContentCard
-              class="content-card character-constellation-container background-gray-2"
+              class="
+                content-card
+                character-constellation-container
+                background-gray-2
+              "
             >
               <div
                 class="content-card-title {{
@@ -559,12 +685,20 @@
                 <img src="{{ constellationTwo?.Image }}" />
                 <h4>{{ constellationTwo?.Name }}</h4>
                 <div
-                  class="constellation-tag-container background-gray-2 flex-column flex-center"
+                  class="
+                    constellation-tag-container
+                    background-gray-2
+                    flex-column flex-center
+                  "
                 >
                   <p>C2</p>
                 </div>
                 <div
-                  class="content-card-expand-button hover-background-gray-1 flex-row flex-center"
+                  class="
+                    content-card-expand-button
+                    hover-background-gray-1
+                    flex-row flex-center
+                  "
                 >
                   <i class="fas fa-caret-down"></i>
                 </div>
@@ -578,7 +712,11 @@
 
             <div
               appContentCard
-              class="content-card character-constellation-container background-gray-2"
+              class="
+                content-card
+                character-constellation-container
+                background-gray-2
+              "
             >
               <div
                 class="content-card-title {{
@@ -588,12 +726,20 @@
                 <img src="{{ constellationThree?.Image }}" />
                 <h4>{{ constellationThree?.Name }}</h4>
                 <div
-                  class="constellation-tag-container background-gray-2 flex-column flex-center"
+                  class="
+                    constellation-tag-container
+                    background-gray-2
+                    flex-column flex-center
+                  "
                 >
                   <p>C3</p>
                 </div>
                 <div
-                  class="content-card-expand-button hover-background-gray-1 flex-row flex-center"
+                  class="
+                    content-card-expand-button
+                    hover-background-gray-1
+                    flex-row flex-center
+                  "
                 >
                   <i class="fas fa-caret-down"></i>
                 </div>
@@ -607,7 +753,11 @@
 
             <div
               appContentCard
-              class="content-card character-constellation-container background-gray-2"
+              class="
+                content-card
+                character-constellation-container
+                background-gray-2
+              "
             >
               <div
                 class="content-card-title {{
@@ -617,12 +767,20 @@
                 <img src="{{ constellationFour?.Image }}" />
                 <h4>{{ constellationFour?.Name }}</h4>
                 <div
-                  class="constellation-tag-container background-gray-2 flex-column flex-center"
+                  class="
+                    constellation-tag-container
+                    background-gray-2
+                    flex-column flex-center
+                  "
                 >
                   <p>C4</p>
                 </div>
                 <div
-                  class="content-card-expand-button hover-background-gray-1 flex-row flex-center"
+                  class="
+                    content-card-expand-button
+                    hover-background-gray-1
+                    flex-row flex-center
+                  "
                 >
                   <i class="fas fa-caret-down"></i>
                 </div>
@@ -636,7 +794,11 @@
 
             <div
               appContentCard
-              class="content-card character-constellation-container background-gray-2"
+              class="
+                content-card
+                character-constellation-container
+                background-gray-2
+              "
             >
               <div
                 class="content-card-title {{
@@ -646,12 +808,20 @@
                 <img src="{{ constellationFive?.Image }}" />
                 <h4>{{ constellationFive?.Name }}</h4>
                 <div
-                  class="constellation-tag-container background-gray-2 flex-column flex-center"
+                  class="
+                    constellation-tag-container
+                    background-gray-2
+                    flex-column flex-center
+                  "
                 >
                   <p>C5</p>
                 </div>
                 <div
-                  class="content-card-expand-button hover-background-gray-1 flex-row flex-center"
+                  class="
+                    content-card-expand-button
+                    hover-background-gray-1
+                    flex-row flex-center
+                  "
                 >
                   <i class="fas fa-caret-down"></i>
                 </div>
@@ -665,7 +835,11 @@
 
             <div
               appContentCard
-              class="content-card character-constellation-container background-gray-2"
+              class="
+                content-card
+                character-constellation-container
+                background-gray-2
+              "
             >
               <div
                 class="content-card-title {{
@@ -675,12 +849,20 @@
                 <img src="{{ constellationSix?.Image }}" />
                 <h4>{{ constellationSix?.Name }}</h4>
                 <div
-                  class="constellation-tag-container background-gray-2 flex-column flex-center"
+                  class="
+                    constellation-tag-container
+                    background-gray-2
+                    flex-column flex-center
+                  "
                 >
                   <p>C6</p>
                 </div>
                 <div
-                  class="content-card-expand-button hover-background-gray-1 flex-row flex-center"
+                  class="
+                    content-card-expand-button
+                    hover-background-gray-1
+                    flex-row flex-center
+                  "
                 >
                   <i class="fas fa-caret-down"></i>
                 </div>
