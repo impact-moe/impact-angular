@@ -1,8 +1,10 @@
-<a class="moe-route-link button-1"
-   [ngClass]="{
-     'button-style': getStyle() == buttonStyles.BUTTON,
-     'line-item-style': getStyle() == buttonStyles.LINE_ITEM
-   }"
-   [routerLink]="route.path">
+<a
+  class="moe-route-link button-1"
+  [ngClass]="{
+    'button-style': getStyle() === buttonStyles.BUTTON,
+    'line-item-style': getStyle() === buttonStyles.LINE_ITEM
+  }"
+  [routerLink]="route.path"
+>
   <p class="moe-route-label">{{ route.label }}</p>
 </a>
