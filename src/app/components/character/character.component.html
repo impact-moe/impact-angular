@@ -402,6 +402,7 @@
             <div
               appContentCard
               class="content-card character-talent-container background-gray-2"
+              *ngIf="normalTalent"
             >
               <div
                 class="content-card-title {{
@@ -439,6 +440,7 @@
             <div
               appContentCard
               class="content-card character-talent-container background-gray-2"
+              *ngIf="elementalSkillTalent"
             >
               <div
                 class="content-card-title {{
@@ -476,6 +478,7 @@
             <div
               appContentCard
               class="content-card character-talent-container background-gray-2"
+              *ngIf="elementalBurstTalent"
             >
               <div
                 class="content-card-title {{
@@ -513,6 +516,7 @@
             <div
               appContentCard
               class="content-card character-talent-container background-gray-2"
+              *ngIf="passiveOneTalent"
             >
               <div
                 class="content-card-title {{
@@ -550,6 +554,7 @@
             <div
               appContentCard
               class="content-card character-talent-container background-gray-2"
+              *ngIf="passiveTwoTalent"
             >
               <div
                 class="content-card-title {{
@@ -621,6 +626,9 @@
                 </div>
               </div>
             </div>
+            <moe-loading-image
+              *ngIf="character.Talents.length === 0"
+            ></moe-loading-image>
           </div>
 
           <div
@@ -635,6 +643,7 @@
                 character-constellation-container
                 background-gray-2
               "
+              *ngIf="constellationOne"
             >
               <div
                 class="content-card-title {{
@@ -676,6 +685,7 @@
                 character-constellation-container
                 background-gray-2
               "
+              *ngIf="constellationTwo"
             >
               <div
                 class="content-card-title {{
@@ -717,6 +727,7 @@
                 character-constellation-container
                 background-gray-2
               "
+              *ngIf="constellationThree"
             >
               <div
                 class="content-card-title {{
@@ -758,6 +769,7 @@
                 character-constellation-container
                 background-gray-2
               "
+              *ngIf="constellationFour"
             >
               <div
                 class="content-card-title {{
@@ -799,6 +811,7 @@
                 character-constellation-container
                 background-gray-2
               "
+              *ngIf="constellationFive"
             >
               <div
                 class="content-card-title {{
@@ -840,6 +853,7 @@
                 character-constellation-container
                 background-gray-2
               "
+              *ngIf="constellationSix"
             >
               <div
                 class="content-card-title {{
@@ -873,6 +887,9 @@
                 </div>
               </div>
             </div>
+            <moe-loading-image
+              *ngIf="character.Constellations.length === 0"
+            ></moe-loading-image>
           </div>
         </div>
       </div>
