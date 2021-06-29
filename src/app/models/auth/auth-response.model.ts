@@ -1,4 +1,4 @@
-import { RefreshToken } from '@/refresh-token.model';
+import { RefreshToken } from '@/models/auth/refresh-token.model';
 
 export class AuthResponse {
   Token: string;
