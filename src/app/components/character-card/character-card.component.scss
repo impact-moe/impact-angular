@@ -23,8 +23,7 @@
 
 .character-profile-link {
   @include cover-element;
-
-  z-index: 10;
+  z-index: 1;
 }
 
 .character-card-summary {
