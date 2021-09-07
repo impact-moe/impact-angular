@@ -19,6 +19,10 @@ export class WeaponComponent implements OnInit {
     public utilityService: UtilityService
   ) {}
 
+  hasData() {
+    return !!this.weapon;
+  }
+
   ngOnInit() {
     this.route.params.subscribe(params => {
       if (!params.weaponId) return;
