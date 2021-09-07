@@ -1,18 +1,23 @@
+@import 'global';
+
 :host {
   display: flex;
 }
 
+.moe-route-link {
+  color: #fefefe;
+  font: $default-font-bold-weight 0.875rem/1.6 $default-font-family;
+  text-transform: capitalize;
+  padding: 0.75rem 1rem;
+}
+
 .line-item-style {
-  margin: 0;
-  border-radius: 0;
-  height: 3em;
+  text-align: center;
+  transition: 0.2s;
   width: 100%;
-}
 
-.line-item-style:hover {
-  background: #fefefe;
-}
-
-.line-item-style:hover .moe-route-label {
-  color: #262626;
+  &:hover {
+    background: #fefefe;
+    color: #262626;
+  }
 }

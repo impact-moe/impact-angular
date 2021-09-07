@@ -4,8 +4,7 @@ body,
 html {
   height: 100%;
   margin: 0;
-  max-width: 100%;
-  overflow-x: hidden;
+  padding: 0;
   width: 100%;
 }
 
@@ -34,12 +33,10 @@ a {
 }
 
 p {
-  font-family: $default-font-family;
-  color: #ededed;
-  font-size: 0.8rem;
+  font: $default-font-medium-weight 0.875rem/1.6 $default-font-family;
   letter-spacing: 0.04em;
-  line-height: 1.2rem;
-  font-weight: 600;
+  margin: 0;
+  padding: 0.5rem 0;
 }
 
 input[type='search'] {

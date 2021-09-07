@@ -17,16 +17,17 @@
   box-sizing: border-box;
   display: block;
   min-height: 100%;
-  padding-top: 6rem;
 }
 
 .list-page-header {
   background-image: url(https://media.impact.moe/img/banners/banner-1.webp);
   background-size: cover;
   background-position: center;
+  box-sizing: border-box;
   cursor: default;
   padding: 2rem 1rem;
   text-align: center;
+  width: 100%;
 
   @media (min-width: $tablet-min-width) {
     padding: 4rem 1rem;

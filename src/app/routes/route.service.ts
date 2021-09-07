@@ -31,4 +31,14 @@ export namespace MoeRouteService {
     artifactsRoute,
     statisticsRoute,
   ];
+
+  export const loginRoute: MoeRoute = new MoeRoute.Builder()
+    .setLabel('login')
+    .setPath('/login')
+    .build();
+
+  export const signupRoute: MoeRoute = new MoeRoute.Builder()
+    .setLabel('sign up')
+    .setPath('/signup')
+    .build();
 }
