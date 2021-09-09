@@ -1,7 +1,5 @@
 <div *ngIf="!!weapon; else elseBlock">
-  <div id="overview"></div>
-
-  <div id="header" class="weapon-header">
+  <div class="weapon-header">
     <div class="weapon-header-title">
       <h1 class="weapon-name">{{ weapon.Name }}</h1>
       <moe-rarity *ngIf="weapon.Rarity" [value]="weapon.Rarity"></moe-rarity>
@@ -52,12 +50,12 @@
     </div>
 
     <div class="weapon-details">
-      <div class="weapon-materials-container" id="materials">
+      <div class="weapon-materials-container">
         <div class="weapon-materials-header">Materials</div>
         <p class="weapon-materials">Under Construction</p>
       </div>
 
-      <div class="weapon-lore-container" id="lore">
+      <div class="weapon-lore-container">
         <div class="weapon-lore-header">Lore</div>
         <p class="weapon-lore">{{ weapon.Lore }}</p>
       </div>
