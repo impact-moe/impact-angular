@@ -23,7 +23,7 @@
 
 .weapon-header-title {
   @include full-width;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1rem;
   position: relative;
 
   @media (min-width: $tablet-min-width) {
@@ -120,6 +120,10 @@
 .weapon-lore-header {
   @include header6-font;
   color: white;
+}
+
+.weapon-ability-description {
+  word-break: break-word;
 }
 
 .weapon-description,
