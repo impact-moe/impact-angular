@@ -1,13 +1,16 @@
 :host {
-  background: #141414;
-  color: #919191;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  width: 100%;
 }
 
 .footer-container {
+  background: #141414;
+  color: #919191;
+  width: 100%;
+}
+
+.footer-content {
   box-sizing: border-box;
   margin: 0 auto;
   max-width: 1440px;
