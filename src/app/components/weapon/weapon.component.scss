@@ -1,18 +1,34 @@
 @import 'global';
 
-:host {
-  display: block;
+@mixin full-width {
+  box-sizing: border-box;
   margin: 0 auto;
   max-width: 1440px;
-  padding-bottom: 1rem;
+  width: 100%;
 }
 
-.weapon-header-container {
+.weapon-summary {
+  @media (min-width: $desktop-small-min-width) {
+    flex-shrink: 0;
+    max-width: 22.5rem;
+  }
+}
+
+.weapon-header {
   background: $moe-level1-color;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-.weapon-header-content {
-  padding: 0.5rem 1rem 0.75rem;
+.weapon-header-title {
+  @include full-width;
+  padding: 0.5rem 1rem;
+  position: relative;
+
+  @media (min-width: $tablet-min-width) {
+    padding: 1rem 1.5rem;
+  }
 
   .weapon-name {
     font-size: 1.6rem;
@@ -20,14 +36,34 @@
   }
 }
 
-.weapon-overview {
+.weapon-body {
+  @include full-width;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $desktop-small-min-width) {
+    flex-direction: row;
+    padding: 0 1.5rem 1.5rem;
+  }
+}
+
+.weapon-summary {
+  @media (min-width: $desktop-small-min-width) {
+    padding-top: 1.5rem;
+  }
+}
+
+.weapon-card {
   display: flex;
   flex-direction: row;
+
+  @media (min-width: $desktop-small-min-width) {
+    border-radius: $moe-border-radius $moe-border-radius 0 0;
+  }
 }
 
 .weapon-stats {
   flex-shrink: 0;
-  flex-grow: 1;
   padding: 0.75rem 1rem;
 
   .weapon-type,
@@ -48,28 +84,58 @@
   .substat-value {
     @include subtitle2-font;
   }
+
+  @media (min-width: $tablet-min-width) {
+    padding: 1rem 1.5rem;
+  }
 }
 
 .weapon-image {
-  max-width: 320px;
-  width: 50%;
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  flex-grow: 1;
 }
 
 .weapon-ability-container,
+.weapon-materials-container,
 .weapon-lore-container {
   padding: 1rem 1rem 0;
+
+  @media (min-width: $tablet-min-width) {
+    padding: 1.5rem 1.5rem 0;
+  }
+}
+
+.weapon-ability-container {
+  @media (min-width: $desktop-small-min-width) {
+    background: $moe-level1-color;
+    border-radius: 0 0 $moe-border-radius $moe-border-radius;
+    padding: 1rem 1.5rem;
+  }
 }
 
 .weapon-ability-name,
+.weapon-materials-header,
 .weapon-lore-header {
   @include header6-font;
+  color: white;
 }
 
 .weapon-description,
+.weapon-materials,
 .weapon-lore {
   @include body2-font;
 }
 
 .weapon-description {
   font-style: italic;
+}
+
+.weapon-details {
+  padding-bottom: 1rem;
+
+  @media (min-width: $desktop-small-min-width) {
+    padding-bottom: 1.5rem;
+  }
 }

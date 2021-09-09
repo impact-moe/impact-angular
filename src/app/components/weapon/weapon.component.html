@@ -1,50 +1,70 @@
-<moe-loading-image *ngIf="!hasData(); else elseBlock"></moe-loading-image>
+<div *ngIf="!!weapon; else elseBlock">
+  <div id="overview"></div>
+
+  <div id="header" class="weapon-header">
+    <div class="weapon-header-title">
+      <h1 class="weapon-name">{{ weapon.Name }}</h1>
+      <moe-rarity *ngIf="weapon.Rarity" [value]="weapon.Rarity"></moe-rarity>
+    </div>
+  </div>
+
+  <div class="weapon-body">
+    <div class="weapon-summary">
+      <div
+        class="weapon-card"
+        [ngClass]="{
+          'rarity1-gradient': !weapon.Rarity || weapon.Rarity === 1,
+          'rarity2-gradient': weapon.Rarity === 2,
+          'rarity3-gradient': weapon.Rarity === 3,
+          'rarity4-gradient': weapon.Rarity === 4,
+          'rarity5-gradient': weapon.Rarity === 5
+        }"
+      >
+        <div class="weapon-stats">
+          <div class="weapon-type">{{ weapon.WeaponType }}</div>
+          <div class="base-attack-label">Base ATK</div>
+          <div class="base-attack-value">{{ weapon.BaseAtk }}</div>
+          <div class="substat-label">{{ weapon.SubStatType }}</div>
+          <div class="substat-value">{{ weapon.SubStat }}</div>
+          <div class="location-label">Location</div>
+          <div class="location-value">{{ weapon.Location }}</div>
+        </div>
+
+        <div
+          class="weapon-image"
+          [ngStyle]="{
+            'background-image': 'url(' + weapon.Image + ')'
+          }"
+        ></div>
+      </div>
+
+      <div class="weapon-ability-container">
+        <div *ngIf="weapon.AbilityName" class="weapon-ability-name">
+          {{ weapon.AbilityName }}
+        </div>
+        <p *ngIf="weapon.AbilityDescription" class="weapon-ability-description">
+          {{ weapon.AbilityDescription }}
+        </p>
+        <p class="weapon-description">
+          {{ weapon.Description }}
+        </p>
+      </div>
+    </div>
+
+    <div class="weapon-details">
+      <div class="weapon-materials-container" id="materials">
+        <div class="weapon-materials-header">Materials</div>
+        <p class="weapon-materials">Under Construction</p>
+      </div>
+
+      <div class="weapon-lore-container" id="lore">
+        <div class="weapon-lore-header">Lore</div>
+        <p class="weapon-lore">{{ weapon.Lore }}</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <ng-template #elseBlock>
-  <div class="weapon-header-container">
-    <div class="weapon-header-content">
-      <h1 class="weapon-name">{{ weapon.Name }}</h1>
-      <moe-rarity [value]="weapon.Rarity"></moe-rarity>
-    </div>
-  </div>
-
-  <div
-    class="weapon-overview"
-    [ngClass]="{
-      'rarity1-gradient': !weapon.Rarity || weapon.Rarity === 1,
-      'rarity2-gradient': weapon.Rarity === 2,
-      'rarity3-gradient': weapon.Rarity === 3,
-      'rarity4-gradient': weapon.Rarity === 4,
-      'rarity5-gradient': weapon.Rarity === 5
-    }"
-  >
-    <div class="weapon-stats">
-      <div class="weapon-type">{{ weapon.WeaponType }}</div>
-      <div class="base-attack-label">Base ATK</div>
-      <div class="base-attack-value">{{ weapon.BaseAtk }}</div>
-      <div class="substat-label">{{ weapon.SubStatType }}</div>
-      <div class="substat-value">{{ weapon.SubStat }}</div>
-      <div class="location-label">Location</div>
-      <div class="location-value">{{ weapon.Location }}</div>
-    </div>
-
-    <img class="weapon-image" [src]="weapon.Image" />
-  </div>
-
-  <div class="weapon-ability-container">
-    <div *ngIf="weapon.AbilityName" class="weapon-ability-name">
-      {{ weapon.AbilityName }}
-    </div>
-    <p *ngIf="weapon.AbilityDescription" class="weapon-ability-description">
-      {{ weapon.AbilityDescription }}
-    </p>
-    <p class="weapon-description">
-      {{ weapon.Description }}
-    </p>
-  </div>
-
-  <div class="weapon-lore-container">
-    <div class="weapon-lore-header">Lore</div>
-    <p class="weapon-lore">{{ weapon.Lore }}</p>
-  </div>
+  <moe-loading-image></moe-loading-image>
 </ng-template>
