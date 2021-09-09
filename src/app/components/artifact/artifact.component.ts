@@ -11,7 +11,6 @@ import { Artifact } from 'src/app/models/artifact.model';
 })
 export class ArtifactComponent implements OnInit {
   artifact?: Artifact;
-  pageId = 'overview';
 
   constructor(
     private route: ActivatedRoute,
@@ -23,19 +22,9 @@ export class ArtifactComponent implements OnInit {
     this.route.params.subscribe(params => {
       if (!params.artifactId) return;
 
-      if (params.pageId === 'overview') {
-        this.impactService.getArtifact(params.artifactId).subscribe(data => {
-          this.artifact = data;
-
-          this.pageId = params.pageId;
-        });
-      } else if (params.pageId === 'materials') {
-        this.impactService.getArtifact(params.artifactId).subscribe(data => {
-          this.artifact = data;
-
-          this.pageId = params.pageId;
-        });
-      }
+      this.impactService.getArtifact(params.artifactId).subscribe(data => {
+        this.artifact = data;
+      });
     });
   }
 }
