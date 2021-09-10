@@ -59,16 +59,11 @@ const routes: Routes = [
   },
   {
     path: 'artifact/:artifactId',
-    redirectTo: 'artifacts/:artifactId/overview',
+    redirectTo: 'artifacts/:artifactId',
     pathMatch: 'full',
   },
   {
     path: 'artifacts/:artifactId',
-    redirectTo: 'artifacts/:artifactId/overview',
-    pathMatch: 'full',
-  },
-  {
-    path: 'artifacts/:artifactId/:pageId',
     component: ArtifactComponent,
     pathMatch: 'full',
   },
