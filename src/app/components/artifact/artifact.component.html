@@ -1,4 +1,8 @@
-<div *ngIf="!!artifact; else elseBlock">
+<ng-template [ngIf]="!artifact">
+  <moe-loading-image></moe-loading-image>
+</ng-template>
+
+<ng-template [ngIf]="!!artifact">
   <div class="artifact-header">
     <div class="artifact-header-title">
       <h1 class="artifact-name">{{ artifact.Name }}</h1>
@@ -54,8 +58,4 @@
       </div>
     </div>
   </div>
-</div>
-
-<ng-template #elseBlock>
-  <moe-loading-image></moe-loading-image>
 </ng-template>

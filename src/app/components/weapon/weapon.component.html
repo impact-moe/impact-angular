@@ -1,4 +1,8 @@
-<div *ngIf="!!weapon; else elseBlock">
+<ng-template [ngIf]="!weapon">
+  <moe-loading-image></moe-loading-image>
+</ng-template>
+
+<ng-template [ngIf]="!!weapon">
   <div class="weapon-header">
     <div class="weapon-header-title">
       <h1 class="weapon-name">{{ weapon.Name }}</h1>
@@ -61,8 +65,4 @@
       </div>
     </div>
   </div>
-</div>
-
-<ng-template #elseBlock>
-  <moe-loading-image></moe-loading-image>
 </ng-template>
