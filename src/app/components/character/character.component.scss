@@ -1,14 +1,237 @@
 @import 'constants';
 
-h1 {
-  font-family: $default-font-family;
-  color: #fefefe;
-  font-size: 1.4rem;
-  letter-spacing: 0.02em;
-  font-weight: 800;
-  margin-bottom: 0;
-  margin-top: 0;
+@mixin full-width {
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 1440px;
+  width: 100%;
 }
+
+.character-header {
+  background: $moe-level1-color;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.character-header-content {
+  @include full-width;
+
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  padding: 0.75rem 1rem;
+
+  @media (min-width: $tablet-min-width) {
+    padding: 1rem 1.5rem;
+  }
+}
+
+.character-element {
+  margin-right: 1rem;
+}
+
+.character-name {
+  font-size: 1.6rem;
+  line-height: 1.4;
+}
+
+.character-overview {
+  background: $moe-level1-color;
+  position: relative;
+}
+
+.character-images {
+  @include full-width;
+
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 1rem;
+
+  @media (min-width: $tablet-min-width) {
+    padding: 0 1.5rem;
+  }
+}
+
+.character-region {
+  position: relative;
+}
+
+.character-region,
+.character-icon {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.character-icon {
+  height: 6rem;
+  width: 6rem;
+
+  @media (min-width: $tablet-min-width) {
+    opacity: 0;
+  }
+}
+
+.character-tier {
+  height: 4rem;
+  width: 4rem;
+
+  @media (min-width: $tablet-min-width) {
+    padding: 1.5rem 0;
+  }
+
+  @media (min-width: $desktop-small-min-width) {
+    padding: 4rem 0;
+  }
+}
+
+$tablet-image-size: 15rem;
+$desktop-image-size: 24rem;
+
+.character-image {
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  position: absolute;
+  z-index: 1;
+
+  @media (max-width: $mobile-max-width) {
+    display: none;
+  }
+
+  @media (min-width: $tablet-min-width) {
+    min-width: $tablet-image-size;
+  }
+
+  @media (min-width: $desktop-small-min-width) {
+    min-width: $desktop-image-size;
+  }
+
+  @media (min-width: 1440px) {
+    left: calc(50vw - 720px);
+  }
+}
+
+.character-quote {
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 7rem;
+  top: 0;
+  z-index: 1;
+
+  @media (max-width: $tablet-max-width) {
+    display: none;
+  }
+
+  @media (min-width: $desktop-small-min-width) {
+    left: $desktop-image-size;
+  }
+
+  @media (min-width: 1440px) {
+    left: calc(50vw - 720px);
+    margin-left: $desktop-image-size;
+  }
+}
+
+.character-overview-text {
+  @include full-width;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem;
+
+  @media (min-width: $tablet-min-width) {
+    padding-left: $tablet-image-size;
+    padding-bottom: 1.5rem;
+  }
+
+  @media (min-width: $desktop-small-min-width) {
+    padding-left: $desktop-image-size;
+    padding-bottom: 4rem;
+  }
+}
+
+.character-attributes {
+  column-gap: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  @media (min-width: $desktop-small-min-width) {
+    column-gap: 1.5rem;
+  }
+}
+
+.character-weapon-label,
+.character-birthday-label,
+.character-title-label,
+.character-faction-label {
+  @include caption-font;
+}
+
+.character-weapon-value,
+.character-birthday-value,
+.character-title-value,
+.character-faction-value {
+  @include subtitle2-font;
+}
+
+.character-attributes,
+.character-description {
+  padding: 1rem 1rem 0;
+
+  @media (min-width: $tablet-min-width) {
+    padding: 1.5rem 1.5rem 0;
+  }
+}
+
+.character-links {
+  background: $moe-level1-color;
+  border-top: 1px solid #4a4a4a;
+}
+
+.character-links-content {
+  @include full-width;
+
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+
+  a {
+    @include subtitle2-font;
+
+    color: white;
+    padding: 0.75rem 1rem;
+    text-transform: capitalize;
+
+    @media (min-width: $tablet-min-width) {
+      flex-grow: 1;
+      text-align: center;
+      width: 0;
+    }
+  }
+}
+
+.character-body {
+  @include full-width;
+
+  padding: 1rem;
+
+  @media (min-width: $tablet-min-width) {
+    padding: 1.5rem;
+  }
+}
+
+// Old
 
 h2 {
   font-family: $default-font-family;

@@ -103,24 +103,6 @@ export class CharacterComponent implements OnInit {
 
             this.pageId = params.pageId;
           });
-      } else if (params.pageId === 'sounds') {
-        this.impactService.getCharacter(params.characterId).subscribe(data => {
-          this.character = data;
-
-          this.pageId = params.pageId;
-        });
-      } else if (params.pageId === 'quotes') {
-        this.impactService.getCharacter(params.characterId).subscribe(data => {
-          this.character = data;
-
-          this.pageId = params.pageId;
-        });
-      } else if (params.pageId === 'stories') {
-        this.impactService.getCharacter(params.characterId).subscribe(data => {
-          this.character = data;
-
-          this.pageId = params.pageId;
-        });
       }
     });
   }
