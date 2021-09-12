@@ -2,7 +2,7 @@ import { MoeRarityStubComponent } from '@/components/rarity/rarity.component.stu
 import { RouterTestingModule } from '@angular/router/testing';
 import { WeaponCardComponent } from './weapon-card.component';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { WeaponSummary } from './weapon-summary.model';
+import { WeaponSummary } from '@/viewmodels/weapon-summary.model';
 
 describe('WeaponCardComponent', () => {
   let fixture: ComponentFixture<WeaponCardComponent>;
