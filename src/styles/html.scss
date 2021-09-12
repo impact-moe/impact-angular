@@ -29,11 +29,17 @@ h1 {
 }
 
 a {
+  @include body2-font;
+
+  color: #6787e8;
+  font-weight: $default-font-bold-weight;
   text-decoration: none;
 }
 
 p {
-  font: $default-font-medium-weight 0.875rem/1.6 $default-font-family;
+  @include body2-font;
+
+  font-weight: $default-font-medium-weight;
   letter-spacing: 0.04em;
   margin: 0;
   padding: 0.5rem 0;
@@ -56,8 +62,10 @@ input[type='search'] {
 }
 
 ul {
-  font: $default-font-medium-weight 0.875rem/1.6 $default-font-family;
+  @include body2-font;
+
+  font-weight: $default-font-medium-weight;
   margin: 0;
-  padding: 1rem;
+  padding: 0.5rem;
   padding-left: 1.5rem;
 }
