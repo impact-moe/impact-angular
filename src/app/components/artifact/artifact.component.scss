@@ -1,36 +1,7 @@
 @import 'global';
 
-@mixin full-width {
-  box-sizing: border-box;
-  margin: 0 auto;
-  max-width: 1440px;
-  width: 100%;
-}
-
-.artifact-header {
-  background: $moe-level1-color;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.artifact-header-title {
-  @include full-width;
-  padding: 0.75rem 1rem;
-  position: relative;
-
-  @media (min-width: $tablet-min-width) {
-    padding: 0.75rem 1.5rem;
-  }
-
-  .artifact-name {
-    font-size: 1.6rem;
-    line-height: 1.4;
-  }
-}
-
 .artifact-body {
-  @include full-width;
+  @include maximum-width;
 
   display: flex;
   flex-direction: column;

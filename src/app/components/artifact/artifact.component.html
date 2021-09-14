@@ -3,15 +3,10 @@
 </ng-template>
 
 <ng-template [ngIf]="!!artifact">
-  <div class="artifact-header">
-    <div class="artifact-header-title">
-      <h1 class="artifact-name">{{ artifact.Name }}</h1>
-      <moe-rarity
-        *ngIf="artifact.Rarity"
-        [value]="artifact.Rarity"
-      ></moe-rarity>
-    </div>
-  </div>
+  <moe-item-header
+    [name]="artifact.Name"
+    [rarity]="artifact.Rarity"
+  ></moe-item-header>
 
   <div class="artifact-body">
     <div class="artifact-summary">

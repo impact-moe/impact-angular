@@ -1,3 +1,6 @@
+import { ItemHeaderComponent } from './components/item-header/item-header.component';
+import { WeaponChipComponent } from './components/weapon-chip/weapon-chip.component';
+import { CharacterBuildComponent } from './components/character-build/character-build.component';
 import { ArtifactCardComponent } from './components/artifact-card/artifact-card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -38,9 +41,10 @@ const baseUrlProvider = {
 @NgModule({
   declarations: [
     AppComponent,
-    ArtifactComponent,
     ArtifactCardComponent,
+    ArtifactComponent,
     ArtifactListComponent,
+    CharacterBuildComponent,
     CharacterCardComponent,
     CharacterComponent,
     CharacterListComponent,
@@ -48,6 +52,7 @@ const baseUrlProvider = {
     FilterSortComponent,
     FooterComponent,
     HomeComponent,
+    ItemHeaderComponent,
     LinkHandlerDirective,
     LoadingImageComponent,
     LoginComponent,
@@ -57,8 +62,9 @@ const baseUrlProvider = {
     RouteButtonComponent,
     SignupComponent,
     StatisticsComponent,
-    WeaponComponent,
     WeaponCardComponent,
+    WeaponChipComponent,
+    WeaponComponent,
     WeaponListComponent,
   ],
   imports: [

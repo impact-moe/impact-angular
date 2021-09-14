@@ -3,12 +3,10 @@
 </ng-template>
 
 <ng-template [ngIf]="!!weapon">
-  <div class="weapon-header">
-    <div class="weapon-header-title">
-      <h1 class="weapon-name">{{ weapon.Name }}</h1>
-      <moe-rarity *ngIf="weapon.Rarity" [value]="weapon.Rarity"></moe-rarity>
-    </div>
-  </div>
+  <moe-item-header
+    [name]="weapon.Name"
+    [rarity]="weapon.Rarity"
+  ></moe-item-header>
 
   <div class="weapon-body">
     <div class="weapon-summary">
