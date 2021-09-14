@@ -88,678 +88,240 @@
   </div>
 
   <div class="character-body">
-    <div id="character-main-content-container" class="main-section-1">
+    <ng-template [ngIf]="pageId === 'overview'">
+      <moe-loading-image
+        *ngIf="!character.Roles || !character.Roles.length"
+      ></moe-loading-image>
+
+      <moe-character-build
+        *ngFor="let role of character.Roles"
+        [role]="role"
+      ></moe-character-build>
+    </ng-template>
+
+    <div
+      id="character-constellations-container"
+      class="flex-column"
+      *ngIf="pageId === 'constellations'"
+    >
       <div
-        id="character-overview-container"
-        class="flex-column"
-        *ngIf="pageId === 'overview'"
+        appContentCard
+        class="content-card character-constellation-container background-gray-2"
       >
         <div
-          class="
-            character-role-container
-            content-card
-            flex-column
-            background-gray-2
-          "
-          *ngFor="let role of character.Roles"
+          class="content-card-title {{
+            utilityService.getElementBackground(character.Element)
+          }}"
         >
+          <img src="{{ constellationOne?.Image }}" />
+          <h4>{{ constellationOne?.Name }}</h4>
           <div
-            class="content-card-title flex-row {{
-              utilityService.getElementBackground(character.Element)
-            }}"
+            class="
+              constellation-tag-container
+              background-gray-2
+              flex-column flex-center
+            "
           >
-            <i
-              *ngIf="character.CharacterOverview?.RecommendedRole === role.Name"
-              class="fas fa-star"
-            ></i>
-            <h3>{{ role.Name }}</h3>
+            <p>C1</p>
           </div>
-          <div class="content-card-body">
-            <div
-              class="role-description"
-              [innerHtml]="role.Notes"
-              linkHandler
-            ></div>
-            <div class="overview-content flex-row flex-space-evenly">
-              <div class="overview-content-list flex-column">
-                <div
-                  class="overview-content-list-title flex-row flex-center flex-center-items {{
-                    utilityService.getElementBackground(character.Element)
-                  }}"
-                >
-                  <h4>Weapons</h4>
-                </div>
-                <a
-                  href="{{ 'https://impact.moe/weapons/' + weapon.Weapon.Id }}"
-                  class="overview-content-list-item flex-row"
-                  *ngFor="let weapon of role.Weapons"
-                >
-                  <div
-                    class="
-                      overview-content-list-item-rank
-                      flex-row flex-center flex-center-items
-                      background-off-white
-                    "
-                  >
-                    <p>{{ weapon.Rank }}</p>
-                  </div>
-                  <div
-                    class="
-                      overview-content-list-item-content
-                      flex-row flex-center flex-center-items
-                      background-gray-1
-                    "
-                  >
-                    <p>{{ weapon.Weapon.Name }}</p>
-                  </div>
-                </a>
-              </div>
-
-              <div class="overview-content-list flex-column">
-                <div
-                  class="overview-content-list-title flex-row flex-center flex-center-items {{
-                    utilityService.getElementBackground(character.Element)
-                  }}"
-                >
-                  <h4>Artifacts</h4>
-                </div>
-                <a
-                  href="{{
-                    'https://impact.moe/artifact-set/' + artifact.ArtifactSet.Id
-                  }}"
-                  class="overview-content-list-item flex-row"
-                  *ngFor="let artifact of role.Artifacts; let i = index"
-                  [style.margin-top]="
-                    i > 0 && role.Artifacts[i - 1].Rank === artifact.Rank
-                      ? '0.2em'
-                      : '1em'
-                  "
-                >
-                  <div
-                    class="
-                      overview-content-list-item-rank
-                      flex-row flex-center flex-center-items
-                      background-off-white
-                    "
-                  >
-                    <p>{{ artifact.Rank }}</p>
-                  </div>
-                  <div
-                    class="
-                      overview-content-list-item-content
-                      flex-row flex-center flex-center-items
-                      background-gray-1
-                    "
-                  >
-                    <p>
-                      {{
-                        artifact.ArtifactSet.Name +
-                          ((i > 0 &&
-                            role.Artifacts[i - 1].Rank === artifact.Rank) ||
-                          (i + 1 < role.Artifacts.length &&
-                            role.Artifacts[i + 1].Rank === artifact.Rank)
-                            ? ' (2)'
-                            : ' (4)')
-                      }}
-                    </p>
-                  </div>
-                </a>
-              </div>
-
-              <div class="overview-content-list flex-column">
-                <div
-                  class="overview-content-list-title flex-row flex-center flex-center-items {{
-                    utilityService.getElementBackground(character.Element)
-                  }}"
-                >
-                  <h4>Main Stats</h4>
-                </div>
-                <div
-                  class="overview-content-list-item flex-row"
-                  *ngFor="let mainStat of role.MainStats"
-                >
-                  <div
-                    class="
-                      overview-content-list-item-rank
-                      flex-row flex-center flex-center-items
-                      background-off-white
-                    "
-                  >
-                    <img
-                      src="{{
-                        utilityService.getArtifactImage64(mainStat.ArtifactType)
-                      }}"
-                    />
-                  </div>
-                  <div
-                    class="
-                      overview-content-list-item-content
-                      flex-row flex-center flex-center-items
-                      background-gray-1
-                    "
-                  >
-                    <p>{{ mainStat.Type }}</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="overview-content-list flex-column">
-                <div
-                  class="overview-content-list-title flex-row flex-center flex-center-items {{
-                    utilityService.getElementBackground(character.Element)
-                  }}"
-                >
-                  <h4>Sub Stats</h4>
-                </div>
-                <div
-                  class="overview-content-list-item flex-row"
-                  *ngFor="let subStat of role.SubStats"
-                >
-                  <div
-                    class="
-                      overview-content-list-item-rank
-                      flex-row flex-center flex-center-items
-                      background-off-white
-                    "
-                  >
-                    <p>{{ subStat.Rank }}</p>
-                  </div>
-                  <div
-                    class="
-                      overview-content-list-item-content
-                      flex-row flex-center flex-center-items
-                      background-gray-1
-                    "
-                  >
-                    <p>{{ subStat.Type }}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div
+            class="
+              content-card-expand-button
+              hover-background-gray-1
+              flex-row flex-center
+            "
+          >
+            <i class="fas fa-caret-down"></i>
           </div>
         </div>
-        <moe-loading-image
-          *ngIf="character.Roles.length == 0"
-        ></moe-loading-image>
-      </div>
-
-      <div
-        id="character-talents-container"
-        class="flex-column"
-        *ngIf="pageId === 'talents'"
-      >
-        <div
-          appContentCard
-          class="content-card character-talent-container background-gray-2"
-        >
-          <div
-            class="content-card-title {{
-              utilityService.getElementBackground(character.Element)
-            }}"
-          >
-            <img src="{{ normalTalent?.Image }}" />
-            <h4>{{ normalTalent?.Name }}</h4>
-            <div
-              class="
-                talent-tag-container
-                background-gray-2
-                flex-column flex-center
-              "
-            >
-              <p>Normal</p>
-            </div>
-            <div
-              class="
-                content-card-expand-button
-                hover-background-gray-1
-                flex-row flex-center
-              "
-            >
-              <i class="fas fa-caret-down"></i>
-            </div>
-          </div>
-          <div class="content-card-body">
-            <div class="talent-description">
-              <p>{{ normalTalent?.Description }}</p>
-            </div>
-          </div>
-        </div>
-
-        <div
-          appContentCard
-          class="content-card character-talent-container background-gray-2"
-        >
-          <div
-            class="content-card-title {{
-              utilityService.getElementBackground(character.Element)
-            }}"
-          >
-            <img src="{{ elementalSkillTalent?.Image }}" />
-            <h4>{{ elementalSkillTalent?.Name }}</h4>
-            <div
-              class="
-                talent-tag-container
-                background-gray-2
-                flex-column flex-center
-              "
-            >
-              <p>Elemental Skill</p>
-            </div>
-            <div
-              class="
-                content-card-expand-button
-                hover-background-gray-1
-                flex-row flex-center
-              "
-            >
-              <i class="fas fa-caret-down"></i>
-            </div>
-          </div>
-          <div class="content-card-body">
-            <div class="talent-description">
-              <p>{{ elementalSkillTalent?.Description }}</p>
-            </div>
-          </div>
-        </div>
-
-        <div
-          appContentCard
-          class="content-card character-talent-container background-gray-2"
-        >
-          <div
-            class="content-card-title {{
-              utilityService.getElementBackground(character.Element)
-            }}"
-          >
-            <img src="{{ elementalBurstTalent?.Image }}" />
-            <h4>{{ elementalBurstTalent?.Name }}</h4>
-            <div
-              class="
-                talent-tag-container
-                background-gray-2
-                flex-column flex-center
-              "
-            >
-              <p>Elemental Burst</p>
-            </div>
-            <div
-              class="
-                content-card-expand-button
-                hover-background-gray-1
-                flex-row flex-center
-              "
-            >
-              <i class="fas fa-caret-down"></i>
-            </div>
-          </div>
-          <div class="content-card-body">
-            <div class="talent-description">
-              <p>{{ elementalBurstTalent?.Description }}</p>
-            </div>
-          </div>
-        </div>
-
-        <div
-          appContentCard
-          class="content-card character-talent-container background-gray-2"
-        >
-          <div
-            class="content-card-title {{
-              utilityService.getElementBackground(character.Element)
-            }}"
-          >
-            <img src="{{ passiveOneTalent?.Image }}" />
-            <h4>{{ passiveOneTalent?.Name }}</h4>
-            <div
-              class="
-                talent-tag-container
-                background-gray-2
-                flex-column flex-center
-              "
-            >
-              <p>1st Ascension Passive</p>
-            </div>
-            <div
-              class="
-                content-card-expand-button
-                hover-background-gray-1
-                flex-row flex-center
-              "
-            >
-              <i class="fas fa-caret-down"></i>
-            </div>
-          </div>
-          <div class="content-card-body">
-            <div class="talent-description">
-              <p>{{ passiveOneTalent?.Description }}</p>
-            </div>
-          </div>
-        </div>
-
-        <div
-          appContentCard
-          class="content-card character-talent-container background-gray-2"
-        >
-          <div
-            class="content-card-title {{
-              utilityService.getElementBackground(character.Element)
-            }}"
-          >
-            <img src="{{ passiveTwoTalent?.Image }}" />
-            <h4>{{ passiveTwoTalent?.Name }}</h4>
-            <div
-              class="
-                talent-tag-container
-                background-gray-2
-                flex-column flex-center
-              "
-            >
-              <p>4th Ascension Passive</p>
-            </div>
-            <div
-              class="
-                content-card-expand-button
-                hover-background-gray-1
-                flex-row flex-center
-              "
-            >
-              <i class="fas fa-caret-down"></i>
-            </div>
-          </div>
-          <div class="content-card-body">
-            <div class="talent-description">
-              <p>{{ passiveTwoTalent?.Description }}</p>
-            </div>
-          </div>
-        </div>
-
-        <div
-          appContentCard
-          class="content-card character-talent-container background-gray-2"
-          *ngIf="passiveThreeTalent"
-        >
-          <div
-            class="content-card-title {{
-              utilityService.getElementBackground(character.Element)
-            }}"
-          >
-            <img src="{{ passiveThreeTalent?.Image }}" />
-            <h4>{{ passiveThreeTalent?.Name }}</h4>
-            <div
-              class="
-                talent-tag-container
-                background-gray-2
-                flex-column flex-center
-              "
-            >
-              <p>Utility Passive</p>
-            </div>
-            <div
-              class="
-                content-card-expand-button
-                hover-background-gray-1
-                flex-row flex-center
-              "
-            >
-              <i class="fas fa-caret-down"></i>
-            </div>
-          </div>
-          <div class="content-card-body">
-            <div class="talent-description">
-              <p>{{ passiveThreeTalent?.Description }}</p>
-            </div>
+        <div class="content-card-body">
+          <div class="constellation-description">
+            <p>{{ constellationOne?.Description }}</p>
           </div>
         </div>
       </div>
 
       <div
-        id="character-constellations-container"
-        class="flex-column"
-        *ngIf="pageId === 'constellations'"
+        appContentCard
+        class="content-card character-constellation-container background-gray-2"
       >
         <div
-          appContentCard
-          class="
-            content-card
-            character-constellation-container
-            background-gray-2
-          "
+          class="content-card-title {{
+            utilityService.getElementBackground(character.Element)
+          }}"
         >
+          <img src="{{ constellationTwo?.Image }}" />
+          <h4>{{ constellationTwo?.Name }}</h4>
           <div
-            class="content-card-title {{
-              utilityService.getElementBackground(character.Element)
-            }}"
+            class="
+              constellation-tag-container
+              background-gray-2
+              flex-column flex-center
+            "
           >
-            <img src="{{ constellationOne?.Image }}" />
-            <h4>{{ constellationOne?.Name }}</h4>
-            <div
-              class="
-                constellation-tag-container
-                background-gray-2
-                flex-column flex-center
-              "
-            >
-              <p>C1</p>
-            </div>
-            <div
-              class="
-                content-card-expand-button
-                hover-background-gray-1
-                flex-row flex-center
-              "
-            >
-              <i class="fas fa-caret-down"></i>
-            </div>
+            <p>C2</p>
           </div>
-          <div class="content-card-body">
-            <div class="constellation-description">
-              <p>{{ constellationOne?.Description }}</p>
-            </div>
+          <div
+            class="
+              content-card-expand-button
+              hover-background-gray-1
+              flex-row flex-center
+            "
+          >
+            <i class="fas fa-caret-down"></i>
           </div>
         </div>
-
-        <div
-          appContentCard
-          class="
-            content-card
-            character-constellation-container
-            background-gray-2
-          "
-        >
-          <div
-            class="content-card-title {{
-              utilityService.getElementBackground(character.Element)
-            }}"
-          >
-            <img src="{{ constellationTwo?.Image }}" />
-            <h4>{{ constellationTwo?.Name }}</h4>
-            <div
-              class="
-                constellation-tag-container
-                background-gray-2
-                flex-column flex-center
-              "
-            >
-              <p>C2</p>
-            </div>
-            <div
-              class="
-                content-card-expand-button
-                hover-background-gray-1
-                flex-row flex-center
-              "
-            >
-              <i class="fas fa-caret-down"></i>
-            </div>
-          </div>
-          <div class="content-card-body">
-            <div class="constellation-description">
-              <p>{{ constellationTwo?.Description }}</p>
-            </div>
+        <div class="content-card-body">
+          <div class="constellation-description">
+            <p>{{ constellationTwo?.Description }}</p>
           </div>
         </div>
+      </div>
 
+      <div
+        appContentCard
+        class="content-card character-constellation-container background-gray-2"
+      >
         <div
-          appContentCard
-          class="
-            content-card
-            character-constellation-container
-            background-gray-2
-          "
+          class="content-card-title {{
+            utilityService.getElementBackground(character.Element)
+          }}"
         >
+          <img src="{{ constellationThree?.Image }}" />
+          <h4>{{ constellationThree?.Name }}</h4>
           <div
-            class="content-card-title {{
-              utilityService.getElementBackground(character.Element)
-            }}"
+            class="
+              constellation-tag-container
+              background-gray-2
+              flex-column flex-center
+            "
           >
-            <img src="{{ constellationThree?.Image }}" />
-            <h4>{{ constellationThree?.Name }}</h4>
-            <div
-              class="
-                constellation-tag-container
-                background-gray-2
-                flex-column flex-center
-              "
-            >
-              <p>C3</p>
-            </div>
-            <div
-              class="
-                content-card-expand-button
-                hover-background-gray-1
-                flex-row flex-center
-              "
-            >
-              <i class="fas fa-caret-down"></i>
-            </div>
+            <p>C3</p>
           </div>
-          <div class="content-card-body">
-            <div class="constellation-description">
-              <p>{{ constellationThree?.Description }}</p>
-            </div>
+          <div
+            class="
+              content-card-expand-button
+              hover-background-gray-1
+              flex-row flex-center
+            "
+          >
+            <i class="fas fa-caret-down"></i>
           </div>
         </div>
-
-        <div
-          appContentCard
-          class="
-            content-card
-            character-constellation-container
-            background-gray-2
-          "
-        >
-          <div
-            class="content-card-title {{
-              utilityService.getElementBackground(character.Element)
-            }}"
-          >
-            <img src="{{ constellationFour?.Image }}" />
-            <h4>{{ constellationFour?.Name }}</h4>
-            <div
-              class="
-                constellation-tag-container
-                background-gray-2
-                flex-column flex-center
-              "
-            >
-              <p>C4</p>
-            </div>
-            <div
-              class="
-                content-card-expand-button
-                hover-background-gray-1
-                flex-row flex-center
-              "
-            >
-              <i class="fas fa-caret-down"></i>
-            </div>
-          </div>
-          <div class="content-card-body">
-            <div class="constellation-description">
-              <p>{{ constellationFour?.Description }}</p>
-            </div>
+        <div class="content-card-body">
+          <div class="constellation-description">
+            <p>{{ constellationThree?.Description }}</p>
           </div>
         </div>
+      </div>
 
+      <div
+        appContentCard
+        class="content-card character-constellation-container background-gray-2"
+      >
         <div
-          appContentCard
-          class="
-            content-card
-            character-constellation-container
-            background-gray-2
-          "
+          class="content-card-title {{
+            utilityService.getElementBackground(character.Element)
+          }}"
         >
+          <img src="{{ constellationFour?.Image }}" />
+          <h4>{{ constellationFour?.Name }}</h4>
           <div
-            class="content-card-title {{
-              utilityService.getElementBackground(character.Element)
-            }}"
+            class="
+              constellation-tag-container
+              background-gray-2
+              flex-column flex-center
+            "
           >
-            <img src="{{ constellationFive?.Image }}" />
-            <h4>{{ constellationFive?.Name }}</h4>
-            <div
-              class="
-                constellation-tag-container
-                background-gray-2
-                flex-column flex-center
-              "
-            >
-              <p>C5</p>
-            </div>
-            <div
-              class="
-                content-card-expand-button
-                hover-background-gray-1
-                flex-row flex-center
-              "
-            >
-              <i class="fas fa-caret-down"></i>
-            </div>
+            <p>C4</p>
           </div>
-          <div class="content-card-body">
-            <div class="constellation-description">
-              <p>{{ constellationFive?.Description }}</p>
-            </div>
+          <div
+            class="
+              content-card-expand-button
+              hover-background-gray-1
+              flex-row flex-center
+            "
+          >
+            <i class="fas fa-caret-down"></i>
           </div>
         </div>
-
-        <div
-          appContentCard
-          class="
-            content-card
-            character-constellation-container
-            background-gray-2
-          "
-        >
-          <div
-            class="content-card-title {{
-              utilityService.getElementBackground(character.Element)
-            }}"
-          >
-            <img src="{{ constellationSix?.Image }}" />
-            <h4>{{ constellationSix?.Name }}</h4>
-            <div
-              class="
-                constellation-tag-container
-                background-gray-2
-                flex-column flex-center
-              "
-            >
-              <p>C6</p>
-            </div>
-            <div
-              class="
-                content-card-expand-button
-                hover-background-gray-1
-                flex-row flex-center
-              "
-            >
-              <i class="fas fa-caret-down"></i>
-            </div>
+        <div class="content-card-body">
+          <div class="constellation-description">
+            <p>{{ constellationFour?.Description }}</p>
           </div>
-          <div class="content-card-body">
-            <div class="constellation-description">
-              <p>{{ constellationSix?.Description }}</p>
-            </div>
+        </div>
+      </div>
+
+      <div
+        appContentCard
+        class="content-card character-constellation-container background-gray-2"
+      >
+        <div
+          class="content-card-title {{
+            utilityService.getElementBackground(character.Element)
+          }}"
+        >
+          <img src="{{ constellationFive?.Image }}" />
+          <h4>{{ constellationFive?.Name }}</h4>
+          <div
+            class="
+              constellation-tag-container
+              background-gray-2
+              flex-column flex-center
+            "
+          >
+            <p>C5</p>
+          </div>
+          <div
+            class="
+              content-card-expand-button
+              hover-background-gray-1
+              flex-row flex-center
+            "
+          >
+            <i class="fas fa-caret-down"></i>
+          </div>
+        </div>
+        <div class="content-card-body">
+          <div class="constellation-description">
+            <p>{{ constellationFive?.Description }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        appContentCard
+        class="content-card character-constellation-container background-gray-2"
+      >
+        <div
+          class="content-card-title {{
+            utilityService.getElementBackground(character.Element)
+          }}"
+        >
+          <img src="{{ constellationSix?.Image }}" />
+          <h4>{{ constellationSix?.Name }}</h4>
+          <div
+            class="
+              constellation-tag-container
+              background-gray-2
+              flex-column flex-center
+            "
+          >
+            <p>C6</p>
+          </div>
+          <div
+            class="
+              content-card-expand-button
+              hover-background-gray-1
+              flex-row flex-center
+            "
+          >
+            <i class="fas fa-caret-down"></i>
+          </div>
+        </div>
+        <div class="content-card-body">
+          <div class="constellation-description">
+            <p>{{ constellationSix?.Description }}</p>
           </div>
         </div>
       </div>
