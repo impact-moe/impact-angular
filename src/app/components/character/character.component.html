@@ -5,81 +5,39 @@
 <ng-template [ngIf]="!!character">
   <div class="character-header">
     <div class="character-header-content">
-      <img
-        class="character-element"
-        src="{{ utilityService.getElementImage(character.Element) }}"
-      />
-      <div class="character-header-text">
-        <h1 class="character-name">{{ character.Name }}</h1>
-        <moe-rarity
-          class="character-rarity"
-          [value]="character.Rarity"
-        ></moe-rarity>
-      </div>
-    </div>
-  </div>
-
-  <div class="character-overview">
-    <div
-      class="character-region"
-      [ngStyle]="{
-        'background-image':
-          'url(' + utilityService.getRegionBannerUrl(character.Region) + ')'
-      }"
-    >
-      <div class="character-images">
+      <div
+        class="character-icon-container"
+        [ngClass]="{
+          'rarity1-gradient': !rarity || rarity === 1,
+          'rarity2-gradient': rarity === 2,
+          'rarity3-gradient': rarity === 3,
+          'rarity4-gradient': rarity === 4,
+          'rarity5-gradient': rarity === 5
+        }"
+      >
         <div
           class="character-icon"
           [ngStyle]="{
             'background-image': 'url(' + character.Icon + ')'
           }"
         ></div>
-        <div
-          class="character-quote"
-          [ngStyle]="{
-            'background-image': 'url(' + character.Quote + ')'
-          }"
-        ></div>
-        <img
-          class="character-tier"
-          src="{{ utilityService.getTierImage(character.Tier) }}"
-        />
+      </div>
+
+      <div class="character-header-text">
+        <h1 class="character-name">{{ character.Name }}</h1>
+        <moe-rarity class="character-rarity" [value]="rarity"></moe-rarity>
+        <div class="character-attributes">
+          <div class="character-element">{{ character.Element }}</div>
+          <div class="character-attribute-separator"></div>
+          <div class="character-weapon">{{ character.Weapon }}</div>
+        </div>
       </div>
     </div>
 
-    <div
-      class="character-image"
-      [ngStyle]="{
-        'background-image': 'url(' + character.Image + ')'
-      }"
-    ></div>
+    <div class="header-separator"></div>
 
-    <div class="character-overview-text">
-      <div class="character-attributes">
-        <div class="character-attributes-section">
-          <div class="character-title-label">Title</div>
-          <div class="character-title-value">{{ character.Title }}</div>
-          <div class="character-faction-label">Faction</div>
-          <div class="character-faction-value">{{ character.Faction }}</div>
-        </div>
-
-        <div class="character-attributes-section">
-          <div class="character-weapon-label">Weapon</div>
-          <div class="character-weapon-value">{{ character.Weapon }}</div>
-          <div class="character-birthday-label">Birthday</div>
-          <div class="character-birthday-value">{{ character.Birthday }}</div>
-        </div>
-      </div>
-
-      <p class="character-description">{{ character.Description }}</p>
-    </div>
-  </div>
-
-  <div class="character-links">
-    <div class="character-links-content">
-      <a [routerLink]="['/characters/' + character.Id + '/overview']"
-        >overview</a
-      >
+    <div class="character-links">
+      <a [routerLink]="['/characters/' + character.Id + '/overview']">builds</a>
       <a [routerLink]="['/characters/' + character.Id + '/talents']">talents</a>
       <a [routerLink]="['/characters/' + character.Id + '/constellations']"
         >constellations</a
@@ -99,232 +57,12 @@
       ></moe-character-build>
     </ng-template>
 
-    <div
-      id="character-constellations-container"
-      class="flex-column"
-      *ngIf="pageId === 'constellations'"
-    >
-      <div
-        appContentCard
-        class="content-card character-constellation-container background-gray-2"
-      >
-        <div
-          class="content-card-title {{
-            utilityService.getElementBackground(character.Element)
-          }}"
-        >
-          <img src="{{ constellationOne?.Image }}" />
-          <h4>{{ constellationOne?.Name }}</h4>
-          <div
-            class="
-              constellation-tag-container
-              background-gray-2
-              flex-column flex-center
-            "
-          >
-            <p>C1</p>
-          </div>
-          <div
-            class="
-              content-card-expand-button
-              hover-background-gray-1
-              flex-row flex-center
-            "
-          >
-            <i class="fas fa-caret-down"></i>
-          </div>
-        </div>
-        <div class="content-card-body">
-          <div class="constellation-description">
-            <p>{{ constellationOne?.Description }}</p>
-          </div>
-        </div>
-      </div>
+    <ng-template [ngIf]="pageId === 'talents'">
+      <div>Talent stub</div>
+    </ng-template>
 
-      <div
-        appContentCard
-        class="content-card character-constellation-container background-gray-2"
-      >
-        <div
-          class="content-card-title {{
-            utilityService.getElementBackground(character.Element)
-          }}"
-        >
-          <img src="{{ constellationTwo?.Image }}" />
-          <h4>{{ constellationTwo?.Name }}</h4>
-          <div
-            class="
-              constellation-tag-container
-              background-gray-2
-              flex-column flex-center
-            "
-          >
-            <p>C2</p>
-          </div>
-          <div
-            class="
-              content-card-expand-button
-              hover-background-gray-1
-              flex-row flex-center
-            "
-          >
-            <i class="fas fa-caret-down"></i>
-          </div>
-        </div>
-        <div class="content-card-body">
-          <div class="constellation-description">
-            <p>{{ constellationTwo?.Description }}</p>
-          </div>
-        </div>
-      </div>
-
-      <div
-        appContentCard
-        class="content-card character-constellation-container background-gray-2"
-      >
-        <div
-          class="content-card-title {{
-            utilityService.getElementBackground(character.Element)
-          }}"
-        >
-          <img src="{{ constellationThree?.Image }}" />
-          <h4>{{ constellationThree?.Name }}</h4>
-          <div
-            class="
-              constellation-tag-container
-              background-gray-2
-              flex-column flex-center
-            "
-          >
-            <p>C3</p>
-          </div>
-          <div
-            class="
-              content-card-expand-button
-              hover-background-gray-1
-              flex-row flex-center
-            "
-          >
-            <i class="fas fa-caret-down"></i>
-          </div>
-        </div>
-        <div class="content-card-body">
-          <div class="constellation-description">
-            <p>{{ constellationThree?.Description }}</p>
-          </div>
-        </div>
-      </div>
-
-      <div
-        appContentCard
-        class="content-card character-constellation-container background-gray-2"
-      >
-        <div
-          class="content-card-title {{
-            utilityService.getElementBackground(character.Element)
-          }}"
-        >
-          <img src="{{ constellationFour?.Image }}" />
-          <h4>{{ constellationFour?.Name }}</h4>
-          <div
-            class="
-              constellation-tag-container
-              background-gray-2
-              flex-column flex-center
-            "
-          >
-            <p>C4</p>
-          </div>
-          <div
-            class="
-              content-card-expand-button
-              hover-background-gray-1
-              flex-row flex-center
-            "
-          >
-            <i class="fas fa-caret-down"></i>
-          </div>
-        </div>
-        <div class="content-card-body">
-          <div class="constellation-description">
-            <p>{{ constellationFour?.Description }}</p>
-          </div>
-        </div>
-      </div>
-
-      <div
-        appContentCard
-        class="content-card character-constellation-container background-gray-2"
-      >
-        <div
-          class="content-card-title {{
-            utilityService.getElementBackground(character.Element)
-          }}"
-        >
-          <img src="{{ constellationFive?.Image }}" />
-          <h4>{{ constellationFive?.Name }}</h4>
-          <div
-            class="
-              constellation-tag-container
-              background-gray-2
-              flex-column flex-center
-            "
-          >
-            <p>C5</p>
-          </div>
-          <div
-            class="
-              content-card-expand-button
-              hover-background-gray-1
-              flex-row flex-center
-            "
-          >
-            <i class="fas fa-caret-down"></i>
-          </div>
-        </div>
-        <div class="content-card-body">
-          <div class="constellation-description">
-            <p>{{ constellationFive?.Description }}</p>
-          </div>
-        </div>
-      </div>
-
-      <div
-        appContentCard
-        class="content-card character-constellation-container background-gray-2"
-      >
-        <div
-          class="content-card-title {{
-            utilityService.getElementBackground(character.Element)
-          }}"
-        >
-          <img src="{{ constellationSix?.Image }}" />
-          <h4>{{ constellationSix?.Name }}</h4>
-          <div
-            class="
-              constellation-tag-container
-              background-gray-2
-              flex-column flex-center
-            "
-          >
-            <p>C6</p>
-          </div>
-          <div
-            class="
-              content-card-expand-button
-              hover-background-gray-1
-              flex-row flex-center
-            "
-          >
-            <i class="fas fa-caret-down"></i>
-          </div>
-        </div>
-        <div class="content-card-body">
-          <div class="constellation-description">
-            <p>{{ constellationSix?.Description }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <ng-template [ngIf]="pageId === 'constellations'">
+      <div>Constellations stub</div>
+    </ng-template>
   </div>
 </ng-template>

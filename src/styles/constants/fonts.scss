@@ -10,6 +10,11 @@ $default-font-bold-weight: 800;
 
 /* Material font specs */
 
+@mixin header5-font {
+  font: $default-font-bold-weight 1.5rem/1.6 $default-font-family;
+  letter-spacing: 0.05rem;
+}
+
 @mixin header6-font {
   font: $default-font-bold-weight 1.25rem/1.6 $default-font-family;
   letter-spacing: 0.05rem;

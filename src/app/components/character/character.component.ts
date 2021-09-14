@@ -37,6 +37,10 @@ export class CharacterComponent implements OnInit {
     public utilityService: UtilityService
   ) {}
 
+  get rarity(): number {
+    return !!this.character ? +this.character.Rarity : 0;
+  }
+
   ngOnInit() {
     this.route.params.subscribe(params => {
       if (!params.characterId) return;
