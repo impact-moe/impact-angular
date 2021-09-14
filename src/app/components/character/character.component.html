@@ -58,8 +58,8 @@
     </div>
   </div>
 
-  <div class="character-body">
-    <ng-template [ngIf]="pageId === 'overview'">
+  <div class="character-body" [ngSwitch]="pageId">
+    <div *ngSwitchCase="'overview'">
       <moe-loading-image
         *ngIf="!character.Roles || !character.Roles.length"
       ></moe-loading-image>
@@ -68,14 +68,29 @@
         *ngFor="let role of character.Roles"
         [role]="role"
       ></moe-character-build>
-    </ng-template>
+    </div>
 
-    <ng-template [ngIf]="pageId === 'talents'">
-      <div>Talent stub</div>
-    </ng-template>
+    <div class="talents-body" *ngSwitchCase="'talents'">
+      <div class="talent-container" *ngFor="let talent of character.Talents">
+        <div class="talent-header">
+          <div
+            class="talent-image"
+            [ngStyle]="{
+              'background-image': 'url(' + talent.Image + ')'
+            }"
+          ></div>
+          <div class="talent-header-text">
+            <div class="talent-name">{{ talent.Name }}</div>
+            <div class="talent-type">{{ talent.Type }}</div>
+          </div>
+        </div>
 
-    <ng-template [ngIf]="pageId === 'constellations'">
+        <div class="talent-description">{{ talent.Description }}</div>
+      </div>
+    </div>
+
+    <div *ngSwitchCase="'constellations'">
       <div>Constellations stub</div>
-    </ng-template>
+    </div>
   </div>
 </ng-template>
