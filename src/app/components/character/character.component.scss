@@ -167,7 +167,8 @@ moe-character-build:not(:last-child) {
   }
 }
 
-.talents-body {
+.talents-body,
+.constellations-body {
   display: grid;
   row-gap: 1rem;
 
@@ -178,7 +179,8 @@ moe-character-build:not(:last-child) {
   }
 }
 
-.talent-container {
+.talent-container,
+.constellation-container {
   background: $moe-level1-color;
 
   @media (min-width: $tablet-min-width) {
@@ -186,27 +188,39 @@ moe-character-build:not(:last-child) {
   }
 }
 
-.talent-header {
+.talent-header,
+.constellation-header {
   align-items: center;
   display: flex;
   flex-direction: row;
-  padding: 0.5rem 1rem 0.5rem 0.5rem;
+  padding: 0.5rem 1rem;
+
+  @media (min-width: $desktop-small-min-width) {
+    padding: 0.5rem 1.5rem;
+  }
 }
 
-.talent-header-text {
+.talent-header-text,
+.constellation-name {
   flex-grow: 1;
-  margin-left: 0.5rem;
 }
 
-.talent-name {
+.talent-name,
+.constellation-order,
+.constellation-name {
   @include subtitle2-font;
+
+  @media (min-width: $tablet-min-width) {
+    @include header6-font;
+  }
 }
 
 .talent-type {
   @include caption-font;
 }
 
-.talent-image {
+.talent-image,
+.constellation-image {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -215,7 +229,8 @@ moe-character-build:not(:last-child) {
   width: 3rem;
 }
 
-.talent-description {
+.talent-description,
+.constellation-description {
   @include body2-font;
 
   border-top: 1px solid #4a4a4a;
@@ -224,4 +239,8 @@ moe-character-build:not(:last-child) {
   @media (min-width: $desktop-small-min-width) {
     padding: 1rem 1.5rem;
   }
+}
+
+.constellation-order {
+  margin-right: 0.5rem;
 }
