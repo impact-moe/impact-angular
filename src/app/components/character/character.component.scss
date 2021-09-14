@@ -222,6 +222,6 @@ moe-character-build:not(:last-child) {
   padding: 1rem;
 
   @media (min-width: $desktop-small-min-width) {
-    padding: 1.5rem;
+    padding: 1rem 1.5rem;
   }
 }
