@@ -177,6 +177,10 @@ moe-character-build:not(:last-child) {
     grid-template-columns: repeat(2, 1fr);
     row-gap: 1.5rem;
   }
+
+  @media (min-width: $desktop-large-min-width) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .talent-container,
