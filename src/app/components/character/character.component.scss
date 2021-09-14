@@ -1,4 +1,28 @@
-@import 'constants';
+@import 'global';
+
+.anemo-style {
+  --element-color: #{$moe-anemo-color};
+}
+
+.cryo-style {
+  --element-color: #{$moe-cryo-color};
+}
+
+.electro-style {
+  --element-color: #{$moe-electro-color};
+}
+
+.geo-style {
+  --element-color: #{$moe-geo-color};
+}
+
+.hydro-style {
+  --element-color: #{$moe-hydro-color};
+}
+
+.pyro-style {
+  --element-color: #{$moe-pyro-color};
+}
 
 @mixin full-width {
   box-sizing: border-box;
@@ -103,7 +127,7 @@ moe-rarity {
     }
 
     &.active::after {
-      background: white;
+      background: var(--element-color);
       bottom: 0;
       content: '';
       height: 2px;
@@ -205,7 +229,7 @@ moe-character-build:not(:last-child) {
 }
 
 .talent-header-text,
-.constellation-name {
+.constellation-header-text {
   flex-grow: 1;
 }
 
@@ -216,6 +240,7 @@ moe-character-build:not(:last-child) {
 
   @media (min-width: $tablet-min-width) {
     @include header6-font;
+    line-height: 1.4;
   }
 }
 

@@ -1,3 +1,4 @@
+import { Element } from './../../enums/element.enum';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Character } from '@/models/character.model';
@@ -12,6 +13,8 @@ import { Talent } from 'src/app/models/talent.model';
   styleUrls: ['./character.component.scss'],
 })
 export class CharacterComponent implements OnInit {
+  readonly element = Element;
+
   character?: Character;
   pageId = 'overview';
 
