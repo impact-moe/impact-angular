@@ -37,26 +37,7 @@
 
     <div class="header-separator"></div>
 
-    <div class="character-links">
-      <a
-        [routerLink]="['/characters/' + character.Id + '/overview']"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }"
-        >builds</a
-      >
-      <a
-        [routerLink]="['/characters/' + character.Id + '/talents']"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }"
-        >talents</a
-      >
-      <a
-        [routerLink]="['/characters/' + character.Id + '/constellations']"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }"
-        >constellations</a
-      >
-    </div>
+    <moe-character-tabs [characterId]="character.Id"></moe-character-tabs>
   </div>
 
   <div *ngIf="!!character" class="character-body" [ngSwitch]="pageId">

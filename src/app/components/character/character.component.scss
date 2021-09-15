@@ -106,37 +106,8 @@ moe-rarity {
   width: 100%;
 }
 
-.character-links {
+moe-character-tabs {
   @include full-width;
-
-  display: flex;
-  flex-direction: row;
-  overflow-x: auto;
-
-  a {
-    @include subtitle2-font;
-
-    color: white;
-    padding: 0.75rem 1rem;
-    position: relative;
-    text-transform: capitalize;
-
-    @media (min-width: $tablet-min-width) {
-      flex-grow: 1;
-      text-align: center;
-      width: 0;
-    }
-
-    &.active::after {
-      background: var(--element-color);
-      bottom: 0;
-      content: '';
-      height: 2px;
-      left: 0;
-      position: absolute;
-      right: 0;
-    }
-  }
 }
 
 .character-attributes {

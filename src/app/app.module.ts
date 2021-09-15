@@ -1,3 +1,4 @@
+import { CharacterTabsComponent } from './components/character-tabs/character-tabs.component';
 import { ItemHeaderComponent } from './components/item-header/item-header.component';
 import { WeaponChipComponent } from './components/weapon-chip/weapon-chip.component';
 import { CharacterBuildComponent } from './components/character-build/character-build.component';
@@ -48,6 +49,7 @@ const baseUrlProvider = {
     CharacterCardComponent,
     CharacterComponent,
     CharacterListComponent,
+    CharacterTabsComponent,
     DropdownContentCardComponent,
     FilterSortComponent,
     FooterComponent,
