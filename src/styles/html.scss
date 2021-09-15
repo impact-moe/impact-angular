@@ -69,3 +69,12 @@ ul {
   padding: 0.5rem;
   padding-left: 1.5rem;
 }
+
+ol {
+  @include body2-font;
+
+  font-weight: $default-font-medium-weight;
+  margin: 0;
+  padding: 0.5rem;
+  padding-left: 2rem;
+}

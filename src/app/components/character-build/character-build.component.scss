@@ -1,14 +1,19 @@
 @import 'global';
 
 :host {
-  background: $moe-level1-color;
   display: block;
 }
 
-.role-build-label {
-  @include header6-font;
+.role-overview {
+  background: $moe-level1-color;
 
-  border-bottom: 1px solid #4a4a4a;
+  @media (min-width: $tablet-min-width) {
+    @include default-border-radius;
+  }
+}
+
+.role-name {
+  @include header6-font;
   padding: 0.75rem 1rem;
 
   @media (min-width: $tablet-min-width) {
@@ -17,11 +22,20 @@
 }
 
 .role-description {
-  border-bottom: 1px solid #4a4a4a;
-  padding: 0.5rem 1rem 0;
+  border-top: 1px solid #4a4a4a;
+  padding: 0.5rem 1rem;
 
   @media (min-width: $tablet-min-width) {
-    padding: 0.5rem 1.5rem 0;
+    padding: 0.5rem 1.5rem;
+  }
+}
+
+.role-build {
+  column-gap: 1rem;
+  display: grid;
+
+  @media (min-width: $tablet-min-width) {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -34,48 +48,65 @@
   padding: 0.75rem 1rem;
 
   @media (min-width: $tablet-min-width) {
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem 0;
   }
 }
 
-.weapon-chips-container,
-.artifact-chips-container {
+.weapon-chips-container {
   column-gap: 0.125rem;
   display: grid;
-  padding: 0.125rem 0;
   row-gap: 0.125rem;
-
-  @media (min-width: $tablet-min-width) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (min-width: $desktop-small-min-width) {
-    grid-template-columns: repeat(3, 1fr);
-    margin: 0 1.5rem;
-  }
-
-  @media (min-width: $desktop-large-min-width) {
-    grid-template-columns: repeat(4, 1fr);
-  }
 }
 
 .weapon-chip {
-  background: #363333;
+  background: $moe-level1-color;
   display: flex;
   flex-direction: row;
 
   .weapon-chip-rank {
-    align-items: center;
-    background: white;
-    color: black;
-    display: flex;
-    flex-direction: row;
     flex-shrink: 0;
-    justify-content: center;
-    width: 2rem;
   }
 
   moe-weapon-chip {
     flex-grow: 1;
   }
+}
+
+.weapon-chip-rank,
+.artifact-chip-rank {
+  align-items: center;
+  background: white;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 2rem;
+}
+
+.main-stat-container {
+  align-items: center;
+  background: $moe-level1-color;
+  display: flex;
+  flex-direction: row;
+
+  &:not(:last-child) {
+    margin-bottom: 0.125rem;
+  }
+}
+
+.main-stat-image {
+  background: white;
+  height: 3rem;
+  width: 3rem;
+}
+
+.main-stat-type {
+  @include subtitle2-font;
+
+  flex-grow: 1;
+  padding: 0.75rem;
+}
+
+.role-substats-label {
+  margin-bottom: -0.5rem;
 }

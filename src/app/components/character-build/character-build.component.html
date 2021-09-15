@@ -1,52 +1,59 @@
-<div class="role-build-label">{{ role.Name }}</div>
-<div class="role-description" [innerHtml]="role.Notes" linkHandler></div>
-
-<div class="role-weapons">
-  <div class="role-weapons-label">Weapons</div>
-
-  <div class="weapon-chips-container">
-    <div class="weapon-chip" *ngFor="let weaponPriority of role.Weapons">
-      <div class="weapon-chip-rank">{{ weaponPriority.Rank }}</div>
-      <moe-weapon-chip
-        [weapon]="weaponPriority.Weapon.toWeaponSummary()"
-      ></moe-weapon-chip>
-    </div>
-  </div>
+<div class="role-overview">
+  <div class="role-name">{{ role.Name }}</div>
+  <div
+    class="role-description"
+    *ngIf="!!role.Notes"
+    [innerHtml]="role.Notes"
+    linkHandler
+  ></div>
 </div>
 
-<div class="role-artifacts">
-  <div class="role-artifacts-label">Artifacts</div>
+<div class="role-build">
+  <div class="role-weapons">
+    <div class="role-weapons-label">Weapons</div>
 
-  <div class="artifact-chips-container">
-    <div class="artifact-chip" *ngFor="let artifactPriority of role.Artifacts">
-      <div class="artifact-chip-rank">{{ artifactPriority.Rank }}</div>
-    </div>
-  </div>
-</div>
-
-<div class="role-stats">
-  <div class="role-stats-label">Main Stats</div>
-
-  <div
-    class="overview-content-list-item flex-row"
-    *ngFor="let mainStat of role.MainStats"
-  >
-    <img
-      class="role-rank"
-      src="{{ utilityService.getArtifactImage64(mainStat.ArtifactType) }}"
-    />
-    <div class="role-type">
-      {{ mainStat.Type }}
+    <div class="weapon-chips-container">
+      <div class="weapon-chip" *ngFor="let weaponPriority of role.Weapons">
+        <div class="weapon-chip-rank">{{ weaponPriority.Rank }}</div>
+        <moe-weapon-chip
+          [weapon]="weaponPriority.Weapon.toWeaponSummary()"
+        ></moe-weapon-chip>
+      </div>
     </div>
   </div>
 
-  <div class="role-substats-label">Sub Stats</div>
+  <div class="role-items">
+    <div class="role-artifacts">
+      <div class="role-artifacts-label">Artifacts</div>
 
-  <div
-    class="overview-content-list-item flex-row"
-    *ngFor="let subStat of role.SubStats"
-  >
-    <div class="role-rank">{{ subStat.Rank }}</div>
-    <div class="role-type">{{ subStat.Type }}</div>
+      <div class="artifact-chips-container">
+        <div
+          class="artifact-chip"
+          *ngFor="let artifactPriority of role.Artifacts"
+        >
+          <div class="artifact-chip-rank">{{ artifactPriority.Rank }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="role-stats">
+      <div class="role-stats-label">Main Stats</div>
+      <div class="main-stat-container" *ngFor="let mainStat of role.MainStats">
+        <img
+          class="main-stat-image"
+          src="{{ utilityService.getArtifactImage64(mainStat.ArtifactType) }}"
+        />
+        <div class="main-stat-type">
+          {{ mainStat.Type }}
+        </div>
+      </div>
+
+      <div class="role-substats-label">Sub Stats</div>
+      <ol class="substat-list">
+        <li class="substat-type" *ngFor="let subStat of role.SubStats">
+          {{ subStat.Type }}
+        </li>
+      </ol>
+    </div>
   </div>
 </div>
