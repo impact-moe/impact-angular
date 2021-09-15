@@ -29,9 +29,11 @@
 
 .role-view-toggle {
   align-items: center;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  user-select: none;
   width: 3rem;
 }
 
@@ -50,6 +52,10 @@
 
   @media (min-width: $tablet-min-width) {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: $desktop-small-min-width) {
+    column-gap: 1.5rem;
   }
 }
 
