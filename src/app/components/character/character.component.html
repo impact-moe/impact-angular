@@ -68,20 +68,20 @@
     </div>
   </div>
 
-  <div class="character-body" [ngSwitch]="pageId">
+  <div *ngIf="!!character" class="character-body" [ngSwitch]="pageId">
     <div *ngSwitchCase="'overview'">
-      <moe-loading-image
-        *ngIf="!character.Roles || !character.Roles.length"
-      ></moe-loading-image>
+      <moe-loading-image *ngIf="!roles.length"></moe-loading-image>
 
       <moe-character-build
-        *ngFor="let role of character.Roles"
+        *ngFor="let role of roles"
         [role]="role"
       ></moe-character-build>
     </div>
 
     <div class="talents-body" *ngSwitchCase="'talents'">
-      <div class="talent-container" *ngFor="let talent of character.Talents">
+      <moe-loading-image *ngIf="!talents.length"></moe-loading-image>
+
+      <div class="talent-container" *ngFor="let talent of talents">
         <div class="talent-header">
           <div class="talent-header-text">
             <div class="talent-name">{{ talent.Name }}</div>
@@ -100,9 +100,11 @@
     </div>
 
     <div class="constellations-body" *ngSwitchCase="'constellations'">
+      <moe-loading-image *ngIf="!constellations.length"></moe-loading-image>
+
       <div
         class="constellation-container"
-        *ngFor="let constellation of character.Constellations"
+        *ngFor="let constellation of constellations"
       >
         <div class="constellation-header">
           <div class="constellation-header-text">

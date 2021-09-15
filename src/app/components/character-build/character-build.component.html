@@ -1,5 +1,8 @@
 <div class="role-overview">
   <div class="role-header">
+    <div class="role-recommended" *ngIf="isRecommended">
+      <i class="recommended-icon fas fa-star"></i>
+    </div>
     <div class="role-name">{{ role.Name }}</div>
     <div class="role-view-toggle" (click)="toggleView()">
       <i class="material-icons">{{ toggleIcon }}</i>
