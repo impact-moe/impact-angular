@@ -177,6 +177,15 @@ moe-rarity {
   }
 }
 
+.builds-no-data,
+.talents-no-data,
+.constellations-no-data {
+  @include body2-font;
+
+  text-align: center;
+  width: 100%;
+}
+
 moe-character-build {
   @media (min-width: $tablet-min-width) {
     @include default-border-radius;

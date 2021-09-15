@@ -70,59 +70,83 @@
 
   <div *ngIf="!!character" class="character-body" [ngSwitch]="pageId">
     <div *ngSwitchCase="'overview'">
-      <moe-loading-image *ngIf="!roles.length"></moe-loading-image>
+      <moe-loading-image
+        *ngIf="!roles.isLoaded; else displayBuilds"
+      ></moe-loading-image>
 
-      <moe-character-build
-        *ngFor="let role of roles"
-        [role]="role"
-      ></moe-character-build>
+      <ng-template #displayBuilds>
+        <div *ngIf="!roles.data.length" class="builds-no-data">
+          No data found.
+        </div>
+        <moe-character-build
+          *ngFor="let role of roles.data"
+          [role]="role"
+        ></moe-character-build>
+      </ng-template>
     </div>
 
     <div class="talents-body" *ngSwitchCase="'talents'">
-      <moe-loading-image *ngIf="!talents.length"></moe-loading-image>
+      <moe-loading-image
+        *ngIf="!talents.isLoaded; else displayTalents"
+      ></moe-loading-image>
 
-      <div class="talent-container" *ngFor="let talent of talents">
-        <div class="talent-header">
-          <div class="talent-header-text">
-            <div class="talent-name">{{ talent.Name }}</div>
-            <div class="talent-type">{{ talent.Type }}</div>
-          </div>
-          <div
-            class="talent-image"
-            [ngStyle]="{
-              'background-image': 'url(' + talent.Image + ')'
-            }"
-          ></div>
+      <ng-template #displayTalents>
+        <div *ngIf="!talents.data.length" class="talents-no-data">
+          No data found.
         </div>
 
-        <div class="talent-description">{{ talent.Description }}</div>
-      </div>
+        <div class="talent-container" *ngFor="let talent of talents.data">
+          <div class="talent-header">
+            <div class="talent-header-text">
+              <div class="talent-name">{{ talent.Name }}</div>
+              <div class="talent-type">{{ talent.Type }}</div>
+            </div>
+            <div
+              class="talent-image"
+              [ngStyle]="{
+                'background-image': 'url(' + talent.Image + ')'
+              }"
+            ></div>
+          </div>
+
+          <div class="talent-description">{{ talent.Description }}</div>
+        </div>
+      </ng-template>
     </div>
 
     <div class="constellations-body" *ngSwitchCase="'constellations'">
-      <moe-loading-image *ngIf="!constellations.length"></moe-loading-image>
+      <moe-loading-image
+        *ngIf="!constellations.isLoaded; else displayConstellations"
+      ></moe-loading-image>
 
-      <div
-        class="constellation-container"
-        *ngFor="let constellation of constellations"
-      >
-        <div class="constellation-header">
-          <div class="constellation-header-text">
-            <span class="constellation-order">C{{ constellation.Order }}.</span>
-            <span class="constellation-name">{{ constellation.Name }}</span>
+      <ng-template #displayConstellations>
+        <div *ngIf="!constellations.data.length" class="constellations-no-data">
+          No data found.
+        </div>
+        <div
+          class="constellation-container"
+          *ngFor="let constellation of constellations.data"
+        >
+          <div class="constellation-header">
+            <div class="constellation-header-text">
+              <span class="constellation-order"
+                >C{{ constellation.Order }}.</span
+              >
+              <span class="constellation-name">{{ constellation.Name }}</span>
+            </div>
+            <div
+              class="constellation-image"
+              [ngStyle]="{
+                'background-image': 'url(' + constellation.Image + ')'
+              }"
+            ></div>
           </div>
-          <div
-            class="constellation-image"
-            [ngStyle]="{
-              'background-image': 'url(' + constellation.Image + ')'
-            }"
-          ></div>
-        </div>
 
-        <div class="constellation-description">
-          {{ constellation.Description }}
+          <div class="constellation-description">
+            {{ constellation.Description }}
+          </div>
         </div>
-      </div>
+      </ng-template>
     </div>
   </div>
 </div>
