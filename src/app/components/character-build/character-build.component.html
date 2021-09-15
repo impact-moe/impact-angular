@@ -1,14 +1,20 @@
 <div class="role-overview">
-  <div class="role-name">{{ role.Name }}</div>
+  <div class="role-header">
+    <div class="role-name">{{ role.Name }}</div>
+    <div class="role-view-toggle" (click)="toggleView()">
+      <i class="material-icons">{{ toggleIcon }}</i>
+    </div>
+  </div>
+
   <div
     class="role-description"
-    *ngIf="!!role.Notes"
+    *ngIf="!!role.Notes && isExpanded"
     [innerHtml]="role.Notes"
     linkHandler
   ></div>
 </div>
 
-<div class="role-build">
+<div class="role-build" *ngIf="isExpanded">
   <div class="role-weapons">
     <div class="role-weapons-label">Weapons</div>
 

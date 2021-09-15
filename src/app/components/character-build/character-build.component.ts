@@ -9,6 +9,15 @@ import { Component, Input } from '@angular/core';
 })
 export class CharacterBuildComponent {
   @Input() role!: Role;
+  isExpanded = true;
 
   constructor(public utilityService: UtilityService) {}
+
+  toggleView() {
+    this.isExpanded = !this.isExpanded;
+  }
+
+  get toggleIcon() {
+    return this.isExpanded ? 'expand_less' : 'expand_more';
+  }
 }

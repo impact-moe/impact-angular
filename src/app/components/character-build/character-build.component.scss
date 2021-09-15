@@ -12,6 +12,12 @@
   }
 }
 
+.role-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .role-name {
   @include header6-font;
   padding: 0.75rem 1rem;
@@ -19,6 +25,14 @@
   @media (min-width: $tablet-min-width) {
     padding: 1rem 1.5rem;
   }
+}
+
+.role-view-toggle {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 3rem;
 }
 
 .role-description {
