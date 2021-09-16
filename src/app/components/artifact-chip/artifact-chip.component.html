@@ -1,25 +1,4 @@
-<div class="artifact-set-header">
-  <div class="artifact-set-name">{{ artifactSet.name }}</div>
-
-  <div
-    class="artifact-chip-image-container"
-    [ngClass]="{
-      'rarity1-gradient': !artifactSet.rarity || artifactSet.rarity === 1,
-      'rarity2-gradient': artifactSet.rarity === 2,
-      'rarity3-gradient': artifactSet.rarity === 3,
-      'rarity4-gradient': artifactSet.rarity === 4,
-      'rarity5-gradient': artifactSet.rarity === 5
-    }"
-  >
-    <div
-      *ngIf="!!artifactSet.imageUrl"
-      class="artifact-chip-image"
-      [ngStyle]="{
-        'background-image': 'url(' + artifactSet.imageUrl + ')'
-      }"
-    ></div>
-  </div>
-</div>
+<div class="artifact-set-name">{{ artifactSet.name }}</div>
 
 <div class="artifact-set-bonus">
   <ul>

@@ -2,28 +2,19 @@
 
 :host {
   display: block;
-}
-
-.artifact-set-header {
-  display: flex;
-  flex-direction: row;
+  padding: 0.5rem 1rem;
 }
 
 .artifact-set-name {
   @include subtitle2-font;
 
-  border-bottom: 1px solid #4a4a4a;
   flex-grow: 1;
-  padding: 0.75rem 1rem;
+  padding: 0.25rem 0;
 }
 
 .artifact-chip-image-container {
   flex-shrink: 0;
   width: 3rem;
-}
-
-.artifact-set-bonus {
-  padding: 0.25rem 0.5rem;
 }
 
 .two-piece-bonus {
