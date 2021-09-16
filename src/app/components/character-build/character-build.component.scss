@@ -72,22 +72,26 @@
   }
 }
 
-.weapon-chips-container {
+.weapon-chips-container,
+.artifact-chips-container {
   column-gap: 0.125rem;
   display: grid;
   row-gap: 0.125rem;
 }
 
-.weapon-chip {
+.weapon-chip,
+.artifact-chip {
   background: $moe-level1-color;
   display: flex;
   flex-direction: row;
 
-  .weapon-chip-rank {
+  .weapon-chip-rank,
+  .artifact-chip-rank {
     flex-shrink: 0;
   }
 
-  moe-weapon-chip {
+  moe-weapon-chip,
+  moe-artifact-chip {
     flex-grow: 1;
   }
 }
@@ -121,9 +125,10 @@
 }
 
 .main-stat-type {
-  @include subtitle2-font;
+  @include body2-font;
 
   flex-grow: 1;
+  font-weight: $default-font-medium-weight;
   padding: 0.75rem;
 }
 

@@ -1,3 +1,4 @@
+import { ArtifactChipComponent } from './components/artifact-chip/artifact-chip.component';
 import { CharacterTabsComponent } from './components/character-tabs/character-tabs.component';
 import { ItemHeaderComponent } from './components/item-header/item-header.component';
 import { WeaponChipComponent } from './components/weapon-chip/weapon-chip.component';
@@ -43,6 +44,7 @@ const baseUrlProvider = {
   declarations: [
     AppComponent,
     ArtifactCardComponent,
+    ArtifactChipComponent,
     ArtifactComponent,
     ArtifactListComponent,
     CharacterBuildComponent,

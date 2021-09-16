@@ -41,6 +41,9 @@
           *ngFor="let artifactPriority of role.Artifacts"
         >
           <div class="artifact-chip-rank">{{ artifactPriority.Rank }}</div>
+          <moe-artifact-chip
+            [artifactSet]="artifactPriority.ArtifactSet.toArtifactSetSummary()"
+          ></moe-artifact-chip>
         </div>
       </div>
     </div>
