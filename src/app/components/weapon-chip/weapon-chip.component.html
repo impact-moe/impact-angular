@@ -3,13 +3,14 @@
 <div class="weapon-chip-summary">
   <div class="weapon-chip-name">{{ weapon.name }}</div>
   <div class="weapon-chip-attributes">
-    <div class="base-attack-label">Base ATK</div>
-    <div class="base-attack-value">{{ weapon.baseAttack }}</div>
-    <div *ngIf="hasSubstat()" class="substat-type-label">
-      {{ weapon.substatType }}
+    <div class="base-attack">
+      <span class="base-attack-label">Base ATK</span>
+      <span class="base-attack-value">{{ weapon.baseAttack }}</span>
     </div>
-    <div *ngIf="hasSubstat()" class="substat-value">
-      {{ weapon.substatValue }}
+
+    <div *ngIf="hasSubstat()">
+      <span class="substat-label">{{ weapon.substatType }}</span>
+      <span class="substat-value">{{ weapon.substatValue }}</span>
     </div>
   </div>
 </div>
