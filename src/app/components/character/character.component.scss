@@ -1,14 +1,5 @@
 @import 'global';
 
-:host {
-  flex-grow: 200;
-}
-
-.character-page {
-  height: 100%;
-  overflow: hidden;
-}
-
 .anemo-style {
   --element-color: #{$moe-anemo-color};
 }
@@ -202,7 +193,8 @@ $desktop-large-margin: 20rem;
 }
 
 .character-art {
-  max-height: 40rem;
+  max-height: min(calc(100vh - 16rem), 40rem);
+  min-height: 25rem;
   object-fit: scale-down;
 
   @media (max-width: $tablet-max-width) {
