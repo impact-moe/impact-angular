@@ -20,11 +20,18 @@
   user-select: none;
   padding: 0.5em 0;
 
-  #group-type-button {
-    margin: 0;
+  .group-button {
+    @include default-border-radius;
+
+    background: $moe-level1-color;
+    color: white;
+    cursor: pointer;
+    padding: 0.75rem;
   }
 
   .group-type-button-label {
+    @include subtitle2-font;
+
     text-transform: uppercase;
   }
 
@@ -34,8 +41,10 @@
   }
 
   .group-type-selected {
-    font-size: 0.875rem;
-    font-weight: 600;
+    @include body2-font;
+
+    font-weight: $default-font-medium-weight;
+    text-transform: capitalize;
   }
 
   @media (min-width: $tablet-min-width) {
