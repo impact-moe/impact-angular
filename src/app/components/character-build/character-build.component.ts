@@ -17,7 +17,7 @@ export class CharacterBuildComponent implements OnInit {
   @Input() role!: Role;
   @Input() isRecommended?: boolean;
 
-  isExpanded = true;
+  isExpanded = false;
   artifactBuilds: Array<ArtifactBuild> = [];
 
   constructor(public utilityService: UtilityService) {}
