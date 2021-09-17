@@ -4,6 +4,7 @@
 
 <div
   *ngIf="!!character"
+  class="character-page"
   [ngClass]="{
     'anemo-style': character.Element === element.Anemo,
     'cryo-style': character.Element === element.Cryo,
@@ -51,12 +52,7 @@
       ></div>
 
       <div class="overview-content">
-        <div
-          class="character-art"
-          [ngStyle]="{
-            'background-image': 'url(' + character.Image + ')'
-          }"
-        ></div>
+        <img class="character-art" [src]="character.Image" />
 
         <moe-loading-image
           *ngIf="!roles.isLoaded; else displayBuilds"

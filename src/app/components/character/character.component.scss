@@ -1,5 +1,14 @@
 @import 'global';
 
+:host {
+  flex-grow: 200;
+}
+
+.character-page {
+  height: 100%;
+  overflow: hidden;
+}
+
 .anemo-style {
   --element-color: #{$moe-anemo-color};
 }
@@ -141,6 +150,12 @@ moe-character-tabs {
 
 .character-body {
   @include full-width;
+
+  padding-top: 1rem;
+
+  @media (min-width: $tablet-min-width) {
+    padding: 1.5rem;
+  }
 }
 
 $desktop-small-banner-height: 8rem;
@@ -156,11 +171,12 @@ $desktop-large-banner-height: 12rem;
   }
 
   @media (min-width: $desktop-small-min-width) {
+    @include default-border-radius;
+
     height: $desktop-small-banner-height;
   }
 
   @media (min-width: $desktop-large-min-width) {
-    border-radius: 0 0 $moe-border-radius $moe-border-radius;
     height: $desktop-large-banner-height;
   }
 }
@@ -169,11 +185,11 @@ $desktop-small-margin: 15rem;
 $desktop-large-margin: 20rem;
 
 .overview-content {
-  padding: 1rem 0;
+  padding-top: 1rem;
   position: relative;
 
   @media (min-width: $tablet-min-width) {
-    padding: 1.5rem;
+    padding: 1.5rem 0 0 1.5rem;
   }
 
   @media (min-width: $desktop-small-min-width) {
@@ -195,17 +211,16 @@ $desktop-large-margin: 20rem;
   }
 
   @media (min-width: $desktop-small-min-width) {
-    height: 40rem;
-    left: -$desktop-small-margin - 1rem;
+    left: -$desktop-small-margin - 2rem;
     position: absolute;
-    top: -$desktop-small-banner-height + 1rem;
-    width: $desktop-small-margin + 4rem;
+    top: -$desktop-small-banner-height - 1rem;
+    width: $desktop-small-margin + 5rem;
   }
 
   @media (min-width: $desktop-large-min-width) {
-    left: -$desktop-large-margin - 1rem;
-    top: -$desktop-large-banner-height + 1rem;
-    width: $desktop-large-margin + 4rem;
+    left: -$desktop-large-margin - 2rem;
+    top: -$desktop-large-banner-height - 1rem;
+    width: $desktop-large-margin + 5rem;
   }
 }
 
