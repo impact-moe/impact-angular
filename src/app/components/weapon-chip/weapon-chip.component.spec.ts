@@ -84,9 +84,7 @@ describe('WeaponChipComponent', () => {
       component.weapon = weaponModel;
       fixture.detectChanges();
 
-      expect(
-        fixture.nativeElement.querySelector('.substat-type-label')
-      ).toBeFalsy();
+      expect(fixture.nativeElement.querySelector('.substat-label')).toBeFalsy();
       expect(fixture.nativeElement.querySelector('.substat-value')).toBeFalsy();
     })
   );
@@ -100,9 +98,7 @@ describe('WeaponChipComponent', () => {
       component.weapon = weaponModel;
       fixture.detectChanges();
 
-      expect(
-        fixture.nativeElement.querySelector('.substat-type-label')
-      ).toBeFalsy();
+      expect(fixture.nativeElement.querySelector('.substat-label')).toBeFalsy();
       expect(fixture.nativeElement.querySelector('.substat-value')).toBeFalsy();
     })
   );
@@ -116,9 +112,7 @@ describe('WeaponChipComponent', () => {
       component.weapon = weaponModel;
       fixture.detectChanges();
 
-      expect(
-        fixture.nativeElement.querySelector('.substat-type-label')
-      ).toBeFalsy();
+      expect(fixture.nativeElement.querySelector('.substat-label')).toBeFalsy();
       expect(fixture.nativeElement.querySelector('.substat-value')).toBeFalsy();
     })
   );
@@ -134,7 +128,7 @@ describe('WeaponChipComponent', () => {
       fixture.detectChanges();
 
       expect(
-        fixture.nativeElement.querySelector('.substat-type-label').textContent
+        fixture.nativeElement.querySelector('.substat-label').textContent
       ).toContain('ATK %');
       expect(
         fixture.nativeElement.querySelector('.substat-value').textContent
