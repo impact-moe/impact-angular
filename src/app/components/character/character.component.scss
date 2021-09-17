@@ -176,15 +176,11 @@ $desktop-small-margin: 15rem;
 $desktop-large-margin: 20rem;
 
 .overview-content {
-  padding-top: 1rem;
   position: relative;
-
-  @media (min-width: $tablet-min-width) {
-    padding: 1.5rem 0 0 1.5rem;
-  }
 
   @media (min-width: $desktop-small-min-width) {
     margin-left: $desktop-small-margin;
+    padding: 1.5rem 0 0 1.5rem;
   }
 
   @media (min-width: $desktop-large-min-width) {
