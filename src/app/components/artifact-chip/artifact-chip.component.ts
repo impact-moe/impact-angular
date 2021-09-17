@@ -17,4 +17,9 @@ export class ArtifactChipComponent implements OnInit {
   ngOnInit() {
     this.hideFourPieceBonus = !!this.hideFourPieceBonus;
   }
+
+  get formattedTitle() {
+    const pieces = this.hideFourPieceBonus ? '2' : '4';
+    return `${this.artifactSet.name} (${pieces})`;
+  }
 }

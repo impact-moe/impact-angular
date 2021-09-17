@@ -1,6 +1,12 @@
+import { ArtifactSetSummary } from './../artifact-chip/artifact-set.model';
 import { UtilityService } from '@/services/utility.service';
 import { Role } from '@/models/role.model';
 import { Component, Input, OnInit } from '@angular/core';
+import { ArtifactSet } from '@/models/artifact-set.model';
+
+export interface ArtifactBuild {
+  sets: Array<ArtifactSetSummary>;
+}
 
 @Component({
   selector: 'moe-character-build',
@@ -12,11 +18,26 @@ export class CharacterBuildComponent implements OnInit {
   @Input() isRecommended?: boolean;
 
   isExpanded = true;
+  artifactBuilds: Array<ArtifactBuild> = [];
 
   constructor(public utilityService: UtilityService) {}
 
   ngOnInit() {
     this.isRecommended = !!this.isRecommended;
+
+    for (const artifactPriority of this.role.Artifacts) {
+      const build = this.artifactBuilds[artifactPriority.Rank - 1];
+
+      if (!build) {
+        this.artifactBuilds[artifactPriority.Rank - 1] = {
+          sets: [artifactPriority.ArtifactSet.toArtifactSetSummary()],
+        };
+      } else {
+        this.artifactBuilds[artifactPriority.Rank - 1].sets.push(
+          artifactPriority.ArtifactSet.toArtifactSetSummary()
+        );
+      }
+    }
   }
 
   toggleView() {

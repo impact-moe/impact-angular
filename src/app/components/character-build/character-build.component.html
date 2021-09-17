@@ -35,22 +35,26 @@
     <div class="role-artifacts">
       <div class="role-artifacts-label">Artifacts</div>
 
-      <div class="artifact-chips-container">
-        <div *ngFor="let artifactPriority of role.Artifacts; index as i">
-          <div class="artifact-chip">
-            <div class="artifact-chip-rank">{{ artifactPriority.Rank }}</div>
+      <div *ngFor="let build of artifactBuilds; index as i">
+        <div class="artifact-chip">
+          <div class="artifact-chip-rank">{{ i + 1 }}</div>
+          <div class="artifact-sets">
             <moe-artifact-chip
-              [artifactSet]="
-                artifactPriority.ArtifactSet.toArtifactSetSummary()
-              "
+              [artifactSet]="build.sets[0]"
+              [hideFourPieceBonus]="build.sets.length > 1"
+            ></moe-artifact-chip>
+            <moe-artifact-chip
+              *ngIf="build.sets.length > 1"
+              [artifactSet]="build.sets[1]"
+              [hideFourPieceBonus]="true"
             ></moe-artifact-chip>
           </div>
-          <div
-            *ngIf="i < role.Artifacts.length - 1"
-            class="artifact-chip-separator"
-          >
-            or
-          </div>
+        </div>
+        <div
+          *ngIf="i < artifactBuilds.length - 1"
+          class="artifact-chip-separator"
+        >
+          or
         </div>
       </div>
     </div>

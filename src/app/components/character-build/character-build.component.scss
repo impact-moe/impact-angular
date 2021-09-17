@@ -72,7 +72,8 @@
   }
 }
 
-.weapon-chips-container {
+.weapon-chips-container,
+.artifact-sets {
   column-gap: 0.125rem;
   display: grid;
   row-gap: 0.125rem;
@@ -80,7 +81,6 @@
 
 .weapon-chip,
 .artifact-chip {
-  background: $moe-level1-color;
   display: flex;
   flex-direction: row;
 
@@ -90,7 +90,7 @@
   }
 
   moe-weapon-chip,
-  moe-artifact-chip {
+  .artifact-sets {
     flex-grow: 1;
   }
 }
@@ -104,6 +104,11 @@
   flex-direction: row;
   justify-content: center;
   width: 2rem;
+}
+
+moe-weapon-chip,
+moe-artifact-chip {
+  background: $moe-level1-color;
 }
 
 .artifact-chip-separator {
