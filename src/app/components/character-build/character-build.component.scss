@@ -80,6 +80,11 @@
   }
 }
 
+.no-weapon-chips,
+.no-artifact-chips {
+  @include body2-font;
+}
+
 .role-weapons-label,
 .role-artifacts-label,
 .role-stats-label,

@@ -22,6 +22,10 @@
     <div class="role-weapons-label">Weapons</div>
 
     <div class="weapon-chips-container">
+      <div *ngIf="role.Weapons.length === 0" class="no-weapon-chips">
+        No suggested weapons found.
+      </div>
+
       <div class="weapon-chip" *ngFor="let weaponPriority of role.Weapons">
         <div class="weapon-chip-rank">{{ weaponPriority.Rank }}</div>
         <moe-weapon-chip
@@ -34,6 +38,10 @@
   <div class="role-items">
     <div class="role-artifacts">
       <div class="role-artifacts-label">Artifacts</div>
+
+      <div *ngIf="role.Artifacts.length === 0" class="no-artifact-chips">
+        No suggested artifacts found.
+      </div>
 
       <div *ngFor="let build of artifactBuilds; index as i">
         <div class="artifact-chip">
@@ -59,7 +67,10 @@
       </div>
     </div>
 
-    <div class="role-stats">
+    <div
+      *ngIf="role.MainStats.length > 0 || role.SubStats.length > 0"
+      class="role-stats"
+    >
       <div class="role-stats-label">Main Stats</div>
       <div class="main-stat-container" *ngFor="let mainStat of role.MainStats">
         <div class="main-stat-image-container">
