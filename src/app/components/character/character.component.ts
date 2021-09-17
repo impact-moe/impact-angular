@@ -44,10 +44,6 @@ export class CharacterComponent implements OnInit {
     public utilityService: UtilityService
   ) {}
 
-  get rarity(): number {
-    return !!this.character ? +this.character.Rarity : 0;
-  }
-
   ngOnInit() {
     this.route.params.subscribe(params => {
       if (!params.characterId) return;
@@ -95,5 +91,15 @@ export class CharacterComponent implements OnInit {
         }
       }
     });
+  }
+
+  get rarity(): number {
+    return !!this.character ? +this.character.Rarity : 0;
+  }
+
+  isRecommended(role: Role) {
+    return !!this.character && !!this.character.CharacterOverview
+      ? this.character.CharacterOverview.RecommendedRole === role.Name
+      : false;
   }
 }

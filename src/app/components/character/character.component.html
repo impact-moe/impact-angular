@@ -53,6 +53,7 @@
         <moe-character-build
           *ngFor="let role of roles.data"
           [role]="role"
+          [isRecommended]="isRecommended(role)"
         ></moe-character-build>
       </ng-template>
     </div>
