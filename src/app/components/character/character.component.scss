@@ -202,9 +202,8 @@ $desktop-large-margin: 20rem;
 }
 
 .character-art {
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: contain;
+  max-height: 40rem;
+  object-fit: scale-down;
 
   @media (max-width: $tablet-max-width) {
     display: none;
