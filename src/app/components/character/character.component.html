@@ -41,21 +41,38 @@
   </div>
 
   <div *ngIf="!!character" class="character-body" [ngSwitch]="pageId">
-    <div *ngSwitchCase="'overview'">
-      <moe-loading-image
-        *ngIf="!roles.isLoaded; else displayBuilds"
-      ></moe-loading-image>
+    <div class="overview-tab" *ngSwitchCase="'overview'">
+      <div
+        class="region-banner"
+        [ngStyle]="{
+          'background-image':
+            'url(' + utilityService.getRegionBannerUrl(character.Region) + ')'
+        }"
+      ></div>
 
-      <ng-template #displayBuilds>
-        <div *ngIf="!roles.data.length" class="builds-no-data">
-          No data found.
-        </div>
-        <moe-character-build
-          *ngFor="let role of roles.data"
-          [role]="role"
-          [isRecommended]="isRecommended(role)"
-        ></moe-character-build>
-      </ng-template>
+      <div class="overview-content">
+        <div
+          class="character-art"
+          [ngStyle]="{
+            'background-image': 'url(' + character.Image + ')'
+          }"
+        ></div>
+
+        <moe-loading-image
+          *ngIf="!roles.isLoaded; else displayBuilds"
+        ></moe-loading-image>
+
+        <ng-template #displayBuilds>
+          <div *ngIf="!roles.data.length" class="builds-no-data">
+            No data found.
+          </div>
+          <moe-character-build
+            *ngFor="let role of roles.data"
+            [role]="role"
+            [isRecommended]="isRecommended(role)"
+          ></moe-character-build>
+        </ng-template>
+      </div>
     </div>
 
     <div *ngSwitchCase="'talents'">

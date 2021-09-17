@@ -141,11 +141,71 @@ moe-character-tabs {
 
 .character-body {
   @include full-width;
+}
 
-  padding-top: 1rem;
+$desktop-small-banner-height: 8rem;
+$desktop-large-banner-height: 12rem;
+
+.region-banner {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  @media (max-width: $tablet-max-width) {
+    display: none;
+  }
+
+  @media (min-width: $desktop-small-min-width) {
+    height: $desktop-small-banner-height;
+  }
+
+  @media (min-width: $desktop-large-min-width) {
+    border-radius: 0 0 $moe-border-radius $moe-border-radius;
+    height: $desktop-large-banner-height;
+  }
+}
+
+$desktop-small-margin: 15rem;
+$desktop-large-margin: 20rem;
+
+.overview-content {
+  padding: 1rem 0;
+  position: relative;
 
   @media (min-width: $tablet-min-width) {
     padding: 1.5rem;
+  }
+
+  @media (min-width: $desktop-small-min-width) {
+    margin-left: $desktop-small-margin;
+  }
+
+  @media (min-width: $desktop-large-min-width) {
+    margin-left: $desktop-large-margin;
+  }
+}
+
+.character-art {
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: contain;
+
+  @media (max-width: $tablet-max-width) {
+    display: none;
+  }
+
+  @media (min-width: $desktop-small-min-width) {
+    height: 40rem;
+    left: -$desktop-small-margin - 1rem;
+    position: absolute;
+    top: -$desktop-small-banner-height + 1rem;
+    width: $desktop-small-margin + 4rem;
+  }
+
+  @media (min-width: $desktop-large-min-width) {
+    left: -$desktop-large-margin - 1rem;
+    top: -$desktop-large-banner-height + 1rem;
+    width: $desktop-large-margin + 4rem;
   }
 }
 
