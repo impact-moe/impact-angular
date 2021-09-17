@@ -36,14 +36,21 @@
       <div class="role-artifacts-label">Artifacts</div>
 
       <div class="artifact-chips-container">
-        <div
-          class="artifact-chip"
-          *ngFor="let artifactPriority of role.Artifacts"
-        >
-          <div class="artifact-chip-rank">{{ artifactPriority.Rank }}</div>
-          <moe-artifact-chip
-            [artifactSet]="artifactPriority.ArtifactSet.toArtifactSetSummary()"
-          ></moe-artifact-chip>
+        <div *ngFor="let artifactPriority of role.Artifacts; index as i">
+          <div class="artifact-chip">
+            <div class="artifact-chip-rank">{{ artifactPriority.Rank }}</div>
+            <moe-artifact-chip
+              [artifactSet]="
+                artifactPriority.ArtifactSet.toArtifactSetSummary()
+              "
+            ></moe-artifact-chip>
+          </div>
+          <div
+            *ngIf="i < role.Artifacts.length - 1"
+            class="artifact-chip-separator"
+          >
+            or
+          </div>
         </div>
       </div>
     </div>
@@ -51,10 +58,12 @@
     <div class="role-stats">
       <div class="role-stats-label">Main Stats</div>
       <div class="main-stat-container" *ngFor="let mainStat of role.MainStats">
-        <img
-          class="main-stat-image"
-          src="{{ utilityService.getArtifactImage64(mainStat.ArtifactType) }}"
-        />
+        <div class="main-stat-image-container">
+          <img
+            class="main-stat-image"
+            src="{{ utilityService.getArtifactImage64(mainStat.ArtifactType) }}"
+          />
+        </div>
         <div class="main-stat-type">
           {{ mainStat.Type }}
         </div>
