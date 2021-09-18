@@ -31,7 +31,7 @@ h1 {
 a {
   @include body2-font;
 
-  color: #6787e8;
+  color: $moe-link-color;
   font-weight: $default-font-bold-weight;
   text-decoration: none;
 }

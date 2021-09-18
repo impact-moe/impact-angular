@@ -123,7 +123,7 @@ moe-character-tabs {
   position: relative;
 
   &::after {
-    background: white;
+    background: $moe-off-white;
     border-radius: 0.25rem;
     content: '';
     height: 100%;

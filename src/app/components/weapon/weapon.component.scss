@@ -84,7 +84,7 @@
 .weapon-ability-name,
 .weapon-lore-header {
   @include header6-font;
-  color: white;
+  @include default-text-color;
 }
 
 .weapon-ability-description {

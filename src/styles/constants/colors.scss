@@ -2,8 +2,10 @@ $moe-background-color: #1e1e1e;
 $moe-level1-color: #2a2828;
 $moe-level2-color: #363333;
 
+$moe-off-white: #fefefe;
 $moe-navy-accent: #112359;
-$moe-text-color: #fefefe;
+$moe-text-color: $moe-off-white;
+$moe-link-color: #6787e8;
 
 @mixin default-text-color {
   color: $moe-text-color;

@@ -124,7 +124,7 @@
 .weapon-chip-rank,
 .artifact-chip-rank {
   align-items: center;
-  background: white;
+  background: $moe-off-white;
   color: black;
   display: flex;
   flex-direction: row;
@@ -159,7 +159,7 @@ moe-artifact-chip {
 
 .main-stat-image-container {
   align-items: center;
-  background: white;
+  background: $moe-off-white;
   display: flex;
   justify-content: center;
 }

@@ -22,9 +22,9 @@
 
   .group-button {
     @include default-border-radius;
+    @include default-text-color;
 
     background: $moe-level1-color;
-    color: white;
     cursor: pointer;
     padding: 0.75rem;
   }
