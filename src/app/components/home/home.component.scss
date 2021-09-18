@@ -26,8 +26,8 @@ $mobile-video-height: 8rem;
 }
 
 .moe-home-header {
-  background: white;
-  color: #112359;
+  background: $moe-text-color;
+  color: $moe-navy-accent;
   padding-top: $mobile-image-height - $mobile-video-height;
   text-align: center;
 
@@ -97,7 +97,7 @@ $mobile-video-height: 8rem;
 }
 
 .moe-home-intro {
-  background: #fefefe;
+  background: $moe-text-color;
 }
 
 .moe-intro-content {
@@ -132,7 +132,7 @@ $mobile-video-height: 8rem;
 
 .intro-content-icon {
   align-items: center;
-  background: #112359;
+  background: $moe-navy-accent;
   display: flex;
   flex-shrink: 0;
   justify-content: center;

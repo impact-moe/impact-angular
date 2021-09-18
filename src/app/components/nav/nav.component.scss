@@ -2,7 +2,7 @@
 
 .moe-nav-bar {
   align-items: center;
-  background: #1e1e1e;
+  background: $moe-background-color;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
@@ -83,7 +83,7 @@
 .moe-signup-button {
   @include default-border-radius;
 
-  background: #112359;
+  background: $moe-navy-accent;
 }
 
 .moe-nav-mobile-overlay {
@@ -102,7 +102,7 @@ $mobile-menu-width: 240px;
 $mobile-menu-z-index: 1000;
 
 .moe-nav-mobile-menu {
-  background: #363333;
+  background: $moe-level2-color;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
