@@ -31,10 +31,4 @@ export class WeaponComponent implements OnInit {
   hasSubstat() {
     return !!this.weapon && !!this.weapon.SubStat && this.weapon.SubStat > 0;
   }
-
-  get formattedDescription() {
-    return !!this.weapon && !!this.weapon.Description
-      ? this.weapon.Description
-      : 'No description provided.';
-  }
 }

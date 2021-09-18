@@ -94,7 +94,7 @@ export class CharacterComponent implements OnInit {
   }
 
   get rarity(): number {
-    return !!this.character ? +this.character.Rarity : 0;
+    return this.character ? +this.character.Rarity : 0;
   }
 
   isRecommended(role: Role) {
