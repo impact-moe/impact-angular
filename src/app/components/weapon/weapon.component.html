@@ -24,8 +24,12 @@
           <div class="weapon-type">{{ weapon.WeaponType }}</div>
           <div class="base-attack-label">Base ATK</div>
           <div class="base-attack-value">{{ weapon.BaseAtk }}</div>
-          <div class="substat-label">{{ weapon.SubStatType }}</div>
-          <div class="substat-value">{{ weapon.SubStat }}</div>
+          <div *ngIf="hasSubstat()" class="substat-label">
+            {{ weapon.SubStatType }}
+          </div>
+          <div *ngIf="hasSubstat()" class="substat-value">
+            {{ weapon.SubStat }}
+          </div>
           <div class="location-label">Location</div>
           <div class="location-value">{{ weapon.Location }}</div>
         </div>
@@ -39,20 +43,23 @@
       </div>
 
       <div class="weapon-ability-container">
-        <div *ngIf="weapon.AbilityName" class="weapon-ability-name">
+        <div *ngIf="!!weapon.AbilityName" class="weapon-ability-name">
           {{ weapon.AbilityName }}
         </div>
-        <p *ngIf="weapon.AbilityDescription" class="weapon-ability-description">
+        <p
+          *ngIf="!!weapon.AbilityDescription"
+          class="weapon-ability-description"
+        >
           {{ weapon.AbilityDescription }}
         </p>
-        <p class="weapon-description">
+        <p *ngIf="!!weapon.Description" class="weapon-description">
           {{ weapon.Description }}
         </p>
       </div>
     </div>
 
     <div class="weapon-details">
-      <div class="weapon-lore-container">
+      <div *ngIf="!!weapon.Lore" class="weapon-lore-container">
         <div class="weapon-lore-header">Lore</div>
         <p class="weapon-lore">{{ weapon.Lore }}</p>
       </div>
