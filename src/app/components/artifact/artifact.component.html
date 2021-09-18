@@ -40,14 +40,14 @@
           <li>2-Piece Set: {{ artifact.ArtifactSet.TwoPieceBonus }}</li>
           <li>4-Piece Set: {{ artifact.ArtifactSet.FourPieceBonus }}</li>
         </ul>
-        <p class="artifact-description">
+        <p *ngIf="!!artifact.Description" class="artifact-description">
           {{ artifact.Description }}
         </p>
       </div>
     </div>
 
     <div class="artifact-details">
-      <div class="artifact-lore">
+      <div *ngIf="!!artifact.Lore" class="artifact-lore">
         <div class="artifact-lore-header">Lore</div>
         <p class="artifact-lore-description">{{ artifact.Lore }}</p>
       </div>
