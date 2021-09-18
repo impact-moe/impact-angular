@@ -1,10 +1,10 @@
-import { Role } from '@/models/role.model';
 import { Element } from '@/enums/element.enum';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Character } from '@/models/character.model';
+import { Role } from '@/models/role.model';
 import { ImpactService } from '@/services/impact.service';
 import { UtilityService } from '@/services/utility.service';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Constellation } from 'src/app/models/constellation.model';
 import { Talent } from 'src/app/models/talent.model';
 
