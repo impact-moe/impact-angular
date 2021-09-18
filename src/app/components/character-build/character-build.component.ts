@@ -1,8 +1,7 @@
-import { ArtifactSetSummary } from './../artifact-chip/artifact-set.model';
-import { UtilityService } from '@/services/utility.service';
 import { Role } from '@/models/role.model';
+import { UtilityService } from '@/services/utility.service';
+import { ArtifactSetSummary } from '@/viewmodels/artifact-set.model';
 import { Component, Input, OnInit } from '@angular/core';
-import { ArtifactSet } from '@/models/artifact-set.model';
 
 export interface ArtifactBuild {
   sets: Array<ArtifactSetSummary>;

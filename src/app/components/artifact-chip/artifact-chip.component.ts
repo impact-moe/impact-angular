@@ -2,8 +2,8 @@
  * @fileoverview A chip to display the summary of an artifact set.
  */
 
+import { ArtifactSetSummary } from '@/viewmodels/artifact-set.model';
 import { Component, Input, OnInit } from '@angular/core';
-import { ArtifactSetSummary } from './artifact-set.model';
 
 @Component({
   selector: 'moe-artifact-chip',

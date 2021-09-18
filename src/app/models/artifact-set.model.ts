@@ -1,4 +1,4 @@
-import { ArtifactSetSummary } from '@/components/artifact-chip/artifact-set.model';
+import { ArtifactSetSummary } from '@/viewmodels/artifact-set.model';
 
 export class ArtifactSet {
   Id: string;
