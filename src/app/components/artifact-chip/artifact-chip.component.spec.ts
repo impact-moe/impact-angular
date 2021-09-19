@@ -49,6 +49,22 @@ describe('ArtifactChipComponent', () => {
   );
 
   it(
+    'should display the two piece annotation when specified',
+    waitForAsync(() => {
+      const setModel = new ArtifactSetSummary.Builder('archaic-petra')
+        .setName('Archaic Petra')
+        .build();
+      component.artifactSet = setModel;
+      component.hideFourPieceBonus = true;
+      fixture.detectChanges();
+
+      expect(
+        fixture.nativeElement.querySelector('.artifact-set-name').textContent
+      ).toContain('Archaic Petra (2)');
+    })
+  );
+
+  it(
     'should always display the two piece bonus',
     waitForAsync(() => {
       const setModel = new ArtifactSetSummary.Builder('archaic-petra')
