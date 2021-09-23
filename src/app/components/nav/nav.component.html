@@ -1,56 +1,43 @@
-<div id="nav-container">
-  <div id="nav-primary-container" class="flex-row flex-space-evenly">
-    <div id="nav-left-group" class="flex-row flex-center">
-      <a [routerLink]="['/']">
-        <img
-          src="https://media.impact.moe/img/general/logo-rectangle-64.webp"
-        />
-      </a>
-    </div>
-    <div id="nav-center-group" class="flex-row">
-      <moe-route-button
-        *ngFor="let route of navList"
-        [route]="route"
-      ></moe-route-button>
-    </div>
-    <div id="nav-right-group" class="flex-row flex-center">
-      <a class="button-1" [routerLink]="['/login']">
-        <p>log in</p>
-      </a>
-      <a class="button-1 background-blue" [routerLink]="['/signup']">
-        <p>sign up</p>
-      </a>
-    </div>
+<div class="moe-nav-bar">
+  <div class="moe-nav-mobile-toggle" (click)="openDrawer()">
+    <i class="fas fa-bars"></i>
   </div>
-  <div id="nav-mobile-container" class="flex-row">
-    <div
-      id="nav-mobile-menu-button"
-      class="flex-row flex-center"
-      (click)="openDrawer()"
-    >
-      <i class="fas fa-bars"></i>
-    </div>
-    <a id="nav-mobile-logo" [routerLink]="['/']">
+
+  <div class="moe-home-item">
+    <div class="moe-home-logo">
       <img src="https://media.impact.moe/img/general/logo-rectangle-64.webp" />
-    </a>
+      <a class="moe-home-route" [routerLink]="['/']"></a>
+    </div>
   </div>
+
+  <div class="moe-nav-desktop-links">
+    <moe-route-button
+      *ngFor="let route of navList"
+      [route]="route"
+      [style]="buttonStyles.BUTTON"
+    ></moe-route-button>
+  </div>
+
+  <div class="moe-account-module">
+    <moe-route-button
+      [route]="loginRoute"
+      [style]="buttonStyles.BUTTON"
+      (click)="closeDrawer()"
+    ></moe-route-button>
+    <moe-route-button
+      class="moe-signup-button"
+      [route]="signupRoute"
+      [style]="buttonStyles.BUTTON"
+      (click)="closeDrawer()"
+    ></moe-route-button>
+  </div>
+
+  <div class="moe-nav-mobile-placeholder"></div>
 </div>
 
-<div
-  id="nav-drawer-click-overlay"
-  [style.pointer-events]="clickOverlayPointerEventsStyle"
-  (click)="closeDrawer()"
-></div>
-
-<div
-  id="nav-drawer-container"
-  class="background-gray-2 flex-column"
-  [@navDrawerOpenClose]="drawerOpen ? 'navDrawerOpen' : 'navDrawerClose'"
->
-  <div class="flex-row flex-end-items">
-    <div id="nav-drawer-exit-button" (click)="closeDrawer()">
-      <i class="fa fa-times"></i>
-    </div>
+<div class="moe-nav-mobile-menu" [ngClass]="{ 'drawer-open': drawerOpen }">
+  <div class="moe-nav-close-button" (click)="closeDrawer()">
+    <i class="fa fa-times"></i>
   </div>
 
   <moe-route-button
@@ -60,10 +47,19 @@
     (click)="closeDrawer()"
   ></moe-route-button>
 
-  <div id="account-container">
-    <a class="button-1" [routerLink]="['/login']"><p>log in</p></a>
-    <a class="button-1 background-blue" [routerLink]="['/signup']"
-      ><p>sign up</p></a
-    >
+  <div class="moe-account-module">
+    <moe-route-button
+      [route]="loginRoute"
+      [style]="buttonStyles.BUTTON"
+      (click)="closeDrawer()"
+    ></moe-route-button>
+    <moe-route-button
+      class="moe-signup-button"
+      [route]="signupRoute"
+      [style]="buttonStyles.BUTTON"
+      (click)="closeDrawer()"
+    ></moe-route-button>
   </div>
 </div>
+
+<div *ngIf="drawerOpen" class="moe-nav-click-out" (click)="closeDrawer()"></div>

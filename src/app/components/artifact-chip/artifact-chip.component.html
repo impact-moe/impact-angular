@@ -1,0 +1,8 @@
+<div class="artifact-set-name">{{ formattedTitle }}</div>
+
+<ul class="artifact-set-bonuses">
+  <li class="two-piece-bonus">{{ artifactSet.twoPieceBonus }}</li>
+  <li *ngIf="!hideFourPieceBonus" class="four-piece-bonus">
+    {{ artifactSet.fourPieceBonus }}
+  </li>
+</ul>

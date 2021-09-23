@@ -1,7 +1,7 @@
 import { WeaponStat } from '@/models/weapon-stat.model';
 import { Rarity } from '@/enums/rarity.enum';
 import { WeaponType } from '@/enums/weapon-type.enum';
-import { WeaponSummary } from '@/components/weapon-card/weapon-summary.model';
+import { WeaponSummary } from '@/viewmodels/weapon-summary.model';
 
 export class Weapon {
   Id: string;

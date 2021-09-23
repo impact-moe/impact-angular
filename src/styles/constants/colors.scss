@@ -1,7 +1,11 @@
 $moe-background-color: #1e1e1e;
 $moe-level1-color: #2a2828;
+$moe-level2-color: #363333;
 
-$moe-text-color: #fefefe;
+$moe-off-white: #fefefe;
+$moe-navy-accent: #112359;
+$moe-text-color: $moe-off-white;
+$moe-link-color: #6787e8;
 
 @mixin default-text-color {
   color: $moe-text-color;
@@ -33,4 +37,11 @@ $moe-rarity5-gradient: radial-gradient(
   at bottom right,
   #daa34f 5%,
   #6a5254 95%
-); ;
+);
+
+$moe-anemo-color: #abf3d0;
+$moe-cryo-color: #cbfbfb;
+$moe-electro-color: #debaff;
+$moe-geo-color: #f5d760;
+$moe-hydro-color: #46e4ff;
+$moe-pyro-color: #faa970;

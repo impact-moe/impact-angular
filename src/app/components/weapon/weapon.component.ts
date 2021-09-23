@@ -11,7 +11,6 @@ import { Weapon } from 'src/app/models/weapon.model';
 })
 export class WeaponComponent implements OnInit {
   weapon?: Weapon;
-  pageId = 'overview';
 
   constructor(
     private route: ActivatedRoute,
@@ -23,23 +22,13 @@ export class WeaponComponent implements OnInit {
     this.route.params.subscribe(params => {
       if (!params.weaponId) return;
 
-      if (params.pageId === 'overview') {
-        this.impactService
-          .getWeapon(params.weaponId, 'stats')
-          .subscribe(data => {
-            this.weapon = data;
-
-            this.pageId = params.pageId;
-          });
-      } else if (params.pageId === 'materials') {
-        this.impactService
-          .getWeapon(params.weaponId, 'stats')
-          .subscribe(data => {
-            this.weapon = data;
-
-            this.pageId = params.pageId;
-          });
-      }
+      this.impactService.getWeapon(params.weaponId, 'stats').subscribe(data => {
+        this.weapon = data;
+      });
     });
+  }
+
+  hasSubstat() {
+    return !!this.weapon && !!this.weapon.SubStat && this.weapon.SubStat > 0;
   }
 }

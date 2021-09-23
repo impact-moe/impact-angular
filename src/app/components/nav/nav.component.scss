@@ -1,159 +1,152 @@
-/* Primary Nav */
+@import 'global';
 
-#nav-container {
-  width: 100%;
-  height: 6em;
-  position: absolute;
-  background: #1e1e1e;
-  z-index: 200;
-}
-
-#nav-primary-container {
-  width: 100%;
-  height: 100%;
-}
-
-#nav-primary-container a {
-  align-self: center;
-}
-
-#nav-left-group {
-  width: 28em;
-}
-
-#nav-left-group a {
-  display: flex;
-  justify-content: center;
+.moe-nav-bar {
   align-items: center;
-  height: 100%;
-}
-
-#nav-left-group img {
-  height: 4em;
-  max-height: 4em;
-  min-height: 4em;
-}
-
-#nav-center-group {
-  height: 100%;
-  margin: 0px 4em;
-}
-
-#nav-right-group {
-  width: 28em;
-}
-
-#nav-mobile-container {
-  height: 100%;
-  width: 100%;
-  display: none;
-}
-
-/* Mobile Nav */
-
-#nav-mobile-container > a {
+  background: $moe-background-color;
+  box-sizing: border-box;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-#nav-mobile-container > a > img {
-  height: 4em;
-  max-height: 4em;
-  min-height: 4em;
-}
-
-#nav-mobile-menu-button {
-  width: 4em;
-  max-width: 4em;
-  min-width: 4em;
-  height: 4em;
-  max-height: 4em;
-  min-height: 4em;
-  align-self: center;
-  position: absolute;
-  margin-left: 1em;
-  border-radius: 5px;
-  transition-duration: 0.2s;
-  cursor: pointer;
-}
-
-#nav-mobile-menu-button:hover {
-  background: #262626;
-}
-
-#nav-mobile-menu-button > i {
-  color: #fefefe;
-  font-size: 2em;
-  margin: auto 0;
-}
-
-#nav-mobile-logo {
+  flex-direction: row;
+  justify-content: space-between;
   margin: 0 auto;
-}
-
-/* Nav Drawer */
-
-#nav-drawer-click-overlay {
+  max-width: 1440px;
+  padding: 0.5rem 1rem;
   width: 100%;
-  height: 100%;
-  opacity: 0;
-  z-index: 199;
-  position: fixed;
+
+  @media (max-width: $tablet-max-width) {
+    .moe-nav-desktop-links,
+    .moe-account-module {
+      display: none;
+    }
+  }
+
+  @media (min-width: $desktop-small-min-width) {
+    padding: 1rem 1.5rem;
+
+    .moe-nav-mobile-toggle,
+    .moe-nav-mobile-placeholder {
+      display: none;
+    }
+
+    .moe-home-item,
+    .moe-account-module {
+      flex-grow: 1;
+      width: 0;
+    }
+
+    .moe-account-module {
+      justify-content: flex-end;
+    }
+  }
 }
 
-#nav-drawer-container {
-  position: fixed;
-  height: 100%;
-  width: 12em;
-  margin-left: -15em;
-  z-index: 200;
+.moe-home-item,
+.moe-home-logo {
+  display: inline-block;
+  line-height: 0;
 }
 
-#nav-drawer-exit-button {
-  margin: 1em;
-  cursor: pointer;
+.moe-home-logo {
+  position: relative;
+
+  a {
+    @include cover-element;
+    z-index: 1;
+  }
 }
 
-#nav-drawer-exit-button > i {
-  font-size: 1.5em;
-  color: #fefefe;
+.moe-nav-mobile-toggle,
+.moe-nav-mobile-placeholder {
+  height: 2em;
+  width: 2em;
+
+  i {
+    font-size: 2em;
+  }
 }
 
-#nav-drawer-container h4 {
-  text-align: start;
-}
-
-#nav-drawer-container > a {
-  margin: 0;
-  border-radius: 0;
-  height: 3em;
-}
-
-#nav-drawer-container > a:hover {
-  background: #fefefe;
-}
-
-#nav-drawer-container > a:hover > p {
-  color: #262626;
-}
-
-#account-container {
+.moe-nav-desktop-links {
+  align-items: center;
   display: flex;
-  flex-grow: 1;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding-bottom: 1em;
+  flex-direction: row;
+  justify-content: center;
+
+  moe-route-button {
+    margin: 0 0.25rem;
+  }
 }
 
-/* Resolution Definitions */
+.moe-account-module {
+  display: flex;
+  justify-content: flex-end;
+}
 
-@media screen and (max-width: 1100px) {
-  #nav-primary-container {
-    display: none;
+.moe-signup-button {
+  @include default-border-radius;
+
+  background: $moe-navy-accent;
+}
+
+.moe-nav-mobile-overlay {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  transition: 0.2s;
+}
+
+$mobile-menu-width: 240px;
+$mobile-menu-z-index: 1000;
+
+.moe-nav-mobile-menu {
+  background: $moe-level2-color;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  height: 100%;
+  left: -$mobile-menu-width;
+  position: absolute;
+  top: 0;
+  transition: 0.2s;
+  width: $mobile-menu-width;
+  z-index: $mobile-menu-z-index;
+
+  &.drawer-open {
+    left: 0px;
   }
-  #nav-mobile-container {
+
+  .moe-nav-close-button {
     display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-start;
+
+    i {
+      font-size: 1.5rem;
+      padding: 1rem;
+    }
   }
+
+  .moe-account-module {
+    flex-direction: column;
+    flex-grow: 1;
+    margin: 0 1.5rem 1.5rem;
+
+    moe-route-button {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+}
+
+.moe-nav-click-out {
+  height: 100%;
+  left: $mobile-menu-width;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: $mobile-menu-z-index;
 }

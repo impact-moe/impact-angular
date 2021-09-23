@@ -1,145 +1,56 @@
-<div class="container-1">
-  <div class="container-inner-1 flex-column" *ngIf="artifact">
-    <div class="banner-1">
-      <div class="banner-content-container-1">
-        <img
-          class="full-width full-height image-cover"
-          src="https://media.impact.moe/img/banners/banner-1.webp"
-        />
-      </div>
+<ng-template [ngIf]="!artifact">
+  <moe-loading-image></moe-loading-image>
+</ng-template>
+
+<ng-template [ngIf]="!!artifact">
+  <moe-item-header
+    [name]="artifact.Name"
+    [rarity]="artifact.Rarity"
+  ></moe-item-header>
+
+  <div class="artifact-body">
+    <div class="artifact-summary">
       <div
-        class="
-          banner-content-container-1
-          flex-row flex-space-between flex-center-items
-        "
+        class="artifact-card"
+        [ngClass]="{
+          'rarity1-gradient': !artifact.Rarity || artifact.Rarity === 1,
+          'rarity2-gradient': artifact.Rarity === 2,
+          'rarity3-gradient': artifact.Rarity === 3,
+          'rarity4-gradient': artifact.Rarity === 4,
+          'rarity5-gradient': artifact.Rarity === 5
+        }"
       >
+        <div class="artifact-attributes">
+          <div class="artifact-type">{{ artifact.ArtifactType }}</div>
+          <div class="location-label">Location</div>
+          <div class="location-value">{{ artifact.Location }}</div>
+        </div>
+
         <div
-          id="artifact-opacity-layer"
-          class="full-width full-height position-absolute"
+          class="artifact-image"
+          [ngStyle]="{
+            'background-image': 'url(' + artifact.Image + ')'
+          }"
         ></div>
-        <div id="artifact-square-card-image-container">
-          <img id="artifact-square-card-image" src="{{ artifact.Image }}" />
-        </div>
+      </div>
+
+      <div class="artifact-set">
+        <div class="artifact-set-name">{{ artifact.ArtifactSet.Name }}</div>
+        <ul>
+          <li>2-Piece Set: {{ artifact.ArtifactSet.TwoPieceBonus }}</li>
+          <li>4-Piece Set: {{ artifact.ArtifactSet.FourPieceBonus }}</li>
+        </ul>
+        <p *ngIf="!!artifact.Description" class="artifact-description">
+          {{ artifact.Description }}
+        </p>
       </div>
     </div>
-    <div id="artifact-summary-container" class="full-width background-gray-2">
-      <div class="primary-content-container-1">
-        <div
-          id="artifact-summary-sidebar-container"
-          class="sidebar-section-1 flex-row flex-center"
-        >
-          <img
-            id="artifact-portrait-image"
-            class="image-scale-down"
-            src="{{ artifact.Image }}"
-          />
-        </div>
-        <div
-          id="artifact-summary-content"
-          class="main-section-1 flex-column hidden-overflow-x"
-        >
-          <div id="artifact-title-container" class="flex-row flex-center-items">
-            <div id="artifact-title-content" class="flex-column">
-              <h1>{{ artifact.Name }}</h1>
-              <moe-rarity
-                id="artifact-star-container"
-                [value]="artifact.Rarity"
-              ></moe-rarity>
-            </div>
-          </div>
-          <div
-            id="artifact-description-container"
-            class="scrollbars-hidden scroll-overflow-y"
-          >
-            <p>{{ artifact.Description }}</p>
-            <p>
-              <i>{{ artifact.Lore }}</i>
-            </p>
-          </div>
 
-          <div
-            id="artifact-summary-content-nav"
-            class="flex-row scrollbars-hidden scroll-overflow-x"
-          >
-            <a
-              class="button-1 {{
-                utilityService.getRarityHoverBackground(artifact.Rarity)
-              }}
-              {{
-                pageId === 'overview'
-                  ? utilityService.getRarityBackground(artifact.Rarity)
-                  : ''
-              }}"
-              [routerLink]="['/artifacts/' + artifact.Id + '/overview']"
-              ><h2>overview</h2></a
-            >
-            <a
-              class="button-1 {{
-                utilityService.getRarityHoverBackground(artifact.Rarity)
-              }}
-              {{
-                pageId === 'materials'
-                  ? utilityService.getRarityBackground(artifact.Rarity)
-                  : ''
-              }}"
-              [routerLink]="['/artifacts/' + artifact.Id + '/materials']"
-              ><h2>materials</h2></a
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="body-1 flex-row full-width">
-      <div id="artifact-content" class="primary-content-container-1">
-        <div
-          id="artifact-sidebar-content-container"
-          class="sidebar-section-1 flex-column scrollbars-hidden {{
-            utilityService.getRarityBackground(artifact.Rarity)
-          }}"
-        >
-          <div>
-            <h2>Artifact Type</h2>
-            <p>{{ artifact.ArtifactType }}</p>
-          </div>
-        </div>
-
-        <div id="artifact-main-content-container" class="main-section-1">
-          <div
-            id="artifact-overview-container"
-            class="flex-column"
-            *ngIf="pageId === 'overview'"
-          >
-            <div
-              class="
-                artifact-role-container
-                content-card
-                flex-column
-                background-gray-2
-              "
-            >
-              <div
-                class="content-card-title flex-row {{
-                  utilityService.getRarityBackground(artifact.Rarity)
-                }}"
-              >
-                <h3>{{ artifact.ArtifactSet.Name }}</h3>
-              </div>
-              <div class="content-card-body">
-                <div class="role-description">
-                  <h4>Two Piece Bonus</h4>
-                  <p>
-                    {{ artifact.ArtifactSet.TwoPieceBonus }}
-                  </p>
-                  <h4>Four Piece Bonus</h4>
-                  <p>
-                    {{ artifact.ArtifactSet.FourPieceBonus }}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="artifact-details">
+      <div *ngIf="!!artifact.Lore" class="artifact-lore">
+        <div class="artifact-lore-header">Lore</div>
+        <p class="artifact-lore-description">{{ artifact.Lore }}</p>
       </div>
     </div>
   </div>
-</div>
+</ng-template>

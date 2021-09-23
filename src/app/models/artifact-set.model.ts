@@ -1,3 +1,5 @@
+import { ArtifactSetSummary } from '@/viewmodels/artifact-set.model';
+
 export class ArtifactSet {
   Id: string;
   Name: string;
@@ -11,5 +13,14 @@ export class ArtifactSet {
     this.MaxRarity = artifactSetJson.maxRarity;
     this.TwoPieceBonus = artifactSetJson.twoPieceBonus;
     this.FourPieceBonus = artifactSetJson.fourPieceBonus;
+  }
+
+  toArtifactSetSummary() {
+    return new ArtifactSetSummary.Builder(this.Id)
+      .setName(this.Name)
+      .setRarity(+this.MaxRarity)
+      .setTwoPieceBonus(this.TwoPieceBonus)
+      .setFourPieceBonus(this.FourPieceBonus)
+      .build();
   }
 }

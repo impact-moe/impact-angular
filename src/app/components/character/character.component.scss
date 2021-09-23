@@ -1,431 +1,319 @@
-@import 'constants';
+@import 'global';
 
-h1 {
-  font-family: $default-font-family;
-  color: #fefefe;
-  font-size: 1.4rem;
-  letter-spacing: 0.02em;
-  font-weight: 800;
-  margin-bottom: 0;
-  margin-top: 0;
+.anemo-style {
+  --element-color: #{$moe-anemo-color};
 }
 
-h2 {
-  font-family: $default-font-family;
-  color: #fefefe;
-  font-size: 0.8rem;
-  letter-spacing: 0.02em;
-  font-weight: 800;
-  margin-top: 0;
-  margin-bottom: 0;
+.cryo-style {
+  --element-color: #{$moe-cryo-color};
 }
 
-h3 {
-  font-family: $default-font-family;
-  color: #fefefe;
-  font-size: 1.4rem;
-  letter-spacing: 0.02em;
-  font-weight: 800;
-  margin-bottom: 0;
-  margin-top: 0;
+.electro-style {
+  --element-color: #{$moe-electro-color};
 }
 
-h4 {
-  font-family: $default-font-family;
-  color: #fefefe;
-  font-size: 1rem;
-  letter-spacing: 0.02em;
-  font-weight: 800;
-  margin-bottom: 0;
-  margin-top: 0;
+.geo-style {
+  --element-color: #{$moe-geo-color};
 }
 
-/* Banner */
-
-#character-quote-image {
-  margin-left: 25em;
-  margin-top: 2em;
+.hydro-style {
+  --element-color: #{$moe-hydro-color};
 }
 
-#character-tier-image {
-  width: 5em;
-  height: 5em;
-  margin-right: 15em;
+.pyro-style {
+  --element-color: #{$moe-pyro-color};
 }
 
-#character-square-card-image-container {
-  margin: auto;
-  overflow: none;
-  z-index: 100;
-  margin-top: 1em;
-  display: none;
+@mixin full-width {
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 1440px;
+  width: 100%;
 }
 
-#character-square-card-image {
-  height: 30em;
-  border-radius: 5px;
+.character-header {
+  background: $moe-level1-color;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-#character-opacity-layer {
-  display: none;
-  background: #000000;
-  opacity: 0.8;
-  z-index: 99;
+.character-header-content {
+  @include full-width;
+
+  display: flex;
+  flex-direction: row;
 }
 
-@media screen and (max-width: 1100px) {
-  #character-quote-image {
-    display: none;
+.character-icon-container {
+  background: var(--element-color);
+  height: 5rem;
+  overflow: hidden;
+  width: 5rem;
+
+  @media (min-width: $tablet-min-width) {
+    @include default-border-radius;
+
+    margin: 1rem 0 1rem 1rem;
   }
 
-  #character-tier-image {
-    display: none;
-  }
-
-  #character-square-card-image-container {
-    display: flex;
-  }
-
-  #character-opacity-layer {
-    display: flex;
-  }
-
-  #character-banner-container-content {
-    justify-content: center;
+  @media (min-width: $desktop-small-min-width) {
+    margin: 1rem 0 1rem 1.5rem;
   }
 }
 
-/* Summary */
-
-#character-summary-container {
-  height: 20em;
-  z-index: 100;
-}
-
-#character-portrait-image {
-  margin-top: -10em;
-  margin-bottom: 2em;
-  max-height: 29em;
-}
-
-#character-summary-content {
+.character-icon {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex-shrink: 0;
   height: 100%;
+  width: 100%;
 }
 
-#character-title-container {
-  margin-top: 2em;
-}
-
-#character-title-content {
-  margin-left: 1em;
-}
-
-#character-star-container {
-  margin-top: 0.3em;
-}
-
-#character-description-container {
-  margin: 0.2em;
-  height: 10.5em;
-  flex-grow: 1;
-}
-
-#character-summary-content-nav {
-  margin-left: 0.6em;
-  margin-bottom: 0.5em;
-  margin-top: 0.5em;
-  min-height: 2.5em;
-}
-
-#character-summary-content-nav a {
-  margin: 0 0.5em;
-}
-
-@media screen and (max-width: 1100px) {
-  #character-portrait-image {
-    display: none;
-  }
-  #character-summary-sidebar-container {
-    min-width: 0;
-    width: 0em;
-  }
-}
-
-@media screen and (max-width: 525px) {
-  #character-summary-content-nav {
-    margin-left: 0;
-  }
-}
-
-/* Character Content */
-
-#character-content {
-  flex-grow: 1;
-}
-
-@media screen and (max-width: 1100px) {
-  #character-main-content-container {
-    margin-top: 2em;
-  }
-
-  #character-content {
-    flex-direction: column;
-    overflow-x: hidden;
-  }
-}
-
-/* Sidebar */
-
-#character-sidebar-content-container {
-  align-self: flex-start;
-}
-
-#character-sidebar-content-container > div {
-  height: 3.5em;
-  min-height: 3.5em;
-  max-height: 3.5em;
-  width: 20em;
-  min-width: 20em;
-  max-width: 20em;
+.character-header-text {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-}
+  flex-grow: 1;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
 
-#character-sidebar-content-container p {
-  margin-top: 0.2em;
-  margin-left: 0.8em;
-  margin-right: 0.8em;
-}
-
-#character-sidebar-content-container h2 {
-  margin-left: 0.8em;
-  margin-right: 0.8em;
-}
-
-#character-sidebar-content-container div:first-child h2 {
-  margin-top: 0.8em;
-}
-
-#character-sidebar-content-container div:last-child p {
-  margin-bottom: 0;
-}
-
-#character-sidebar-content-container div:first-child p {
-  margin-bottom: 1em;
-}
-
-@media screen and (max-width: 1100px) {
-  #character-sidebar-content-container {
-    flex-direction: row;
-    overflow-x: scroll;
-    height: 3.5em;
-    max-height: 3.5em;
-    min-height: 3.5em;
-    width: unset;
-    max-width: unset;
-    width: 100%;
-  }
-
-  #character-sidebar-content-container > div {
-    width: auto;
-    min-width: unset;
-    max-width: unset;
-    max-height: 3.5em;
-  }
-
-  #character-sidebar-content-container > div > h2 {
-    white-space: nowrap;
-  }
-
-  #character-sidebar-content-container > div > p {
-    white-space: nowrap;
-  }
-
-  #character-sidebar-content-container-container {
-    width: 100%;
-  }
-
-  #character-sidebar-content-container div:last-child p {
-    margin-bottom: 1em;
-  }
-
-  #character-sidebar-content-container h2 {
-    margin-top: 0.8em;
+  @media (min-width: $tablet-min-width) {
+    padding: 1rem;
   }
 }
 
-/* Character Overview */
+.character-name {
+  @media (max-width: $mobile-max-width) {
+    @include header6-font;
+    line-height: 1.2;
+  }
 
-#character-overview-container > div {
-  margin-bottom: 2em;
+  @media (min-width: $tablet-min-width) {
+    @include header5-font;
+  }
 }
 
-#character-overview-container > div:last-child {
-  margin-bottom: 0em;
+moe-rarity {
+  @media (min-width: $tablet-min-width) {
+    margin-bottom: 0.25rem;
+  }
 }
 
-.character-role-container > .content-card-title {
+.header-separator {
+  background: #4a4a4a;
+  height: 1px;
+  width: 100%;
+}
+
+moe-character-tabs {
+  @include full-width;
+}
+
+.character-attributes {
+  align-items: center;
   display: flex;
   flex-direction: row;
-  align-items: center;
 }
 
-.character-role-container > .content-card-body {
-  padding: 2em;
+.character-attribute-separator {
+  margin: 0 0.5rem;
+  height: 0.25rem;
+  width: 0.25rem;
+  position: relative;
+
+  &::after {
+    background: $moe-off-white;
+    border-radius: 0.25rem;
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
 }
 
-.character-role-container > .content-card-title > i {
-  color: #fefefe;
-  font-size: 2em;
-  margin-right: 1em;
+.character-element,
+.character-weapon {
+  @include caption-font;
 }
+
+.character-body {
+  @include full-width;
+
+  padding-top: 1rem;
+
+  @media (min-width: $tablet-min-width) {
+    padding: 1.5rem;
+  }
+}
+
+$desktop-small-banner-height: 8rem;
+$desktop-large-banner-height: 12rem;
+
+.region-banner {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  @media (max-width: $tablet-max-width) {
+    display: none;
+  }
+
+  @media (min-width: $desktop-small-min-width) {
+    @include default-border-radius;
+
+    height: $desktop-small-banner-height;
+  }
+
+  @media (min-width: $desktop-large-min-width) {
+    height: $desktop-large-banner-height;
+  }
+}
+
+$desktop-small-margin: 15rem;
+$desktop-large-margin: 20rem;
 
 .overview-content {
-  flex-wrap: wrap;
-  padding: 1em;
-  margin-bottom: 1em;
+  position: relative;
+
+  @media (min-width: $desktop-small-min-width) {
+    margin-left: $desktop-small-margin;
+    padding: 1.5rem 0 0 1.5rem;
+  }
+
+  @media (min-width: $desktop-large-min-width) {
+    margin-left: $desktop-large-margin;
+  }
 }
 
-.overview-content-list {
-  min-width: 15em;
-  border-radius: 5px;
-  padding: 0.2em;
-}
+.character-art {
+  max-height: min(calc(100vh - 16rem), 40rem);
+  min-height: 25rem;
+  object-fit: scale-down;
 
-.overview-content-list-title {
-  border-radius: 5px;
-  height: 3em;
-  max-height: 3em;
-  min-height: 3em;
-  margin-top: 1em;
-}
-
-.overview-content-list-item {
-  margin-top: 1em;
-  height: 3em;
-  max-height: 3em;
-  min-height: 3em;
-}
-
-.overview-content-list-item-rank {
-  border-radius: 5px 0 0 5px;
-  width: 2em;
-}
-
-.overview-content-list-item-rank img {
-  width: 1.5em;
-  height: 1.5em;
-}
-
-.overview-content-list-item-rank p {
-  color: #000000;
-}
-
-.overview-content-list-item-content {
-  border-radius: 0 5px 5px 0;
-  flex-grow: 1;
-}
-
-/* Character Talents */
-
-#character-talents-container > div {
-  margin-bottom: 2em;
-}
-
-#character-talents-container > div:last-child {
-  margin-bottom: 0em;
-}
-
-.character-talent-container > .content-card-title {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.character-talent-container > .content-card-title > h4 {
-  flex-grow: 1;
-}
-
-.character-talent-container > .content-card-title > img {
-  height: 2em;
-  margin-right: 1em;
-}
-
-.talent-tag-container {
-  border-radius: 5px;
-  height: 2.5em;
-  padding: 0 1em;
-  margin-left: 1em;
-  white-space: nowrap;
-}
-
-.talent-tag-container p {
-  font-family: $default-font-family;
-  color: #fefefe;
-  font-size: 0.8rem;
-  letter-spacing: 0.02em;
-  font-weight: 800;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-@media screen and (max-width: 525px) {
-  .talent-tag-container {
+  @media (max-width: $tablet-max-width) {
     display: none;
   }
+
+  @media (min-width: $desktop-small-min-width) {
+    left: -$desktop-small-margin - 2rem;
+    position: absolute;
+    top: -$desktop-small-banner-height - 1rem;
+    width: $desktop-small-margin + 5rem;
+  }
+
+  @media (min-width: $desktop-large-min-width) {
+    left: -$desktop-large-margin - 2rem;
+    top: -$desktop-large-banner-height - 1rem;
+    width: $desktop-large-margin + 5rem;
+  }
 }
 
-/* Character Constellations */
+.builds-no-data,
+.talents-no-data,
+.constellations-no-data {
+  @include body2-font;
 
-#character-constellations-container > div {
-  margin-bottom: 2em;
+  text-align: center;
+  width: 100%;
 }
 
-#character-constellations-container > div:last-child {
-  margin-bottom: 0em;
+moe-character-build {
+  @media (min-width: $tablet-min-width) {
+    @include default-border-radius;
+  }
 }
 
-.character-constellation-container > .content-card-title {
+moe-character-build:not(:last-child) {
+  margin-bottom: 1rem;
+
+  @media (min-width: $tablet-min-width) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.talents-grid,
+.constellations-grid {
+  display: grid;
+  row-gap: 1rem;
+
+  @media (min-width: $desktop-small-min-width) {
+    column-gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 1.5rem;
+  }
+
+  @media (min-width: $desktop-large-min-width) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.talent-container,
+.constellation-container {
+  background: $moe-level1-color;
+
+  @media (min-width: $tablet-min-width) {
+    @include default-border-radius;
+  }
+}
+
+.talent-header,
+.constellation-header {
+  align-items: center;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  padding: 0.5rem 1rem;
+
+  @media (min-width: $desktop-small-min-width) {
+    padding: 0.5rem 1.5rem;
+  }
 }
 
-.character-constellation-container > .content-card-title > h4 {
+.talent-header-text,
+.constellation-header-text {
   flex-grow: 1;
 }
 
-.character-constellation-container > .content-card-title > img {
-  height: 2em;
-  margin-right: 1em;
-}
+.talent-name,
+.constellation-order,
+.constellation-name {
+  @include subtitle2-font;
 
-.constellation-tag-container {
-  border-radius: 5px;
-  height: 2.5em;
-  padding: 0 1em;
-  margin-left: 1em;
-  white-space: nowrap;
-}
-
-@media screen and (max-width: 525px) {
-  .constellation-tag-container {
-    display: none;
+  @media (min-width: $tablet-min-width) {
+    @include header6-font;
+    line-height: 1.4;
   }
 }
 
-@media screen and (max-width: 1100px) {
-  .content-card-title {
-    padding: 1em 2em;
+.talent-type {
+  @include caption-font;
+}
+
+.talent-image,
+.constellation-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex-shrink: 0;
+  height: 3rem;
+  margin-left: 0.5rem;
+  width: 3rem;
+}
+
+.talent-description,
+.constellation-description {
+  @include body2-font;
+
+  border-top: 1px solid #4a4a4a;
+  padding: 1rem;
+
+  @media (min-width: $desktop-small-min-width) {
+    padding: 1rem 1.5rem;
   }
-  .content-card-title > h3 {
-    font-size: 1em;
-  }
-  .content-card-title > img {
-    height: 1em;
-  }
-  .content-card-title > i {
-    font-size: 1em !important;
-  }
+}
+
+.constellation-order {
+  margin-right: 0.5rem;
 }
