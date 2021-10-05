@@ -1,0 +1,188 @@
+@import 'global';
+
+:host {
+  display: block;
+}
+
+.role-overview {
+  background: $moe-level1-color;
+
+  @media (min-width: $tablet-min-width) {
+    @include default-border-radius;
+  }
+}
+
+.role-header {
+  display: flex;
+  flex-direction: row;
+  padding-left: 1rem;
+
+  @media (min-width: $tablet-min-width) {
+    padding-left: 1.5rem;
+  }
+}
+
+.role-recommended {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.recommended-icon {
+  margin-right: 0.5rem;
+
+  @media (min-width: $tablet-min-width) {
+    margin-right: 0.75rem;
+  }
+}
+
+.role-name {
+  @include header6-font;
+
+  flex-grow: 1;
+  padding: 0.75rem 0;
+
+  @media (min-width: $tablet-min-width) {
+    padding: 1rem 0;
+  }
+}
+
+.role-view-toggle {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  user-select: none;
+  width: 3.5rem;
+}
+
+.role-description {
+  border-top: 1px solid #4a4a4a;
+  padding: 0.5rem 1rem;
+
+  @media (min-width: $tablet-min-width) {
+    padding: 0.5rem 1.5rem;
+  }
+}
+
+.role-build {
+  column-gap: 1rem;
+  display: grid;
+
+  @media (min-width: $tablet-min-width) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: $desktop-small-min-width) {
+    column-gap: 1.5rem;
+  }
+}
+
+.no-weapon-chips,
+.no-artifact-chips {
+  @include body2-font;
+}
+
+.role-weapons-label,
+.role-artifacts-label,
+.role-stats-label,
+.role-substats-label {
+  @include subtitle-font;
+
+  padding: 0.75rem 1rem;
+
+  @media (min-width: $tablet-min-width) {
+    padding: 0.75rem 0;
+  }
+}
+
+.weapon-chips-container,
+.artifact-sets {
+  column-gap: 0.125rem;
+  display: grid;
+  row-gap: 0.125rem;
+}
+
+.weapon-chip,
+.artifact-chip {
+  display: flex;
+  flex-direction: row;
+
+  .weapon-chip-rank,
+  .artifact-chip-rank {
+    flex-shrink: 0;
+  }
+
+  moe-weapon-chip,
+  .artifact-sets {
+    flex-grow: 1;
+  }
+}
+
+.weapon-chip-rank,
+.artifact-chip-rank {
+  align-items: center;
+  background: $moe-off-white;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 2rem;
+}
+
+moe-weapon-chip,
+moe-artifact-chip {
+  background: $moe-level1-color;
+}
+
+.artifact-chip-separator {
+  @include body2-font;
+
+  font-weight: $default-font-bold-weight;
+  padding: 0.25rem;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.main-stat-container {
+  background: $moe-level1-color;
+  display: flex;
+  flex-direction: row;
+
+  &:not(:last-child) {
+    margin-bottom: 0.125rem;
+  }
+}
+
+.main-stat-image-container {
+  align-items: center;
+  background: $moe-off-white;
+  display: flex;
+  justify-content: center;
+}
+
+.main-stat-type {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main-stat-image {
+  height: 3rem;
+  width: 3rem;
+}
+
+.main-stat-type {
+  @include body2-font;
+
+  flex-grow: 1;
+  font-weight: $default-font-medium-weight;
+  padding: 0.75rem 1rem;
+}
+
+.role-substats-label {
+  margin-bottom: -0.5rem;
+}

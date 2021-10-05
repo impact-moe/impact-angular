@@ -2,7 +2,7 @@ import {
   FilterSortConfiguration,
   FilterSortOption,
 } from '@/components/filter-sort/filter-sort.component';
-import { WeaponSummary } from '@/components/weapon-card/weapon-summary.model';
+import { WeaponSummary } from '@/viewmodels/weapon-summary.model';
 import { WeaponType } from '@/enums/weapon-type.enum';
 import { Weapon } from '@/models/weapon.model';
 import { ImpactService } from '@/services/impact.service';

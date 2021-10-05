@@ -8,7 +8,18 @@
 }
 
 @mixin level2-box-shadow {
-  box-shadow: 2px 4px 5px #000b;
+  box-shadow: 2px 2px 2px 2px #0004;
+}
+
+/* Maximum display width. */
+
+@mixin maximum-width {
+  @media (min-width: $desktop-small-min-width) {
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 1440px;
+    width: 100%;
+  }
 }
 
 /* List page stylings. */
@@ -16,17 +27,17 @@
 @mixin list-page-host {
   box-sizing: border-box;
   display: block;
-  min-height: 100%;
-  padding-top: 6rem;
 }
 
 .list-page-header {
   background-image: url(https://media.impact.moe/img/banners/banner-1.webp);
   background-size: cover;
   background-position: center;
+  box-sizing: border-box;
   cursor: default;
   padding: 2rem 1rem;
   text-align: center;
+  width: 100%;
 
   @media (min-width: $tablet-min-width) {
     padding: 4rem 1rem;
@@ -77,7 +88,51 @@
   top: 0;
 }
 
-/* Element Colors */
+/* Rarity gradient backgrounds. */
+
+.rarity1-gradient {
+  background: $moe-rarity1-gradient;
+}
+
+.rarity2-gradient {
+  background: $moe-rarity2-gradient;
+}
+
+.rarity3-gradient {
+  background: $moe-rarity3-gradient;
+}
+
+.rarity4-gradient {
+  background: $moe-rarity4-gradient;
+}
+
+.rarity5-gradient {
+  background: $moe-rarity5-gradient;
+}
+
+/* Tier backgrounds. */
+
+.background-tier-0 {
+  background: #a30501;
+}
+
+.background-tier-1 {
+  background: #dc9400;
+}
+
+.background-tier-2 {
+  background: #d6dc02;
+}
+
+.background-tier-3 {
+  background: #80c701;
+}
+
+.background-tier-4 {
+  background: #3cc857;
+}
+
+/* Element text colors */
 .pyro {
   color: #ff9999;
 }
@@ -104,438 +159,4 @@
 
 .geo {
   color: #ffe699;
-}
-
-/* Element Backgrounds */
-
-.background-pyro {
-  background: #57200e;
-}
-
-.background-cryo {
-  background: #396c6e;
-}
-
-.background-hydro {
-  background: #094a52;
-}
-
-.background-dendro {
-  background: #b2ea2a;
-}
-
-.background-electro {
-  background: #5a2c7d;
-}
-
-.background-anemo {
-  background: #2e705a;
-}
-
-.background-geo {
-  background: #735600;
-}
-
-.hover-background-pyro:hover {
-  background: #57200e;
-}
-
-.hover-background-cryo:hover {
-  background: #396c6e;
-}
-
-.hover-background-hydro:hover {
-  background: #094a52;
-}
-
-.hover-background-dendro:hover {
-  background: #b2ea2a;
-}
-
-.hover-background-electro:hover {
-  background: #5a2c7d;
-}
-
-.hover-background-anemo:hover {
-  background: #2e705a;
-}
-
-.hover-background-geo:hover {
-  background: #735600;
-}
-
-/* Rarity Backgrounds */
-
-.background-rarity-5 {
-  background: #8d5000;
-}
-
-.background-rarity-4 {
-  background: #452f68;
-}
-
-.background-rarity-3 {
-  background: #193d6d;
-}
-
-.background-rarity-2 {
-  background: #085e00;
-}
-
-.background-rarity-1 {
-  background: #474747;
-}
-
-.hover-background-rarity-5:hover {
-  background: #8d5000;
-}
-
-.hover-background-rarity-4:hover {
-  background: #452f68;
-}
-
-.hover-background-rarity-3:hover {
-  background: #193d6d;
-}
-
-.hover-background-rarity-2:hover {
-  background: #085e00;
-}
-
-.hover-background-rarity-1:hover {
-  background: #474747;
-}
-
-/* Rarity gradient backgrounds. */
-
-.rarity1-gradient {
-  background: $moe-rarity1-gradient;
-}
-
-.rarity2-gradient {
-  background: $moe-rarity2-gradient;
-}
-
-.rarity3-gradient {
-  background: $moe-rarity3-gradient;
-}
-
-.rarity4-gradient {
-  background: $moe-rarity4-gradient;
-}
-
-.rarity5-gradient {
-  background: $moe-rarity5-gradient;
-}
-
-/* General Backgrounds */
-
-.background-orange {
-  background: #dc9300;
-}
-
-.background-red {
-  background: #a10000;
-}
-
-.background-yellow {
-  background: #d6dc00;
-}
-
-.background-blue {
-  background: #112359;
-}
-
-.background-off-white {
-  background: #fefefe;
-}
-
-.background-gray-1 {
-  background: #1e1e1e;
-}
-
-.background-gray-2 {
-  background: #262626;
-}
-
-.background-gray-3 {
-  background: #aaa1;
-}
-
-.background-gray-4 {
-  background: #141414;
-}
-
-.hover-background-gray-1:hover {
-  background: #1e1e1e;
-}
-
-.hover-background-gray-4:hover {
-  background: #141414;
-}
-
-/* Tier Backgrounds */
-
-.background-tier-0 {
-  background: #a10000;
-}
-
-.background-tier-1 {
-  background: #dc9300;
-}
-
-.background-tier-2 {
-  background: #d6dc00;
-}
-
-.background-tier-3 {
-  background: #7fc700;
-}
-
-.background-tier-4 {
-  background: #00c757;
-}
-
-/* Link Styles */
-
-.character-link {
-  color: #6787e8;
-  font-weight: 800;
-}
-
-.weapon-link {
-  color: #6787e8;
-  font-weight: 800;
-}
-
-.artifact-link {
-  color: #6787e8;
-  font-weight: 800;
-}
-
-.artifact-set-link {
-  color: #6787e8;
-  font-weight: 800;
-}
-
-.constellation-link {
-  color: #6787e8;
-  font-weight: 800;
-}
-
-.talent-link {
-  color: #6787e8;
-  font-weight: 800;
-}
-
-.external-link {
-  color: #6787e8;
-  font-weight: 800;
-}
-
-/* Generic Views */
-
-.container-1 {
-  width: 100%;
-  min-height: 100%;
-  display: flex;
-}
-
-.container-inner-1 {
-  padding-top: 6em;
-  width: 100%;
-}
-
-.body-1 {
-  margin: 2em 0;
-}
-
-.primary-content-container-1 {
-  margin: 0 10em;
-  display: flex;
-  flex-direction: row;
-  height: 100%;
-}
-
-.sidebar-section-1 {
-  width: 20em;
-  min-width: 20em;
-  border-radius: 5px;
-}
-
-.main-section-1 {
-  flex-grow: 1;
-  min-width: 20em;
-  border-radius: 5px;
-  margin-left: 2em;
-}
-
-.banner-1 {
-  height: 12em;
-  width: 100%;
-}
-
-.banner-content-container-1 {
-  height: 12em;
-  position: absolute;
-  width: 100%;
-}
-
-.text-list-1 li {
-  color: #fefefe;
-}
-
-.full-width {
-  width: 100%;
-}
-
-.full-height {
-  height: 100%;
-}
-
-.image-cover {
-  object-fit: cover;
-}
-
-.image-scale-down {
-  object-fit: scale-down;
-}
-
-.flex-row {
-  display: flex;
-  flex-direction: row;
-}
-
-.flex-column {
-  display: flex;
-  flex-direction: column;
-}
-
-.flex-center {
-  justify-content: center;
-}
-
-.flex-space-between {
-  justify-content: space-between;
-}
-
-.flex-space-evenly {
-  justify-content: space-evenly;
-}
-
-.flex-end-items {
-  justify-content: flex-end;
-}
-
-.flex-center-items {
-  align-items: center;
-}
-
-.position-absolute {
-  position: absolute;
-}
-
-.scrollbars-hidden {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.scrollbars-hidden::-webkit-scrollbar {
-  display: none;
-}
-
-.scroll-overflow-x {
-  overflow-x: scroll;
-}
-
-.scroll-overflow-y {
-  overflow-y: scroll;
-}
-
-.hidden-overflow-x {
-  overflow-x: hidden;
-}
-
-.hidden-overflow-y {
-  overflow-y: hidden;
-}
-
-.content-card {
-  border-radius: 5px;
-}
-
-.content-card-title {
-  padding: 2em;
-  border-radius: 5px;
-}
-
-.content-card-body {
-  overflow: hidden;
-  padding: 0 2em 0 2em;
-}
-
-.content-card-expand-button {
-  height: 2.5em;
-  width: 2.5em;
-  min-width: 2.5em;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: 0.1s;
-  margin-left: 1em;
-  margin-right: 1em;
-}
-
-.content-card-expand-button i {
-  color: #fefefe;
-  font-size: 2em;
-}
-
-.button-1 {
-  border-radius: 5px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  transition-duration: 0.2s;
-  margin: 0 0.5em;
-  padding: 0 1em;
-  text-transform: capitalize;
-  align-items: center;
-  min-height: 2.5em;
-}
-
-.button-1 p {
-  pointer-events: none;
-  white-space: nowrap;
-  text-align: center;
-  flex-grow: 1;
-  margin: 0;
-  font-family: $default-font-family;
-  color: #fefefe;
-  font-size: 0.8rem;
-  letter-spacing: 0.02em;
-  font-weight: 800;
-}
-
-.button-1 i {
-  margin: 0 1em 0 0;
-  align-self: center;
-  color: #fefefe;
-}
-
-@media screen and (max-width: 1100px) {
-  .primary-content-container-1 {
-    margin: 0 5em;
-  }
-  .main-section-1 {
-    margin-left: 0em;
-  }
-}
-
-@media screen and (max-width: 525px) {
-  .body-1 {
-    min-height: 20em;
-  }
-  .primary-content-container-1 {
-    margin: 0 2em;
-  }
 }

@@ -3,7 +3,7 @@
  */
 
 import { Component, Input } from '@angular/core';
-import { WeaponSummary } from './weapon-summary.model';
+import { WeaponSummary } from '@/viewmodels/weapon-summary.model';
 
 @Component({
   selector: 'moe-weapon-card',

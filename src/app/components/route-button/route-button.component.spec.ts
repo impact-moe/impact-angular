@@ -32,8 +32,8 @@ describe('RouteButtonComponent', () => {
       fixture.detectChanges();
 
       expect(
-        fixture.nativeElement.querySelector('.moe-route-label').textContent
-      ).toBe('test');
+        fixture.nativeElement.querySelector('.moe-route-link').textContent
+      ).toContain('test');
     })
   );
 

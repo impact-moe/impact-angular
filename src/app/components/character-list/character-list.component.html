@@ -5,11 +5,7 @@
 <ng-template #elseBlock>
   <div class="character-page-content">
     <div class="character-list-controls">
-      <a
-        id="group-type-button"
-        class="button-1 background-blue hover-background-gray"
-        (click)="groupButtonClick()"
-      >
+      <a class="group-button" (click)="groupButtonClick()">
         <span class="group-type-button-label">Group By</span>
         <i class="fas fa-chevron-right"></i>
         <span class="group-type-selected">{{ groupType }}</span>
@@ -31,10 +27,6 @@
         <img
           *ngIf="listItem.value.mainImage"
           src="{{ listItem.value.mainImage }}"
-          [ngStyle]="{
-            'margin-left': groupType === 'tier' ? '0em' : '2em',
-            'margin-right': groupType === 'tier' ? '0em' : '2em'
-          }"
         />
         <div *ngIf="listItem.value.mainLabel">
           {{ listItem.value.mainLabel }}

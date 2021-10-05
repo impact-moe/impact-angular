@@ -1,4 +1,5 @@
 import { ArtifactType } from '@/enums/artifact-type.enum';
+
 export class ArtifactSummary {
   readonly id: string;
   readonly name: string;

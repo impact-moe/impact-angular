@@ -1,11 +1,10 @@
-@import "constants";
+@import 'constants';
 
 body,
 html {
   height: 100%;
   margin: 0;
-  max-width: 100%;
-  overflow-x: hidden;
+  padding: 0;
   width: 100%;
 }
 
@@ -30,19 +29,23 @@ h1 {
 }
 
 a {
+  @include body2-font;
+
+  color: $moe-link-color;
+  font-weight: $default-font-bold-weight;
   text-decoration: none;
 }
 
 p {
-  font-family: $default-font-family;
-  color: #ededed;
-  font-size: 0.8rem;
+  @include body2-font;
+
+  font-weight: $default-font-medium-weight;
   letter-spacing: 0.04em;
-  line-height: 1.2rem;
-  font-weight: 600;
+  margin: 0;
+  padding: 0.5rem 0;
 }
 
-input[type=search] {
+input[type='search'] {
   @include body-font;
   @include default-text-color;
 
@@ -56,4 +59,22 @@ input[type=search] {
   &::placeholder {
     color: #fff9;
   }
+}
+
+ul {
+  @include body2-font;
+
+  font-weight: $default-font-medium-weight;
+  margin: 0;
+  padding: 0.5rem;
+  padding-left: 1.5rem;
+}
+
+ol {
+  @include body2-font;
+
+  font-weight: $default-font-medium-weight;
+  margin: 0;
+  padding: 0.5rem;
+  padding-left: 2rem;
 }

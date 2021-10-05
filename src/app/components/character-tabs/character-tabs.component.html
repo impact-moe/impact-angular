@@ -1,0 +1,8 @@
+<a
+  *ngFor="let tab of tabs"
+  class="character-tab"
+  [routerLink]="tab.link"
+  routerLinkActive="active"
+  [routerLinkActiveOptions]="{ exact: true }"
+  >{{ tab.label }}</a
+>

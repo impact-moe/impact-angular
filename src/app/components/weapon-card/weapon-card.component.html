@@ -17,7 +17,8 @@
     <moe-rarity *ngIf="weapon.rarity > 0" [value]="weapon.rarity"></moe-rarity>
   </div>
 
-  <div class="weapon-card-image-container"
+  <div
+    class="weapon-card-image-container"
     [ngClass]="{
       'rarity1-gradient': !weapon.rarity || weapon.rarity === 1,
       'rarity2-gradient': weapon.rarity === 2,
@@ -25,9 +26,12 @@
       'rarity4-gradient': weapon.rarity === 4,
       'rarity5-gradient': weapon.rarity === 5
     }"
-    >
-    <div class="weapon-card-blur-image" [ngStyle]="{
+  >
+    <div
+      class="weapon-card-blur-image"
+      [ngStyle]="{
         'background-image': 'url(' + weapon.imageUrl + ')'
-      }"></div>
+      }"
+    ></div>
   </div>
 </div>

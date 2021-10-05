@@ -50,31 +50,20 @@ const routes: Routes = [
   { path: 'statistics', component: StatisticsComponent, pathMatch: 'full' },
   {
     path: 'weapon/:weaponId',
-    redirectTo: 'weapons/:weaponId/overview',
+    redirectTo: 'weapons/:weaponId',
     pathMatch: 'full',
   },
   {
     path: 'weapons/:weaponId',
-    redirectTo: 'weapons/:weaponId/overview',
-    pathMatch: 'full',
-  },
-  {
-    path: 'weapons/:weaponId/:pageId',
     component: WeaponComponent,
-    pathMatch: 'full',
   },
   {
     path: 'artifact/:artifactId',
-    redirectTo: 'artifacts/:artifactId/overview',
+    redirectTo: 'artifacts/:artifactId',
     pathMatch: 'full',
   },
   {
     path: 'artifacts/:artifactId',
-    redirectTo: 'artifacts/:artifactId/overview',
-    pathMatch: 'full',
-  },
-  {
-    path: 'artifacts/:artifactId/:pageId',
     component: ArtifactComponent,
     pathMatch: 'full',
   },
