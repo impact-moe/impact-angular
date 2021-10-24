@@ -9,7 +9,7 @@ import { Talent } from '@/models/talent.model';
   providedIn: 'root',
 })
 export class UtilityService {
-  private baseUrl = 'https://media.impact.moe/';
+  private baseUrl = 'https://impact.moe/assets/';
 
   getRegionBannerUrl(region: Region) {
     if (region === Region.Mondstadt) {
