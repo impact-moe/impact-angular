@@ -21,6 +21,9 @@ export class UtilityService {
     if (region === Region.Inazuma) {
       return this.baseUrl + 'img/map-banners/inazuma-banner.webp';
     }
+    if (region === Region.Sumeru) {
+      return this.baseUrl + 'img/map-banners/sumeru-banner.webp';
+    }
 
     return this.baseUrl + 'img/map-banners/mondstadt-banner.webp';
   }
